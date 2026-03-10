@@ -63,7 +63,7 @@
       },
       {
         "tab": "Public API",
-        "openapi": "api.json",
+        "openapi": "api-reference/api.json",
         "pages": [
           "introduction"
         ]
@@ -107,6 +107,6 @@
     }
   },
   "api": {
-    "openapi": "/api.json"
+    "openapi": "api-reference/api.json"
   }
 }
