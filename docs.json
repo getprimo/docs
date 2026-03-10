@@ -50,16 +50,12 @@
               "essentials/images",
               "essentials/reusable-snippets"
             ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
           }
         ]
+      },
+      {
+        "tab": "Public API",
+        "openapi": "https://api.getprimo.com/openapi.json"
       }
     ]
   },
