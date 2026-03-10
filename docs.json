@@ -107,6 +107,6 @@
     }
   },
   "api": {
-    "openapi": "/api-1.json"
+    "openapi": "/api.json"
   }
 }
