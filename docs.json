@@ -63,7 +63,7 @@
       },
       {
         "tab": "Public API",
-        "openapi": "api-1.json",
+        "openapi": "api.json",
         "pages": [
           "introduction"
         ]
@@ -89,15 +89,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
