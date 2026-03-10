@@ -107,7 +107,6 @@
     }
   },
   "api": {
-    "openapi": "api-reference/api.json",
     "playground": {
       "proxy": false
     }
