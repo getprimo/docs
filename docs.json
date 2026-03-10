@@ -63,7 +63,7 @@
       },
       {
         "tab": "Public API",
-        "openapi": "api-reference/api.json",
+        "openapi": "https://api.getprimo.com/openapi.json",
         "pages": [
           "introduction"
         ]
