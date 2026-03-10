@@ -60,13 +60,6 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "Public API",
-        "openapi": "https://api.getprimo.com/openapi.json",
-        "pages": [
-          "introduction"
-        ]
       }
     ]
   },
