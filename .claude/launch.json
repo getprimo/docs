@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mint-dev",
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": [".claude/start-mint.sh"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
