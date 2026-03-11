@@ -52,7 +52,6 @@
                   "mdm/rollout/device-assignment",
                   "mdm/get-started/migrate-from-another-mdm",
                   "mdm/guides/resolve-enrollment-issues",
-                  "mdm/zero-touch/understand-zero-touch",
                   "mdm/zero-touch/zero-touch-macs",
                   "mdm/zero-touch/zero-touch-windows",
                   "mdm/zero-touch/device-orders-zero-touch",
@@ -138,7 +137,8 @@
               "mdm/guides/os-updates-employee-experience",
               "mdm/guides/remove-mdm-manually",
               "mdm/guides/upgrade-windows-11",
-              "mdm/policies/manage-windows-home"
+              "mdm/policies/manage-windows-home",
+              "mdm/zero-touch/understand-zero-touch"
             ]
           },
           {
