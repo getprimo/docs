@@ -42,20 +42,16 @@
                   "mdm/get-started/introduction-to-mdm",
                   "mdm/get-started/supported-platforms",
                   "mdm/get-started/set-up-apn-certificate",
-                  "mdm/get-started/set-up-okta",
-                  "mdm/get-started/secure-token"
+                  "mdm/scripts/fleetdm-guide"
                 ]
               },
               {
                 "group": "Enrolling & Migrating your devices",
                 "pages": [
-                  "mdm/rollout/mdm-rollout-resources",
                   "mdm/rollout/invite-employees",
-                  "mdm/rollout/employee-mdm-installation",
                   "mdm/rollout/device-assignment",
-                  "mdm/rollout/faq",
                   "mdm/get-started/migrate-from-another-mdm",
-                  "mdm/zero-touch/understand-zero-touch",
+                  "mdm/guides/resolve-enrollment-issues",
                   "mdm/zero-touch/zero-touch-macs",
                   "mdm/zero-touch/zero-touch-windows",
                   "mdm/zero-touch/device-orders-zero-touch"
@@ -67,9 +63,9 @@
                   "mdm/policies/password-policy",
                   "mdm/policies/disk-encryption",
                   "mdm/policies/remote-management",
+                  "mdm/get-started/set-up-okta",
                   "mdm/policies/manage-admin-accounts",
-                  "mdm/policies/manage-windows-home",
-                  "mdm/policies/change-local-password",
+                  "mdm/guides/activation-lock-bypass",
                   "mdm/scripts/custom-windows-policies",
                   "mdm/scripts/cis-benchmarks"
                 ]
@@ -87,9 +83,9 @@
               {
                 "group": "User Management",
                 "pages": [
-                  "mdm/scripts/fleetdm-guide",
-                  "mdm/scripts/osquery-library",
-                  "mdm/scripts/useful-scripts"
+                  "mdm/policies/change-local-password",
+                  "mdm/get-started/secure-token",
+                  "mdm/guides/resolve-login-issue"
                 ]
               }
             ]
@@ -115,7 +111,7 @@
             ]
           },
           {
-            "group": "Global Purchasing",
+            "group": "Global Purchasing & Inventory",
             "pages": [
               "procurement/why-buy-with-primo",
               "procurement/add-products-catalog",
@@ -130,16 +126,21 @@
           {
             "group": "Guides & Resources",
             "pages": [
-              "mdm/guides/device-lost-stolen",
-              "mdm/guides/activation-lock-bypass",
-              "mdm/guides/track-mac-location",
-              "mdm/guides/resolve-enrollment-issues",
+              "mdm/rollout/mdm-rollout-resources",
+              "mdm/rollout/employee-mdm-installation",
+              "mdm/rollout/faq",
+              "mdm/zero-touch/understand-zero-touch",
+              "mdm/scripts/useful-scripts",
               "mdm/guides/os-updates-employee-experience",
               "mdm/guides/remove-mdm-manually",
-              "mdm/guides/resolve-login-issue",
               "mdm/guides/upgrade-windows-11",
-              "mdm/guides/uninstall-application",
-              "mdm/guides/bootable-usb-windows"
+              "mdm/policies/manage-windows-home"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "get-started/billing/view-invoices"
             ]
           }
         ]
