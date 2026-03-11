@@ -3,11 +3,21 @@ title: "Examples of Custom Windows Policies"
 description: "Explore how to apply Custom Windows Policies for Personalization CSP, including enabling it on Windows Pro and setting background images for the lock screen and desktop through specific XML configurations."
 ---
 
+Extend your Windows MDM profiles with custom CSP (Configuration Service Provider) policies using raw XML. Use this when Primo's built-in controls don't cover a specific Windows setting you need to enforce — such as desktop personalization, kiosk mode, or other enterprise configurations.
+
+## OS Support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | | | |
+
+## On Windows
+
 <Note>
-Keep in mind that when writing an XML to apply a CSP Policy to a device, you should omit the first few (and last lines) of the XML file and start (and end) with either `<Replace>` or `<Add>` (respectively `</Replace>` and `</Add>`)
+When writing an XML to apply a CSP Policy to a device, omit the first few (and last) lines of the XML file and start (and end) with either `<Replace>` or `<Add>` (respectively `</Replace>` and `</Add>`)
 </Note>
 
-# Allow Personalization CSP on Windows Pro
+### Allow Personalization CSP on Windows Pro
 
 ```xml
 <Replace>
@@ -26,7 +36,7 @@ Keep in mind that when writing an XML to apply a CSP Policy to a device, you sho
 </Replace>
 ```
 
-# Set background image and lock screen
+### Set background image and lock screen
 
 <Note>
 Personalization CSP is supported in Windows Enterprise and Education Editions. It works in Windows Professional only when SetEduPolicies in SharedPC CSP is set. See "Allow Personalization CSP on Windows Pro".
