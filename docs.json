@@ -27,7 +27,6 @@
             "group": "Importing your employees",
             "icon": "people",
             "pages": [
-              "get-started/import-your-equipment",
               "employees/connect-hris",
               "employees/import-via-csv",
               "employees/change-collaborator-computer"
@@ -116,6 +115,7 @@
             "group": "Global Purchasing & Inventory",
             "icon": "globe",
             "pages": [
+              "get-started/import-your-equipment",
               {
                 "group": "Global Purchasing",
                 "pages": [
