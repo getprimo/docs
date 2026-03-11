@@ -1,69 +1,118 @@
 ---
-title: "Manage apps via Primo & FleetDM (smartphone)"
-description: "To manage app deployment on iOS devices via Primo and FleetDM, ensure Zero-Touch Deployment is activated, establish the VPP link, and follow the outlined steps for installation, updating, and migrating devices to ensure a seamless transition and efficient app management."
+title: "Deploy apps (iOS, iPadOS & Android)"
+description: "Deploy and manage applications on iOS, iPadOS, and Android devices directly from Primo MDM > Software — via Apple VPP or the Google Play Store."
 ---
 
-# **Prerequisites for app deployment**
+From **MDM > Software**, you can deploy apps to your managed iOS, iPadOS, and Android devices. Primo supports:
 
-Prerequisites for managing app deployment on your iOS phones:
+- **Apple App Store (iOS/iPadOS)** — apps purchased through Apple's Volume Purchase Program (VPP)
+- **Google Play Store** — apps distributed through Android Enterprise (managed Google Play)
 
-1. Activate Zero-Touch Deployment in Primo: if not already done, you can connect your ABM in your [MDM Settings](https://app.getprimo.com/settings/?tab=mdm).
-2. Establish the VPP (Volume Purchase Program) link between your ABM and Primo (FleetDM):
-   1. in ABM:
-      - Access the **Sites** section and create a new site (if necessary)
-      - Generate a **VPP token** from this site
-   2. in FleetDM (Primo):
-      - Go to the **Software > Add > App Store (VPP)** tab
-      - Select the "No Team" Team
-      - Import the VPP token
+<Note>
+For macOS, Windows, and Linux app deployment, see [Deploy apps (macOS, Windows, Linux)](/mdm/policies/manage-apps-laptop).
+</Note>
 
-**[In case of migration]**: you will need to terminate the VPP link with your previous MDM
-- Once the VPP link is active in FleetDM and the apps are ready to be deployed,
-- Ask the previous MDM to **remove its VPP link**,
-- This may result in the **automatic removal of apps installed via this link**.
-- You can then redeploy the applications automatically via FleetDM (tutorial below).
+---
 
-# **Install an iOS application**
+## Deployment options
+
+When adding any mobile app, you can configure the following options:
+
+### Install automatically
+When enabled, the app is automatically pushed to all matching devices. If left unchecked, the app will only be installed when you manually trigger installation on a specific device.
+
+### Make available via Self-Service
+When enabled, the app appears in the **Self-Service** portal, accessible to employees via the Fleet agent (or the managed work profile on Android). Employees can install it themselves on demand.
+
+### Install during Zero Touch
+When enabled, the app is installed as part of the Zero Touch Deployment flow, so it is present before the employee first uses the device.
+
+<Warning>
+Enabling **Install during Zero Touch** may increase provisioning time. Reserve this for apps that are truly required before first use.
+</Warning>
+
+---
+
+## App patching
+
+For iOS/iPadOS VPP apps, Primo provides the **Update app on all devices** toggle:
+
+| Toggle | What it does |
+|--------|--------------|
+| **Update app on all devices** | Automatically updates the app on any device where the installed version is older than the current App Store version |
+
+<Note>
+For Google Play Store apps, updates are managed automatically by Google Play on enrolled devices.
+</Note>
+
+---
+
+## Add an Apple App Store app (iOS / iPadOS VPP)
+
+<Note>
+**Prerequisite**: You must have an Apple Business Manager (ABM) account with VPP set up in Primo. See [Deploy VPP applications](/mdm/policies/deploy-vpp-applications) for setup instructions.
+</Note>
 
 In ABM:
-1. Add the application to your ABM (Apps and Books tab)
-2. Add a sufficient number of licenses
+1. Go to **Apps and Books** and add the app to your ABM account.
+2. Ensure you have a sufficient number of licenses assigned to the appropriate site.
 
-In FleetDM:
-1. Go to the **Software > Add > App Store (VPP)** tab.
-2. For each desired application:
-   - Select the application from the list.
-   - In **Deployment Options**, refine your audience and deployment mode:
-      - The deployment mode ("Install Automatically" or "Available for Install")
-      - The target (**Target**), e.g.: "All iOS devices" or a specific group.
-   - Click on **Add Software**.
-   - Repeat the operation for each app to deploy.
+In Primo:
+1. Go to **MDM > Software** and click **Add app**.
+2. Select **App Store (VPP)** and choose **iOS / iPadOS**.
+3. Browse or search for the app.
+4. Configure deployment options: **Install automatically**, **Self-Service**, and/or **Zero Touch**.
+5. Enable **Update app on all devices** if you want automatic updates.
+6. Click **Add software**.
 
-✅ Once this operation is complete, the applications will be automatically installed on phones under Primo management.
+<Note>
+The source installer is always from the Apple App Store — the **Maintain source installer up-to-date** toggle is not applicable.
+</Note>
 
-# Update an iOS application
+**[Migration note]**: If you are migrating from another MDM, you must remove the VPP link from your previous MDM after adding your apps to Primo. This may temporarily remove VPP-managed apps from devices; they will be automatically redeployed once the new link is active. Do not share the same VPP token between two MDMs.
 
-When an app was installed before enrolling the device, you can manage its update **in FleetDM**.
+---
 
-1. Go to **Host > Software > Library**
-2. On the application you want to update, click **Install**
+## Add a Google Play Store app (Android)
 
-The application will get the update without losing data.
+<Note>
+**Prerequisite**: Android Enterprise must be configured in Primo. Ensure your Android devices are enrolled via Android Enterprise (managed work profile or fully managed).
+</Note>
 
-<Tip>
-An auto-update feature is currently under construction.
-</Tip>
+1. Go to **MDM > Software** and click **Add app**.
+2. Select **Google Play Store**.
+3. Search for the app in the managed Google Play catalog.
+4. Configure deployment options: **Install automatically**, **Self-Service**, and/or **Zero Touch**.
+5. Click **Add software**.
 
-# [In case of migration] Finalizing the switch to Primo
+<Note>
+Only **free** apps are supported through managed Google Play. Paid apps are not available for enterprise distribution via this mechanism.
 
-## Reassign iPhones in Apple Business Manager
+App updates are handled automatically by Google Play on enrolled devices.
+</Note>
 
-- Go to **ABM > Devices**.
-- Reassign the iPhones from the previous MDM server to the "Primo" server.
-- The devices will be automatically managed by Primo, which will redeploy the configured applications.
+---
 
-## Recommendations
+## Capabilities overview
 
-- Migrate in batches of 10-15 phones to limit the impact.
-- Always prepare the applications in Primo **before cutting** the VPP link of the previous MDM.
-- Do not share the same VPP token between two MDMs.
+| Capability | iOS/iPadOS App Store (VPP) | Google Play Store |
+|---|:---:|:---:|
+| Install automatically | ✅ | ✅ |
+| Self-Service | ✅ | ✅ |
+| Zero Touch | ✅ | ✅ |
+| Source installer maintained | Always from App Store | Always from Google Play |
+| Auto-update | ✅ | ✅ |
+
+---
+
+## Remove an app
+
+### Disable automatic installation
+
+Go to **MDM > Software**, find the app, and uncheck **Install automatically**. This stops future automatic installs but does not remove the app from devices where it is already installed.
+
+### Uninstall from a specific device
+
+1. Go to **MDM > Devices** and open the device.
+2. Open the **Software** tab.
+3. Find the app and click **Uninstall**.
