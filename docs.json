@@ -130,15 +130,13 @@
             "pages": [
               "mdm/rollout/mdm-rollout-resources",
               "mdm/rollout/employee-mdm-installation",
-              "mdm/scripts/useful-scripts",
               "mdm/rollout/faq",
-              "mdm/guides/device-lost-stolen",
-              "mdm/guides/track-mac-location",
+              "mdm/zero-touch/understand-zero-touch",
+              "mdm/scripts/useful-scripts",
               "mdm/guides/os-updates-employee-experience",
               "mdm/guides/remove-mdm-manually",
               "mdm/guides/upgrade-windows-11",
-              "mdm/policies/manage-windows-home",
-              "mdm/zero-touch/understand-zero-touch"
+              "mdm/policies/manage-windows-home"
             ]
           },
           {

@@ -1,5 +1,5 @@
 ---
-title: "OS updates"
+title: "OS updates: Employee experience"
 description: "Learn how administrators can monitor device update status and how employees receive OS update notifications on macOS and Windows."
 ---
 
@@ -7,14 +7,14 @@ description: "Learn how administrators can monitor device update status and how 
 
 Administrators can monitor the OS update status for all managed devices directly in the Primo cockpit. Each device displays one of three update statuses:
 
-| Status | Description |
-|--------|-------------|
-| **Up to date** | The device is running an OS version that meets your configured update deadline requirements. |
-| **Not up to date** | The device is running an outdated OS version and the configured deadline has passed. |
-| **Not setup** | No OS update policy has been configured for the device. |
+| Status             | Description                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| **Up to date**     | The device is running an OS version that meets your configured update deadline requirements. |
+| **Not up to date** | The device is running an outdated OS version and the configured deadline has passed.         |
+| **Not setup**      | No OS update policy has been configured for the device.                                      |
 
 <Note>
-The update status is calculated based on your configured OS update deadline policy. Devices with MDM disabled will not display an update status.
+  The update status is calculated based on your configured OS update deadline policy. Devices with MDM disabled will not display an update status.
 </Note>
 
 You can filter the device list by update status to quickly identify devices that require attention.
@@ -33,30 +33,30 @@ For macOS devices that use Automated Device Enrollment (ADE), if the device is b
 
 End users are encouraged to update macOS via Nudge.
 
-| | **> 1 day before deadline** | **< 1 day before deadline** | **Past deadline** |
-|---|---|---|---|
-| Nudge window frequency | Once a day at 8pm GMT | Once every 2 hours | Immediately on login |
-| End user can defer | ✅ | ✅ | ❌ |
-| Nudge window is dismissible | ✅ | ✅ | ❌ |
+|                             | **\> 1 day before deadline** | **\< 1 day before deadline** | **Past deadline**    |
+| --------------------------- | ---------------------------- | ---------------------------- | -------------------- |
+| Nudge window frequency      | Once a day at 8pm GMT        | Once every 2 hours           | Immediately on login |
+| End user can defer          | ✅                            | ✅                            | ❌                    |
+| Nudge window is dismissible | ✅                            | ✅                            | ❌                    |
 
 ### Windows
 
 End users are encouraged to update Windows via the native Windows dialog.
 
-| | **Before deadline** | **Past deadline** |
-|---|---|---|
-| End user can defer automatic restart | ✅ | ❌ |
+|                                      | **Before deadline** | **Past deadline** |
+| ------------------------------------ | ------------------- | ----------------- |
+| End user can defer automatic restart | ✅                   | ❌                 |
 
 If an end user was on vacation when the deadline passed, the end user is given a grace period (configured) before the host automatically restarts.
 
 <Note>
-For all scenarios detailed above, the deadline applies from the "update availability date", not the configuration date of the policy in Primo cockpit. If you have employees on an older version for longer than the chosen deadline, they will be prompted to update their OS immediately.
+  For all scenarios detailed above, the deadline applies from the "update availability date", not the configuration date of the policy in Primo cockpit. If you have employees on an older version for longer than the chosen deadline, they will be prompted to update their OS immediately.
 </Note>
 
 ## Low disk space
 
 <Warning>
-For all 3 scenarios, an administrator may need to intervene if updates are failing and the user is not able to free up space. None of the platforms manage disk space issues on their own to install updates.
+  For all 3 scenarios, an administrator may need to intervene if updates are failing and the user is not able to free up space. None of the platforms manage disk space issues on their own to install updates.
 </Warning>
 
 ### macOS 14 and above
