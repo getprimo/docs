@@ -1,11 +1,11 @@
 ---
 title: "Set up VPP (Apple Volume Purchase Program)"
-description: "Connect your Apple Business Manager Volume Purchase Program (VPP) token to Primo to enable App Store app deployment on macOS, iOS, and iPadOS devices."
+description: "Connect your Apple Business Manager Volume Purchase Program (VPP) token to enable App Store app deployment on macOS, iOS, and iPadOS devices."
 ---
 
 **VPP (Volume Purchase Program)** is part of Apple Business Manager (ABM). It allows organizations to purchase App Store app licenses in bulk and deploy them centrally to macOS, iOS, and iPadOS devices — without requiring individual Apple IDs from employees.
 
-Once VPP is connected to Primo, you can deploy App Store apps directly from **MDM > Software**. See:
+Once VPP is connected, you can deploy App Store apps directly from **MDM > Software**. See:
 - [Deploy apps (macOS, Windows, Linux)](/mdm/policies/manage-apps-laptop) — for macOS App Store apps
 - [Deploy apps (iOS, iPadOS & Android)](/mdm/policies/manage-apps-smartphone) — for iOS/iPadOS App Store apps
 
@@ -14,11 +14,11 @@ Once VPP is connected to Primo, you can deploy App Store apps directly from **MD
 ## Prerequisites
 
 - An **Apple Business Manager (ABM)** account
-- Zero-Touch Deployment activated in Primo — connect your ABM under [MDM Settings](https://app.getprimo.com/settings/?tab=mdm)
+- Zero-Touch Deployment activated — connect your ABM under [MDM Settings](https://app.getprimo.com/settings/?tab=mdm)
 
 ---
 
-## Connect your VPP token to Primo
+## Connect your VPP token
 
 ### Step 1: Generate a VPP token in ABM
 
@@ -26,7 +26,7 @@ Once VPP is connected to Primo, you can deploy App Store apps directly from **MD
 2. Create a new site if you don't have one yet.
 3. Generate a **VPP token** from that site and download it.
 
-### Step 2: Import the token in Primo
+### Step 2: Import the token
 
 1. In Primo, go to **MDM > Software > Add app > App Store (VPP)**.
 2. Select the **"No Team"** scope.
@@ -52,7 +52,7 @@ Licenses can be reassigned at any time when a device is unenrolled.
 
 If you are switching from another MDM that already uses VPP:
 
-1. Add your apps to Primo first (following the steps in the deployment guides above).
+1. Add your apps first (following the steps in the deployment guides above).
 2. Ask your previous MDM provider to **remove its VPP link**.
 3. This may cause VPP-managed apps to be **temporarily removed** from devices.
 4. Primo will automatically redeploy all configured apps once the new VPP link is active.

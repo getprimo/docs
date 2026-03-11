@@ -7,7 +7,7 @@ description: "Enrollments can face issues such as incomplete processes, missing 
 
 ### During deployment
 
-A device is considered **partially enrolled** when the enrollment process in Primo (or MDM deployment) has not been fully completed. As a result, the MDM is not yet active on the device.
+A device is considered **partially enrolled** when the enrollment process (or MDM deployment) has not been fully completed. As a result, the MDM is not yet active on the device.
 
 This can happen for several reasons:
 
@@ -80,10 +80,10 @@ In your Primo cockpit, you can identify partially enrolled devices in two ways:
 Here are the solutions for each situation:
 
 - **Missing agent** ⚠️: In the device panel, click on the device status button to remotely trigger the agent installation. If this does not work, ask the employee to log into their Primo enrollment page and click on their assigned device. They can then download the agent independently.
-- **On in another MDM** ⚠️: Find the necessary documentation regarding migration from your previous MDM to Primo.
+- **On in another MDM** ⚠️: Find the necessary documentation regarding migration from your previous MDM.
 - **Off** (offline device): Ask the employee to re-enroll their device. You can automate this action in **Settings > Remote Management > Enable Auto-Unenrollment**.
 
-Once the employee completes these actions, the device should appear as correctly enrolled in Primo within **30 minutes** (the synchronization period between Fleet and Primo).
+Once the employee completes these actions, the device should appear as correctly enrolled within **30 minutes** (the synchronization period).
 
 <Tip>
 Save time by automating employee re-enrollment. In **Settings > MDM**, enable **Auto-Unenrollment** and select the option to **automatically resend MDM invitations** to employees whose devices have been purged (i.e., devices that have been offline for a certain duration).

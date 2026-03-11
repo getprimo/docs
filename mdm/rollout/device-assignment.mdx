@@ -11,14 +11,14 @@ This article explains how device assignment works, how the first assignment is c
 | ------------------- | ----------------- | ---------------------------------------------------------- |
 | **In use**          | **Assigned**      | The device is assigned to an employee and actively used.   |
 | **In stock**        | **To assign**     | The device is in inventory but not yet assigned to anyone. |
-| **In use**          | **To assign**     | The device is in use but has no assigned owner in Primo.   |
+| **In use**          | **To assign**     | The device is in use but has no assigned owner.   |
 | **Archived**        | —                 | The device has been removed from the fleet.                |
 
 ## Understand the first device assignment
 
 ### Rely on automated assignment through MDM
 
-It is **not necessary** to manually import your device list into Primo.
+It is **not necessary** to manually import your device list.
 
 MDM deployment automatically creates and assigns devices during enrollment.
 
@@ -70,7 +70,7 @@ Sending a device to stock immediately clears its current assignment.
 
 ### Unassign during offboarding
 
-When an employee is offboarded in Primo, the offboarding flow asks what to do with the device:
+When an employee is offboarded, the offboarding flow asks what to do with the device:
 
 - Return it to stock
 - Remove it from the fleet

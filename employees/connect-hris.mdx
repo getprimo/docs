@@ -1,15 +1,15 @@
 ---
 title: "Sync your HR System"
-description: "Connect your HR System to Primo to automate employee management tasks, ensuring accurate data synchronization for onboarding, offboarding, and device assignments while maintaining data security and compliance with GDPR."
+description: "Connect your HR System to automate employee management tasks, ensuring accurate data synchronization for onboarding, offboarding, and device assignments while maintaining data security and compliance with GDPR."
 ---
 
-This article explains how to connect a HR System to Primo in order to synchronize employee data and keep your employee directory up to date automatically.
+This article explains how to connect an HR System in order to synchronize employee data and keep your employee directory up to date automatically.
 
-Connecting an HRIS to Primo allows you to rely on a single source of truth for employee information and reduces manual data management.
+Connecting an HR System allows you to rely on a single source of truth for employee information and reduces manual data management.
 
-## Understand why connecting an HRIS is useful
+## Understand why connecting an HR System is useful
 
-Synchronizing with your HRIS automates time-consuming daily tasks like managing arrivals and departures, organizing teams, and tracking equipment assignments.
+Synchronizing with your HR System automates time-consuming daily tasks like managing arrivals and departures, organizing teams, and tracking equipment assignments.
 
 This makes it possible to:
 
@@ -18,14 +18,14 @@ This makes it possible to:
 - Keep team, role, and assignment data consistent
 - Reduce manual updates and data inconsistencies
 
-You can connect **one or several HRIS sources** to the same Primo account. This is useful if your organization uses different HR tools by country or legal entity.
+You can connect **one or several HR System sources** to the same account. This is useful if your organization uses different HR tools by country or legal entity.
 
-## Connect your HRIS
+## Connect your HR System
 
-To connect an HRIS to Primo:
+To connect an HR System:
 
 1. Go to **Settings \> Employee Sync**
-2. Select your HRIS provider
+2. Select your HR System provider
 3. Follow the authentication steps
 4. Launch the first synchronization
 
@@ -33,9 +33,9 @@ Once connected, employees are synced into Primo with their associated metadata (
 
 You can connect **multiple HR sources**, and manage them independently.
 
-## Account for HRIS-specific requirements
+## Account for HR System-specific requirements
 
-Some HRIS providers require additional configuration.
+Some HR System providers require additional configuration.
 
 ### Lucca
 
@@ -50,25 +50,25 @@ To ensure that upcoming onboardings and offboardings are synchronized, specific 
 
 Without these permissions, Primo will not receive onboarding and offboarding data from Lucca.
 
-Connecting an HRIS to Primo is optional. You can also manage employees using alternative import methods, such as CSV import.
+Connecting an HR System is optional. You can also manage employees using alternative import methods, such as CSV import.
 
-## Manage HRIS synchronization
+## Manage HR System synchronization
 
 <Note>
-  **Synchronization frequency**: Once an HRIS is connected, Primo automatically synchronizes data every hour. No manual action is required to import new employees or changes.
+  **Synchronization frequency**: Once an HR System is connected, data is automatically synchronized every hour. No manual action is required to import new employees or changes.
 </Note>
 
 This synchronization applies to:
 
 - Newly created employees
 - Updates made to existing employee records
-- Upcoming onboardings and offboardings, if supported by the HRIS
+- Upcoming onboardings and offboardings, if supported by the HR System
 
 No manual action is required after the initial setup.
 
 ## Apply synchronization filters
 
-You can restrict which employees are synchronized from your HRIS to Primo.
+You can restrict which employees are synchronized from your HR System.
 
 Filters can be applied to include only specific populations, such as:
 
@@ -81,55 +81,55 @@ These filters help ensure that only relevant employees are managed in Primo.
 
 ## Define how fields are synchronized
 
-For each field synchronized from the HRIS, you can define how Primo handles updates.
+For each field synchronized from the HR System, you can define how updates are handled.
 
 Two synchronization modes are available:
 
-- **Import once:** the field is imported during the first synchronization only and can be managed directly in Primo.
-- **Continuous synchronization:** the field is automatically updated in Primo whenever it is modified in the HRIS, it is not possible to update it in Primo.
+- **Import once:** the field is imported during the first synchronization only and can be managed directly.
+- **Continuous synchronization:** the field is automatically updated whenever it is modified in the HR System, and cannot be updated manually.
 
 Typical examples:
 
 - Contract start and end dates are usually kept in continuous synchronization.
-- Job titles or internal roles can be imported once and maintained in Primo.
+- Job titles or internal roles can be imported once and maintained manually.
 
 <Note>
   **Summary of synchronization behavior**
 
-  - **During the first synchronization:** all synchronized fields from the HRIS overwrite existing employee data in Primo.
-  - **When an employee is created via the HRIS**: the employee profile is automatically created in Primo using HRIS data.
+  - **During the first synchronization:** all synchronized fields from the HR System overwrite existing employee data.
+  - **When an employee is created via the HR System**: the employee profile is automatically created using HR System data.
   - **During ongoing synchronization**:
-    - Fields set to continuous synchronization are overwritten by HRIS updates.
-    - Fields set to import once remain unchanged in Primo.
+    - Fields set to continuous synchronization are overwritten by HR System updates.
+    - Fields set to import once remain unchanged.
 </Note>
 
 ## Handle external employees
 
-Some HRIS systems may include individuals who are not part of your operational workforce, such as consultants, external accountants, or HR administrators.
+Some HR Systems may include individuals who are not part of your operational workforce, such as consultants, external accountants, or HR administrators.
 
-If you do not want these profiles to appear in your Primo employee list:
+If you do not want these profiles to appear in your employee list:
 
 1. Open the employee profile
 2. Select **Hide**
 
-Hidden employees are excluded from employee management workflows in Primo.
+Hidden employees are excluded from employee management workflows.
 
 ## Data security and confidentiality
 
 ## Understand which data is retrieved
 
-Before connecting an HRIS, Primo & Kombo display the list of data that will be accessed via Kombo. You can review this information before authorizing the connection.
+Before connecting an HR System, the list of data that will be accessed via Kombo is displayed. You can review this information before authorizing the connection.
 
 Typical data retrieved includes:
 
-| Data retrieved                      | HRIS object     | Purpose                                                                                         |
+| Data retrieved                      | HR System object | Purpose                                                                                         |
 | ----------------------------------- | --------------- | ----------------------------------------------------------------------------------------------- |
 | First name, last name, email, phone | Employee        | Create and manage employee profiles, keep them informed of orders, and register them in the MDM |
 | Postal address                      | Employee        | Ship equipment                                                                                  |
 | Position, team, manager             | Employee / Team | Apply Controls by Device Groups, Apply Saas Rules                                               |
 | Start and end dates                 | Contract        | Manage onboardings and offboardings                                                             |
 
-### Exhaustive list of data retrieved by Primo from the HRIS
+### Exhaustive list of data retrieved from the HR System
 
 **Legal Entities**
 
@@ -169,43 +169,43 @@ Typical data retrieved includes:
 - Type
 
 <Note>
-  If a data field is not listed above, it is not retrieved by Primo. Kombo does not access banking details, salary information, or leave balances.
+  If a data field is not listed above, it is not retrieved. Kombo does not access banking details, salary information, or leave balances.
 </Note>
 
 ## GDPR policy and data processing
 
 For details regarding Kombo's GDPR compliance and data processing practices, refer to [Kombo's Trust Center](https://security.kombo.dev/).
 
-## Troubleshoot missing employees in Primo
+## Troubleshoot missing employees
 
 ### Troubleshoot missing onboardings and offboardings from Lucca
 
-If onboardings or offboardings do not appear in Primo when using **Lucca**, the Lucca–Kombo configuration is likely incomplete.
+If onboardings or offboardings do not appear when using **Lucca**, the Lucca–Kombo configuration is likely incomplete.
 
 In this case, verify that the Kombo synchronization documentation has been correctly applied and that the required permissions are enabled in Lucca.
 
-Refer to **Account for HRIS-specific requirements \> Lucca** to confirm that:
+Refer to **Account for HR System-specific requirements \> Lucca** to confirm that:
 
 - Future employees can be retrieved
 - Departed employees can be retrieved
 
-Without these permissions, onboarding and offboarding events will not be synchronized from Lucca to Primo.
+Without these permissions, onboarding and offboarding events will not be synchronized from Lucca.
 
 ### Investigate a missing onboarding employee
 
-If an employee who should be onboarded does not appear in Primo, follow these steps.
+If an employee who should be onboarded does not appear, follow these steps.
 
-1. Verify the employee's presence in the HRIS
-   - Check that the employee exists in your HRIS.
+1. Verify the employee's presence in the HR System
+   - Check that the employee exists in your HR System.
    - Confirm that a **start date** is correctly set.
-2. Check existing employee lists in Primo
-   - The employee may already exist in Primo. Verify that they are not present in:
+2. Check existing employee lists
+   - The employee may already exist. Verify that they are not present in:
    - Active employees (including hidden employees)
    - Onboardings (make sure to **remove all filters**)
 3. Review data retrieved by Kombo
-   - If the employee is not visible in Primo, you can check whether their data has been retrieved by Kombo:
+   - If the employee is not visible, you can check whether their data has been retrieved by Kombo:
    - Go to **Settings \> Employee Sync**
-   - Click on the HRIS where the employee was added
+   - Click on the HR System where the employee was added
    - Select **Update settings**
    - Open **Employee filtering**
    - Click **Preview**
@@ -214,15 +214,15 @@ This preview displays the employee data retrieved by Kombo and whether the emplo
 
 **Possible outcomes of Kombo data**
 
-- **Included**: the employee is included in the synchronization and should exist in Primo. Search again using the employee's **last name** in:
+- **Included**: the employee is included in the synchronization and should exist. Search again using the employee's **last name** in:
   - Active employees
   - Onboardings
   - Offboardings
-- **Excluded**: Kombo indicates why the employee is excluded (most often due to synchronization filters or excluded categories). Update the filters synchronized with Primo to include the employee.
+- **Excluded**: Kombo indicates why the employee is excluded (most often due to synchronization filters or excluded categories). Update the filters to include the employee.
 
 ### Investigate a missing offboarding employee
 
-If an employee does not appear in the **Offboardings** view, the offboarding date may not be synchronized correctly. In most cases, this is caused by an incorrect field configuration in your HRIS synchronization settings.
+If an employee does not appear in the **Offboardings** view, the offboarding date may not be synchronized correctly. In most cases, this is caused by an incorrect field configuration in your HR System synchronization settings.
 
 **Verify field synchronization settings**
 
@@ -230,6 +230,6 @@ If an employee does not appear in the **Offboardings** view, the offboarding dat
 - Review how the **offboarding or contract end date** field is synchronized
 - Ensure the field is set to **Continuous synchronization**
 
-If the field is set to **Import once**, updates made in the HRIS will not be reflected in Primo.
+If the field is set to **Import once**, updates made in the HR System will not be reflected.
 
-Switching the field to **Continuous sync** allows Primo to retrieve updated departure dates.
+Switching the field to **Continuous sync** allows updated departure dates to be retrieved.
