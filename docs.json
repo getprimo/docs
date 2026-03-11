@@ -53,9 +53,7 @@
                   "mdm/get-started/migrate-from-another-mdm",
                   "mdm/guides/resolve-enrollment-issues",
                   "mdm/zero-touch/zero-touch-macs",
-                  "mdm/zero-touch/zero-touch-windows",
-                  "mdm/zero-touch/device-orders-zero-touch",
-                  "mdm/zero-touch/eligible-devices-ztd"
+                  "mdm/zero-touch/zero-touch-windows"
                 ]
               },
               {
@@ -122,6 +120,8 @@
               "procurement/local-partners-repair",
               "procurement/local-partners-resell",
               "procurement/shipping-countries",
+              "mdm/zero-touch/eligible-devices-ztd",
+              "mdm/zero-touch/device-orders-zero-touch",
               "procurement/manage-shipments"
             ]
           },
