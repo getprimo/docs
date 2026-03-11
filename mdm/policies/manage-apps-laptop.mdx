@@ -1,81 +1,126 @@
 ---
-title: "Manage apps via Primo & FleetDM (laptop)"
-description: "To manage apps via Primo and FleetDM, log into FleetDM, add software either from the maintained list or by uploading your own, define the installation target using labels, and follow the steps to either deploy or remove applications from devices."
+title: "Deploy apps (macOS, Windows, Linux)"
+description: "Deploy and manage applications on macOS, Windows, and Linux devices directly from Primo MDM > Software — including Fleet-maintained apps, Apple App Store (VPP) apps, and custom apps."
 ---
 
-## **Step 1: Connecting to FleetDM**
+From **MDM > Software**, you can deploy apps to your managed macOS, Windows, and Linux devices without ever leaving Primo. Primo supports four types of apps:
 
-To begin, log in to FleetDM from your Primo cockpit using one of these two options:
-
-1. **From MDM > Softwares**: Go to **"Add new app"**
-2. **From the main menu**: Access FleetDM directly through the menu
-
-Either way, you can connect to FleetDM seamlessly using SSO from your Primo account.
-
-## **Step 2: Accessing application configuration**
-
-1. Once connected to FleetDM, click on the **"Softwares"** tab.
-2. Ensure you are in the **"No Team"** team (visible at the top of the screen).
-3. Click the **"Add Software"** button on the right side of the screen.
-
-## **Step 3: Choose the application to add**
-
-The application configuration screen offers two options:
-
-1. **Applications maintained by FleetDM**: These are automatically managed and updated by FleetDM.
-2. **Upload your own application**: Add custom applications that aren't in FleetDM's maintained list.
+- **Fleet-Maintained Apps (FMA)** — a curated catalog of popular apps maintained and updated by Fleet
+- **Apple App Store (macOS)** — macOS apps purchased through Apple's Volume Purchase Program (VPP)
+- **Custom apps** — your own `.pkg`, `.msi`, `.deb`, or `.rpm` packages
 
 <Note>
-**Which package type to prefer?**
-- macOS: `.pkg`
-- Windows: `.msi`
-- Linux: `.deb` / `.rpm`
+For iOS/iPadOS and Android app deployment, see [Deploy apps (iOS & Android)](/mdm/policies/manage-apps-smartphone).
 </Note>
 
-<Warning>
-**Automatic install support varies by file type.** Some package types don't support the "Install automatically" option:
-- `.exe` files (Windows)
-- `.sh` scripts (Linux)
-- `.ps1` PowerShell scripts (Windows)
+---
 
-For these file types, the automatic install toggle will be disabled. If you need automatic deployment, use `.msi` for Windows or `.pkg` for macOS instead.
-</Warning>
+## Deployment options
 
-## **Step 4: Define the installation target**
+When adding any app, you can configure the following options:
 
-After selecting your application, specify the installation scope:
+### Install automatically
+When enabled, the app is automatically pushed to all matching devices. If left unchecked, the app will only be installed when you manually trigger installation on a specific device.
 
-- **All devices**: Deploy to all enrolled devices.
-- **Devices associated with a Label**: Target specific users or devices using **Labels**.
+### Make available via Self-Service
+When enabled, the app appears in the **Self-Service** portal, accessible to employees via the Fleet agent. Employees can install it themselves on demand.
 
-<Tip>
-**How Labels work:**
-- Labels are automatically generated in FleetDM from **Profiles** and **Tags** configured in Primo.
-- Look for the **[SET BY PRIMO]** indicator to identify them in FleetDM.
-</Tip>
-
-## **Step 5: Automatic Installation**
-
-After completing the configuration, the application will automatically deploy to all matching devices.
+### Install during Zero Touch
+When enabled, the app is installed as part of the Zero Touch Deployment flow. This ensures that core apps are present before the device is handed to the employee.
 
 <Warning>
-**Important**: During our current process migration, applications added via FleetDM won't appear in the Primo cockpit. This feature will be available in the coming weeks.
+Enabling **Install during Zero Touch** may increase provisioning time. Reserve this for apps that are truly required before first use.
 </Warning>
 
-# Remove an app with Primo & FleetDM
+---
 
-## Disable automatic app installation
+## App patching
 
-To disable automatic installation of an application, go to Primo > MDM > Softwares and change the target selection.
+For eligible app types, Primo provides two automatic update toggles:
 
-This action stops automatic installation for devices in this target but doesn't remove the application from devices where it's already installed.
+| Toggle | What it does |
+|--------|--------------|
+| **Maintain source installer up-to-date** | Checks once daily for a newer version of the installer and replaces it automatically |
+| **Update app on all devices** | Automatically updates the app on any device where the installed version is older than the current installer |
 
-## Remove an app from a device
+---
 
-To remove an application from a specific device:
+## Add a Fleet-Maintained App (FMA)
 
-1. Go to FleetDM
-2. Choose the device from which you want to remove the application
-3. Open the Host Software tab
-4. Select the Available for install applications (next to the search bar)
-5. Click on uninstall
+Fleet-Maintained Apps are a curated library of popular software (e.g. Chrome, Zoom, Slack) that Fleet keeps up to date.
+
+1. Go to **MDM > Software** and click **Add app**.
+2. Select **Fleet-Maintained App**.
+3. Choose the app from the list.
+4. Configure deployment options: **Install automatically**, **Self-Service**, and/or **Zero Touch**.
+5. Enable patching toggles as needed.
+6. Click **Add software**.
+
+---
+
+## Add an Apple App Store app (macOS VPP)
+
+<Note>
+**Prerequisite**: You must have an Apple Business Manager (ABM) account with VPP set up in Primo. See [Deploy VPP applications](/mdm/policies/deploy-vpp-applications) for setup instructions.
+</Note>
+
+1. Go to **MDM > Software** and click **Add app**.
+2. Select **App Store (VPP)**.
+3. Browse or search for the macOS app.
+4. Configure deployment options: **Install automatically**, **Self-Service**, and/or **Zero Touch**.
+5. Click **Add software**.
+
+<Note>
+The source installer is always sourced directly from the Apple App Store — the **Maintain source installer up-to-date** toggle is not applicable. Auto-update is not available for macOS VPP apps.
+</Note>
+
+---
+
+## Add a custom app
+
+Custom apps are packages you upload yourself (`.pkg` for macOS, `.msi` for Windows, `.deb`/`.rpm` for Linux).
+
+1. Go to **MDM > Software** and click **Add app**.
+2. Select **Custom app**.
+3. Upload your package file.
+4. Configure deployment options: **Install automatically**, **Self-Service**, and/or **Zero Touch**.
+5. Click **Add software**.
+
+<Warning>
+**Automatic install support varies by file type.** The following types do not support the **Install automatically** option:
+- `.exe` (Windows)
+- `.sh` (Linux)
+- `.ps1` (Windows PowerShell)
+
+Use `.msi` for Windows and `.pkg` for macOS to enable automatic deployment.
+</Warning>
+
+<Note>
+Auto-update for custom apps is **coming soon**. The **Maintain source installer up-to-date** toggle is not available for custom apps.
+</Note>
+
+---
+
+## Capabilities overview
+
+| Capability | Fleet-Maintained Apps | macOS App Store (VPP) | Custom apps |
+|---|:---:|:---:|:---:|
+| Install automatically | ✅ | ✅ | ✅ |
+| Self-Service | ✅ | ✅ | ✅ |
+| Zero Touch | ✅ | ✅ | ✅ |
+| Source installer maintained | ✅ | Always from App Store | ❌ |
+| Auto-update | ✅ | ❌ | Coming soon |
+
+---
+
+## Remove an app
+
+### Disable automatic installation
+
+Go to **MDM > Software**, find the app, and uncheck **Install automatically**. This stops future automatic installs but does not remove the app from devices where it is already installed.
+
+### Uninstall from a specific device
+
+1. Go to **MDM > Devices** and open the device.
+2. Open the **Software** tab.
+3. Find the app and click **Uninstall**.
