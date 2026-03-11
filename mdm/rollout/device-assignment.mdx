@@ -1,5 +1,5 @@
 ---
-title: "Understand and manage device assignment"
+title: "Device assignment"
 description: "Effectively manage device assignment by leveraging automated processes through MDM, enabling seamless first assignments, unassignments, and reassignments, while adhering to best practices to maintain accurate inventory and protect company data."
 ---
 
@@ -7,12 +7,12 @@ This article explains how device assignment works, how the first assignment is c
 
 ## Device statuses
 
-| Availability status | Assignment status | What it means |
-|---|---|---|
-| **In use** | **Assigned** | The device is assigned to an employee and actively used. |
-| **In stock** | **To assign** | The device is in inventory but not yet assigned to anyone. |
-| **In use** | **To assign** | The device is in use but has no assigned owner in Primo. |
-| **Archived** | — | The device has been removed from the fleet. |
+| Availability status | Assignment status | What it means                                              |
+| ------------------- | ----------------- | ---------------------------------------------------------- |
+| **In use**          | **Assigned**      | The device is assigned to an employee and actively used.   |
+| **In stock**        | **To assign**     | The device is in inventory but not yet assigned to anyone. |
+| **In use**          | **To assign**     | The device is in use but has no assigned owner in Primo.   |
+| **Archived**        | —                 | The device has been removed from the fleet.                |
 
 ## Understand the first device assignment
 
@@ -51,7 +51,6 @@ Available options:
 1. **Enable assignment suggestion**
 
    Primo only displays assignment suggestions. You validate them manually.
-
 2. **Automatically assign device based on suggestion**
 
    If the device is not already assigned, Primo automatically assigns it to the most relevant employee.
@@ -86,11 +85,9 @@ Returning the device to stock automatically removes the previous assignment, the
 Automatic assignment is **not yet available for iOS and Android devices**, but support is planned in an upcoming release.
 
 <Note>
+  **Best practices**
 
-**Best practices**
-
-- Manage all offboardings through Primo to ensure devices are properly unassigned.
-- Wipe devices when changing assignments to protect company data and user privacy.
-- Use Assignment suggestion to reduce manual work when managing a large number of devices or frequent turnover.
-
+  - Manage all offboardings through Primo to ensure devices are properly unassigned.
+  - Wipe devices when changing assignments to protect company data and user privacy.
+  - Use Assignment suggestion to reduce manual work when managing a large number of devices or frequent turnover.
 </Note>
