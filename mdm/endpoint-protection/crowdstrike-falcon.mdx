@@ -1,21 +1,27 @@
 ---
-title: "Deploy Crowdstrike Falcon"
+title: "Deploy CrowdStrike Falcon"
 description: "Learn how to efficiently deploy the CrowdStrike Falcon agent on macOS and Windows devices by following the steps to download installation files, import them into FleetDM, configure installation scripts, and create compliance policies."
 ---
+
+<Warning>
+**Deployment type: Manual**
+
+Unlike SentinelOne, CrowdStrike Falcon requires **manual setup** before deployment. You must download the installer packages from the CrowdStrike console, upload them to FleetDM, and configure the install scripts with your CustomerID. There is no automatic integration — follow the steps below carefully.
+</Warning>
 
 This article explains how to deploy the CrowdStrike Falcon agent on macOS and Windows devices using FleetDM and Primo MDM. You will learn how to download the installation packages from the CrowdStrike admin console, retrieve your CustomerID, import the packages into FleetDM, configure the installation scripts, and create compliance policies for both operating systems.
 
 ## Prerequisites
 
 - Primo MDM properly configured and operational
-- Access to the Crowdstrike admin console
+- Access to the CrowdStrike admin console
 - Access to your FleetDM instance: https://yourdomain.mdm.getprimo.com
 
-## Deploy Crowdstrike Falcon agent
+## Deploy CrowdStrike Falcon agent
 
 ### Step 1: Download the installation files and retrieve the CustomerID
 
-1. Log in to the **Crowdstrike admin console**.
+1. Log in to the **CrowdStrike admin console**.
 2. Navigate to **Host setup and management > Deploy > Sensor downloads**.
 3. Download the following files:
    - macOS: .pkg installer

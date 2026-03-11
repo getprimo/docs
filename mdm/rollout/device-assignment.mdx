@@ -5,29 +5,31 @@ description: "Effectively manage device assignment by leveraging automated proce
 
 This article explains how device assignment works, how the first assignment is created, how to manage unassignment and reassignment, and which best practices to follow to keep your inventory accurate.
 
-## Device statuses and assignment logic
+## Device statuses
 
-### Availability statuses
+Primo uses three main statuses to track the state of each device:
 
-- **In use**: the device is currently assigned and actively used by an employee.
-- **In stock**: the device exists in inventory but is not assigned to an employee.
-- **Archived**: the device has been removed from the fleet.
+| Status | Meaning |
+|---|---|
+| **Assigned** | The device is formally assigned to an employee. |
+| **To assign** (also shown as "In use") | The device is actively used but has not been formally assigned to anyone in Primo. |
+| **In stock** | The device is in inventory and not currently deployed to an employee. |
 
-### Assignment statuses
+There is also a fourth state:
 
-- **Assigned**: the device **is** assigned to an employee.
-- **To assign**: the device **is not** assigned to an employee.
+| Status | Meaning |
+|---|---|
+| **Archived** | The device has been removed from the fleet. |
 
-<Note>
+### How to read the combination of statuses
 
-Summary of common states
+- A device that is **Assigned** is associated with a specific employee.
+- A device that is **In stock + To assign** is available and ready to be assigned.
+- A device that appears as **In use + To assign** (or just "To assign") is being actively used but has no formal owner recorded in Primo — this commonly happens with generic or bulk installers, or when auto-assignment did not trigger.
 
-- **In use** = device assigned **and** used
-- **In stock + To assign** = device in stock and unassigned
-- **In use + To assign** = device used but not assigned to anyone
-- **Archived** = device removed from the fleet
-
-</Note>
+<Tip>
+Use the **Assignment suggestion** feature (Settings → MDM → Assignment suggestion) to let Primo automatically identify and assign devices that are in use but unassigned.
+</Tip>
 
 ## Understand the first device assignment
 
