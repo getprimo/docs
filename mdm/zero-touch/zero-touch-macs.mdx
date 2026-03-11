@@ -1,9 +1,9 @@
 ---
-title: "Zero-Touch Enrollment for Macs"
-description: "Learn how to create and validate your Apple Business Manager account to enable Zero Touch deployment for Apple devices, ensuring automatic configuration and security during the first startup without manual IT intervention."
+title: "Zero-Touch Deployment for Macs (ABM)"
+description: "Set up Apple Business Manager with Primo to enable automatic enrollment and configuration of Mac devices — including migrating Macs between MDM servers using macOS Sequoia/Tahoe."
 ---
 
-This article explains how to create and validate an Apple Business Manager (ABM) account, then connect it to Primo to enable Zero Touch deployment for Apple devices. Once connected, devices can be automatically configured and secured during their first startup, without manual intervention from IT teams.
+This article explains how to connect Apple Business Manager (ABM) to Primo to enable Zero Touch deployment for Apple devices. It also covers how to migrate Macs from one MDM to another using ABM — a capability introduced with macOS Sequoia and expanded in macOS Tahoe.
 
 # Understand the role of ABM in Primo
 
@@ -107,15 +107,58 @@ For detailed instructions, refer to Apple's official documentation:
 
 Once added to Apple Business Manager, the device can be assigned to Primo and deployed using Zero Touch.
 
-# Employee's experience during 1st startup
+# Employee experience on first startup
 
 When a new employee receives an Apple device configured with ABM and Primo:
 
-1. The employee turns on the device
-2. Selects country, language, and keyboard settings
-3. Connects to the Internet
-4. The **Remote Management** screen is displayed
-5. The employee signs in using their email address (the employee must have been onboarded in Primo)
+1. Turn on the device
+2. Select country, language, and keyboard settings
+3. Connect to the internet
+4. The **Remote Management** screen appears
+5. The employee signs in using their email address (the employee must already be onboarded in Primo)
 6. Security settings and applications defined in the Primo Cockpit are automatically applied
 
 The device is ready to use without any additional manual configuration.
+
+---
+
+# Migrate Macs between MDM servers using ABM
+
+## What changed with macOS Sequoia and Tahoe
+
+Starting with **macOS Sequoia (15)** and further improved in **macOS Tahoe (16)**, Apple introduced the ability to **reassign a supervised Mac to a different MDM server directly through Apple Business Manager** — without needing to wipe the device.
+
+Previously, migrating a Mac from one MDM to another required:
+1. Erasing the device (or using manual removal steps)
+2. Re-enrolling from scratch
+
+With ABM-based MDM reassignment, you can:
+- Move Macs from a previous MDM (e.g. Jamf, Mosyle, Kandji, Intune) to Primo without data loss
+- Avoid the disruption of a full device wipe
+- Perform bulk migrations for your entire fleet directly from the ABM console
+
+## Requirements
+
+- macOS Sequoia (15) or later on the target Mac
+- The Mac must be ABM-supervised (purchased through ABM-linked channel or added via Apple Configurator)
+- Administrator access to Apple Business Manager
+- The destination MDM server (Primo) must already be connected to ABM
+
+## How to reassign Macs to Primo via ABM
+
+1. Sign in to [Apple Business Manager](https://business.apple.com/).
+2. Go to **Devices**.
+3. Select the Mac(s) you want to migrate to Primo.
+4. Click **Edit MDM Server**.
+5. Select your **Primo MDM server** as the destination.
+6. Confirm the assignment.
+
+The next time the Mac checks in with MDM (or after a reboot), it will receive the enrollment profile from Primo and transition automatically.
+
+<Note>
+The reassignment takes effect on the device's next MDM check-in. This typically happens within a few minutes if the device is online. No user action is required on macOS Tahoe — the MDM switch is transparent.
+</Note>
+
+<Warning>
+Apps and profiles deployed by the previous MDM will remain on the device until Primo removes or replaces them. Review your Primo policies to ensure conflicting configurations are handled.
+</Warning>

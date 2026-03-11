@@ -1,5 +1,5 @@
 ---
-title: "Resolve a login issue related to a password"
+title: 'Resolve "incorrect password" issues'
 description: "To resolve a password-related login issue, verify the user's password entry and keyboard layout, check the applied password policy, and choose the appropriate recovery option while implementing preventive measures for future incidents."
 ---
 
@@ -12,6 +12,7 @@ Login issues can be caused by:
 - **A forgotten password** after a period of inactivity or a recent change.
 - **A typing error related to the keyboard layout** (e.g., switching from AZERTY to QWERTY).
 - **A change in security policies** (complexity, length, or rotation requirements).
+- **A SecureToken issue on macOS** — some password prompts at the login screen are actually requesting a **SecureToken-enabled account**, not the user's regular login password.
 
 # Diagnose and secure
 
@@ -33,6 +34,35 @@ On macOS, several failed attempts may trigger **Recovery OS**, making password r
 Administrators can define **security policies** in Primo (complexity, renewal frequency, rotation, etc.).
 
 In Primo, go to **Settings → Security → Password policies** and confirm the rule applied to the user's device. A recent policy may have required a password change.
+
+## Check SecureToken status (macOS only)
+
+On macOS, some login prompts — particularly when unlocking FileVault, using admin-level features, or after a policy change — are actually requesting a **SecureToken**-enabled account, not the regular login password.
+
+A user may have the correct password but still be blocked if their account does not have a SecureToken, or if they are being prompted for a different (admin) account that holds the token.
+
+**To check SecureToken status on the device:**
+
+1. Open **Terminal** on the Mac.
+2. Run:
+
+   ```sh
+   sysadminctl -secureTokenStatus <username>
+   ```
+3. The output will show `SecureToken is ENABLED` or `SecureToken is DISABLED` for that user.
+
+**If SecureToken is disabled:**
+
+- An admin user with SecureToken can grant it to another user:
+
+  ```sh
+  sysadminctl -secureTokenOn <target_username> -password <target_password> -adminUser <admin_username> -adminPassword <admin_password>
+  ```
+- Alternatively, you can use **MDM → Profiles → Admin User Management** to ensure a bootstrap admin account with SecureToken exists on all devices.
+
+<Note>
+  SecureToken is required for FileVault unlock and for granting other users permission to unlock encrypted volumes. If a user cannot unlock FileVault even with the correct password, SecureToken is the most likely cause.
+</Note>
 
 # Reset the password
 

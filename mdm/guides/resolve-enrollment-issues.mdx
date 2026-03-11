@@ -54,24 +54,34 @@ Possible causes:
 - **The device was accidentally removed from MDM management**
   - If the `turn off mdm` action was executed from FleetDM on the device.
 
-## Identifying Partially Enrolled Devices
+## Enrollment statuses
+
+In your Primo cockpit, a device's enrollment status indicates the current state and any issues. The following statuses are available:
+
+| Status | Meaning |
+|---|---|
+| **On** | The device is fully enrolled and the MDM agent is active. |
+| **Off** | The device is not enrolled or MDM is inactive. |
+| **Missing agent** ⚠️ | The FleetDM agent is no longer communicating with the server. |
+| **On in another MDM** ⚠️ | The device is currently managed by a different MDM. |
+| **Ready for ZTD** | The device is configured and waiting for Zero Touch Deployment. |
+
+A device that appears **offline** even though it is in active use typically indicates a missing agent or network issue.
+
+## Identifying partially enrolled devices
 
 In your Primo cockpit, you can identify partially enrolled devices in two ways:
 
-1. The device's enrollment status provides insights into potential errors:
-   - **Missing agent**
-   - **Missing profile**
-   - **Enrolled in another MDM**
+1. The device's enrollment status shows one of the error states listed above.
 2. The device appears **offline** even though it is actively used by an employee.
 
 ## Troubleshooting
 
 Here are the solutions for each situation:
 
-- **Missing Profile** (on macOS): Ask the employee to follow the detailed steps in the installation guide.
-- **Missing Agent** (on macOS): In the device panel, click on the device status button to remotely trigger the agent installation. If this does not work, ask the employee to log into their Primo enrollment page and click on their assigned device. They can then download the agent independently.
-- **Enrolled in another MDM**: Find the necessary documentation regarding migration from your previous MDM to Primo.
-- **Offline Device**: Ask the employee to re-enroll their device. You can automate this action in **Settings > Remote Management > Enable Auto-Unenrollment**.
+- **Missing agent** ⚠️: In the device panel, click on the device status button to remotely trigger the agent installation. If this does not work, ask the employee to log into their Primo enrollment page and click on their assigned device. They can then download the agent independently.
+- **On in another MDM** ⚠️: Find the necessary documentation regarding migration from your previous MDM to Primo.
+- **Off** (offline device): Ask the employee to re-enroll their device. You can automate this action in **Settings > Remote Management > Enable Auto-Unenrollment**.
 
 Once the employee completes these actions, the device should appear as correctly enrolled in Primo within **30 minutes** (the synchronization period between Fleet and Primo).
 

@@ -1,5 +1,5 @@
 ---
-title: "Disk encryption policy and recovery key storage"
+title: "Disk encryption and recovery key escrow"
 description: "Disk encryption is crucial for safeguarding data against device loss or theft, with recovery keys automatically managed and stored by Primo during the encryption process, ensuring easy access if a user forgets their password."
 ---
 
@@ -13,10 +13,10 @@ To ensure your devices are encrypted, this setting must be enabled in your MDM s
 
 Recovery keys are essential to access data on the device's disk. They can also be used if a user forgets their password.
 
-Primo automatically retrieves and stores recovery keys during the encryption process. They are stored per device in the **Fleet > Devices** tab.
+Primo automatically retrieves and stores recovery keys during the encryption process. They are stored per device in the **Fleet \> Devices** tab.
 
 <Note>
-Recovery keys are only stored in Primo if encryption is enabled in your MDM security policies > **Profiles** tab.
+  Recovery keys are only stored in Primo if encryption is enabled in your MDM security policies \> **Profiles** tab.
 </Note>
 
 # **General encryption process**
@@ -31,23 +31,27 @@ Recovery keys are only stored in Primo if encryption is enabled in your MDM secu
 ## **Behavior by OS**
 
 **macOS**
+
 - Encryption is managed by **FileVault**.
 - FileVault is automatically enabled during MDM installation.
 - Encryption becomes effective after the next restart.
 - The recovery key is stored at that point.
 
 **Windows**
+
 - Encryption is managed by **BitLocker**.
 - It is automatically enabled after MDM installation.
 - No restart is required.
 - The key is stored as soon as encryption is activated.
 
 **Linux**
+
 - Encryption often requires a full disk reset and OS reinstallation.
 - Primo does not support automatic encryption for Linux devices.
 
 ## Encryption timeframes
 
 Encryption duration depends on:
+
 - the disk size
 - the device's performance

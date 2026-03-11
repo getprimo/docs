@@ -1,9 +1,25 @@
 ---
-title: "Employee experience for OS Updates"
-description: "For macOS 14 and above, users receive daily notifications to update before a deadline, while Windows users are encouraged to update via the native dialog, with specific deferral options and considerations for low disk space impacting the update process."
+title: "OS updates: Employee experience"
+description: "Learn how administrators can monitor device update status and how employees receive OS update notifications on macOS and Windows."
 ---
 
-## Mac
+## Monitoring device update status
+
+Administrators can monitor the OS update status for all managed devices directly in the Primo cockpit. Each device displays one of three update statuses:
+
+| Status             | Description                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| **Up to date**     | The device is running an OS version that meets your configured update deadline requirements. |
+| **Not up to date** | The device is running an outdated OS version and the configured deadline has passed.         |
+| **Not setup**      | No OS update policy has been configured for the device.                                      |
+
+<Note>
+  The update status is calculated based on your configured OS update deadline policy. Devices with MDM disabled will not display an update status.
+</Note>
+
+You can filter the device list by update status to quickly identify devices that require attention.
+
+## Employee experience
 
 ### macOS 14 and above
 
@@ -13,46 +29,44 @@ If the host was turned off when the deadline passed, the update will be schedule
 
 For macOS devices that use Automated Device Enrollment (ADE), if the device is below the specified minimum version, it will be required to update to the latest available version during ADE before device setup and enrollment can proceed.
 
-### Before macOS 14
+### macOS 13 and earlier
 
 End users are encouraged to update macOS via Nudge.
 
-| | **> 1 day before deadline** | **< 1 day before deadline** | **Past deadline** |
-|---|---|---|---|
-| Nudge window frequency | Once a day at 8pm GMT | Once every 2 hours | Immediately on login |
-| End user can defer | ✅ | ✅ | ❌ |
-| Nudge window is dismissible | ✅ | ✅ | ❌ |
+|                             | **\> 1 day before deadline** | **\< 1 day before deadline** | **Past deadline**    |
+| --------------------------- | ---------------------------- | ---------------------------- | -------------------- |
+| Nudge window frequency      | Once a day at 8pm GMT        | Once every 2 hours           | Immediately on login |
+| End user can defer          | ✅                            | ✅                            | ❌                    |
+| Nudge window is dismissible | ✅                            | ✅                            | ❌                    |
 
-## Windows
+### Windows
 
 End users are encouraged to update Windows via the native Windows dialog.
 
-| | **Before deadline** | **Past deadline** |
-|---|---|---|
-| End user can defer automatic restart | ✅ | ❌ |
+|                                      | **Before deadline** | **Past deadline** |
+| ------------------------------------ | ------------------- | ----------------- |
+| End user can defer automatic restart | ✅                   | ❌                 |
 
 If an end user was on vacation when the deadline passed, the end user is given a grace period (configured) before the host automatically restarts.
 
 <Note>
-For all scenarios detailed above, the deadline applies from the "update availability date", not the configuration date of the policy in Primo cockpit. If you have employees on an older version for longer than the chosen deadline, they will be prompted to update their OS immediately.
+  For all scenarios detailed above, the deadline applies from the "update availability date", not the configuration date of the policy in Primo cockpit. If you have employees on an older version for longer than the chosen deadline, they will be prompted to update their OS immediately.
 </Note>
 
-# Special case of low disk space
+## Low disk space
 
 <Warning>
-For all 3 scenarios, an administrator may need to intervene if updates are failing and the user is not able to free up space. None of the platforms manage disk space issues on their own to install updates.
+  For all 3 scenarios, an administrator may need to intervene if updates are failing and the user is not able to free up space. None of the platforms manage disk space issues on their own to install updates.
 </Warning>
-
-## Mac
 
 ### macOS 14 and above
 
 The end user is nagged to install the update with a system notification and will see in System Settings they don't have enough space to install the update. They will have to free up space on their own to stop the nags to update.
 
-### Before macOS 14
+### macOS 13 and earlier
 
 The Nudge window will appear and the user will be directed to System Preferences to download and install the update (which will fail). The Nudge window will behave as normal where it cannot be dismissed after the deadline. The end user will have to free up space on their own to install the update to dismiss the Nudge window.
 
-## Windows
+### Windows
 
 When the deadline is met, the user will be told they need to update, then the update will fail and the user will be told they need to free up space.
