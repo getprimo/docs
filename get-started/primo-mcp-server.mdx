@@ -1,5 +1,5 @@
 ---
-title: "Use the Primo MCP Server with AI Assistants"
+title: "MCP Server"
 description: "Learn how to connect ChatGPT, Claude, Cursor, and other AI assistants to Primo using the MCP (Model Context Protocol) server to manage your IT fleet in natural language."
 ---
 
@@ -53,9 +53,9 @@ https://api.getprimo.com/mcp?readOnly=false
 
 **Example prompts:**
 
-- *"List all devices managed in Primo"*
-- *"Show me employees who joined this month"*
-- *"What tickets are currently pending?"*
+- _"List all devices managed in Primo"_
+- _"Show me employees who joined this month"_
+- _"What tickets are currently pending?"_
 
 ### Claude Desktop
 
@@ -97,7 +97,7 @@ https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID&readOnly=false
 ```
 
 <Note>
-To find your company ID, use the API to list your companies or check the URL in your Primo dashboard.
+  To find your company ID, use the API to list your companies or check the URL in your Primo dashboard.
 </Note>
 
 ---
@@ -106,16 +106,16 @@ To find your company ID, use the API to list your companies or check the URL in 
 
 Once connected, your AI assistant can perform the following actions through Primo:
 
-| Category | Read Operations | Write Operations |
-|---|---|---|
-| **Companies** | List and view companies | — |
-| **Devices** | List, search, and view device details | Lock, unlock, wipe (⚠️) |
-| **Employees** | List and view employee profiles | — |
-| **Accessories** | List and view accessories | Create and update accessories |
-| **Tickets** | List, search, filter, and view tickets | Create tickets, add comments, update status/priority/assignee |
+| Category        | Read Operations                        | Write Operations                                              |
+| --------------- | -------------------------------------- | ------------------------------------------------------------- |
+| **Companies**   | List and view companies                | —                                                             |
+| **Devices**     | List, search, and view device details  | Lock, unlock, wipe (⚠️)                                       |
+| **Employees**   | List and view employee profiles        | —                                                             |
+| **Accessories** | List and view accessories              | Create and update accessories                                 |
+| **Tickets**     | List, search, filter, and view tickets | Create tickets, add comments, update status/priority/assignee |
 
 <Warning>
-Device actions (lock, wipe) are powerful and irreversible. Use write mode with caution.
+  Device actions (lock, wipe) are powerful and irreversible. Use write mode with caution.
 </Warning>
 
 ---
