@@ -3,6 +3,12 @@ title: "Enable and deploy SentinelOne with Primo"
 description: "To enable and deploy SentinelOne with Primo, ensure you have Primo MDM and a SentinelOne license, then follow the steps to integrate and deploy the agent across your device fleet through the MDM configurations."
 ---
 
+<Note>
+**Deployment type: Automatic**
+
+SentinelOne is deployed **automatically** via MDM. Once you connect your SentinelOne instance and create an MDM control, the agent is pushed to all targeted devices without any manual steps. No user interaction is required.
+</Note>
+
 This article explains how to enable SentinelOne integration in Primo to automatically deploy the agent on all or part of your fleet of devices.
 
 ## Prerequisites
@@ -36,7 +42,7 @@ Deploying SentinelOne on your fleet's devices is done through your MDM configura
 1. In Primo, go to **MDM > Controls > Add new control**
 2. Choose the platform (available platforms)
 3. Enable the card **EDR - SentinelOne**
-4. Update the targeting to targets the devices you wants
+4. Update the targeting to target the devices you want
 5. Confirm
 
 The SentinelOne agent will be automatically installed on all devices included in the control.

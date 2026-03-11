@@ -44,7 +44,6 @@ This step requires coordination with Primo support. When you register the FleetD
 </Note>
 
 You will perform three operations in the Microsoft Azure console with administrator rights:
-
 1. Declare the FleetDM domain as legitimate with Azure
 2. Create the Fleet application and grant it MDM permissions
 3. Set FleetDM as the default MDM for new devices (replacing Intune if applicable)
@@ -72,7 +71,7 @@ You will perform three operations in the Microsoft Azure console with administra
 - Return to [**Mobility (MDM and MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
 - Click on the **Fleet** application then on **Custom MDM application settings**
 - Click on the link below **Application ID URI** then click **Edit**
-- Enter your **Fleet** instance address ([`https://{company}.mdm.getprimo.com`](https://primo.mdm.getprimo.com/api/mdm/microsoft/tos)) and click **Save**
+- Enter your **Fleet** instance address (`https://{company}.mdm.getprimo.com`) and click **Save**
 - Choose **API permissions** then **Add a permission**
 - Click on **Microsoft Graph** then on **Delegated permissions**, then select:
   - **Group > Group.Read.All**

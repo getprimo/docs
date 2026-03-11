@@ -80,7 +80,7 @@ Attach the deployment script below to compliant devices. It downloads the Window
 Import-Module BitsTransfer
 
 # Variables
-$uri = "https://production-bucket-public-files.s3.eu-west-3.amazonaws.com/Win11_24H2_French_x64.iso"
+$uri = "https://production-bucket-public-files.s3.eu-west-3.amazonaws.com/Win11_24H2_French_x64.iso" # French locale — replace with the appropriate locale ISO for your region
 $destination = "C:\Win11.iso"
 $log = "C:\logs\download_win11_iso.log"
 
