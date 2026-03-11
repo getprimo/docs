@@ -58,8 +58,7 @@
                   "mdm/zero-touch/understand-zero-touch",
                   "mdm/zero-touch/zero-touch-macs",
                   "mdm/zero-touch/zero-touch-windows",
-                  "mdm/zero-touch/device-orders-zero-touch",
-                  "mdm/zero-touch/eligible-devices-ztd"
+                  "mdm/zero-touch/device-orders-zero-touch"
                 ]
               },
               {
@@ -118,9 +117,8 @@
           {
             "group": "Global Purchasing",
             "pages": [
-              "procurement/buy-it-products",
+              "procurement/why-buy-with-primo",
               "procurement/add-products-catalog",
-              "procurement/pricing-philosophy",
               "procurement/returns-warranties",
               "procurement/applecare-enterprise",
               "procurement/local-partners-repair",
