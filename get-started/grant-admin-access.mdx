@@ -53,14 +53,25 @@ Clémentine,Cruz,support@getprimo.com
 
 # Admin access levels
 
-Primo supports multiple admin access levels, allowing you to control what each admin can see and configure:
+Primo provides built-in roles that scope each admin's access to specific areas of the platform:
 
-| Level | Description |
+| Role | Access |
 |---|---|
-| **Super Admin** | Full access to all settings, billing, and user management. |
-| **Admin** | Access to device management, MDM, and employee settings. |
-| **Read-only Admin** | Can view all data but cannot make changes. |
+| **Admin** | Full access to all settings, billing, and user management. |
+| **HR Manager** | Access to employee management, onboarding/offboarding, and HRIS sync. |
+| **MDM Manager** | Access to device management, MDM settings, policies, and enrollment. |
+| **SaaS Manager** | Access to identity, SaaS app connections, provisioning rules, and licences. |
 
-<Note>
-Access levels available may vary depending on your Primo plan. Contact support if you need a custom access configuration.
-</Note>
+## Custom roles
+
+In addition to the built-in roles, you can create **custom roles** to define a specific combination of permissions that fits your team's structure.
+
+To create a custom role:
+
+1. Go to **Settings** > **Admin Management**.
+2. Click **Manage roles**.
+3. Click **Create role**.
+4. Name the role and select the permissions to include.
+5. Save.
+
+You can then assign the custom role when granting access to a collaborator.
