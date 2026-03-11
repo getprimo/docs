@@ -30,6 +30,7 @@
           {
             "group": "Get Started with Primo",
             "pages": [
+              "index",
               "get-started/import-your-equipment",
               "get-started/grant-admin-access",
               "get-started/quality-onboarding",
