@@ -7,27 +7,12 @@ This article explains how device assignment works, how the first assignment is c
 
 ## Device statuses and assignment logic
 
-### Availability statuses
-
-- **In use**: the device is currently assigned and actively used by an employee.
-- **In stock**: the device exists in inventory but is not assigned to an employee.
-- **Archived**: the device has been removed from the fleet.
-
-### Assignment statuses
-
-- **Assigned**: the device **is** assigned to an employee.
-- **To assign**: the device **is not** assigned to an employee.
-
-<Note>
-
-Summary of common states
-
-- **In use** = device assigned **and** used
-- **In stock + To assign** = device in stock and unassigned
-- **In use + To assign** = device used but not assigned to anyone
-- **Archived** = device removed from the fleet
-
-</Note>
+| Availability status | Assignment status | What it means |
+|---|---|---|
+| **In use** | **Assigned** | The device is assigned to an employee and actively used. |
+| **In stock** | **To assign** | The device is in inventory but not yet assigned to anyone. |
+| **In use** | **To assign** | The device is in use but has no assigned owner in Primo. |
+| **Archived** | — | The device has been removed from the fleet. |
 
 ## Understand the first device assignment
 
