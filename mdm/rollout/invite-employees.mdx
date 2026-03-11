@@ -1,21 +1,39 @@
 ---
 title: "Invite employees to MDM"
-description: "To efficiently deploy the MDM to your employees, send personalized invitations through the Primo cockpit, ensuring they complete the installation within 7 days using the provided email link and installation guide."
+description: "Deploy MDM to your employees via email invitation, enrollment URL, or downloadable packages — all from the Primo cockpit."
 ---
 
 Installing the MDM is a crucial step in fleet management. This procedure is simple and quick: it takes only a few minutes and is mandatory for all users.
 
-## Deploy the MDM to your employees
+## Enrollment options
 
-To deploy the MDM on your employees' devices, you can send MDM deployment invitations (called "enrollment") from your Primo cockpit.
+Primo supports three ways to enroll a device into MDM:
 
-- **Send invitation to 1 employee:** click on the employee's profile then click on "Invite to MDM"
-- **Send invitations to a pool of employees:** select the desired employees then click on "Invite to MDM" then "Invite X selected employees".
-- **Send invitations to all employees:** click on "Invite to MDM" then "Invite matching employees".
+### Option 1 — Email invitation
 
-## Installation Information
+Send a personalized enrollment email directly from the Primo cockpit. Each employee receives a unique link to install the MDM agent on their device.
 
-- **Receiving the invitation email from Primo:** once the enrollment is initiated from the Primo cockpit, your employees receive an email from Primo (support@getprimo.com): "Secure your equipment with Primo".
-- The invitation email contains a **personal link** that allows each employee to install the agent on their computer. We have also integrated an installation guide detailing step by step the MDM installation process.
+**Send an invitation:**
+- **To 1 employee:** open the employee's profile, then click **Invite to MDM**.
+- **To a selection of employees:** select the desired employees, click **Invite to MDM**, then **Invite X selected employees**.
+- **To all employees:** click **Invite to MDM**, then **Invite matching employees**.
 
-Attention, the information contained in the invitation email is valid for 7 days! After this period, you will need to send a new enrollment invitation.
+Once initiated, employees receive an email from Primo (support@getprimo.com) with the subject "Secure your equipment with Primo". The email includes:
+- A **personal enrollment link** unique to that employee.
+- A step-by-step installation guide.
+
+<Note>
+The enrollment link is valid for **7 days**. After this period, you will need to send a new invitation.
+</Note>
+
+### Option 2 — Enrollment URL
+
+Each employee has a dedicated enrollment page accessible via a personal URL. You can share this URL directly (e.g. via Slack or your intranet) as an alternative to email.
+
+The URL can be found in the employee's profile in the Primo cockpit.
+
+### Option 3 — Downloadable packages
+
+For managed deployments or environments where email is not suitable, Primo provides downloadable installer packages (macOS `.pkg`, Windows `.exe`) that can be distributed via your existing software deployment tools (e.g. Jamf, SCCM, or manual installation).
+
+Packages can be downloaded from the enrollment section of the Primo cockpit and deployed silently without requiring employee interaction.
