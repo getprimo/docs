@@ -3,23 +3,17 @@ title: "Disk encryption and recovery key escrow"
 description: "Disk encryption is crucial for safeguarding data against device loss or theft, with recovery keys automatically managed and stored by Primo during the encryption process, ensuring easy access if a user forgets their password."
 ---
 
-# **General information**
-
-Disk encryption is an essential security measure to protect data in the event of device loss or theft.
-
-To ensure your devices are encrypted, this setting must be enabled in your MDM security profiles.
-
-# **Recovery keys**
-
-Recovery keys are essential to access data on the device's disk. They can also be used if a user forgets their password.
-
-Primo automatically retrieves and stores recovery keys during the encryption process. They are stored per device in the **Fleet \> Devices** tab.
+Protect data on lost or stolen devices by enforcing full-disk encryption across your fleet. Primo automatically enables encryption during MDM enrollment and escrows recovery keys so IT admins can always regain access without relying on the employee's credentials.
 
 <Note>
-  Recovery keys are only stored in Primo if encryption is enabled in your MDM security policies \> **Profiles** tab.
+  Recovery keys are only stored in Primo if encryption is enabled in your MDM security policies > **Profiles** tab.
 </Note>
 
-# **General encryption process**
+## OS Support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ (FileVault) | ✅ (BitLocker) | | | |
 
 ## Encryption flow
 
@@ -28,30 +22,24 @@ Primo automatically retrieves and stores recovery keys during the encryption pro
 3. Restart the device (required only for macOS)
 4. Wait another 3 to 4 hours: the recovery key will be saved in Primo
 
-## **Behavior by OS**
+Recovery keys are stored per device in the **Fleet > Devices** tab.
 
-**macOS**
+Encryption duration depends on the disk size and the device's performance.
+
+## On macOS
 
 - Encryption is managed by **FileVault**.
 - FileVault is automatically enabled during MDM installation.
 - Encryption becomes effective after the next restart.
 - The recovery key is stored at that point.
 
-**Windows**
+## On Windows
 
 - Encryption is managed by **BitLocker**.
 - It is automatically enabled after MDM installation.
 - No restart is required.
 - The key is stored as soon as encryption is activated.
 
-**Linux**
+## On Linux
 
-- Encryption often requires a full disk reset and OS reinstallation.
-- Primo does not support automatic encryption for Linux devices.
-
-## Encryption timeframes
-
-Encryption duration depends on:
-
-- the disk size
-- the device's performance
+Primo does not support automatic encryption for Linux devices. Enabling full-disk encryption on Linux typically requires a full disk reset and OS reinstallation, which must be done manually before enrolling the device.

@@ -42,7 +42,8 @@
                   "mdm/get-started/introduction-to-mdm",
                   "mdm/get-started/supported-platforms",
                   "mdm/get-started/set-up-apn-certificate",
-                  "mdm/scripts/fleetdm-guide"
+                  "mdm/scripts/fleetdm-guide",
+                  "mdm/get-started/set-up-okta"
                 ]
               },
               {
@@ -62,11 +63,7 @@
                   "mdm/policies/password-policy",
                   "mdm/policies/disk-encryption",
                   "mdm/policies/remote-management",
-                  "mdm/get-started/set-up-okta",
-                  "mdm/policies/manage-admin-accounts",
-                  "mdm/guides/activation-lock-bypass",
-                  "mdm/scripts/custom-windows-policies",
-                  "mdm/scripts/cis-benchmarks"
+                  "mdm/policies/manage-admin-accounts"
                 ]
               },
               {
@@ -155,7 +152,10 @@
               "mdm/guides/os-updates-employee-experience",
               "mdm/guides/remove-mdm-manually",
               "mdm/guides/upgrade-windows-11",
-              "mdm/policies/manage-windows-home"
+              "mdm/policies/manage-windows-home",
+              "mdm/guides/activation-lock-bypass",
+              "mdm/scripts/custom-windows-policies",
+              "mdm/scripts/cis-benchmarks"
             ]
           }
         ]
