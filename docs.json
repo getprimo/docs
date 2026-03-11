@@ -46,7 +46,7 @@
                 ]
               },
               {
-                "group": "Enrolling & Migrating your devices",
+                "group": "Enrollments & Migrations",
                 "pages": [
                   "mdm/rollout/invite-employees",
                   "mdm/rollout/device-assignment",
@@ -66,7 +66,8 @@
                   "mdm/policies/manage-admin-accounts",
                   "mdm/guides/activation-lock-bypass",
                   "mdm/scripts/custom-windows-policies",
-                  "mdm/scripts/cis-benchmarks"
+                  "mdm/scripts/cis-benchmarks",
+                  "mdm/scripts/configure-printers-macos"
                 ]
               },
               {
@@ -74,9 +75,7 @@
                 "pages": [
                   "mdm/policies/manage-apps-laptop",
                   "mdm/policies/manage-apps-smartphone",
-                  "mdm/policies/deploy-vpp-applications",
-                  "mdm/scripts/apps-installation-library",
-                  "mdm/scripts/configure-printers-macos"
+                  "mdm/policies/deploy-vpp-applications"
                 ]
               },
               {
