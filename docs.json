@@ -169,12 +169,7 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@getprimo.com"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "Dashboard",
@@ -199,5 +194,9 @@
     "playground": {
       "proxy": false
     }
+  },
+  "banner": {
+    "content": "🤖 Try out our new MCP!",
+    "dismissible": true
   }
 }
