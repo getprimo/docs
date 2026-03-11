@@ -32,6 +32,15 @@ The application configuration screen offers two options:
 - Linux: `.deb` / `.rpm`
 </Note>
 
+<Warning>
+**Automatic install support varies by file type.** Some package types don't support the "Install automatically" option:
+- `.exe` files (Windows)
+- `.sh` scripts (Linux)
+- `.ps1` PowerShell scripts (Windows)
+
+For these file types, the automatic install toggle will be disabled. If you need automatic deployment, use `.msi` for Windows or `.pkg` for macOS instead.
+</Warning>
+
 ## **Step 4: Define the installation target**
 
 After selecting your application, specify the installation scope:
