@@ -53,8 +53,7 @@
                   "mdm/get-started/migrate-from-another-mdm",
                   "mdm/guides/resolve-enrollment-issues",
                   "mdm/zero-touch/zero-touch-macs",
-                  "mdm/zero-touch/zero-touch-windows",
-                  "mdm/zero-touch/device-orders-zero-touch"
+                  "mdm/zero-touch/zero-touch-windows"
                 ]
               },
               {
@@ -113,14 +112,30 @@
           {
             "group": "Global Purchasing & Inventory",
             "pages": [
-              "procurement/why-buy-with-primo",
-              "procurement/add-products-catalog",
-              "procurement/returns-warranties",
-              "procurement/applecare-enterprise",
-              "procurement/local-partners-repair",
-              "procurement/local-partners-resell",
-              "procurement/shipping-countries",
-              "procurement/manage-shipments"
+              {
+                "group": "Global Purchasing",
+                "pages": [
+                  "procurement/why-buy-with-primo",
+                  "procurement/shipping-countries",
+                  "mdm/zero-touch/device-orders-zero-touch",
+                  "procurement/returns-warranties",
+                  "procurement/applecare-enterprise",
+                  "procurement/add-products-catalog"
+                ]
+              },
+              {
+                "group": "Shipments",
+                "pages": [
+                  "procurement/manage-shipments"
+                ]
+              },
+              {
+                "group": "Partners",
+                "pages": [
+                  "procurement/local-partners-repair",
+                  "procurement/local-partners-resell"
+                ]
+              }
             ]
           },
           {

@@ -1,5 +1,5 @@
 ---
-title: "Activation Lock — Escrowing bypass codes"
+title: "Activation Lock bypass code escrow"
 description: "Rules for ensuring Activation Lock bypass codes are escrowed via MDM so devices can be recovered after a wipe or reassignment."
 ---
 
@@ -17,20 +17,20 @@ For a bypass code to be successfully escrowed in Primo, all of the following con
 4. **The MDM profile must be installed at the system level** — user-approved enrollment (without DEP/ABM) may not reliably escrow bypass codes.
 
 <Warning>
-If a device is enrolled in MDM after the user has already signed in with an Apple ID and enabled Find My, **the bypass code will not be escrowed**. The only recovery option is the user's Apple ID credentials.
+  If a device is enrolled in MDM after the user has already signed in with an Apple ID and enabled Find My, **the bypass code will not be escrowed**. The only recovery option is the user's Apple ID credentials.
 </Warning>
 
 ## Check bypass code availability in Primo
 
-1. Go to **Devices > All Devices**.
+1. Go to **Devices \> All Devices**.
 2. Open the relevant device record.
 3. Scroll to the **Compliance** section.
 4. Check the **iCloud Lock** status:
-   - ✅ *Enabled* — the bypass code is available and escrowed.
-   - ❌ *Missing bypass code* — no code was backed up; the original Apple ID is required.
+   - ✅ _Enabled_ — the bypass code is available and escrowed.
+   - ❌ _Missing bypass code_ — no code was backed up; the original Apple ID is required.
 
 <Tip>
-Run a regular audit of devices showing **Missing bypass code** to identify machines that may be unrecoverable after a wipe. Prioritize re-enrolling these devices via ABM if possible.
+  Run a regular audit of devices showing **Missing bypass code** to identify machines that may be unrecoverable after a wipe. Prioritize re-enrolling these devices via ABM if possible.
 </Tip>
 
 ## Use the bypass code
