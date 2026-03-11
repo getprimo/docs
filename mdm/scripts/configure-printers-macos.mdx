@@ -5,7 +5,7 @@ description: "Learn how to configure IPP printers on macOS devices using Primo b
 
 This article explains how to configure IPP printers on macOS devices using Primo. The process involves discovering the printers available on the network, identifying their IP addresses, and importing the configuration into Primo via a custom MDM setting.
 
-# Scan IPP printers on the network
+## Scan IPP printers on the network
 
 *If you already know your printer config, you can skip this part.*
 
@@ -18,7 +18,7 @@ ippfind
 
 3. **Note** the list of discovered printers and their IPP URIs.
 
-# Identify the printer IP addresses
+## Identify the printer IP addresses
 
 *If you already know your printer config, you can skip this part.*
 
@@ -32,7 +32,7 @@ Replace `[printer-hostname]` with the actual hostname displayed by ippfind
 
 2. Record the IP addresses and corresponding IPP URIs.
 
-# Generate the mobileconfig file
+## Generate the mobileconfig file
 
 If you need help generating the mobileconfig file with ippfind command and ping, you can run this script on your mac while you're connected to your office network. It will display the mobileconfig file in your terminal.
 
@@ -329,7 +329,7 @@ echo "Default Printer: ${Names[0]} (${URIS[0]})"
 cat "$OUTPUT"
 ```
 
-# Import the configuration into Primo
+## Import the configuration into Primo
 
 1. Access **MDM > Profiles.** Select the profile you want to target.
 2. Select **Add a custom MDM setting.**

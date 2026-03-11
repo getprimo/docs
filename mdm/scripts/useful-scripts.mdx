@@ -8,9 +8,9 @@ hidden: true
   All the scripts below are provided on an as-is basis. Please check their output and effects before rolling them out. We are not available to support our customers on these scripts.
 </Note>
 
-# macOS
+## macOS
 
-## Modifying all host names
+### Modifying all host names
 
 ```bash
 #!/bin/bash
@@ -53,7 +53,7 @@ echo "Hostname successfully updated!"
 echo "A reboot might be required for all changes to fully take effect."
 ```
 
-## Fix Slack Helper Tool Installation Popup due to Root Ownership
+### Fix Slack Helper Tool installation popup due to root ownership
 
 Some users may experience repeated installation popups for Slack's helper tool on macOS when Slack.app is owned by root, even after entering admin credentials. To resolve this, run the following script on the affected machine as an administrator to change ownership of Slack.app to the currently logged-in user:
 
@@ -95,9 +95,9 @@ echo "Ownership updated. Please retry launching Slack."
 SELECT 1 FROM file WHERE path LIKE '/Applications/Slack.app/%%' and uid != 0;
 ```
 
-# Windows
+## Windows
 
-## Remove USB Blocking
+### Remove USB blocking
 
 ```powershell
 # Run as Admin

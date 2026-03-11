@@ -11,7 +11,7 @@ The procedure includes:
 - Validating hardware and software requirements to determine upgrade eligibility;
 - Running an automated download and silent installation of Windows 11 on compliant devices.
 
-# 1. Classify devices with TPM and Secure Boot present
+## 1. Classify devices with TPM and Secure Boot present
 
 ## 1.1. Create the detection policy (FleetDM registry)
 
@@ -47,7 +47,7 @@ Set-ItemProperty -Path "HKLM:\Software\FleetDM" -Name "SecureBoot" -Value $Secur
 
 Expected result: `HKLM\Software\FleetDM\TPMVersion` and `HKLM\Software\FleetDM\SecureBoot` are created/updated.
 
-# 2. Assess a Windows 10 device's eligibility for Windows 11
+## 2. Assess a Windows 10 device's eligibility for Windows 11
 
 Create the following policy to validate minimum requirements (RAM, CPU cores, architecture, TPM 2.0, Secure Boot) and exclude non-compliant devices.
 
@@ -71,7 +71,7 @@ SELECT 1 FROM os_version as os JOIN system_info as si WHERE
 
 Interpretation: the query returns 1 if the device is not a compliant Windows 10. Use it as a non-compliance policy to keep only eligible devices (those for which the query does not return 1).
 
-# 3. Trigger the Windows 11 upgrade (eligible devices)
+## 3. Trigger the Windows 11 upgrade (eligible devices)
 
 Attach the deployment script below to compliant devices. It downloads the Windows 11 ISO, mounts the image, copies sources locally, and schedules a silent setup under **SYSTEM**.
 
