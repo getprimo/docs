@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "luma",
+  "theme": "almond",
   "name": "Primo Help Center",
   "colors": {
     "primary": "#51d2ef",
