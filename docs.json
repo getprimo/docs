@@ -159,6 +159,16 @@
         ]
       },
       {
+        "tab": "Changelog",
+        "icon": "newspaper",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": ["changelog/index"]
+          }
+        ]
+      },
+      {
         "tab": "Developers",
         "icon": "code",
         "groups": [
