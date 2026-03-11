@@ -186,7 +186,12 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [],
+    "links": [
+      {
+        "label": "Talk to Sales",
+        "href": "https://www.getprimo.com/request-a-demo"
+      }
+    ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
