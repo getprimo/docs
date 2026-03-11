@@ -224,7 +224,7 @@
     }
   },
   "banner": {
-    "content": "🤖 Try out our new MCP!",
+    "content": "🤖 Try out our new MCP! Head to our Developer documentation.",
     "dismissible": true
   }
 }
