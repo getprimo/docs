@@ -4,49 +4,62 @@ description: "Everything you need to manage your company's IT — devices, MDM, 
 mode: "custom"
 ---
 
+{/* ── HERO ─────────────────────────────────────────────────── */}
 <div style={{
-  background: "linear-gradient(135deg, #581C87 0%, #6B21A8 60%, #7E22CE 100%)",
-  borderRadius: "16px",
-  padding: "56px 48px",
-  marginBottom: "40px",
-  color: "white"
+  background: "#fffbf4",
+  border: "2px dashed rgba(30,9,24,0.2)",
+  borderRadius: "20px",
+  padding: "60px 52px",
+  marginBottom: "52px",
 }}>
-  <div style={{ maxWidth: "640px" }}>
-    <div style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: "8px",
-      background: "rgba(255,255,255,0.15)",
-      borderRadius: "24px",
-      padding: "6px 14px",
-      fontSize: "13px",
-      fontWeight: "600",
-      marginBottom: "20px",
-      letterSpacing: "0.02em"
-    }}>
-      ✦ Primo Help Center
-    </div>
-    <h1 style={{
-      fontSize: "40px",
-      fontWeight: "800",
-      lineHeight: "1.15",
-      margin: "0 0 16px",
-      color: "white"
-    }}>
-      How can we help you?
-    </h1>
-    <p style={{
-      fontSize: "17px",
-      lineHeight: "1.6",
-      color: "rgba(255,255,255,0.85)",
-      margin: 0
-    }}>
-      Browse the guides below to get the most out of Primo — from setting up your MDM to managing your team's equipment and SaaS tools.
-    </p>
+  <div style={{
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "6px",
+    background: "#51d2ef",
+    color: "#1e0918",
+    borderRadius: "100px",
+    padding: "5px 14px",
+    fontSize: "11px",
+    fontWeight: "700",
+    marginBottom: "22px",
+    letterSpacing: "0.07em",
+    textTransform: "uppercase",
+  }}>
+    ✦ Help Center
   </div>
+  <h1 style={{
+    fontSize: "44px",
+    fontWeight: "800",
+    lineHeight: "1.1",
+    margin: "0 0 18px",
+    color: "#1e0918",
+    letterSpacing: "-0.02em",
+  }}>
+    How can we help you?
+  </h1>
+  <p style={{
+    fontSize: "17px",
+    lineHeight: "1.7",
+    color: "rgba(30,9,24,0.55)",
+    margin: 0,
+    maxWidth: "540px",
+  }}>
+    Everything you need to manage your company's IT — from setting up MDM to managing devices, employees, procurement, and SaaS.
+  </p>
 </div>
 
-## Get Started
+{/* ── GET STARTED ───────────────────────────────────────────── */}
+<div style={{ marginBottom: "8px" }}>
+  <p style={{
+    fontSize: "11px",
+    fontWeight: "700",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    color: "rgba(30,9,24,0.4)",
+    margin: "0 0 16px",
+  }}>Get Started</p>
+</div>
 
 <CardGroup cols={2}>
   <Card
@@ -79,7 +92,17 @@ mode: "custom"
   </Card>
 </CardGroup>
 
-## Mobile Device Management (MDM)
+{/* ── MDM ───────────────────────────────────────────────────── */}
+<div style={{ marginTop: "44px", marginBottom: "8px" }}>
+  <p style={{
+    fontSize: "11px",
+    fontWeight: "700",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    color: "rgba(30,9,24,0.4)",
+    margin: "0 0 16px",
+  }}>Mobile Device Management</p>
+</div>
 
 <CardGroup cols={2}>
   <Card
@@ -126,7 +149,17 @@ mode: "custom"
   </Card>
 </CardGroup>
 
-## Other Features
+{/* ── OTHER FEATURES ────────────────────────────────────────── */}
+<div style={{ marginTop: "44px", marginBottom: "8px" }}>
+  <p style={{
+    fontSize: "11px",
+    fontWeight: "700",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    color: "rgba(30,9,24,0.4)",
+    margin: "0 0 16px",
+  }}>More Features</p>
+</div>
 
 <CardGroup cols={3}>
   <Card
@@ -152,21 +185,64 @@ mode: "custom"
   </Card>
 </CardGroup>
 
----
-
-<CardGroup cols={2}>
-  <Card
-    title="Contact support"
-    icon="headset"
-    href="mailto:support@getprimo.com"
-  >
-    Our team is here to help — reach out anytime.
-  </Card>
-  <Card
-    title="Open your dashboard"
-    icon="arrow-up-right-from-square"
-    href="https://app.getprimo.com"
-  >
-    Jump straight into the Primo cockpit.
-  </Card>
-</CardGroup>
+{/* ── FOOTER CTA ────────────────────────────────────────────── */}
+<div style={{
+  marginTop: "52px",
+  background: "#1e0918",
+  borderRadius: "20px",
+  padding: "40px 48px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  gap: "24px",
+  flexWrap: "wrap",
+}}>
+  <div>
+    <p style={{
+      fontSize: "18px",
+      fontWeight: "700",
+      color: "#ffffff",
+      margin: "0 0 6px",
+    }}>
+      Still need help?
+    </p>
+    <p style={{
+      fontSize: "14px",
+      color: "rgba(255,255,255,0.55)",
+      margin: 0,
+    }}>
+      Our team is ready to help — reach out anytime.
+    </p>
+  </div>
+  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+    <a href="mailto:support@getprimo.com" style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "8px",
+      background: "#51d2ef",
+      color: "#1e0918",
+      borderRadius: "100px",
+      padding: "10px 22px",
+      fontSize: "14px",
+      fontWeight: "700",
+      textDecoration: "none",
+    }}>
+      Contact support
+    </a>
+    <a href="https://app.getprimo.com" style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "8px",
+      background: "rgba(255,255,255,0.1)",
+      color: "#ffffff",
+      borderRadius: "100px",
+      padding: "10px 22px",
+      fontSize: "14px",
+      fontWeight: "700",
+      textDecoration: "none",
+      border: "1px solid rgba(255,255,255,0.15)",
+    }}>
+      Open dashboard ↗
+    </a>
+  </div>
+</div>

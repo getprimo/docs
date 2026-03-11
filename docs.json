@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "Primo Help Center",
   "colors": {
-    "primary": "#6B21A8",
-    "light": "#A855F7",
-    "dark": "#581C87"
+    "primary": "#51d2ef",
+    "light": "#68E4FF",
+    "dark": "#1e0918"
   },
   "favicon": "/favicon.svg",
   "navigation": {
