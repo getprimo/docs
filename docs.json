@@ -47,7 +47,7 @@
                 ]
               },
               {
-                "group": "Enrolling & Migrating your devices",
+                "group": "Enrollments & Migrations",
                 "pages": [
                   "mdm/rollout/invite-employees",
                   "mdm/rollout/device-assignment",
@@ -71,9 +71,7 @@
                 "pages": [
                   "mdm/policies/manage-apps-laptop",
                   "mdm/policies/manage-apps-smartphone",
-                  "mdm/policies/deploy-vpp-applications",
-                  "mdm/scripts/apps-installation-library",
-                  "mdm/scripts/configure-printers-macos"
+                  "mdm/policies/deploy-vpp-applications"
                 ]
               },
               {
@@ -187,7 +185,12 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [],
+    "links": [
+      {
+        "label": "Talk to Sales",
+        "href": "https://www.getprimo.com/request-a-demo"
+      }
+    ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
