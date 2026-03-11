@@ -1,0 +1,229 @@
+---
+title: "Changelog"
+description: "The latest product updates from Primo"
+---
+
+<Update label="February 18, 2026" tags={["Procurement"]}>
+  ## Accessories improvements
+
+  Accessories management just got a major upgrade in Primo.
+
+  You can now manage accessories with much more flexibility, better tracking, and smoother workflows across your inventory.
+
+  Take a look at what's new:
+
+  - Upload and export accessories via CSV
+  - Create custom views using filters
+  - More settings and display options across the Accessories section
+  - Improved tag management for easier organization
+  - A new "Other" accessory type for custom items
+  - Quantity tracking for shared accessories
+  - Condition tracking to keep your inventory accurate over time
+
+  This update makes it much easier to maintain a clean, reliable accessories inventory as your fleet grows.
+</Update>
+
+<Update label="February 15, 2026" tags={["MDM"]}>
+  ## MDM Updates: smoother onboarding and more Linux controls
+
+  We shipped a few highly requested improvements to MDM in Primo.
+
+  ### OS updates are no longer forced during Zero Touch Deployment
+
+  During ZTD, OS updates will no longer be triggered automatically. Employees can now go through device setup without interruptions, and update their computer when it makes sense for them.
+
+  This makes onboarding faster, smoother, and much less frustrating on day one.
+
+  ### More Linux MDM Controls
+
+  We also expanded Linux support with new Controls, including:
+
+  - USB blocking
+  - WiFi configuration
+
+  And this is just the start — more Linux and Android controls are coming soon!
+</Update>
+
+<Update label="February 11, 2026" tags={["MDM", "Software"]}>
+  ## Software Management & App Patching in Primo
+
+  You can now manage software directly in Primo, without switching tools. This update brings two things: a clearer view of what's installed across your fleet, and a brand new way to keep apps up to date.
+
+  ### App patching
+
+  Primo now lets you enable **auto-patching per app**, so updates are handled automatically. From any software page, you can turn on patching to:
+
+  - keep installers up to date
+  - automatically roll out new versions
+  - use install scripts when needed
+
+  It makes it much easier to stay secure and reduce manual update work.
+
+  ### Install apps from Primo
+
+  You can also deploy new apps directly from Primo. We currently support **Fleet Maintained Apps** on **macOS and Windows**, with control over:
+
+  - targeting (device groups, specific devices, or all devices)
+  - self service availability
+  - install scripts
+
+  ### See what's installed, at a glance
+
+  Finally, the Software section now shows what's installed and where, with versions, filtering, and custom views to track the apps that matter most.
+
+  *Coming soon*: custom packages, and App Store apps for iOS, iPadOS, and Android.
+</Update>
+
+<Update label="December 18, 2025" tags={["MDM"]}>
+  ## MDM Controls and Software Management
+
+  We just made a major upgrade to how device management works in Primo.
+
+  ### MDM policies are now Controls
+
+  MDM policies are now called **Controls**, with a dedicated space in Primo. The goal is simple: make policies easier to find, easier to understand, and easier to manage at scale. We also simplified naming:
+
+  - Profiles are now **Device Groups**
+  - Installed Apps is now **Software**
+
+  ### Target devices directly, without profile gymnastics
+
+  The biggest change is targeting. Instead of relying on MDM Profiles, you can now assign Controls **directly to devices**.
+
+  Create a Control based on the platform, configure it once, then choose where it applies:
+
+  - a device group
+  - specific devices
+  - or your entire fleet
+
+  This makes rollouts faster, clearer, and much easier to reason about.
+
+  ### One place to see every policy deployed
+
+  You now get a single view of all Controls applied across your fleet, so you can quickly answer: what is deployed, where, and to whom?
+
+  ### Duplicate policies with confidence
+
+  Duplicating a policy was possible before, but it is now much more obvious and frictionless. It is the fastest way to reuse a setup and adapt it for another group or exception case.
+
+  ### Profiles become Device Groups
+
+  We are also simplifying the structure:
+
+  - MDM Profiles are moving to **Controls**
+  - Profiles are becoming **Device Groups**
+
+  Device Groups are now what they should have always been: a clean way to organize your fleet, not a requirement just to deploy policies.
+
+  ### Installed Apps becomes Software
+
+  Installed Apps is now **Software**, with a clearer experience and a dedicated section.
+
+  This is the first step in bringing more of Fleet's software management capabilities into Primo, so you can manage software with the same level of clarity as devices and policies.
+</Update>
+
+<Update label="December 10, 2025" tags={["SaaS"]}>
+  ## Tags for SaaS
+
+  Make your SaaS directory easier to navigate and act on with tags!
+
+  Tags are now available on all SaaS apps Primo discovers through SaaS Mapping and the Chrome extension. You can add and edit tags manually to group tools by team, owner, sensitivity, risk level, and more.
+
+  If you want Primo to do this for you, you can enable AI auto-tagging in **Settings > SaaS tab**. Primo will then review your existing and newly discovered apps and automatically apply the most relevant tags.
+
+  Once your apps are tagged, you can filter by tag, create focused views for audits or renewals, and spot security risks much faster.
+</Update>
+
+<Update label="November 17, 2025" tags={["SaaS"]}>
+  ## SaaS Mapping and Chrome Extension
+
+  Get a clear view of all the SaaS apps and work identities used across your company.
+
+  SaaS Mapping is now available. It shows every SaaS app accessed with a company email through Google Workspace. If you need more coverage, you can add the new Chrome extension. It maps all work identities used with a company email, even when users are not signing in with Google.
+
+  SaaS Mapping is enabled by default if you connected Google Workspace. You can deploy the Chrome extension through an MDM profile using the Chrome MDM Policy.
+
+  This feature is available for all organizations with an active SaaS Management subscription.
+
+  Primo only focuses on work-related SaaS usage. No personal accounts, no browsing data, and no content are collected.
+</Update>
+
+<Update label="November 4, 2025" tags={["Automation"]}>
+  ## Onboarding Autopilot
+
+  Set it once, schedule the date, and Primo runs your onboardings end to end with a final review.
+
+  Define recurring settings once, including email creation, default apps, and access groups. For each hire, pick the date and Primo generates a run you can review and adjust. On the scheduled day, Primo provisions accounts, creates mailboxes, applies access, then records outcomes.
+
+  Equipment shipment remains manual, with automated procurement coming soon.
+
+  Keep everything in one place to cut handoffs and speed up day one.
+</Update>
+
+<Update label="September 3, 2025" tags={["Feature"]}>
+  ## Remote Assistance via RustDesk
+
+  One-click remote access for faster troubleshooting.
+
+  Enable RustDesk in a profile to auto-install the agent on targeted devices. Start secure sessions directly from a device page without asking users for codes or passwords. Sessions inherit your access controls and are logged for audit.
+
+  Use this to diagnose issues in real time and cut back-and-forth emails. It is especially useful for onboarding, remote staff, and incidents that need quick hands-on help.
+</Update>
+
+<Update label="August 12, 2025" tags={["Feature"]}>
+  ## MDM Audit Trail
+
+  See every device action with full traceability.
+
+  Get a chronological timeline of MDM actions across all devices. Filter by device, action type, or date to confirm policy changes, debug issues, and satisfy audits. Each entry shows what happened, who triggered it, and the result, with links back to the device or policy.
+
+  Use exports to share evidence with auditors or vendors. The audit trail closes the loop between a change request and what actually happened.
+</Update>
+
+<Update label="August 4, 2025" tags={["Feature"]}>
+  ## SentinelOne Integration
+
+  Deploy endpoint protection across your fleet in one click.
+
+  Connect your SentinelOne tenant in Primo and auto-deploy S1 to every managed device. New machines get protected on enrollment, reducing gaps from ad hoc installs. Device status and coverage appear in one view so you can spot stragglers quickly.
+
+  Policies remain in SentinelOne while deployment and tracking live in Primo, keeping responsibilities clean. This integration helps standardize security as you scale.
+</Update>
+
+<Update label="July 31, 2025" tags={["Feature"]}>
+  ## AI Automations: Smooth, Effortless Management
+
+  AI Automations go beyond simple task delegation by automating your routine processes in the background, with no intervention needed from you. While Uno reacts to specific requests, Automations handle ongoing tasks automatically, based on your defined rules.
+
+  For instance, in addition to having Uno send a reminder to a user who's late on updates, you can set up an Automation to send reminders to all relevant users on a regular basis, without lifting a finger. Likewise, once Uno configures an MDM setting for you, let Automations take over and apply the new settings across all devices in your organization automatically.
+
+  *Here's how you can start using them:*
+
+  - **Regular Audits**: "Generate a monthly report of all non-compliant devices."
+  - **Automated Alerts**: "Email me every time a device falls out of compliance with our MDM policies." / "Send reminder emails to employees who haven't registered their devices after 7 days."
+  - **Device Tracking**: "Email me monthly with a list of devices that have exceeded 80% CPU usage over the last 7 days, or whose batteries have passed 10,000 cycles."
+</Update>
+
+<Update label="July 20, 2025" tags={["Feature"]}>
+  ## Uno: Your New Conversational Assistant
+
+  Uno is no longer just a tool — it's your personal IT assistant. With just a click from the menu bar, you can start a chat and instantly tell it exactly what you need. Whether it's creating a custom MDM configuration, sending automatic reminder emails to employees who are behind on updates, or generating PDF reports on security or inventory, Uno is here to automate your most time-consuming tasks.
+
+  In just seconds, Uno can execute actions without the need for complex menus or manual steps. Think of it as an extra assistant, always available to handle repetitive and critical tasks, giving you more time to focus on what truly matters.
+
+  *Here's how you can start using it:*
+
+  - **Quick Audit**: "Show me all non-compliant devices" and receive the report instantly.
+  - **Executive Report**: "Generate a PDF combining inventory, compliance, and fleet health status."
+  - **MDM Configuration**: "Install this app on my iOS devices."
+  - **Automated Reminders**: "Send an email to all employees who haven't enrolled yet or are overdue on updates."
+  - **Help**: "How do I change the names of computers in my fleet?"
+</Update>
+
+<Update label="July 7, 2025" tags={["Feature"]}>
+  ## Smart Device Assignment
+
+  With the power of AI, Primo automatically assigns each computer to the right employee, using accurate, real-time data. The AI examines open sessions, connection history, previous owners, and other key data points to precisely determine which device belongs to whom — all while ensuring data privacy is maintained.
+
+  Say goodbye to misassignments and errors: this feature reduces the risk of mistakes, streamlines inventory management, and saves you valuable time. No more manual checks for each device. Simply activate this option directly from Primo's MDM settings!
+</Update>
