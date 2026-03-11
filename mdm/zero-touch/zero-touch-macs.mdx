@@ -3,15 +3,15 @@ title: "Zero-Touch Deployment for Macs (ABM)"
 description: "Set up Apple Business Manager with Primo to enable automatic enrollment and configuration of Mac devices — including migrating Macs between MDM servers using macOS Sequoia/Tahoe."
 ---
 
-This article explains how to connect Apple Business Manager (ABM) to Primo to enable Zero Touch deployment for Apple devices. It also covers how to migrate Macs from one MDM to another using ABM — a capability introduced with macOS Sequoia and expanded in macOS Tahoe.
+This article explains how to connect Apple Business Manager (ABM) to enable Zero Touch deployment for Apple devices. It also covers how to migrate Macs from one MDM to another using ABM — a capability introduced with macOS Sequoia and expanded in macOS Tahoe.
 
-## Understand the role of ABM in Primo
+## Understand the role of ABM
 
 Apple Business Manager is an Apple web portal that allows organizations to manage and deploy Apple devices (iPhone, iPad, Mac, Apple TV) from a centralized location.
 
 <Note>
-When Apple Business Manager is connected to Primo MDM, devices purchased through authorized resellers can be:
-- automatically enrolled in Primo,
+When Apple Business Manager is connected, devices purchased through authorized resellers can be:
+- automatically enrolled,
 - preconfigured during the initial setup,
 - secured according to the policies defined in the Primo Cockpit.
 
@@ -20,10 +20,10 @@ This process is referred to as **Zero Touch Deployment**.
 
 ## Prerequisites
 
-Before connecting Apple Business Manager to Primo, make sure that:
+Before connecting Apple Business Manager, make sure that:
 
 - You have an **Apple Business Manager administrator account**.
-- You have **administrator access in Primo**.
+- You have **administrator access**.
 - Your organization has a **valid D-U-N-S number**.
 
 ## If you do not have an ABM account: Create an ABM account
@@ -61,17 +61,17 @@ Make sure your email system allows messages from `apple.com` domains.
 
 An additional validation step may be required through AppleCare at **0805 540 758**.
 
-## Connect Apple Business Manager to Primo
+## Connect Apple Business Manager
 
 Once your Apple Business Manager account is validated:
 
-1. Sign in to Primo
+1. Sign in to the cockpit
 2. Go to **Integrations**
 3. Select **Apple Business Manager**
-4. Follow the on-screen instructions to connect ABM to Primo
+4. Follow the on-screen instructions to connect ABM
 5. Confirm that synchronization is active
 
-After the integration is complete, Apple devices associated with your organization can be automatically enrolled in Primo.
+After the integration is complete, Apple devices associated with your organization can be automatically enrolled.
 
 ## Obtain an Apple device eligible for Zero-Touch Deployment
 
@@ -83,7 +83,7 @@ When devices are purchased through Primo and your Zero-Touch setup is complete i
 
 - Devices are automatically linked to your Apple Business Manager account
 - No manual configuration is required
-- Devices are immediately eligible for Zero Touch deployment in Primo
+- Devices are immediately eligible for Zero Touch deployment
 
 This is the recommended option to ensure a seamless and fully automated setup.
 
@@ -96,7 +96,7 @@ In this case, make sure that:
 - The reseller is **Apple-authorized**
 - The reseller correctly assigns the devices to your **Apple Business Manager account** at the time of purchase
 
-Once assigned to ABM, the devices become available for enrollment in Primo and can be deployed using Zero Touch.
+Once assigned to ABM, the devices become available for enrollment and can be deployed using Zero Touch.
 
 ## Add devices manually using Apple Configurator for Mac
 
@@ -105,7 +105,7 @@ If a device was not purchased through Primo or an eligible reseller, you can add
 For detailed instructions, refer to Apple's official documentation:
 [Apple – Add devices to Apple Business Manager using Apple Configurator](https://support.apple.com/fr-fr/guide/apple-business-manager/axm200a54d59/web)
 
-Once added to Apple Business Manager, the device can be assigned to Primo and deployed using Zero Touch.
+Once added to Apple Business Manager, the device can be assigned and deployed using Zero Touch.
 
 ## Employee experience on first startup
 
@@ -115,7 +115,7 @@ When a new employee receives an Apple device configured with ABM and Primo:
 2. Select country, language, and keyboard settings
 3. Connect to the internet
 4. The **Remote Management** screen appears
-5. The employee signs in using their email address (the employee must already be onboarded in Primo)
+5. The employee signs in using their email address (the employee must already be onboarded)
 6. Security settings and applications defined in the Primo Cockpit are automatically applied
 
 The device is ready to use without any additional manual configuration.
@@ -133,7 +133,7 @@ Previously, migrating a Mac from one MDM to another required:
 2. Re-enrolling from scratch
 
 With ABM-based MDM reassignment, you can:
-- Move Macs from a previous MDM (e.g. Jamf, Mosyle, Kandji, Intune) to Primo without data loss
+- Move Macs from a previous MDM (e.g. Jamf, Mosyle, Kandji, Intune) without data loss
 - Avoid the disruption of a full device wipe
 - Perform bulk migrations for your entire fleet directly from the ABM console
 
@@ -144,11 +144,11 @@ With ABM-based MDM reassignment, you can:
 - Administrator access to Apple Business Manager
 - The destination MDM server (Primo) must already be connected to ABM
 
-## How to reassign Macs to Primo via ABM
+## How to reassign Macs via ABM
 
 1. Sign in to [Apple Business Manager](https://business.apple.com/).
 2. Go to **Devices**.
-3. Select the Mac(s) you want to migrate to Primo.
+3. Select the Mac(s) you want to migrate.
 4. Click **Edit MDM Server**.
 5. Select your **Primo MDM server** as the destination.
 6. Confirm the assignment.

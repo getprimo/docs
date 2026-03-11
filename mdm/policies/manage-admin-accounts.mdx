@@ -1,6 +1,6 @@
 ---
 title: "Manage administrator accounts"
-description: "Utilize the Admin user management policy to deploy and manage administrator accounts on your devices, enabling features like password storage in Primo and the adjustment of existing user privileges while adhering to best practices for security and avoiding policy conflicts."
+description: "Utilize the Admin user management policy to deploy and manage administrator accounts on your devices, enabling features like password storage and the adjustment of existing user privileges while adhering to best practices for security and avoiding policy conflicts."
 ---
 
 Deploy and manage local administrator accounts across your fleet from a single policy. Primo can create admin sessions with random or fixed passwords (stored securely in the platform), optionally reduce the privileges of other existing accounts, and let you perform fine-grained account operations at the individual device level.
@@ -50,7 +50,7 @@ After activation on a profile, the policy cannot be edited directly.
 </Warning>
 
 - To update it, disable the policy and then re-enable it with new settings.
-- Disabling the policy stops its enforcement but does **not** delete the Primo administrator account or its password, which remain available in Primo.
+- Disabling the policy stops its enforcement but does **not** delete the administrator account or its password, which remain available.
 
 ## On macOS
 
@@ -62,7 +62,7 @@ Currently, it is not possible to remove administrator rights from an account if 
 
 ## On Windows
 
-The policy creates a local administrator account and stores the password in Primo. Password options (random or fixed) and privilege reduction for other accounts work the same way as on macOS.
+The policy creates a local administrator account and stores the password. Password options (random or fixed) and privilege reduction for other accounts work the same way as on macOS.
 
 ## Special cases
 

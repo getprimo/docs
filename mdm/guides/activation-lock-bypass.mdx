@@ -13,10 +13,10 @@ Activation Lock prevents unauthorized use of an Apple device after a factory res
 
 ## Rules for escrowing bypass codes
 
-For a bypass code to be successfully escrowed in Primo, all of the following conditions must be met:
+For a bypass code to be successfully escrowed, all of the following conditions must be met:
 
 1. **The device must be supervised via MDM** — unsupervised devices cannot escrow bypass codes.
-2. **The device must be enrolled in Primo before Activation Lock is enabled** — if a user activates Find My before MDM enrollment, the bypass code will not be available.
+2. **The device must be enrolled before Activation Lock is enabled** — if a user activates Find My before MDM enrollment, the bypass code will not be available.
 3. **The device must be a company-owned device** — personally-owned (BYOD) devices are not eligible for bypass code escrow.
 4. **The MDM profile must be installed at the system level** — user-approved enrollment (without DEP/ABM) may not reliably escrow bypass codes.
 
@@ -24,7 +24,7 @@ For a bypass code to be successfully escrowed in Primo, all of the following con
   If a device is enrolled in MDM after the user has already signed in with an Apple ID and enabled Find My, **the bypass code will not be escrowed**. The only recovery option is the user's Apple ID credentials.
 </Warning>
 
-## Check bypass code availability in Primo
+## Check bypass code availability
 
 1. Go to **Devices > All Devices**.
 2. Open the relevant device record.
@@ -39,7 +39,7 @@ For a bypass code to be successfully escrowed in Primo, all of the following con
 
 ## On macOS
 
-Retrieve the bypass code from the device record in Primo, then:
+Retrieve the bypass code from the device record, then:
 
 - **macOS Catalina (10.15) and later:** on the Activation Lock screen, click the question mark next to the Apple ID field, select **Bypass activation lock**, and enter the code.
 - **macOS Mojave (10.14) and earlier:** enter the bypass code directly in the password field on the Activation Lock screen.
@@ -48,6 +48,6 @@ The bypass code is case-sensitive and is generally single-use per device.
 
 ## On iOS / iPadOS
 
-For iOS and iPadOS devices, retrieve the bypass code from the device record in Primo and enter it on the Activation Lock screen when prompted during device setup after a wipe.
+For iOS and iPadOS devices, retrieve the bypass code from the device record and enter it on the Activation Lock screen when prompted during device setup after a wipe.
 
 The bypass code is case-sensitive and is generally single-use per device.
