@@ -228,6 +228,7 @@
     "dismissible": true
   },
   "fonts": {
-    "family": "Open Sans"
+    "family": "Open Sans",
+    "weight": 400
   }
 }
