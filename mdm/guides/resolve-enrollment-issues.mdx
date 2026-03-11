@@ -54,14 +54,27 @@ Possible causes:
 - **The device was accidentally removed from MDM management**
   - If the `turn off mdm` action was executed from FleetDM on the device.
 
-## Identifying Partially Enrolled Devices
+## Enrollment statuses
+
+In your Primo cockpit, a device's enrollment status indicates the current state and any issues. The following statuses are available:
+
+| Status | Meaning |
+|---|---|
+| **Enrolled** | The device is fully enrolled and the MDM agent is active. |
+| **Partially enrolled** | Enrollment started but was not completed. |
+| **Missing agent** | The FleetDM agent is no longer communicating with the server. |
+| **Missing profile** | The MDM profile is absent or inactive on the device (macOS only). |
+| **Enrolled in another MDM** | The device is currently managed by a different MDM. |
+| **Pending** | Enrollment invitation sent; waiting for the employee to start installation. |
+| **Offline** | The device has not communicated with the MDM server recently. |
+
+A device that appears **offline** even though it is in active use typically indicates a missing agent or network issue.
+
+## Identifying partially enrolled devices
 
 In your Primo cockpit, you can identify partially enrolled devices in two ways:
 
-1. The device's enrollment status provides insights into potential errors:
-   - **Missing agent**
-   - **Missing profile**
-   - **Enrolled in another MDM**
+1. The device's enrollment status shows one of the error states listed above.
 2. The device appears **offline** even though it is actively used by an employee.
 
 ## Troubleshooting
