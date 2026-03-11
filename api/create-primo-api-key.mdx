@@ -1,0 +1,31 @@
+---
+title: "Creating API keys for Primo"
+description: "Generate a Primo API key to authenticate requests to the Primo REST API."
+---
+
+Primo API keys are used to authenticate requests to the [Primo REST API](/api-reference). Each key is scoped to your company workspace.
+
+## Generate an API key
+
+1. Go to **Settings** > **API**.
+2. Click **Create API key**.
+3. Give the key a name (e.g. "My integration").
+4. Click **Create**.
+5. Copy the key immediately — it will not be shown again.
+
+<Warning>
+Store your API key securely. Anyone with this key can access your Primo workspace via the API.
+</Warning>
+
+## Use the API key
+
+Pass the key in the `Authorization` header of your requests:
+
+```bash
+curl https://api.getprimo.com/v1/devices \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Revoke a key
+
+To revoke a key, go to **Settings** > **API**, find the key, and click **Delete**.

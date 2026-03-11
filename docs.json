@@ -19,7 +19,6 @@
               "index",
               "get-started/grant-admin-access",
               "get-started/quality-onboarding",
-              "get-started/primo-mcp-server",
               "get-started/billing/view-invoices",
               "get-started/billing/paying-with-sepa",
               "get-started/billing/update-billing"
@@ -149,7 +148,20 @@
       },
       {
         "tab": "Public API",
-        "openapi": "https://api.getprimo.com/openapi.json"
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "api/create-primo-api-key",
+              "api/create-fleet-api-key",
+              "get-started/primo-mcp-server"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "openapi": "https://api.getprimo.com/openapi.json"
+          }
+        ]
       }
     ]
   },
