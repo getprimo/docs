@@ -160,12 +160,9 @@
       },
       {
         "tab": "Changelog",
-        "icon": "newspaper",
-        "groups": [
-          {
-            "group": "Changelog",
-            "pages": ["changelog/index"]
-          }
+        "icon": "megaphone",
+        "pages": [
+          "changelog/index"
         ]
       },
       {
