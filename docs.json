@@ -9,132 +9,115 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Blog",
-          "icon": "newspaper",
-          "href": "https://www.getprimo.com/blog"
-        },
-        {
-          "anchor": "Support",
-          "icon": "headset",
-          "href": "mailto:support@getprimo.com"
-        }
-      ]
-    },
     "tabs": [
       {
         "tab": "Help Center",
         "groups": [
           {
-            "group": "Get Started with Primo",
+            "group": "Getting Started",
             "pages": [
               "index",
-              "get-started/import-your-equipment",
               "get-started/grant-admin-access",
               "get-started/quality-onboarding",
-              "get-started/primo-mcp-server"
-            ]
-          },
-          {
-            "group": "Billing & Subscription",
-            "pages": [
+              "get-started/primo-mcp-server",
               "get-started/billing/view-invoices",
               "get-started/billing/paying-with-sepa",
               "get-started/billing/update-billing"
             ]
           },
           {
-            "group": "MDM — Getting Started",
+            "group": "Importing your employees",
             "pages": [
-              "mdm/get-started/introduction-to-mdm",
-              "mdm/get-started/supported-platforms",
-              "mdm/get-started/set-up-apn-certificate",
-              "mdm/get-started/migrate-from-another-mdm",
-              "mdm/get-started/set-up-okta",
-              "mdm/get-started/secure-token"
-            ]
-          },
-          {
-            "group": "MDM — Roll Out to Your Employees",
-            "pages": [
-              "mdm/rollout/mdm-rollout-resources",
-              "mdm/rollout/invite-employees",
-              "mdm/rollout/employee-mdm-installation",
-              "mdm/rollout/device-assignment",
-              "mdm/rollout/faq"
-            ]
-          },
-          {
-            "group": "MDM — Set Up Your Policies",
-            "pages": [
-              "mdm/policies/manage-apps-laptop",
-              "mdm/policies/manage-apps-smartphone",
-              "mdm/policies/deploy-vpp-applications",
-              "mdm/policies/password-policy",
-              "mdm/policies/disk-encryption",
-              "mdm/policies/remote-management",
-              "mdm/policies/manage-admin-accounts",
-              "mdm/policies/manage-windows-home",
-              "mdm/policies/change-local-password"
-            ]
-          },
-          {
-            "group": "MDM — Zero-Touch Deployment",
-            "pages": [
-              "mdm/zero-touch/understand-zero-touch",
-              "mdm/zero-touch/zero-touch-macs",
-              "mdm/zero-touch/zero-touch-windows",
-              "mdm/zero-touch/fleetdm-azure-portal",
-              "mdm/zero-touch/device-orders-zero-touch",
-              "mdm/zero-touch/eligible-devices-ztd"
-            ]
-          },
-          {
-            "group": "MDM — Deploy Endpoint Protection",
-            "pages": [
-              "mdm/endpoint-protection/sentinelone",
-              "mdm/endpoint-protection/crowdstrike-falcon"
-            ]
-          },
-          {
-            "group": "MDM — Scripts, Queries & Policies",
-            "pages": [
-              "mdm/scripts/fleetdm-guide",
-              "mdm/scripts/osquery-library",
-              "mdm/scripts/apps-installation-library",
-              "mdm/scripts/custom-windows-policies",
-              "mdm/scripts/useful-scripts",
-              "mdm/scripts/configure-printers-macos",
-              "mdm/scripts/cis-benchmarks"
-            ]
-          },
-          {
-            "group": "MDM — Guides & Resources",
-            "pages": [
-              "mdm/guides/device-lost-stolen",
-              "mdm/guides/activation-lock-bypass",
-              "mdm/guides/track-mac-location",
-              "mdm/guides/resolve-enrollment-issues",
-              "mdm/guides/os-updates-employee-experience",
-              "mdm/guides/remove-mdm-manually",
-              "mdm/guides/resolve-login-issue",
-              "mdm/guides/upgrade-windows-11",
-              "mdm/guides/uninstall-application",
-              "mdm/guides/bootable-usb-windows"
-            ]
-          },
-          {
-            "group": "Manage Your Employees",
-            "pages": [
+              "get-started/import-your-equipment",
               "employees/connect-hris",
               "employees/import-via-csv",
               "employees/change-collaborator-computer"
             ]
           },
           {
-            "group": "IT Procurement",
+            "group": "Device Management",
+            "pages": [
+              {
+                "group": "Initial Setup",
+                "pages": [
+                  "mdm/get-started/introduction-to-mdm",
+                  "mdm/get-started/supported-platforms",
+                  "mdm/get-started/set-up-apn-certificate",
+                  "mdm/get-started/set-up-okta",
+                  "mdm/get-started/secure-token"
+                ]
+              },
+              {
+                "group": "Enrolling & Migrating your devices",
+                "pages": [
+                  "mdm/rollout/mdm-rollout-resources",
+                  "mdm/rollout/invite-employees",
+                  "mdm/rollout/employee-mdm-installation",
+                  "mdm/rollout/device-assignment",
+                  "mdm/rollout/faq",
+                  "mdm/get-started/migrate-from-another-mdm",
+                  "mdm/zero-touch/understand-zero-touch",
+                  "mdm/zero-touch/zero-touch-macs",
+                  "mdm/zero-touch/zero-touch-windows",
+                  "mdm/zero-touch/device-orders-zero-touch",
+                  "mdm/zero-touch/eligible-devices-ztd"
+                ]
+              },
+              {
+                "group": "Controls & Policies",
+                "pages": [
+                  "mdm/policies/password-policy",
+                  "mdm/policies/disk-encryption",
+                  "mdm/policies/remote-management",
+                  "mdm/policies/manage-admin-accounts",
+                  "mdm/policies/manage-windows-home",
+                  "mdm/policies/change-local-password",
+                  "mdm/scripts/custom-windows-policies",
+                  "mdm/scripts/cis-benchmarks"
+                ]
+              },
+              {
+                "group": "Software Management",
+                "pages": [
+                  "mdm/policies/manage-apps-laptop",
+                  "mdm/policies/manage-apps-smartphone",
+                  "mdm/policies/deploy-vpp-applications",
+                  "mdm/scripts/apps-installation-library",
+                  "mdm/scripts/configure-printers-macos"
+                ]
+              },
+              {
+                "group": "User Management",
+                "pages": [
+                  "mdm/scripts/fleetdm-guide",
+                  "mdm/scripts/osquery-library",
+                  "mdm/scripts/useful-scripts"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Endpoint Protection",
+            "pages": [
+              "mdm/endpoint-protection/sentinelone",
+              "mdm/endpoint-protection/crowdstrike-falcon"
+            ]
+          },
+          {
+            "group": "Identity & SaaS Management",
+            "pages": [
+              "saas/introduction",
+              "saas/connect-apps",
+              "saas/connected-saas-properties",
+              "saas/enable-saas-mapping",
+              "saas/manage-tracked-apps",
+              "saas/ai-based-connector",
+              "saas/configure-sso",
+              "saas/licence-provisioning"
+            ]
+          },
+          {
+            "group": "Global Purchasing",
             "pages": [
               "procurement/buy-it-products",
               "procurement/add-products-catalog",
@@ -148,16 +131,18 @@
             ]
           },
           {
-            "group": "SaaS Management",
+            "group": "Guides & Resources",
             "pages": [
-              "saas/introduction",
-              "saas/connect-apps",
-              "saas/connected-saas-properties",
-              "saas/enable-saas-mapping",
-              "saas/manage-tracked-apps",
-              "saas/ai-based-connector",
-              "saas/configure-sso",
-              "saas/licence-provisioning"
+              "mdm/guides/device-lost-stolen",
+              "mdm/guides/activation-lock-bypass",
+              "mdm/guides/track-mac-location",
+              "mdm/guides/resolve-enrollment-issues",
+              "mdm/guides/os-updates-employee-experience",
+              "mdm/guides/remove-mdm-manually",
+              "mdm/guides/resolve-login-issue",
+              "mdm/guides/upgrade-windows-11",
+              "mdm/guides/uninstall-application",
+              "mdm/guides/bootable-usb-windows"
             ]
           }
         ]
