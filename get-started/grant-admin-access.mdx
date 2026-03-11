@@ -1,44 +1,66 @@
 ---
-title: "Grant administrator access to Primo"
-description: "To grant administrator rights in Primo, promote an existing collaborator via the Employees tab or import a new collaborator using CSV, ensuring they are marked with a star icon in the Employees list to identify their admin status."
+title: "Manage administrator access"
+description: "Grant, revoke, and manage administrator access to your Primo workspace from the Admin Management settings."
 ---
 
-This article explains how to grant administrator rights to your Primo cockpit. This allows them to view, configure, and manage your company's Primo workspace.
+This article explains how to manage administrator rights in your Primo cockpit. Admins can view, configure, and manage your company's entire Primo workspace.
 
-# Promote an existing collaborator to admin
+# Access the Admin Management panel
 
-1. Go to the **Employees** tab in the Primo cockpit.
-2. Search for and select the relevant collaborator.
-3. Click **Actions** in the top right corner.
-4. Select **Promote to admin**.
+Go to **Settings** > **Admin Management** to view and manage all admins in your workspace.
 
-The collaborator now has admin rights in Primo.
+From this panel you can:
+- See all current admins and their access level.
+- Grant admin rights to existing collaborators.
+- Revoke admin access.
+
+# Grant admin rights to an existing collaborator
+
+1. Go to **Settings** > **Admin Management**.
+2. Click **Add admin**.
+3. Search for and select the collaborator.
+4. Confirm.
+
+The collaborator now has admin access to Primo.
+
+<Tip>
+Alternatively, you can promote a collaborator directly from their employee profile: open the profile, click **Actions**, then select **Promote to admin**.
+</Tip>
 
 # Add a collaborator who is not yet in the cockpit
 
-If the collaborator is not listed under Employees:
+If the person is not listed under Employees, add them first:
 
 1. Go to **Settings** > **Employee Sync**.
 2. Click **Import from CSV**.
 3. Select **Or click here to copy paste table data**.
-4. Paste the following into the table:
+4. Paste the following (adapt as needed):
 
 ```
 First name,Last name,Email
 Clémentine,Cruz,support@getprimo.com
 ```
 
-*(Adapt the details as needed)*
-
 5. Complete the import. The collaborator will now appear under **Employees**.
-6. Then follow "Promote an existing collaborator to admin" to promote them to admin.
+6. Then follow the steps above to grant them admin access.
 
-# Identify admins in the cockpit
+# Revoke admin access
 
-In the Employees list, collaborators with administrator access are marked with a star icon ⭐.
+1. Go to **Settings** > **Admin Management**.
+2. Find the admin you want to remove.
+3. Click the options menu (⋯) next to their name.
+4. Select **Remove admin access**.
+
+# Admin access levels
+
+Primo supports multiple admin access levels, allowing you to control what each admin can see and configure:
+
+| Level | Description |
+|---|---|
+| **Super Admin** | Full access to all settings, billing, and user management. |
+| **Admin** | Access to device management, MDM, and employee settings. |
+| **Read-only Admin** | Can view all data but cannot make changes. |
 
 <Note>
-**Access levels**
-
-At the moment, different administrator levels are not supported. This is on our product roadmap.
+Access levels available may vary depending on your Primo plan. Contact support if you need a custom access configuration.
 </Note>
