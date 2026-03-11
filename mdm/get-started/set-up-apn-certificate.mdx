@@ -3,13 +3,13 @@ title: "Set up MDM for your Apple Devices"
 description: "To set up the APN certificate for macOS, iOS, and iPadOS, ensure you have a professional Apple ID and administrator access to Primo, then follow the steps to create and import the certificate, which is essential for enabling Apple's Push Notification service for remote device management through Primo."
 ---
 
-# Introduction
+## Introduction
 
-Apple's Push Notification service (APNs) is an essential component of Mobile Device Management (MDM) for iPhone, iPad, and Mac. It enables Primo to communicate remotely with Apple devices.
+Apple Push Notification service (APNs) is an essential component of Mobile Device Management (MDM) for iPhone, iPad, and Mac. It enables Primo to communicate remotely with Apple devices.
 
 An APNs certificate is required to activate MDM on Apple devices.
 
-# What is APN and why connect it to Primo?
+## What is APNs and why connect it to Primo?
 
 APNs serves as the official communication channel between MDMs and Apple devices.
 
@@ -22,10 +22,10 @@ Once configured, it allows Primo to:
 To use APNs, Apple requires a Push certificate that's **valid for 12 months**. This certificate verifies that your MDM is authorized to manage devices.
 
 <Tip>
-  In summary: **APN is how Primo "communicates" with Apple devices**. Its certificate must be renewed annually.
+  In summary: APNs is how Primo communicates with Apple devices. The certificate must be renewed annually.
 </Tip>
 
-# Prerequisites
+## Prerequisites
 
 Before starting, make sure you have:
 
@@ -36,7 +36,7 @@ Before starting, make sure you have:
   [**Contact Apple for help with Apple Push Notification service certificates**](https://support.apple.com/en-us/118629)
 </Note>
 
-# Create and import the APN certificate in Primo
+## Create and import the APNs certificate in Primo
 
 1. Go to **Primo Cockpit** → **Settings** → **MDM** → **Provide your APN certificate**
 2. Download the CSR (Certificate Signing Request) file
@@ -47,8 +47,8 @@ Before starting, make sure you have:
 7. Download the APN certificate
 8. Upload it to Primo
 
-Your MDM instance is now fully configured and operational!
+Your MDM instance is now fully configured and operational.
 
-# APN certificate renewal
+## APNs certificate renewal
 
 The certificate uploaded to Primo remains valid for 12 months. Primo will notify you via email and display an information banner in the cockpit when it's time to renew. Simply repeat the above steps using **the same Apple ID**.

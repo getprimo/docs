@@ -5,7 +5,7 @@ description: "CIS Benchmarks are community-developed secure configuration guides
 
 CIS Benchmarks are consensus-based secure configuration guides used to harden systems, software, and networks — an industry-recognized baseline to reduce attack surface. Use them with Primo and FleetDM to assess compliance and enforce settings across your macOS and Windows fleet.
 
-## OS Support
+## OS support
 
 | macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
@@ -66,7 +66,7 @@ Then upload the policies to your FleetDM instance:
 fleetctl apply --policies-team "Workstations" -f cis-policy-queries.yml
 ```
 
-## Where MDM tools fit (Fleet / Primo)
+## Where MDM tools fit (Fleet/Primo)
 
 Fleet exposes **policy queries** to assess CIS compliance on macOS 13+ and Windows 10+ (Enterprise).
 
@@ -74,7 +74,7 @@ Policies **do not remediate** — you still need **MDM profiles** and/or scripts
 
 ## On macOS
 
-### Disk Encryption
+### Disk encryption
 
 *This policy is templated with Primo and works for both macOS and Windows devices.*
 
@@ -84,7 +84,7 @@ Policies **do not remediate** — you still need **MDM profiles** and/or scripts
 4. Click on "Turn on setting"
 5. Finally, **confirm**.
 
-### Password policy & Automatic Screen Lock
+### Password policy and automatic screen lock
 
 Short lock timeouts and strong passwords help prevent attacks like shoulder-surfing, insider misuse, and opportunistic access on unattended laptops.
 
@@ -97,7 +97,7 @@ Short lock timeouts and strong passwords help prevent attacks like shoulder-surf
 5. Navigate to **Mac, Windows** and **iOS** tabs to configure each one.
 6. Finally, **confirm.**
 
-### Built-in Firewall
+### Built-in firewall
 
 Default-deny inbound traffic reduces the chance that a dormant service becomes a network entry point, especially on public Wi-Fi.
 
@@ -109,7 +109,7 @@ Default-deny inbound traffic reduces the chance that a dormant service becomes a
 4. Click on "turn on setting"
 5. Finally, **confirm.**
 
-### Firewall Stealth Mode
+### Firewall stealth mode
 
 Hiding from ICMP and similar probes makes devices harder to enumerate in scans and slows worm propagation.
 
@@ -161,19 +161,19 @@ Hiding from ICMP and similar probes makes devices harder to enumerate in scans a
 
 ## On Windows
 
-### Disk Encryption
+### Disk encryption
 
 *This policy is templated with Primo and works for both macOS and Windows devices.*
 
 Follow the same steps as the macOS Disk Encryption section above — the Encryption card in Primo profiles applies to both platforms.
 
-### Password policy & Automatic Screen Lock
+### Password policy and automatic screen lock
 
 *This policy is templated with Primo and works for iOS, macOS and Windows devices.*
 
 Follow the same steps as the macOS Password policy section above. Make sure to configure the **Windows** tab separately.
 
-### Built-in Firewall
+### Built-in firewall
 
 *This policy is templated with Primo and works for both macOS and Windows devices.*
 
