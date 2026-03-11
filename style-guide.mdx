@@ -1,0 +1,88 @@
+---
+title: Style guide
+description: Writing standards and conventions for Primo documentation
+---
+
+## Tone and voice
+
+Write in a **technical, straight-to-the-point, and concise** style while remaining approachable. Prioritize clarity over formality.
+
+- Use active voice and second person ("you")
+- Keep sentences short — one idea per sentence
+- Lead with the goal, then provide instructions
+- Avoid unnecessary filler words
+
+## Language conventions
+
+### Terminology
+
+| Use | Avoid |
+|-----|-------|
+| HR system | HRIS |
+| the dashboard | in Primo, to Primo |
+| device management | MDM (on first use, spell out) |
+
+### Product references
+
+Minimize mentions of "in Primo" or "to Primo." Only include the product name when:
+- Distinguishing Primo from another system
+- First mention in a document
+- The context would be unclear without it
+
+**Avoid:** "Navigate to Primo and click Settings"  
+**Prefer:** "Navigate to **Settings**"
+
+**Avoid:** "Import employees to Primo"  
+**Prefer:** "Import employees"
+
+### Acronyms
+
+Spell out acronyms on first use, followed by the abbreviation in parentheses. Use the abbreviation for subsequent mentions.
+
+**Example:** Mobile Device Management (MDM) enables remote configuration. MDM policies control device settings.
+
+## Style conventions
+
+### Headings
+
+- Use sentence case: "Set up your account" not "Set Up Your Account"
+- Use imperative verbs: "Configure SSO" not "Configuring SSO"
+- Keep headings concise and action-oriented
+
+| Avoid | Prefer |
+|-------|--------|
+| Configuring your settings | Configure settings |
+| Managing employee devices | Manage devices |
+| Understanding zero-touch | Understand zero-touch |
+| Importing via CSV | Import via CSV |
+
+### Formatting
+
+- **Bold** for UI elements: Click **Settings** > **Integrations**
+- `Code formatting` for:
+  - File names: `config.json`
+  - Commands: `mint dev`
+  - Paths: `/api/employees`
+  - Code references: `deviceId`
+- Use numbered lists for sequential steps
+- Use bullet points for non-sequential items
+
+### Article structure
+
+Follow a consistent pattern across articles:
+
+1. **Title** — Imperative verb + object (e.g., "Connect your HR system")
+2. **Description** — One-sentence summary of what the reader will accomplish
+3. **Prerequisites** — List requirements before starting (if applicable)
+4. **Steps** — Numbered instructions with clear actions
+5. **Next steps** — Link to related content (if applicable)
+
+## Quick reference
+
+| Element | Convention | Example |
+|---------|------------|---------|
+| Headings | Sentence case, imperative | "Configure disk encryption" |
+| UI elements | Bold | Click **Save** |
+| Code/commands | Backticks | Run `mint dev` |
+| Product name | Minimize usage | Omit "in Primo" when obvious |
+| Acronyms | Spell out first use | "HR system" not "HRIS" |
