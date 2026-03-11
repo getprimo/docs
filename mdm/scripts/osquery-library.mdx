@@ -56,7 +56,7 @@ SELECT
 FROM
 	curl
 WHERE
-	url = 'http://ipapi.co/json';
+	url = 'https://ipapi.co/json';
 ```
 
 # Policies
@@ -102,11 +102,217 @@ SELECT 1 FROM programs WHERE name LIKE '%application_name%';
 
 ## Detect if an app is running
 
+**Compatibility: Mac, Windows, Linux**
+
 ```sql
 SELECT
 	1
 FROM
 	processes
 WHERE
-	name LIKE '% process_name %';
+	name LIKE '%process_name%';
+```
+
+## List all installed applications
+
+### Mac
+
+**Compatibility: Mac**
+
+Returns all apps installed in `/Applications` and their bundle identifiers.
+
+```sql
+SELECT
+	name,
+	bundle_identifier,
+	bundle_short_version AS version,
+	last_opened_time
+FROM
+	apps
+ORDER BY
+	name;
+```
+
+### Windows
+
+**Compatibility: Windows**
+
+```sql
+SELECT
+	name,
+	version,
+	install_date,
+	publisher
+FROM
+	programs
+ORDER BY
+	name;
+```
+
+## Get disk encryption status
+
+**Compatibility: Mac, Windows**
+
+### Mac (FileVault)
+
+```sql
+SELECT
+	name,
+	uuid,
+	encrypted,
+	type
+FROM
+	disk_encryption;
+```
+
+### Windows (BitLocker)
+
+```sql
+SELECT
+	device_id,
+	drive_letter,
+	persistent_volume_id,
+	conversion_status,
+	protection_status
+FROM
+	bitlocker_info;
+```
+
+## Get OS version across your fleet
+
+**Compatibility: Mac, Windows, Linux**
+
+```sql
+SELECT
+	hostname,
+	os_type,
+	name AS os_name,
+	version,
+	build,
+	platform
+FROM
+	os_version
+JOIN
+	system_info;
+```
+
+## List users with admin privileges
+
+### Mac
+
+**Compatibility: Mac**
+
+Returns local users who are members of the `admin` group.
+
+```sql
+SELECT
+	u.username,
+	u.uid,
+	u.directory
+FROM
+	users u
+JOIN
+	user_groups ug ON u.uid = ug.uid
+JOIN
+	groups g ON ug.gid = g.gid
+WHERE
+	g.groupname = 'admin';
+```
+
+### Windows
+
+**Compatibility: Windows**
+
+```sql
+SELECT
+	name,
+	comment
+FROM
+	users
+WHERE
+	type = 'local'
+	AND is_hidden = '0';
+```
+
+## Check last reboot time
+
+**Compatibility: Mac, Windows, Linux**
+
+```sql
+SELECT
+	hostname,
+	datetime(last_reboot, 'unixepoch') AS last_reboot_date,
+	days_since_update
+FROM
+	uptime
+JOIN
+	system_info;
+```
+
+## Find recently installed software (last 30 days)
+
+### Mac
+
+**Compatibility: Mac**
+
+```sql
+SELECT
+	name,
+	bundle_identifier,
+	datetime(last_opened_time, 'unixepoch') AS last_opened
+FROM
+	apps
+WHERE
+	last_opened_time > (strftime('%s', 'now') - 2592000)
+ORDER BY
+	last_opened_time DESC;
+```
+
+### Windows
+
+**Compatibility: Windows**
+
+```sql
+SELECT
+	name,
+	version,
+	install_date,
+	publisher
+FROM
+	programs
+WHERE
+	install_date > strftime('%Y%m%d', date('now', '-30 days'))
+ORDER BY
+	install_date DESC;
+```
+
+## Check SentinelOne agent status
+
+**Compatibility: Mac**
+
+Returns whether the SentinelOne agent is installed and its version.
+
+```sql
+SELECT
+	name,
+	bundle_identifier,
+	bundle_short_version AS version
+FROM
+	apps
+WHERE
+	bundle_identifier LIKE 'com.sentinelone%';
+```
+
+**Compatibility: Windows**
+
+```sql
+SELECT
+	name,
+	version,
+	publisher
+FROM
+	programs
+WHERE
+	name LIKE '%SentinelOne%'
+	OR name LIKE '%Sentinel Agent%';
 ```

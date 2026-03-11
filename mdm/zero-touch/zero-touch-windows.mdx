@@ -1,69 +1,54 @@
 ---
-title: "Zero-Touch Enrollment for Windows"
-description: "Zero-Touch Enrollment for Windows streamlines the deployment of new devices by allowing employees to sign in with their Microsoft credentials for automatic configuration, provided prerequisites like administrator access and licensing are met, while also outlining setup steps and testing procedures for an efficient Autopilot experience."
+title: "Zero-Touch Deployment for Windows (Autopilot)"
+description: "Set up Windows Autopilot with Primo: configure the FleetDM application on Azure, create deployment profiles, and enable automatic device enrollment for new Windows devices."
 ---
 
-# What is it?
+Windows Autopilot gives new Windows devices an out-of-the-box setup experience. When an employee powers on a device for the first time, they sign in with their Microsoft credentials and all company apps, settings, and security policies are applied automatically — no IT intervention required.
 
-Windows Autopilot offers a seamless and simplified experience for deploying new Windows devices. With this solution, you can pre-configure your devices, eliminating the need for manual interventions during installation. Your employees will benefit from an "out-of-the-box" experience where they only need to sign in with their Microsoft business credentials for their device to be automatically configured with company applications, settings, and security policies, as configured on the Primo Cockpit.
+This article covers the full setup: from registering the FleetDM domain on Azure to creating deployment profiles and testing the Autopilot experience.
 
-Autopilot significantly reduces the time and effort needed to deploy and manage devices at scale, while ensuring immediate productivity for users.
+# Prerequisites
 
-# What are the prerequisites?
+- A Microsoft account with administrator access
+- An Entra "tenant"
+- A license that includes **Microsoft Entra ID Plan 1** (or **Plan 2**) & **Windows Autopilot**
 
-- Have a Microsoft account with administrator access
-- Have an Entra "tenant"
-- Have a license that includes **Microsoft Entra ID Plan 1** (or **Plan 2**) & **Windows Autopilot** to manage the Entra console
+The minimum license covering both features is **Enterprise Mobility + Security E3** ([compare plans](https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing)).
 
-The minimum license that includes these 2 features is the **Enterprise Mobility + Security E3** license ([https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing](https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing)).
+# Employee experience on first startup
 
-If you already have a Windows license for the person who will be managing the accounts, check if it already includes the necessary features for Autopilot using the following source, and if not, obtain an **Enterprise Mobility + Security E3** license.
+1. Power on the device
+2. Select country and language, configure keyboard layout
+3. Connect to the internet
+4. Accept FleetDM terms and conditions
+5. Sign in with Microsoft credentials (+ 2FA if enabled)
+6. Set up a PIN code and fingerprint (if supported)
+7. The workstation is ready — apps and policies defined in the Primo Cockpit are applied automatically
 
-# What happens when an employee arrives with a workstation configured with Autopilot?
+# Restrictions
 
-- Power on the device
-- Select country and language, configure keyboard language
-- Connect to Internet (WIFI password if necessary)
-- Accept FleetDM terms and conditions
-- User signs in with Microsoft credentials + Two-factor authentication if available
-- Set up a PIN code (to avoid entering password each time) and configure fingerprint if supported by the device
-- The workstation is ready to use, settings and applications defined in the Primo Cockpit are applied
+Autopilot devices use **Entra accounts** rather than local accounts. Microsoft is progressively deprecating local accounts in favor of Entra accounts.
 
-# What are the restrictions?
+The Entra administrator can configure whether users have standard or administrator account privileges. Entra users with the **Global Administrator** role are automatically administrators on all Autopilot machines they sign into.
 
-The main constraint imposed by Autopilot is the type of user account on the machine. The user does not have a "local account" on the machine, but an Entra account.
+Internet access is required during the first boot to authenticate with Entra.
 
-Local accounts seem to be increasingly deprecated by Microsoft in favor of Entra accounts.
+# How to set it up
 
-The Entra administrator can decide if users have a standard user or administrator account (or even create two Autopilot profiles associated with different user groups).
+The setup assumes your company is called ACME and uses the domain `acme.com`.
 
-Note that Entra users with the **Global Administrator** role are automatically administrators of Autopilot machines they log into.
+## Step 1 — Register the FleetDM domain and create the Fleet application on Azure
 
-Additionally, Internet access is required during the first boot of the machine to authenticate the user with Entra.
+<Note>
+This step requires coordination with Primo support. When you register the FleetDM domain in Azure, Microsoft generates a verification code that must be communicated to the Primo team. Allow up to **2 business days** for the DNS configuration to propagate before continuing.
+</Note>
 
-# How to set it up?
+You will perform three operations in the Microsoft Azure console with administrator rights:
+1. Declare the FleetDM domain as legitimate with Azure
+2. Create the Fleet application and grant it MDM permissions
+3. Set FleetDM as the default MDM for new devices (replacing Intune if applicable)
 
-The necessary steps for setting up an Autopilot pilot are described below.
-
-In the following section, we will assume your company is called ACME and operates on the domain `acme.com`.
-
-## Creating the domain and Fleet application on the Azure portal
-
-This procedure is somewhat more technical and creates a temporal dependency between the client and Primo: when the FleetDM domain is created on the client's Azure portal, a code is generated by Microsoft that must be:
-
-- communicated to Primo teams
-- added to our infrastructure configuration
-- deployed and propagated (this involves adding a DNS record)
-
-before the procedure can resume on the Azure portal side (allow approximately 2 business days after communicating the code to us).
-
-If you are currently using Intune as your MDM to manage your IT fleet and intend to switch to try FleetDM (Primo's MDM), you will need to perform a set of operations on the Microsoft Azure console, with administrative rights, to:
-
-- declare the domain used by FleetDM as legitimate with Azure (e.g. [`{company}.mdm.getprimo.com`](https://primo.mdm.getprimo.com/api/mdm/microsoft/tos))
-- create the Fleet application and give it the necessary and sufficient rights to act as MDM
-- request Azure to have new devices managed by FleetDM instead of Intune
-
-### 1. Declaring the FleetDM domain
+### 1. Declare the FleetDM domain
 
 - Sign in with an administrator account at: [Microsoft Azure](https://portal.azure.com/)
 - Search for and click on [**Domain names**](https://portal.azure.com/#view/Microsoft_AAD_IAM/DomainsList.ReactView)
@@ -73,7 +58,7 @@ If you are currently using Intune as your MDM to manage your IT fleet and intend
 - Wait for our response (2 business days at most) before continuing with the procedure
 - You can then click on **Verify**
 
-### 2. Creating the FleetDM application
+### 2. Create the FleetDM application
 
 - Sign in with an administrator account at: [Microsoft Azure](https://portal.azure.com/)
 - Search for [**Mobility (MDM and MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
@@ -86,7 +71,7 @@ If you are currently using Intune as your MDM to manage your IT fleet and intend
 - Return to [**Mobility (MDM and MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
 - Click on the **Fleet** application then on **Custom MDM application settings**
 - Click on the link below **Application ID URI** then click **Edit**
-- Enter your **Fleet** instance address ([`https://{company}.mdm.getprimo.com`](https://primo.mdm.getprimo.com/api/mdm/microsoft/tos)) and click **Save**
+- Enter your **Fleet** instance address (`https://{company}.mdm.getprimo.com`) and click **Save**
 - Choose **API permissions** then **Add a permission**
 - Click on **Microsoft Graph** then on **Delegated permissions**, then select:
   - **Group > Group.Read.All**
@@ -104,7 +89,7 @@ If you are currently using Intune as your MDM to manage your IT fleet and intend
 
 The Fleet application is now declared as a legitimate MDM with the Azure portal.
 
-### 3. Declaring FleetDM as the default MDM for new devices
+### 3. Set FleetDM as the default MDM for new devices
 
 - Sign in with an administrator account at: [Microsoft Azure](https://portal.azure.com/)
 - Go to [**Mobility (MDM and MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
@@ -122,7 +107,7 @@ The Fleet application is now declared as the MDM that will handle new devices wi
 
 **Note**: If you have started enrolling devices on Primo/FleetDM before performing these operations, please let us know so we can force the MDM change from Intune to FleetDM by running a script (without which the machine is in an inconsistent state that may affect the Primo experience).
 
-### 4. Managing Deployment Profiles on the Intune console
+## Step 2 — Create Autopilot deployment profiles
 
 To complete the Autopilot setup, it is necessary to create at least one "deployment profile".
 
@@ -170,7 +155,7 @@ Finally, create an Enrollment Status Page configuration:
 - The second allows you to define whether you want to show the progress to the user or not. We suggest "yes". If yes, you can put the settings you want. You can keep the default values
 - The third step allows you to assign the ESP to devices. Assign it to your dynamic group.
 
-## Testing the Autopilot experience
+## Step 3 — Test the Autopilot experience
 
 ### Sharing Intune admin console access with InMac
 
