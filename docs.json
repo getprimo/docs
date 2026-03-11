@@ -16,6 +16,7 @@
         "groups": [
           {
             "group": "Getting Started",
+            "icon": "compass",
             "pages": [
               "index",
               "get-started/grant-admin-access",
@@ -24,6 +25,7 @@
           },
           {
             "group": "Importing your employees",
+            "icon": "people",
             "pages": [
               "get-started/import-your-equipment",
               "employees/connect-hris",
@@ -33,6 +35,7 @@
           },
           {
             "group": "Device Management",
+            "icon": "computer-classic",
             "pages": [
               {
                 "group": "Initial Setup",
@@ -89,6 +92,7 @@
           },
           {
             "group": "Endpoint Protection",
+            "icon": "shield-check",
             "pages": [
               "mdm/endpoint-protection/sentinelone",
               "mdm/endpoint-protection/crowdstrike-falcon"
@@ -96,6 +100,7 @@
           },
           {
             "group": "Identity & SaaS Management",
+            "icon": "key",
             "pages": [
               "saas/introduction",
               "saas/connect-apps",
@@ -109,6 +114,7 @@
           },
           {
             "group": "Global Purchasing & Inventory",
+            "icon": "globe",
             "pages": [
               {
                 "group": "Global Purchasing",
