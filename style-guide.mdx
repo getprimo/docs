@@ -77,6 +77,30 @@ Follow a consistent pattern across articles:
 4. **Steps** — Numbered instructions with clear actions
 5. **Next steps** — Link to related content (if applicable)
 
+### Card groups
+
+Use `<CardGroup>` to display related links as visual cards. Follow these guidelines:
+
+- **Maximum 3 cards per row** — Use `cols={3}` or fewer for readability
+- **Keep card copy in sync** — Card titles and descriptions must match the referenced article's frontmatter
+- **Use cards for collections** — Best for overview pages linking to related content
+
+```mdx
+<CardGroup cols={3}>
+  <Card title="Connect your HR system" icon="users" href="/employees/connect-hris">
+    Sync employee data automatically from your HR system.
+  </Card>
+  <Card title="Import via CSV" icon="file-csv" href="/employees/import-via-csv">
+    Bulk import employees using a spreadsheet.
+  </Card>
+  <Card title="Automate onboardings" icon="wand-magic-sparkles" href="/employees/automate-onboardings">
+    Set up automatic device provisioning for new hires.
+  </Card>
+</CardGroup>
+```
+
+**Maintenance:** When updating an article's title or description, search for any cards referencing that page and update them to match.
+
 ## Quick reference
 
 | Element | Convention | Example |
@@ -86,3 +110,4 @@ Follow a consistent pattern across articles:
 | Code/commands | Backticks | Run `mint dev` |
 | Product name | Minimize usage | Omit "in Primo" when obvious |
 | Acronyms | Spell out first use | "HR system" not "HRIS" |
+| Card groups | Max 3 columns, synced copy | `<CardGroup cols={3}>` |
