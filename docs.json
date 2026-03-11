@@ -24,12 +24,12 @@
             ]
           },
           {
-            "group": "Importing your employees",
+            "group": "Employee Lifecycle",
             "icon": "people",
             "pages": [
               "employees/connect-hris",
               "employees/import-via-csv",
-              "employees/change-collaborator-computer"
+              "employees/automate-onboardings"
             ]
           },
           {
