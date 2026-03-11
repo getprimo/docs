@@ -87,7 +87,7 @@ Simply activate the "Windows MDM Automatic Migration" option in your Primo MDM S
 Here is the procedure to follow imperatively before initiating the migration:
 
 1. Set FleetDM up as external MDM on Entra ID:
-   [https://primo.mdm.getprimo.com/settings/integrations/automatic-enrollment/windows](https://primo.mdm.getprimo.com/settings/integrations/automatic-enrollment/windows)
+   `https://{company}.mdm.getprimo.com/settings/integrations/automatic-enrollment/windows`
 2. On Entra, switch the automatic enrollment to FleetDM:
    - Go to: [https://entra.microsoft.com/#view/Microsoft_AAD_IAM/MdmList.ReactView](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/MdmList.ReactView) (or search "Mobility" on entra.microsoft.com)
    - Alternatively, go to: [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility) (or search "Mobility" on portal.azure.com)
@@ -121,11 +121,11 @@ Follow these steps to migrate your devices from Intune:
        $EnrollmentObject = Get-ItemProperty Registry::$Enrollment
        if ($EnrollmentObject."DiscoveryServiceFullURL" -in $DiscoveryServerFullUrls ) {
            $EnrollmentPath = $EnrollmentsPath + $EnrollmentObject."PSChildName"
-           Write-Host "Suppression de l'inscription : $EnrollmentPath"
+           Write-Host "Removing enrollment: $EnrollmentPath"
            Remove-Item -Path $EnrollmentPath -Recurse
-           Write-Host "Inscription supprimée. Réinscription de l'appareil..."
+           Write-Host "Enrollment removed. Re-enrolling device..."
            & "C:\Windows\System32\deviceenroller.exe /c /AutoEnrollMDM"
-           Write-Host "L'appareil a été réinscrit."
+           Write-Host "Device has been re-enrolled."
        }
    }
    ```
