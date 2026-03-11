@@ -1,196 +1,189 @@
 ---
 title: "Welcome to Primo"
 description: "Everything you need to manage your company's IT — devices, MDM, procurement, and SaaS — all in one place."
-mode: "custom"
+mode: "wide"
 ---
 
 {/* ── HERO ─────────────────────────────────────────────────── */}
 <div style={{
   background: "#fffbf4",
-  border: "2px dashed rgba(30,9,24,0.2)",
+  border: "2px dashed rgba(30,9,24,0.18)",
   borderRadius: "20px",
-  padding: "60px 52px",
-  marginBottom: "52px",
+  padding: "64px 60px",
+  marginBottom: "56px",
+  display: "flex",
+  alignItems: "center",
+  gap: "56px",
 }}>
-  <div style={{
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "6px",
-    background: "#51d2ef",
-    color: "#1e0918",
-    borderRadius: "100px",
-    padding: "5px 14px",
-    fontSize: "11px",
-    fontWeight: "700",
-    marginBottom: "22px",
-    letterSpacing: "0.07em",
-    textTransform: "uppercase",
-  }}>
-    ✦ Help Center
+
+  {/* Left — text */}
+  <div style={{ flex: "1", minWidth: 0 }}>
+    <div style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      background: "#51d2ef",
+      color: "#1e0918",
+      borderRadius: "100px",
+      padding: "5px 14px",
+      fontSize: "11px",
+      fontWeight: "700",
+      marginBottom: "24px",
+      letterSpacing: "0.07em",
+      textTransform: "uppercase",
+    }}>
+      ✦ Help Center
+    </div>
+    <h1 style={{
+      fontSize: "52px",
+      fontWeight: "800",
+      lineHeight: "1.05",
+      margin: "0 0 20px",
+      color: "#1e0918",
+      letterSpacing: "-0.025em",
+    }}>
+      How can we<br />help you?
+    </h1>
+    <p style={{
+      fontSize: "17px",
+      lineHeight: "1.7",
+      color: "rgba(30,9,24,0.5)",
+      margin: "0 0 32px",
+      maxWidth: "420px",
+    }}>
+      Guides and resources to get the most out of Primo — MDM, procurement, employees, and SaaS in one place.
+    </p>
+    <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+      <a href="/mdm/get-started/introduction-to-mdm" style={{
+        display: "inline-flex", alignItems: "center", gap: "6px",
+        background: "#1e0918", color: "#ffffff",
+        borderRadius: "100px", padding: "10px 22px",
+        fontSize: "14px", fontWeight: "700", textDecoration: "none",
+      }}>Get started</a>
+      <a href="mailto:support@getprimo.com" style={{
+        display: "inline-flex", alignItems: "center", gap: "6px",
+        background: "transparent", color: "#1e0918",
+        border: "1.5px solid rgba(30,9,24,0.2)",
+        borderRadius: "100px", padding: "10px 22px",
+        fontSize: "14px", fontWeight: "600", textDecoration: "none",
+      }}>Contact support</a>
+    </div>
   </div>
-  <h1 style={{
-    fontSize: "44px",
-    fontWeight: "800",
-    lineHeight: "1.1",
-    margin: "0 0 18px",
-    color: "#1e0918",
-    letterSpacing: "-0.02em",
+
+  {/* Right — feature grid */}
+  <div style={{
+    flex: "0 0 420px",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "12px",
   }}>
-    How can we help you?
-  </h1>
-  <p style={{
-    fontSize: "17px",
-    lineHeight: "1.7",
-    color: "rgba(30,9,24,0.55)",
-    margin: 0,
-    maxWidth: "540px",
-  }}>
-    Everything you need to manage your company's IT — from setting up MDM to managing devices, employees, procurement, and SaaS.
-  </p>
+    {[
+      { icon: "🛡️", label: "MDM", desc: "Secure your fleet", href: "/mdm/get-started/introduction-to-mdm", accent: "#51d2ef" },
+      { icon: "🛒", label: "Procurement", desc: "Buy & manage gear", href: "/procurement/buy-it-products", accent: "#fbbf24" },
+      { icon: "☁️", label: "SaaS", desc: "Track your apps", href: "/saas/introduction", accent: "#a78bfa" },
+      { icon: "👥", label: "Employees", desc: "Sync your HR", href: "/employees/connect-hris", accent: "#34d399" },
+    ].map(({ icon, label, desc, href, accent }) => (
+      <a key={label} href={href} style={{
+        background: "white",
+        border: "1.5px solid rgba(30,9,24,0.08)",
+        borderRadius: "16px",
+        padding: "22px 20px",
+        textDecoration: "none",
+        display: "block",
+        transition: "box-shadow 0.15s",
+      }}>
+        <div style={{
+          width: "40px", height: "40px",
+          background: accent + "22",
+          borderRadius: "10px",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: "20px", marginBottom: "12px",
+        }}>{icon}</div>
+        <div style={{ fontWeight: "700", fontSize: "14px", color: "#1e0918", marginBottom: "3px" }}>{label}</div>
+        <div style={{ fontSize: "12px", color: "rgba(30,9,24,0.45)" }}>{desc}</div>
+      </a>
+    ))}
+  </div>
 </div>
 
 {/* ── GET STARTED ───────────────────────────────────────────── */}
-<div style={{ marginBottom: "8px" }}>
+<div style={{ marginBottom: "16px" }}>
   <p style={{
-    fontSize: "11px",
-    fontWeight: "700",
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
-    color: "rgba(30,9,24,0.4)",
-    margin: "0 0 16px",
+    fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em",
+    textTransform: "uppercase", color: "rgba(30,9,24,0.35)", margin: 0,
   }}>Get Started</p>
 </div>
 
-<CardGroup cols={2}>
-  <Card
-    title="Import your equipment"
-    icon="upload"
-    href="/get-started/import-your-equipment"
-  >
-    Bring your existing devices into Primo using a CSV file.
+<CardGroup cols={4}>
+  <Card title="Import equipment" icon="upload" href="/get-started/import-your-equipment">
+    Bring existing devices into Primo via CSV.
   </Card>
-  <Card
-    title="Grant admin access"
-    icon="user-shield"
-    href="/get-started/grant-admin-access"
-  >
-    Add team members and configure administrator permissions.
+  <Card title="Grant admin access" icon="user-shield" href="/get-started/grant-admin-access">
+    Add team members and set permissions.
   </Card>
-  <Card
-    title="Quality onboarding"
-    icon="circle-check"
-    href="/get-started/quality-onboarding"
-  >
-    Best practices to make your Primo setup clean and efficient.
+  <Card title="Quality onboarding" icon="circle-check" href="/get-started/quality-onboarding">
+    Best practices for a clean setup.
   </Card>
-  <Card
-    title="Primo MCP Server"
-    icon="robot"
-    href="/get-started/primo-mcp-server"
-  >
-    Connect your AI assistant to Primo with the MCP integration.
+  <Card title="Primo MCP Server" icon="robot" href="/get-started/primo-mcp-server">
+    Connect your AI assistant to Primo.
   </Card>
 </CardGroup>
 
 {/* ── MDM ───────────────────────────────────────────────────── */}
-<div style={{ marginTop: "44px", marginBottom: "8px" }}>
+<div style={{ marginTop: "48px", marginBottom: "16px" }}>
   <p style={{
-    fontSize: "11px",
-    fontWeight: "700",
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
-    color: "rgba(30,9,24,0.4)",
-    margin: "0 0 16px",
+    fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em",
+    textTransform: "uppercase", color: "rgba(30,9,24,0.35)", margin: 0,
   }}>Mobile Device Management</p>
 </div>
 
-<CardGroup cols={2}>
-  <Card
-    title="Introduction to MDM"
-    icon="shield-halved"
-    href="/mdm/get-started/introduction-to-mdm"
-  >
+<CardGroup cols={3}>
+  <Card title="Introduction to MDM" icon="shield-halved" href="/mdm/get-started/introduction-to-mdm">
     Understand how Primo's MDM works and what it can do for your fleet.
   </Card>
-  <Card
-    title="Roll out MDM to employees"
-    icon="users"
-    href="/mdm/rollout/invite-employees"
-  >
-    Invite your team and guide them through device enrollment.
+  <Card title="Roll out to employees" icon="users" href="/mdm/rollout/invite-employees">
+    Invite your team and guide them through enrollment.
   </Card>
-  <Card
-    title="Supported platforms"
-    icon="laptop"
-    href="/mdm/get-started/supported-platforms"
-  >
-    macOS, Windows, Linux, iOS, Android — see what's supported.
+  <Card title="Supported platforms" icon="laptop" href="/mdm/get-started/supported-platforms">
+    macOS, Windows, Linux, iOS, Android.
   </Card>
-  <Card
-    title="Zero-touch deployment"
-    icon="wand-magic-sparkles"
-    href="/mdm/zero-touch/understand-zero-touch"
-  >
-    Automatically enroll new devices the moment they're powered on.
+  <Card title="Zero-touch deployment" icon="wand-magic-sparkles" href="/mdm/zero-touch/understand-zero-touch">
+    Automatically enroll new devices on first boot.
   </Card>
-  <Card
-    title="Policies & app management"
-    icon="sliders"
-    href="/mdm/policies/manage-apps-laptop"
-  >
-    Deploy apps, enforce settings, and manage encryption at scale.
+  <Card title="Policies & app management" icon="sliders" href="/mdm/policies/manage-apps-laptop">
+    Deploy apps, enforce settings, manage encryption.
   </Card>
-  <Card
-    title="Guides & troubleshooting"
-    icon="book-open"
-    href="/mdm/guides/device-lost-stolen"
-  >
-    Step-by-step guides for common MDM scenarios and issues.
+  <Card title="Guides & troubleshooting" icon="book-open" href="/mdm/guides/device-lost-stolen">
+    Step-by-step guides for common scenarios.
   </Card>
 </CardGroup>
 
-{/* ── OTHER FEATURES ────────────────────────────────────────── */}
-<div style={{ marginTop: "44px", marginBottom: "8px" }}>
+{/* ── MORE FEATURES ─────────────────────────────────────────── */}
+<div style={{ marginTop: "48px", marginBottom: "16px" }}>
   <p style={{
-    fontSize: "11px",
-    fontWeight: "700",
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
-    color: "rgba(30,9,24,0.4)",
-    margin: "0 0 16px",
+    fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em",
+    textTransform: "uppercase", color: "rgba(30,9,24,0.35)", margin: 0,
   }}>More Features</p>
 </div>
 
 <CardGroup cols={3}>
-  <Card
-    title="IT Procurement"
-    icon="cart-shopping"
-    href="/procurement/buy-it-products"
-  >
+  <Card title="IT Procurement" icon="cart-shopping" href="/procurement/buy-it-products">
     Order devices and accessories directly through Primo.
   </Card>
-  <Card
-    title="SaaS Management"
-    icon="cloud"
-    href="/saas/introduction"
-  >
+  <Card title="SaaS Management" icon="cloud" href="/saas/introduction">
     Track, manage, and optimise your software subscriptions.
   </Card>
-  <Card
-    title="Manage Employees"
-    icon="address-card"
-    href="/employees/connect-hris"
-  >
+  <Card title="Manage Employees" icon="address-card" href="/employees/connect-hris">
     Sync your HR system and manage your team's IT profile.
   </Card>
 </CardGroup>
 
 {/* ── FOOTER CTA ────────────────────────────────────────────── */}
 <div style={{
-  marginTop: "52px",
+  marginTop: "56px",
   background: "#1e0918",
   borderRadius: "20px",
-  padding: "40px 48px",
+  padding: "48px 56px",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
@@ -198,51 +191,26 @@ mode: "custom"
   flexWrap: "wrap",
 }}>
   <div>
-    <p style={{
-      fontSize: "18px",
-      fontWeight: "700",
-      color: "#ffffff",
-      margin: "0 0 6px",
-    }}>
+    <p style={{ fontSize: "22px", fontWeight: "700", color: "#ffffff", margin: "0 0 6px" }}>
       Still need help?
     </p>
-    <p style={{
-      fontSize: "14px",
-      color: "rgba(255,255,255,0.55)",
-      margin: 0,
-    }}>
-      Our team is ready to help — reach out anytime.
+    <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.5)", margin: 0 }}>
+      Our support team is ready — reach out anytime.
     </p>
   </div>
   <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
     <a href="mailto:support@getprimo.com" style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: "8px",
-      background: "#51d2ef",
-      color: "#1e0918",
-      borderRadius: "100px",
-      padding: "10px 22px",
-      fontSize: "14px",
-      fontWeight: "700",
-      textDecoration: "none",
-    }}>
-      Contact support
-    </a>
+      display: "inline-flex", alignItems: "center", gap: "8px",
+      background: "#51d2ef", color: "#1e0918",
+      borderRadius: "100px", padding: "12px 26px",
+      fontSize: "14px", fontWeight: "700", textDecoration: "none",
+    }}>Contact support</a>
     <a href="https://app.getprimo.com" style={{
-      display: "inline-flex",
-      alignItems: "center",
-      gap: "8px",
-      background: "rgba(255,255,255,0.1)",
-      color: "#ffffff",
-      borderRadius: "100px",
-      padding: "10px 22px",
-      fontSize: "14px",
-      fontWeight: "700",
-      textDecoration: "none",
-      border: "1px solid rgba(255,255,255,0.15)",
-    }}>
-      Open dashboard ↗
-    </a>
+      display: "inline-flex", alignItems: "center", gap: "8px",
+      background: "rgba(255,255,255,0.08)", color: "#ffffff",
+      border: "1px solid rgba(255,255,255,0.12)",
+      borderRadius: "100px", padding: "12px 26px",
+      fontSize: "14px", fontWeight: "700", textDecoration: "none",
+    }}>Open dashboard ↗</a>
   </div>
 </div>
