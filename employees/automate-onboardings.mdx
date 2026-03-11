@@ -17,14 +17,14 @@ Automation in Primo is driven by your **employee data**. When a new employee is 
 
 The more connected your Primo account is (HRIS, MDM, SaaS), the more of this process can run without manual intervention.
 
-## Step 1 — Connect your HRIS
+## Step 1 — Connect your HR System
 
-The foundation of onboarding automation is your HRIS connection. When an HRIS is connected, Primo automatically detects upcoming arrivals based on contract start dates and creates employee profiles ahead of time.
+The foundation of onboarding automation is your HR System connection. When an HR System is connected, Primo automatically detects upcoming arrivals based on contract start dates and creates employee profiles ahead of time.
 
-To connect your HRIS:
+To connect your HR System:
 
 1. Go to **Settings > Employee Sync**
-2. Select your HRIS provider (Personio, Lucca, BambooHR, and more)
+2. Select your HR System provider (Personio, Lucca, BambooHR, and more)
 3. Follow the authentication steps
 4. Configure synchronization filters and field mappings
 5. Launch the first synchronization
@@ -32,7 +32,7 @@ To connect your HRIS:
 Once connected, Primo syncs your employee directory every hour — no manual action required.
 
 <Note>
-If you don't use an HRIS, you can still trigger onboarding flows by adding employees manually and setting a start date. See [Importing via CSV](/employees/import-via-csv).
+If you don't use an HR System, you can still trigger onboarding flows by adding employees manually and setting a start date. See [Import employees via CSV](/employees/import-via-csv).
 </Note>
 
 ## Step 2 — Assign equipment
@@ -76,9 +76,9 @@ Access is also automatically revoked when an employee is offboarded, keeping you
 
 | When | What happens automatically |
 |---|---|
-| **Employee added to HRIS** | Profile created in Primo, onboarding initiated |
-| **Equipment assigned** | Device shipped or prepared for Zero Touch |
-| **Start date approaches** | MDM enrollment invitation sent |
+| **Employee added to HR System** | Profile created in Primo, onboarding initiated |
+| **Equipment assigned** | Device shipped or prepared for Zero-Touch Deployment (ZTD) |
+| **Start date approaches** | MDM (Mobile Device Management) enrollment invitation sent |
 | **Employee powers on device** | MDM agent installed, policies applied, apps pushed |
 | **Onboarding triggered** | SaaS apps provisioned based on role and team |
 
@@ -86,7 +86,7 @@ Access is also automatically revoked when an employee is offboarded, keeping you
 
 To automate the full onboarding flow, you need:
 
-- An HRIS connected to Primo (or employees added manually with a start date)
+- An HR System connected to Primo (or employees added manually with a start date)
 - MDM activated in your Primo account
 - SaaS apps connected with provisioning rules configured
 

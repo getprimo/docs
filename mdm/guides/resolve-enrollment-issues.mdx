@@ -3,9 +3,9 @@ title: "Resolve enrollment issues"
 description: "Enrollments can face issues such as incomplete processes, missing agents or profiles, and connectivity problems, and troubleshooting steps are readily available to resolve these scenarios effectively."
 ---
 
-# Why This Status?
+## Why this status?
 
-## During Deployment
+### During deployment
 
 A device is considered **partially enrolled** when the enrollment process in Primo (or MDM deployment) has not been fully completed. As a result, the MDM is not yet active on the device.
 
@@ -16,11 +16,11 @@ This can happen for several reasons:
 - The user did not stay connected long enough to complete synchronization.
 - The agent or MDM profile was uninstalled or blocked.
 
-## When the Device is Already Enrolled
+### When the device is already enrolled
 
 Here are the different possible scenarios:
 
-### Missing or Inactive Agent
+#### Missing or inactive agent
 
 This status indicates that the FleetDM agent installed on the device is no longer sending data to FleetDM.
 
@@ -40,7 +40,7 @@ Possible causes:
   - If your APN (Apple Push Notification) certificate has expired.
 - **FleetDM issue**
 
-### Missing MDM Profile (Mac only)
+#### Missing MDM profile (Mac only)
 
 This status indicates that the MDM profile is either missing or inactive on the device.
 
@@ -54,7 +54,7 @@ Possible causes:
 - **The device was accidentally removed from MDM management**
   - If the `turn off mdm` action was executed from FleetDM on the device.
 
-## Enrollment statuses
+### Enrollment statuses
 
 In your Primo cockpit, a device's enrollment status indicates the current state and any issues. The following statuses are available:
 
@@ -68,7 +68,7 @@ In your Primo cockpit, a device's enrollment status indicates the current state 
 
 A device that appears **offline** even though it is in active use typically indicates a missing agent or network issue.
 
-## Identifying partially enrolled devices
+### Identifying partially enrolled devices
 
 In your Primo cockpit, you can identify partially enrolled devices in two ways:
 
@@ -77,7 +77,7 @@ In your Primo cockpit, you can identify partially enrolled devices in two ways:
 
 ## Troubleshooting
 
-Here are the solutions for each situation:
+Here are solutions for each situation:
 
 - **Missing agent** ⚠️: In the device panel, click on the device status button to remotely trigger the agent installation. If this does not work, ask the employee to log into their Primo enrollment page and click on their assigned device. They can then download the agent independently.
 - **On in another MDM** ⚠️: Find the necessary documentation regarding migration from your previous MDM to Primo.

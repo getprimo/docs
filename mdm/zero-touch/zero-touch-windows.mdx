@@ -7,15 +7,15 @@ Windows Autopilot gives new Windows devices an out-of-the-box setup experience. 
 
 This article covers the full setup: from registering the FleetDM domain on Azure to creating deployment profiles and testing the Autopilot experience.
 
-# Prerequisites
+## Prerequisites
 
 - A Microsoft account with administrator access
-- An Entra "tenant"
-- A license that includes **Microsoft Entra ID Plan 1** (or **Plan 2**) & **Windows Autopilot**
+- An Entra tenant
+- A license that includes **Microsoft Entra ID Plan 1** (or **Plan 2**) and **Windows Autopilot**
 
 The minimum license covering both features is **Enterprise Mobility + Security E3** ([compare plans](https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing)).
 
-# Employee experience on first startup
+## Employee experience on first startup
 
 1. Power on the device
 2. Select country and language, configure keyboard layout
@@ -25,7 +25,7 @@ The minimum license covering both features is **Enterprise Mobility + Security E
 6. Set up a PIN code and fingerprint (if supported)
 7. The workstation is ready — apps and policies defined in the Primo Cockpit are applied automatically
 
-# Restrictions
+## Restrictions
 
 Autopilot devices use **Entra accounts** rather than local accounts. Microsoft is progressively deprecating local accounts in favor of Entra accounts.
 
@@ -33,7 +33,7 @@ The Entra administrator can configure whether users have standard or administrat
 
 Internet access is required during the first boot to authenticate with Entra.
 
-# How to set it up
+## How to set it up
 
 The setup assumes your company is called ACME and uses the domain `acme.com`.
 
