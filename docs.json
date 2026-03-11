@@ -18,10 +18,7 @@
             "pages": [
               "index",
               "get-started/grant-admin-access",
-              "get-started/quality-onboarding",
-              "get-started/billing/view-invoices",
-              "get-started/billing/paying-with-sepa",
-              "get-started/billing/update-billing"
+              "get-started/quality-onboarding"
             ]
           },
           {
@@ -117,6 +114,7 @@
                 "pages": [
                   "procurement/why-buy-with-primo",
                   "procurement/shipping-countries",
+                  "get-started/billing/paying-with-sepa",
                   "mdm/zero-touch/device-orders-zero-touch",
                   "procurement/returns-warranties",
                   "procurement/applecare-enterprise",
@@ -150,12 +148,6 @@
               "mdm/guides/remove-mdm-manually",
               "mdm/guides/upgrade-windows-11",
               "mdm/policies/manage-windows-home"
-            ]
-          },
-          {
-            "group": "Billing",
-            "pages": [
-              "get-started/billing/view-invoices"
             ]
           }
         ]
