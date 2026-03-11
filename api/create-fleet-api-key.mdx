@@ -1,0 +1,31 @@
+---
+title: "Creating API keys for Fleet"
+description: "Generate a FleetDM API key to authenticate direct requests to your Fleet instance."
+---
+
+Fleet (FleetDM) API keys allow you to interact directly with your Fleet instance — for example to run scripts, query device data, or integrate with other tools.
+
+## Generate a Fleet API key
+
+1. Open your **Fleet** dashboard (accessible from the Primo cockpit via **Settings** > **MDM** > **Open Fleet**).
+2. Click your avatar in the top-right corner and go to **My account**.
+3. Scroll to **API token**.
+4. Click **Get API token**.
+5. Copy the token — it is tied to your Fleet user account.
+
+<Warning>
+Your Fleet API token has the same permissions as your Fleet user account. Keep it secret and do not share it.
+</Warning>
+
+## Use the Fleet API key
+
+Pass the token in the `Authorization` header:
+
+```bash
+curl https://<your-fleet-instance>/api/v1/fleet/hosts \
+  -H "Authorization: Bearer YOUR_FLEET_API_TOKEN"
+```
+
+## Regenerate or revoke a token
+
+Fleet API tokens do not expire automatically. To revoke access, go to **My account** in Fleet and click **Regenerate API token**. This immediately invalidates the previous token.

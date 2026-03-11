@@ -19,7 +19,7 @@
               "index",
               "get-started/grant-admin-access",
               "get-started/quality-onboarding",
-              "get-started/primo-mcp-server",
+              "get-started/billing/view-invoices",
               "get-started/billing/paying-with-sepa",
               "get-started/billing/update-billing"
             ]
@@ -53,7 +53,8 @@
                   "mdm/get-started/migrate-from-another-mdm",
                   "mdm/guides/resolve-enrollment-issues",
                   "mdm/zero-touch/zero-touch-macs",
-                  "mdm/zero-touch/zero-touch-windows"
+                  "mdm/zero-touch/zero-touch-windows",
+                  "mdm/zero-touch/device-orders-zero-touch"
                 ]
               },
               {
@@ -112,16 +113,13 @@
           {
             "group": "Global Purchasing & Inventory",
             "pages": [
-              "procurement/pricing-philosophy",
-              "procurement/buy-it-products",
+              "procurement/why-buy-with-primo",
               "procurement/add-products-catalog",
               "procurement/returns-warranties",
               "procurement/applecare-enterprise",
               "procurement/local-partners-repair",
               "procurement/local-partners-resell",
               "procurement/shipping-countries",
-              "mdm/zero-touch/eligible-devices-ztd",
-              "mdm/zero-touch/device-orders-zero-touch",
               "procurement/manage-shipments"
             ]
           },
@@ -149,7 +147,20 @@
       },
       {
         "tab": "Public API",
-        "openapi": "https://api.getprimo.com/openapi.json"
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "api/create-primo-api-key",
+              "api/create-fleet-api-key",
+              "get-started/primo-mcp-server"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "openapi": "https://api.getprimo.com/openapi.json"
+          }
+        ]
       }
     ]
   },

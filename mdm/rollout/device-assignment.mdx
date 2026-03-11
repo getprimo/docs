@@ -7,29 +7,12 @@ This article explains how device assignment works, how the first assignment is c
 
 ## Device statuses
 
-Primo uses three main statuses to track the state of each device:
-
-| Status | Meaning |
-|---|---|
-| **Assigned** | The device is formally assigned to an employee. |
-| **To assign** (also shown as "In use") | The device is actively used but has not been formally assigned to anyone in Primo. |
-| **In stock** | The device is in inventory and not currently deployed to an employee. |
-
-There is also a fourth state:
-
-| Status | Meaning |
-|---|---|
-| **Archived** | The device has been removed from the fleet. |
-
-### How to read the combination of statuses
-
-- A device that is **Assigned** is associated with a specific employee.
-- A device that is **In stock + To assign** is available and ready to be assigned.
-- A device that appears as **In use + To assign** (or just "To assign") is being actively used but has no formal owner recorded in Primo — this commonly happens with generic or bulk installers, or when auto-assignment did not trigger.
-
-<Tip>
-Use the **Assignment suggestion** feature (Settings → MDM → Assignment suggestion) to let Primo automatically identify and assign devices that are in use but unassigned.
-</Tip>
+| Availability status | Assignment status | What it means |
+|---|---|---|
+| **In use** | **Assigned** | The device is assigned to an employee and actively used. |
+| **In stock** | **To assign** | The device is in inventory but not yet assigned to anyone. |
+| **In use** | **To assign** | The device is in use but has no assigned owner in Primo. |
+| **Archived** | — | The device has been removed from the fleet. |
 
 ## Understand the first device assignment
 
