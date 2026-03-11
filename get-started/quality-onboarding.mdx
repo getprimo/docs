@@ -1,0 +1,152 @@
+---
+title: "Guide to a quality onboarding"
+description: "Welcome to Primo, where you will learn to configure, test, and deploy your Primo cockpit in just four weeks, focusing on securing devices with MDM and EDR while automating access and license management through SaaS integrations."
+---
+
+Welcome to **Primo** - this guide will walk you through the essential steps to **configure, test, and deploy** your Primo cockpit in just four weeks. You'll learn how to secure your devices with **MDM** and **EDR**, while automating access and license management through **SaaS integrations**.
+
+# Onboarding Objectives
+
+Over four weeks, you will:
+
+1. **Configure your Primo cockpit.**
+2. **Secure** your devices with MDM and EDR.
+3. **Automate** your SaaS access and license management.
+
+Average duration: **4 weeks** (1 week setup, 1 week testing, 2 weeks deployment)
+
+# Prerequisites
+
+Before you begin, make sure you have:
+
+- Administrator access to Primo.
+- Administrator access to your HRIS or HR data source.
+- Access to an Apple account to generate the APN certificate.
+- Appropriate permissions and subscription plans to provision your tools through IAM (if applicable).
+
+# Onboarding Timeline
+
+| Step | Theme | Task | 🎯 Objectives |
+|---|---|---|---|
+| 1️⃣ | **Setup the cockpit** | - Import employees<br/>- Configure your hardware catalog<br/>- [MDM] Create your instance<br/>- [MDM] Set your policies<br/>- [EDR] Configure deployment via MDM<br/>- [SaaS] Connect your email provider<br/>- [SaaS] Connect your apps to provision/deprovision | Your cockpit is fully configured and your products are ready to use |
+| 2️⃣ | **Enrollment tests** | Test the deployment on one or several devices | Your first machines are successfully enrolled and your MDM policies validated |
+| 4️⃣ | **Global deployment** | - Communicate internally with your teams<br/>- Send enrollment invitations to all collaborators | Primo is deployed across all your devices |
+
+# Cockpit Setup
+
+## **Import your employees**
+
+Connecting your HRIS allows you to automatically import your employee list and avoid manual entry.
+It also enables automated onboarding/offboarding in Primo and provides key data for MDM or identity configuration.
+
+1. Go to **Settings → Employee synchronization**
+2. Select your provider (Personio, Lucca, BambooHR, etc.)
+3. Enter the required connection details
+4. Filter and choose which data to import
+5. Start synchronization
+
+Your employees will then be automatically imported into Primo.
+
+## **Choosing your hardware catalog**
+
+Select or create your hardware catalog to prepare your equipment setup and assignment during onboarding.
+
+---
+
+# MDM (Mobile Device Management)
+
+The MDM allows you to:
+
+- Manage and configure your computers remotely (Mac, Windows, Linux, iOS, Android)
+- Define and apply security policies (encryption, passwords, updates)
+- Lock, wipe, or reassign a device in one click
+
+## Activation
+
+The MDM is at the core of Primo's device management.
+It lets you configure and secure your devices remotely.
+
+1. Go to **Settings → MDM**
+2. Activate your **FleetDM instance**
+3. Upload your **Apple Push Notification (APN)** certificate
+
+Your MDM is now operational
+
+## Configuration
+
+A new **MDM** section has appeared in your sidebar.
+You can now complete the setup:
+
+- Define your security policies (encryption, Wi-Fi, etc.).
+- Prepare your devices for **Zero Touch Deployment**.
+
+## Installation tests
+
+Deploy the setup on one or more devices to validate the configuration and get familiar with the process by sending invitations via **Employees → MDM invitations**.
+You don't need to create devices manually — they'll be created and assigned automatically once the MDM agent is installed.
+
+## Deployment to collaborators
+
+Once your test is validated, you can roll out the MDM at scale. This step lets you quickly secure your fleet and automate configuration for all users.
+
+1. Prepare your internal communication (email, Slack, etc.)
+2. From **Employees → MDM invitations**, invite all your collaborators
+
+Automatic reminders are sent every 7 days to employees who haven't completed installation.
+You can track the deployment directly from your **dashboard**.
+
+---
+
+# **EDR (Endpoint Detection & Response)**
+
+The EDR complements your MDM setup by:
+
+- Automatically deploying **SentinelOne** or **ThreatDown** on all devices
+- Proactively detecting ransomware and malware
+- Automatically isolating infected machines
+- Providing a centralized view of threats directly from your **EDR cockpit**
+
+---
+
+# SaaS Management
+
+With Primo's **SaaS Management**, you can automatically create and revoke the right access for each employee based on their role in the company — saving time and ensuring security.
+
+## Connecting your SaaS apps
+
+To manage your access, make sure you:
+
+- Have the right admin privileges for each tool
+- Have the correct subscription plans (some apps require an SSO-level plan for connection)
+
+Once confirmed, you can connect your apps:
+
+1. Go to **Identity & Access → App Catalog**
+2. Connect your applications either:
+   - via Primo's pre-built integrations, or
+   - through custom connectors (AI Agent or SAML SSO)
+
+## Setting up your rules
+
+Use templates to automate provisioning by defining license types, roles, groups, or organizational units.
+
+---
+
+# Troubleshooting
+
+| Issue | Recommended solution |
+|---|---|
+| No employees imported from HRIS | Check your API permissions or reconnect the HRIS |
+| Enrollment error | See how to fix installation issues |
+| App not installed automatically | Check your MDM profile configuration |
+| IAM provisioning failed | Review the logs and relaunch failed actions |
+
+<Tip>
+By following these steps, you'll have a **fully configured, secure, and automated Primo environment**. To go further, explore **Uno AI** to monitor your cockpit and get proactive insights.
+</Tip>
+
+Examples of automation to set up:
+
+- Define your **weekly reports** via **AI Agents → Create** and set the information and frequency.
+- Schedule **reminders** for users who are not enrolled or whose devices are not syncing properly.
+- Automate your **onboarding/offboarding** processes: manage hardware orders, account creation, and more — all within Primo.

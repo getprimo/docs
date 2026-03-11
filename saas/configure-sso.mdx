@@ -1,0 +1,45 @@
+---
+title: "Configure SSO with Primo as the identity provider"
+description: "Configure Single Sign-On (SSO) with Primo as the identity provider by retrieving the necessary SSO details and entering your service provider's information in Primo to enable user authentication for third-party applications."
+---
+
+You can configure Single Sign-On (SSO) between Primo and an external service provider using Primo as the identity provider. This allows your users to authenticate through Primo when accessing third-party applications.
+
+This article describes how to retrieve the necessary SSO information from Primo and complete the setup with your service provider.
+
+## Choose Primo as the identity provider
+
+1. Sign in to the Primo console.
+2. Go to **Identities & Access > Apps catalog**.
+3. In the list of login providers, select **Login with Primo, Google or Entra**.
+
+## Retrieve configuration details from Primo
+
+Provide the following SSO details to your service provider as required (depending on your Service Provider), for example:
+
+### 1. Identity Provider ID
+
+Click **Copy identity provider ID** to copy the identifier needed by some service providers.
+
+### 2. Metadata
+
+- Click **Copy metadata URL** or **Copy metadata** to retrieve the full metadata.
+- Provide this to your service provider to establish trust with Primo.
+
+### 3. Login URL
+
+Click **Copy login URL** if required by the service provider for the SSO redirection.
+
+### 4. Certificates
+
+- Click **Copy certificate** or **Download certificate** to get the public certificate.
+- Use **Copy certificate SHA256** if your service provider requires a fingerprint for verification.
+
+## Enter service provider information in Primo
+
+After configuring the service provider with Primo's SSO information, enter the following details in Primo:
+
+1. **Service provider entity ID**: Paste the entity ID provided by your service provider.
+2. **Assertion consumer service (ACS) URL**: Enter the ACS URL used by your service provider to receive SAML assertions.
+
+Click **Connect** to finalize the integration.

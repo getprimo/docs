@@ -1,0 +1,52 @@
+---
+title: "Supported platforms and OS"
+description: "Supported platforms for Primo include various operating systems such as MacOS, Windows (Home and Pro), Linux, ChromeOS, iOS, and Android, detailing specific functionalities like enrollment, data encryption, and application installation, along with their respective supported versions."
+---
+
+# Overview of Supported Platform OS
+
+Here is a recap of the platforms that we support in Primo and the different things that you can do with each platform:
+
+| | **MacOS** | **Windows Pro** | **Windows ARM** | **Windows Home** | **Linux** | **ChromeOS** | **iOS** | **Android** |
+|---|---|---|---|---|---|---|---|---|
+| **Enroll** and **read information and data** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Query** your devices | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | N/A | N/A |
+| Run **scripts** | ✅ | ✅ | ✅ | ❌ | ✅ | N/A | N/A | ✅ |
+| Install **applications** | ✅ | ✅ | 💬 (4) | ❌ | ✅ | 💬 (1) | ✅ | ✅ |
+| Apply **OS Settings** (Update schedule, Wifi, Screen lock, Printers etc.) | ✅ | ✅ | ✅ | ❌ | ❌ | 💬 (1) | ✅ | ✅ |
+| **Encrypt** data | ✅ | ✅ | ✅ | ❌ | ❌ (3) | 💬 (1) | ✅ | ❌ |
+| Remote **lock** & **wipe** | ✅ | ✅ | ✅ | ❌ | ✅ | 💬 (1) | Lock: N/A<br>Wipe: ✅ | ❌ |
+
+### Notes
+
+1. **ChromeOS**: while you can enroll ChromeOS devices in Primo, note that the control of these devices (both in terms of application deployment and OS Settings) is done in your Google Admin console. For more details, don't hesitate to reach out to our team.
+2. **Linux:** Linux devices are tricky to encrypt, as it can sometimes require to wipe the hard drive and set up an OS from scratch. However, with Primo, you can still centralise reporting on which devices are encrypted or not, or out-of-date, etc.
+3. Here are the **Linux distributions** we support:
+   - ✅ Ubuntu 20.04+
+   - ✅ Debian 11+
+   - ✅ CentOS 7.1+
+   - ✅ Fedora 38+
+   - ✅ Amazon Linux 2+
+   - ✅ Red Hat Enterprise Linux (RHEL) 7+
+   - ✅ openSUSE 15.6+
+   - ✅ Arch Linux
+   - ✅ Omarchy
+   - ❌ Alpine (format APK)
+4. FleetDM prefers 64-bit x86 versions of applications when available. Installing on Arm hosts (e.g. in a VM on an Apple Silicon machine) may not work or have other unintended consequences.
+
+### FleetDM documentation
+
+For up-to-date documentation on supported systems, [check these resources](https://fleetdm.com/docs/get-started/faq#what-host-operating-systems-does-fleet-support).
+
+# Overview of Supported Platform Versions
+
+| **OS** | **Supported version(s)** |
+|---|---|
+| **MacOS** | 14+ (Sonoma) |
+| **Windows** | Pro and Enterprise 10+, Server 2012+ |
+| **Linux** | CentOS 7.1+, Ubuntu 20.04+, Fedora 38+, Amazon Linux 2+, Debian 11+, Red Hat Enterprise Linux (RHEL) 7+ |
+| **ChromeOS** | 112.0.5615.134+ |
+| **iOS/iPadOS** | 17+ |
+| **Android** | 13+ |
+
+While Fleet may still function partially or fully with OS versions older than those above, Fleet does not actively test against unsupported versions and does not pursue bugs on them.

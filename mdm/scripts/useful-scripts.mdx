@@ -1,0 +1,123 @@
+---
+title: "Useful scripts"
+description: "The page provides useful scripts for modifying host names on macOS and removing USB blocking on Windows, emphasizing the importance of checking their outputs before implementation, as support is not available for these scripts."
+---
+
+<Note>
+All the scripts below are provided on an as-is basis. Please check their output and effects before rolling them out. We are not available to support our customers on these scripts.
+</Note>
+
+# macOS
+
+## Modifying all host names
+
+```bash
+#!/bin/bash
+# This script changes the hostname on macOS by updating:
+# - ComputerName: The user-friendly name seen in Sharing preferences.
+# - LocalHostName: The Bonjour name used on the local network (must be sanitized).
+# - HostName: The system's POSIX name.
+# - NetBIOSName: Used for SMB file sharing.
+#
+# Usage: sudo ./change_hostname.sh NewHostname
+
+# Check if the new hostname is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: sudo $0 <new_hostname>"
+    exit 1
+fi
+
+NEW_HOSTNAME="$1"
+
+# Sanitize the new hostname for LocalHostName (Bonjour) requirements:
+# - Convert to lowercase, remove invalid characters (keeping only letters, numbers, and hyphens).
+SANITIZED_HOSTNAME=$(echo "$NEW_HOSTNAME" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]-')
+
+echo "Changing hostname to: $NEW_HOSTNAME"
+echo "Using sanitized LocalHostName: $SANITIZED_HOSTNAME"
+
+# Change the ComputerName (visible in Sharing settings)
+sudo scutil --set ComputerName "$NEW_HOSTNAME"
+
+# Change the LocalHostName (used for Bonjour)
+sudo scutil --set LocalHostName "$SANITIZED_HOSTNAME"
+
+# Change the HostName (the underlying POSIX hostname)
+sudo scutil --set HostName "$NEW_HOSTNAME"
+
+# Optionally, change the NetBIOS name for SMB file sharing
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$NEW_HOSTNAME"
+
+echo "Hostname successfully updated!"
+echo "A reboot might be required for all changes to fully take effect."
+```
+
+## Fix Slack Helper Tool Installation Popup due to Root Ownership
+
+Some users may experience repeated installation popups for Slack's helper tool on macOS when Slack.app is owned by root, even after entering admin credentials. To resolve this, run the following script on the affected machine as an administrator to change ownership of Slack.app to the currently logged-in user:
+
+```bash
+#!/bin/bash
+get_target_user() {
+  local u
+  u=$(/usr/bin/stat -f "%Su" /dev/console)
+  if [[ "$u" == "loginwindow" || "$u" == "root" ]]; then
+    u=$(/usr/bin/defaults read /Library/Preferences/com.apple.loginwindow lastUserName 2>/dev/null || true)
+  fi
+  echo "$u"
+}
+
+TARGET_USER="$(get_target_user)"
+if [[ -z "$TARGET_USER" ]]; then
+  echo "Unable to determine target user, aborting."
+  exit 1
+fi
+
+echo "Current owner of /Applications/Slack.app:"
+ls -ld "/Applications/Slack.app"
+
+echo "Changing ownership to $TARGET_USER..."
+sudo chown -R "$TARGET_USER" "/Applications/Slack.app"
+
+echo "Ownership updated. Please retry launching Slack."
+```
+
+**Notes:**
+
+- Run this script with administrator privileges or with Fleet
+- This script detects the currently logged-in user and changes ownership recursively.
+- Always verify the script output and Slack.app ownership after running.
+- This fix addresses permission-related installation prompts caused by root ownership of Slack.app.
+- Use a Fleet policy automation to run this script automatically:
+
+```sql
+SELECT 1 FROM file WHERE path LIKE '/Applications/Slack.app/%%' and uid != 0;
+```
+
+# Windows
+
+## Remove USB Blocking
+
+```powershell
+# Run as Admin
+Write-Host "Removing RemovableStorage Blocking..." -ForegroundColor Cyan
+
+# CSP Paths
+$paths = @(
+  "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\ADMX_RemovableStorage",
+  "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\user\ADMX_RemovableStorage"
+)
+
+foreach ($path in $paths) {
+    if (Test-Path $path) {
+        Remove-Item -Path $path -Recurse -Force
+        Write-Host "Key removed : $path" -ForegroundColor Green
+    } else {
+        Write-Host "Key not found : $path" -ForegroundColor Yellow
+    }
+}
+
+# Refresh policies
+gpupdate /force
+Write-Host "USB should now be usable" -ForegroundColor Green
+```

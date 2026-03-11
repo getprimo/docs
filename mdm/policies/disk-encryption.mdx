@@ -1,0 +1,53 @@
+---
+title: "Disk encryption policy and recovery key storage"
+description: "Disk encryption is crucial for safeguarding data against device loss or theft, with recovery keys automatically managed and stored by Primo during the encryption process, ensuring easy access if a user forgets their password."
+---
+
+# **General information**
+
+Disk encryption is an essential security measure to protect data in the event of device loss or theft.
+
+To ensure your devices are encrypted, this setting must be enabled in your MDM security profiles.
+
+# **Recovery keys**
+
+Recovery keys are essential to access data on the device's disk. They can also be used if a user forgets their password.
+
+Primo automatically retrieves and stores recovery keys during the encryption process. They are stored per device in the **Fleet > Devices** tab.
+
+<Note>
+Recovery keys are only stored in Primo if encryption is enabled in your MDM security policies > **Profiles** tab.
+</Note>
+
+# **General encryption process**
+
+## Encryption flow
+
+1. Enroll the device into the MDM
+2. Wait 3 to 4 hours for the helper to install and manage the recovery key
+3. Restart the device (required only for macOS)
+4. Wait another 3 to 4 hours: the recovery key will be saved in Primo
+
+## **Behavior by OS**
+
+**macOS**
+- Encryption is managed by **FileVault**.
+- FileVault is automatically enabled during MDM installation.
+- Encryption becomes effective after the next restart.
+- The recovery key is stored at that point.
+
+**Windows**
+- Encryption is managed by **BitLocker**.
+- It is automatically enabled after MDM installation.
+- No restart is required.
+- The key is stored as soon as encryption is activated.
+
+**Linux**
+- Encryption often requires a full disk reset and OS reinstallation.
+- Primo does not support automatic encryption for Linux devices.
+
+## Encryption timeframes
+
+Encryption duration depends on:
+- the disk size
+- the device's performance

@@ -1,0 +1,66 @@
+---
+title: "Examples of Custom Windows Policies"
+description: "Explore how to apply Custom Windows Policies for Personalization CSP, including enabling it on Windows Pro and setting background images for the lock screen and desktop through specific XML configurations."
+---
+
+<Note>
+Keep in mind that when writing an XML to apply a CSP Policy to a device, you should omit the first few (and last lines) of the XML file and start (and end) with either `<Replace>` or `<Add>` (respectively `</Replace>` and `</Add>`)
+</Note>
+
+# Allow Personalization CSP on Windows Pro
+
+```xml
+<Replace>
+  <!-- Allows Personalization CSPs to be deployed on non-Enterprise versions of Windows.
+       Setting this value to true triggers the action to configure a device as education environment.
+       Thorough testing is crucial to ensure it does not disrupt workflows or create compatibility issues. -->
+  <Item>
+    <Meta>
+      <Format xmlns="syncml:metinf">bool</Format>
+    </Meta>
+    <Target>
+      <LocURI>./Vendor/MSFT/SharedPC/SetEduPolicies</LocURI>
+    </Target>
+    <Data>true</Data>
+  </Item>
+</Replace>
+```
+
+# Set background image and lock screen
+
+<Note>
+Personalization CSP is supported in Windows Enterprise and Education Editions. It works in Windows Professional only when SetEduPolicies in SharedPC CSP is set. See "Allow Personalization CSP on Windows Pro".
+</Note>
+
+```xml
+<Replace>
+  <CmdID>1</CmdID>
+  <Item>
+    <Target>
+      <LocURI>
+        ./Vendor/MSFT/Personalization/LockScreenImageUrl
+      </LocURI>
+    </Target>
+    <Meta>
+      <Format xmlns="syncml:metinf">chr</Format>
+      <Type>text/plain</Type>
+    </Meta>
+    <Data> … your URL here … </Data>
+  </Item>
+</Replace>
+<Replace>
+  <CmdID>2</CmdID>
+  <Item>
+    <Target>
+      <LocURI>
+        ./Vendor/MSFT/Personalization/DesktopImageUrl
+      </LocURI>
+    </Target>
+    <Meta>
+      <Format xmlns="syncml:metinf">chr</Format>
+      <Type>text/plain</Type>
+    </Meta>
+    <Data> … your URL here … </Data>
+  </Item>
+</Replace>
+```

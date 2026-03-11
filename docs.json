@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Primo Help Center",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6B21A8",
+    "light": "#A855F7",
+    "dark": "#581C87"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -15,35 +15,148 @@
           "anchor": "Blog",
           "icon": "newspaper",
           "href": "https://www.getprimo.com/blog"
+        },
+        {
+          "anchor": "Support",
+          "icon": "headset",
+          "href": "mailto:support@getprimo.com"
         }
       ]
     },
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Help Center",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Get Started with Primo",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "get-started/import-your-equipment",
+              "get-started/grant-admin-access",
+              "get-started/quality-onboarding",
+              "get-started/primo-mcp-server"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Billing & Subscription",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "get-started/billing/view-invoices",
+              "get-started/billing/paying-with-sepa",
+              "get-started/billing/update-billing"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "MDM — Getting Started",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "mdm/get-started/introduction-to-mdm",
+              "mdm/get-started/supported-platforms",
+              "mdm/get-started/set-up-apn-certificate",
+              "mdm/get-started/migrate-from-another-mdm",
+              "mdm/get-started/set-up-okta",
+              "mdm/get-started/secure-token"
+            ]
+          },
+          {
+            "group": "MDM — Roll Out to Your Employees",
+            "pages": [
+              "mdm/rollout/mdm-rollout-resources",
+              "mdm/rollout/invite-employees",
+              "mdm/rollout/employee-mdm-installation",
+              "mdm/rollout/device-assignment",
+              "mdm/rollout/faq"
+            ]
+          },
+          {
+            "group": "MDM — Set Up Your Policies",
+            "pages": [
+              "mdm/policies/manage-apps-laptop",
+              "mdm/policies/manage-apps-smartphone",
+              "mdm/policies/deploy-vpp-applications",
+              "mdm/policies/password-policy",
+              "mdm/policies/disk-encryption",
+              "mdm/policies/remote-management",
+              "mdm/policies/manage-admin-accounts",
+              "mdm/policies/manage-windows-home",
+              "mdm/policies/change-local-password"
+            ]
+          },
+          {
+            "group": "MDM — Zero-Touch Deployment",
+            "pages": [
+              "mdm/zero-touch/understand-zero-touch",
+              "mdm/zero-touch/zero-touch-macs",
+              "mdm/zero-touch/zero-touch-windows",
+              "mdm/zero-touch/fleetdm-azure-portal",
+              "mdm/zero-touch/device-orders-zero-touch",
+              "mdm/zero-touch/eligible-devices-ztd"
+            ]
+          },
+          {
+            "group": "MDM — Deploy Endpoint Protection",
+            "pages": [
+              "mdm/endpoint-protection/sentinelone",
+              "mdm/endpoint-protection/crowdstrike-falcon"
+            ]
+          },
+          {
+            "group": "MDM — Scripts, Queries & Policies",
+            "pages": [
+              "mdm/scripts/fleetdm-guide",
+              "mdm/scripts/osquery-library",
+              "mdm/scripts/apps-installation-library",
+              "mdm/scripts/custom-windows-policies",
+              "mdm/scripts/useful-scripts",
+              "mdm/scripts/configure-printers-macos",
+              "mdm/scripts/cis-benchmarks"
+            ]
+          },
+          {
+            "group": "MDM — Guides & Resources",
+            "pages": [
+              "mdm/guides/device-lost-stolen",
+              "mdm/guides/activation-lock-bypass",
+              "mdm/guides/track-mac-location",
+              "mdm/guides/resolve-enrollment-issues",
+              "mdm/guides/os-updates-employee-experience",
+              "mdm/guides/remove-mdm-manually",
+              "mdm/guides/resolve-login-issue",
+              "mdm/guides/upgrade-windows-11",
+              "mdm/guides/uninstall-application",
+              "mdm/guides/bootable-usb-windows"
+            ]
+          },
+          {
+            "group": "Manage Your Employees",
+            "pages": [
+              "employees/connect-hris",
+              "employees/import-via-csv",
+              "employees/change-collaborator-computer"
+            ]
+          },
+          {
+            "group": "IT Procurement",
+            "pages": [
+              "procurement/buy-it-products",
+              "procurement/add-products-catalog",
+              "procurement/pricing-philosophy",
+              "procurement/returns-warranties",
+              "procurement/applecare-enterprise",
+              "procurement/local-partners-repair",
+              "procurement/local-partners-resell",
+              "procurement/shipping-countries",
+              "procurement/manage-shipments"
+            ]
+          },
+          {
+            "group": "SaaS Management",
+            "pages": [
+              "saas/introduction",
+              "saas/connect-apps",
+              "saas/connected-saas-properties",
+              "saas/enable-saas-mapping",
+              "saas/manage-tracked-apps",
+              "saas/ai-based-connector",
+              "saas/configure-sso",
+              "saas/licence-provisioning"
             ]
           }
         ]
@@ -62,13 +175,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@getprimo.com"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://app.getprimo.com"
     }
   },
   "contextual": {
@@ -76,18 +189,13 @@
       "copy",
       "view",
       "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+      "claude"
     ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/getprimo",
+      "linkedin": "https://linkedin.com/company/getprimo"
     }
   },
   "api": {

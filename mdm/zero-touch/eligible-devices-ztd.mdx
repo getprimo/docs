@@ -1,0 +1,113 @@
+---
+title: "Order devices eligible for Zero Touch Deployment"
+description: "To ensure Zero Touch Deployment (ZTD) is available when ordering devices, always select the local keyboard layout for the delivery country, as choosing a non-local layout routes the order to a different supplier that is not accredited for ZTD."
+---
+
+# Introduction
+
+This article explains why **Zero Touch Deployment (ZTD)** is only available when ordering devices with the **local keyboard of the delivery country** on Primo. It also outlines how keyboard selection impacts ZTD eligibility and what options are available if you require a non-local keyboard layout.
+
+# Understand why Zero Touch Deployment depends on local keyboards
+
+Zero Touch Deployment relies on supplier-specific accreditations that are **region-dependent**:
+
+- **Mac devices** require enrollment through **Apple Business Manager (ABM)**
+- **Windows devices** require enrollment through **Microsoft Autopilot**
+
+Only suppliers accredited in a given region can provide these services. These suppliers are authorized to deliver devices **exclusively with the local keyboard configuration of that region**.
+
+When a non-local keyboard is selected, the order is routed to a different supplier that is **not accredited for ZTD**, which makes Zero Touch Deployment unavailable.
+
+Learn more: [Zero Touch Procurement](https://support.getprimo.com/en/articles/zero-touch-procurement)
+
+# Check ZTD availability by delivery region and keyboard type
+
+| Delivery region | Local keyboard | ZTD available | Non-local keyboard | ZTD available |
+|---|---|---|---|---|
+| EU | AZERTY in France; Local QWERTY in EU | Yes | QWERTY US / UK / International | No |
+| UK | QWERTY UK | Yes | AZERTY / QWERTY US / QWERTZ | No |
+| US | QWERTY US | Yes | AZERTY / QWERTY UK / QWERTZ | No |
+
+# Configure keyboard selection in Primo
+
+When ordering a device through Primo (during onboarding or from the catalog), follow the steps below.
+
+## Select the delivery region
+
+Choose the region where the device will be delivered: **EU** / **UK** / **US**
+
+## Choose the keyboard layout
+
+You can select one of the following options.
+
+## Select a local keyboard (recommended for ZTD)
+
+This option automatically applies the standard keyboard for the delivery country.
+
+Examples:
+
+- France → AZERTY
+- Belgium → QWERTY BE
+- Germany → QWERTY DE
+- United Kingdom → QWERTY UK
+- United States → QWERTY US
+
+Selecting a local keyboard ensures the order is handled by a ZTD-authorized supplier.
+
+## Select a specific keyboard layout
+
+Available options include:
+
+- QWERTY US
+- QWERTY UK
+- QWERTY International
+- QWERTZ
+- Spanish QWERTY
+- AZERTY
+
+<Warning>
+Selecting a keyboard layout that is **not local to the delivery country disables Zero Touch Deployment**.
+</Warning>
+
+# Review common ordering scenarios
+
+- **Delivery to the United States**
+  - Local keyboard → ZTD available
+  - QWERTY International or AZERTY → ZTD not available
+
+- **Delivery to France (EU)**
+  - Local keyboard (AZERTY) → ZTD available
+  - QWERTY US or QWERTY International → ZTD not available
+
+- **Delivery to France with a requirement for QWERTY US keyboards**
+  - ZTD is not available through Primo's standard ordering flow
+
+# Resolve frequent questions
+
+## Understand why ZTD is unavailable with QWERTY International in France
+
+ZTD depends on supplier accreditations tied to specific regions.
+
+In France, only suppliers providing **AZERTY keyboards** are accredited for Apple ABM or Microsoft Autopilot.
+
+Selecting a non-local keyboard routes the order to a different supplier that is not authorized for ZTD in that region.
+
+## Order devices in France with QWERTY US keyboards
+
+You have two options:
+
+1. **Place a standard order without ZTD**
+   - Select QWERTY US. Devices will be delivered ready to use, without Zero Touch Deployment.
+
+2. **Submit a special request (longer lead time)**
+   - Add a comment to your order requesting **"QWERTY US + ABM"**.
+   - Primo will check availability with suppliers.
+   - Expected lead time: **3 to 4 weeks**.
+
+## Confirm whether selecting "AZERTY" always enables ZTD
+
+No.
+
+If you manually select **AZERTY** for a delivery **outside France**, ZTD will not be available. The order will not be handled by a France-based, ZTD-authorized supplier.
+
+To ensure ZTD eligibility, always select **Local keyboard** instead of choosing a specific layout.

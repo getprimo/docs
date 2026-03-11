@@ -1,0 +1,111 @@
+---
+title: "Understand and manage device assignment"
+description: "Effectively manage device assignment by leveraging automated processes through MDM, enabling seamless first assignments, unassignments, and reassignments, while adhering to best practices to maintain accurate inventory and protect company data."
+---
+
+This article explains how device assignment works, how the first assignment is created, how to manage unassignment and reassignment, and which best practices to follow to keep your inventory accurate.
+
+## Device statuses and assignment logic
+
+### Availability statuses
+
+- **In use**: the device is currently assigned and actively used by an employee.
+- **In stock**: the device exists in inventory but is not assigned to an employee.
+- **Archived**: the device has been removed from the fleet.
+
+### Assignment statuses
+
+- **Assigned**: the device **is** assigned to an employee.
+- **To assign**: the device **is not** assigned to an employee.
+
+<Note>
+
+Summary of common states
+
+- **In use** = device assigned **and** used
+- **In stock + To assign** = device in stock and unassigned
+- **In use + To assign** = device used but not assigned to anyone
+- **Archived** = device removed from the fleet
+
+</Note>
+
+## Understand the first device assignment
+
+### Rely on automated assignment through MDM
+
+It is **not necessary** to manually import your device list into Primo.
+
+MDM deployment automatically creates and assigns devices during enrollment.
+
+### Follow the enrollment process
+
+1. The employee signs in with their email address on their dedicated Primo enrollment page. This allows Primo to generate a user-specific installer.
+2. Primo then relies on a second verification: the email address actually used on the device via SSO.
+
+This information can be found in FleetDM under the "used by" field.
+
+### Result
+
+When an employee installs the Primo MDM on a device:
+
+- The device is **automatically created** in the Primo cockpit.
+- The device is **automatically assigned** to the employee, without manual action.
+
+## Use assignment suggestion
+
+In some cases, Primo does not have enough information to assign a device automatically (multiple user sessions, generic installers).
+
+In these cases, you can assign the device manually if you know the owner, or use the **Assignment suggestion** feature, which uses MDM data to assist or automate assignment.
+
+### Enable the Assignment suggestion
+
+Go to: **Settings → MDM → Assignment suggestion**
+
+Available options:
+
+1. **Enable assignment suggestion**
+
+   Primo only displays assignment suggestions. You validate them manually.
+
+2. **Automatically assign device based on suggestion**
+
+   If the device is not already assigned, Primo automatically assigns it to the most relevant employee.
+
+When enabled, devices in stock can be assigned automatically based on FleetDM information. This is especially useful in environments with high employee turnover.
+
+## Unassign a device from an employee
+
+### Unassign or reassign manually
+
+From the device inventory page or the device panel, you can:
+
+- Send a device back to stock.
+- Reassign it to another employee.
+
+Sending a device to stock immediately clears its current assignment.
+
+### Unassign during offboarding
+
+When an employee is offboarded in Primo, the offboarding flow asks what to do with the device:
+
+- Return it to stock
+- Remove it from the fleet
+- Reassign it to another employee
+
+Returning the device to stock automatically removes the previous assignment, the device can then be automatically assigned by the Automatically assign feature.
+
+**Good practice**: wipe the device at this stage to remove all data from the former employee.
+
+## Specific cases
+
+Automatic assignment is **not yet available for iOS and Android devices**, but support is planned in an upcoming release.
+
+<Note>
+
+**Best practices**
+
+- Manage all offboardings through Primo to ensure devices are properly unassigned.
+- Wipe devices when changing assignments to protect company data and user privacy.
+- Use Assignment suggestion to reduce manual work when managing a large number of devices or frequent turnover.
+
+</Note>

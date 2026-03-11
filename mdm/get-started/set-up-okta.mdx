@@ -1,0 +1,59 @@
+---
+title: "Set up Okta authentication integration on your devices"
+description: "To set up Okta authentication integration on your devices, follow the outlined steps to add the Platform Single Sign-On application, create a SCEP challenge, and finalize the deployment within the Primo profile, ensuring you gather all necessary information for configuration."
+---
+
+This article outlines the steps required to configure Okta and prepare for deploying Single Sign-On (SSO) via Platform Single Sign-On on devices managed through Primo.
+
+# Add the Platform Single Sign-On application in Okta
+
+1. Go to **Admin Console > Applications > Applications > Browse App Catalog**
+2. Search for **Platform Single Sign-On for macOS**
+3. Click **Add integration**
+   > If the message This feature isn't enabled appears, contact your Okta Account Manager to enable Okta Device Access (paid feature).
+4. Open the app from your application list
+5. In the **General** tab, rename the app label if needed
+6. In the **Sign On** tab, make note of the **Client ID** (required for MDM configuration)
+7. In the **Assignments** tab, assign the app to the relevant users or groups
+
+# Create a SCEP challenge in Okta
+
+1. Go to **Admin Console > Security > Device integrations**
+2. Ensure the **Device Access** tab is visible (next to *Endpoint Management*)
+   > If the tab is missing, Okta Device Access is not yet enabled
+3. Add a **Static SCEP certificate authority**
+4. Make note of the following:
+   - **SCEP certificate URL**
+   - **SCEP certificate challenge**
+
+# Add Okta Verify to Fleet
+
+1. From the Okta Admin Console, go to **Settings > Downloads**
+2. Download **Okta Verify for macOS**
+3. Add the app to Fleet as software:
+   - Simply upload the application file
+   - Do not enable automatic deployment or self-service
+   - **Primo will automatically adjust settings to handle deployment**
+
+# Keep key information for MDM configuration
+
+Make sure to save the following details for upcoming setup steps:
+
+- **Okta domain** (e.g. `yourorganization.okta.com`)
+- **Client ID** (from the Platform Single Sign-On application)
+- **SCEP certificate URL**
+- **SCEP certificate challenge**
+
+# Finalize the deployment
+
+To finalize the deployment of **Okta Platform SSO**, go to a profile in Primo: [https://app.getprimo.com/profiles](https://app.getprimo.com/profiles)
+
+1. Enable the **Okta Platform SSO** setting
+2. Enter the required information (domain, Client ID, SCEP URL, and Challenge)
+3. Save the changes
+
+Okta Platform SSO will then be activated on all devices targeted by the profile.
+
+<Note>
+The deployment may take several minutes to complete, as Okta Verify must be installed on all targeted devices.
+</Note>

@@ -1,0 +1,103 @@
+---
+title: "Employee MDM Installation Guide"
+description: "Follow these step-by-step instructions to install Primo on your computer, ensuring you have administrator rights for successful enrollment in your company's fleet management system."
+---
+
+This article will guide you step by step through installing Primo on your device. This installation is crucial for your company's fleet management.
+
+**Some context before we begin:**
+
+- **Primo** is the tool your company uses to track, manage, and secure its devices.
+- **FleetDM** is the Mobile Device Management (MDM) solution deployed by Primo.
+
+The procedure is simple and quick: it takes **less than 2 minutes**.
+
+<Warning>
+
+**Important**: You must have **administrator rights** on the device to complete the installation. If you do not have them, contact your administrator before proceeding.
+
+</Warning>
+
+## Step 1: Access the Primo enrollment space
+
+You can access the Primo enrollment space in two different ways.
+
+### Option 1: Access the enrollment from the invitation email
+
+If you received an enrollment email titled **"Invite to join <Company Name> on Primo"**:
+
+1. Open the enrollment email.
+2. Click **Enroll my computer on Primo**.
+3. You are redirected to the Primo enrollment web page.
+
+### Option 2: Access the enrollment from a direct link
+
+If your administrator shared an enrollment link with you: open the link and you are directly redirected to the Primo enrollment web page.
+
+## Step 2: Authenticate to Primo
+
+Once on the Primo enrollment page:
+
+1. Enter your professional email address (or your personal email address if you are new to the company).
+2. Enter the **6-digit verification code** sent to your email address.
+
+## Step 3: Start the installation
+
+After logging in, Primo will prompt you to install the MDM on your device.
+
+1. Choose one of the following options:
+   - If a device is already assigned to you, select it and click **Enroll**.
+   - If no device is assigned to you, click **Deploy MDM on another device**.
+2. Select your device OS (Windows, MacOS, Linux, iOS, Android) and download installer.
+3. Follow the installation instructions corresponding to your operating system.
+
+### Installation on macOS
+
+1. Install the agent to your device
+   1. Locate the file **primo-enrollment.mobileconfig** downloaded to your device
+   2. Double-click the file. A system message confirms that the profile has been downloaded and must now be installed.
+
+2. Install the profile to your device
+   1. Open **System Preferences** and go to **General > Device Management**
+      Alternatively, use the search field in System Settings and search for Device Management
+   2. Select the profile in the list and double-click on "**<Your Company> Enrollment**"
+   3. Click **Enroll** at the bottom left of the window.
+   4. Enter your **administrator password** to confirm the installation.
+
+<details>
+<summary>Click here in case of error during the agent installation</summary>
+
+If you see an error that primo-enrollment.pkg is blocked:
+
+You can unblock it in Settings > Privacy & Security > Security
+
+</details>
+
+That's it, you're all done ✅
+
+You'll receive a confirmation email
+
+### Installation on Windows
+
+1. Double-click on the "**primo-enrollment.msi**" file that has been downloaded
+2. A Windows security window opens, continue by clicking on **"Yes"**
+3. That's it, you're all done ✅
+
+You'll receive a confirmation email
+
+### Installation on iOS
+
+1. Go to **Settings** > **General** > **Device Management**
+2. Select and **install the profile** MDM Primo
+3. **Confirm the installation** by entering your unlock code if prompted
+
+### Installation on Android
+
+1. Follow the Android enrollment steps
+2. When prompted for login credentials, enter your Primo login information
+
+<Note>
+
+At Primo, protecting your data is our absolute priority. Find our Transparency Page for more information.
+
+</Note>

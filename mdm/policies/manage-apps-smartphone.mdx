@@ -1,0 +1,69 @@
+---
+title: "Manage apps via Primo & FleetDM (smartphone)"
+description: "To manage app deployment on iOS devices via Primo and FleetDM, ensure Zero-Touch Deployment is activated, establish the VPP link, and follow the outlined steps for installation, updating, and migrating devices to ensure a seamless transition and efficient app management."
+---
+
+# **Prerequisites for app deployment**
+
+Prerequisites for managing app deployment on your iOS phones:
+
+1. Activate Zero-Touch Deployment in Primo: if not already done, you can connect your ABM in your [MDM Settings](https://app.getprimo.com/settings/?tab=mdm).
+2. Establish the VPP (Volume Purchase Program) link between your ABM and Primo (FleetDM):
+   1. in ABM:
+      - Access the **Sites** section and create a new site (if necessary)
+      - Generate a **VPP token** from this site
+   2. in FleetDM (Primo):
+      - Go to the **Software > Add > App Store (VPP)** tab
+      - Select the "No Team" Team
+      - Import the VPP token
+
+**[In case of migration]**: you will need to terminate the VPP link with your previous MDM
+- Once the VPP link is active in FleetDM and the apps are ready to be deployed,
+- Ask the previous MDM to **remove its VPP link**,
+- This may result in the **automatic removal of apps installed via this link**.
+- You can then redeploy the applications automatically via FleetDM (tutorial below).
+
+# **Install an iOS application**
+
+In ABM:
+1. Add the application to your ABM (Apps and Books tab)
+2. Add a sufficient number of licenses
+
+In FleetDM:
+1. Go to the **Software > Add > App Store (VPP)** tab.
+2. For each desired application:
+   - Select the application from the list.
+   - In **Deployment Options**, refine your audience and deployment mode:
+      - The deployment mode ("Install Automatically" or "Available for Install")
+      - The target (**Target**), e.g.: "All iOS devices" or a specific group.
+   - Click on **Add Software**.
+   - Repeat the operation for each app to deploy.
+
+✅ Once this operation is complete, the applications will be automatically installed on phones under Primo management.
+
+# Update an iOS application
+
+When an app was installed before enrolling the device, you can manage its update **in FleetDM**.
+
+1. Go to **Host > Software > Library**
+2. On the application you want to update, click **Install**
+
+The application will get the update without losing data.
+
+<Tip>
+An auto-update feature is currently under construction.
+</Tip>
+
+# [In case of migration] Finalizing the switch to Primo
+
+## Reassign iPhones in Apple Business Manager
+
+- Go to **ABM > Devices**.
+- Reassign the iPhones from the previous MDM server to the "Primo" server.
+- The devices will be automatically managed by Primo, which will redeploy the configured applications.
+
+## Recommendations
+
+- Migrate in batches of 10-15 phones to limit the impact.
+- Always prepare the applications in Primo **before cutting** the VPP link of the previous MDM.
+- Do not share the same VPP token between two MDMs.

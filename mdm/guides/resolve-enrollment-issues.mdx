@@ -1,0 +1,80 @@
+---
+title: "Resolve enrollment issues"
+description: "Enrollments can face issues such as incomplete processes, missing agents or profiles, and connectivity problems, and troubleshooting steps are readily available to resolve these scenarios effectively."
+---
+
+# Why This Status?
+
+## During Deployment
+
+A device is considered **partially enrolled** when the enrollment process in Primo (or MDM deployment) has not been fully completed. As a result, the MDM is not yet active on the device.
+
+This can happen for several reasons:
+
+- The user did not complete all the enrollment steps.
+- The Fleet agent installation is incomplete (mainly on macOS).
+- The user did not stay connected long enough to complete synchronization.
+- The agent or MDM profile was uninstalled or blocked.
+
+## When the Device is Already Enrolled
+
+Here are the different possible scenarios:
+
+### Missing or Inactive Agent
+
+This status indicates that the FleetDM agent installed on the device is no longer sending data to FleetDM.
+
+Possible causes:
+
+- **The agent was uninstalled or corrupted**
+  - The user or a script manually removed the agent.
+  - A system update or configuration error corrupted the installation.
+- **The agent is no longer running**
+  - The `osqueryd` service (used by FleetDM) has stopped.
+  - The agent fails to start due to permission issues.
+- **Network or connectivity issues**
+  - The device is on a network that blocks access to the FleetDM server.
+  - The device has been offline for too long, preventing the agent from reconnecting.
+  - A proxy or firewall is blocking communication between the agent and the FleetDM server.
+- **The certificate or MDM configuration has expired or is corrupted**
+  - If your APN (Apple Push Notification) certificate has expired.
+- **FleetDM issue**
+
+### Missing MDM Profile (Mac only)
+
+This status indicates that the MDM profile is either missing or inactive on the device.
+
+Possible causes:
+
+- **The profile was removed by the user**
+  - On macOS, an admin user can remove an unlocked MDM profile.
+- **The profile has expired or is invalid**
+  - An issue with Apple Push Notification Service (APNS) may prevent the device from validating its profile.
+  - If the APNS token has expired or been revoked, the MDM profile may become invalid.
+- **The device was accidentally removed from MDM management**
+  - If the `turn off mdm` action was executed from FleetDM on the device.
+
+## Identifying Partially Enrolled Devices
+
+In your Primo cockpit, you can identify partially enrolled devices in two ways:
+
+1. The device's enrollment status provides insights into potential errors:
+   - **Missing agent**
+   - **Missing profile**
+   - **Enrolled in another MDM**
+2. The device appears **offline** even though it is actively used by an employee.
+
+## Troubleshooting
+
+Here are the solutions for each situation:
+
+- **Missing Profile** (on macOS): Ask the employee to follow the detailed steps in the installation guide.
+- **Missing Agent** (on macOS): In the device panel, click on the device status button to remotely trigger the agent installation. If this does not work, ask the employee to log into their Primo enrollment page and click on their assigned device. They can then download the agent independently.
+- **Enrolled in another MDM**: Find the necessary documentation regarding migration from your previous MDM to Primo.
+- **Offline Device**: Ask the employee to re-enroll their device. You can automate this action in **Settings > Remote Management > Enable Auto-Unenrollment**.
+
+Once the employee completes these actions, the device should appear as correctly enrolled in Primo within **30 minutes** (the synchronization period between Fleet and Primo).
+
+<Tip>
+Save time by automating employee re-enrolment. In **Settings > MDM**, enable **Auto-Unenrollment** and select the option to **automatically resend MDM invitations** to employees whose devices have been purged (i.e., devices that have been offline for a certain duration).
+</Tip>

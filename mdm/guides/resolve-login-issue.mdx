@@ -1,0 +1,96 @@
+---
+title: "Resolve a login issue related to a password"
+description: "To resolve a password-related login issue, verify the user's password entry and keyboard layout, check the applied password policy, and choose the appropriate recovery option while implementing preventive measures for future incidents."
+---
+
+This article explains how to identify the cause of a login issue related to a password, resolve the situation (remotely or locally), and prevent future incidents.
+
+# Identify common causes
+
+Login issues can be caused by:
+
+- **A forgotten password** after a period of inactivity or a recent change.
+- **A typing error related to the keyboard layout** (e.g., switching from AZERTY to QWERTY).
+- **A change in security policies** (complexity, length, or rotation requirements).
+
+# Diagnose and secure
+
+## Avoid repeated login attempts
+
+**Important:** Ask the user not to attempt multiple incorrect logins.
+
+On macOS, several failed attempts may trigger **Recovery OS**, making password recovery more complex.
+
+## Verify password entry with the user
+
+1. Ask the user to **type the password in a visible field** (for example "Username") to check the characters entered.
+2. **Check the keyboard layout** and input language:
+   - **macOS:** System Settings → Language & Region → Input method
+   - **Windows:** Settings → Time & Language → Language & Region
+
+## Check the applied password policy
+
+Administrators can define **security policies** in Primo (complexity, renewal frequency, rotation, etc.).
+
+In Primo, go to **Settings → Security → Password policies** and confirm the rule applied to the user's device. A recent policy may have required a password change.
+
+# Reset the password
+
+Choose the appropriate option based on the device status.
+
+## Option 1 — Renew the password remotely from Primo
+
+**Requirements:**
+
+- You are an administrator of your company space in Primo.
+- The device is enrolled in the MDM.
+- The device is powered on and connected to the internet (Online in Primo).
+- An administrator session exists on the device.
+
+## Option 2 — Use the linked Apple or Microsoft account
+
+If an account is linked to the device, follow the vendor's procedure:
+
+- **macOS:** Sign in with the iCloud account (see the [Apple guide](https://support.apple.com/en-us/guide/mac-help/mchlp1550/mac))
+- **Windows:** Sign in with the Microsoft account (see the [Microsoft guide](https://support.microsoft.com/en-us/account-billing/what-to-do-if-you-forgot-your-microsoft-account-password-4ef4b1c3-5f47-4639-8003-689e92d8c0a3))
+
+## Option 3 — Unlock with the recovery key (FileVault / BitLocker)
+
+**Requirements:**
+
+- The device is enrolled in the MDM.
+- The device is not connected to the internet or is not communicating with the MDM.
+- Encryption is enabled (FileVault on macOS / BitLocker on Windows).
+- The recovery key is synchronized in Primo.
+
+**Actions:**
+
+1. Retrieve the recovery key from the device record in **Primo → Information → Recovery key**.
+2. Unlock the session locally using this key.
+3. Set a new password.
+
+## Option 4 — Fully reset the device
+
+If none of the previous options work, the only solution is to **fully reset the device**.
+
+**Warning:** this process will erase all local data.
+
+# Prevent future incidents
+
+To avoid future password-related login issues, implement the following actions:
+
+- **Enable device encryption** and ensure that each recovery key is properly stored in Primo.
+- **Automatically create an administrator session** on devices via MDM → Profiles → **Admin User Management**.
+- **Plan and communicate security policy changes** to your teams (effective date, complexity requirements).
+- **Inform users** ahead of any global password renewal.
+
+# Summary
+
+If a user experiences a password-related login issue:
+
+1. Verify the password input and keyboard layout.
+2. Check the applied password policy.
+3. Choose the correct option: **remote renewal**, **recovery key**, or **linked account**.
+4. Implement **preventive measures** (encryption, admin session, policy communication).
+
+The password-related login issue is now resolved.

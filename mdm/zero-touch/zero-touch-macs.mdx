@@ -1,0 +1,121 @@
+---
+title: "Zero-Touch Enrollment for Macs"
+description: "Learn how to create and validate your Apple Business Manager account to enable Zero Touch deployment for Apple devices, ensuring automatic configuration and security during the first startup without manual IT intervention."
+---
+
+This article explains how to create and validate an Apple Business Manager (ABM) account, then connect it to Primo to enable Zero Touch deployment for Apple devices. Once connected, devices can be automatically configured and secured during their first startup, without manual intervention from IT teams.
+
+# Understand the role of ABM in Primo
+
+Apple Business Manager is an Apple web portal that allows organizations to manage and deploy Apple devices (iPhone, iPad, Mac, Apple TV) from a centralized location.
+
+<Note>
+When Apple Business Manager is connected to Primo MDM, devices purchased through authorized resellers can be:
+- automatically enrolled in Primo,
+- preconfigured during the initial setup,
+- secured according to the policies defined in the Primo Cockpit.
+
+This process is referred to as **Zero Touch Deployment**.
+</Note>
+
+# Prerequisites
+
+Before connecting Apple Business Manager to Primo, make sure that:
+
+- You have an **Apple Business Manager administrator account**.
+- You have **administrator access in Primo**.
+- Your organization has a **valid D-U-N-S number**.
+
+# If you don't have an ABM account: Create an ABM account
+
+If your organization does not yet have an Apple Business Manager account, create one by following Apple's official process: [Apple - Enroll in Apple Business Manager](https://support.apple.com/en-us/guide/apple-business-manager/axm402206497/web).
+
+## Create an ABM account for your company (estimated time: 2 minutes)
+
+1. Go to [https://business.apple.com/](https://business.apple.com/)
+2. Select **Sign up now**
+3. Enter the required organization information:
+   - First and last name of the person registering on behalf of the organization
+   - A business email address not associated with an Apple ID
+   - Organization name
+   - Organization website (recommended)
+4. Create a password, then verify your email address and phone number
+5. Select **Start** to complete the account creation
+
+For more details, refer to Apple's documentation: [Apple – Enroll in Apple Business Manager](https://support.apple.com/en-us/guide/apple-business-manager/axm402206497/web)
+
+## Validate your registration (estimated time: 5 minutes)
+
+After creating the account, Apple must validate your organization.
+
+1. Sign in to [https://business.apple.com/](https://business.apple.com/)
+2. Go to [**Organization settings**](https://business.apple.com/#/main/preferences/organizationsettings)
+3. Select **Validate**
+4. Enter:
+   - Your organization's D-U-N-S number (more information: [D-U-N-S® Number](https://developer.apple.com/support/D-U-N-S/))
+   - The contact details of the validation contact
+5. Check your inbox for the validation email from Apple Business Manager
+6. The designated contact will be reached by phone to confirm the information
+
+Make sure your email system allows messages from `apple.com` domains.
+
+An additional validation step may be required through AppleCare at **0805 540 758**.
+
+# Connect Apple Business Manager to Primo
+
+Once your Apple Business Manager account is validated:
+
+1. Sign in to Primo
+2. Go to **Integrations**
+3. Select **Apple Business Manager**
+4. Follow the on-screen instructions to connect ABM to Primo
+5. Confirm that synchronization is active
+
+After the integration is complete, Apple devices associated with your organization can be automatically enrolled in Primo.
+
+# Obtain an Apple device eligible for Zero Touch deployment
+
+To benefit from Zero Touch deployment with Primo, the Apple device must be associated with your organization's Apple Business Manager account. There are three supported ways to achieve this.
+
+## Purchase devices directly through Primo
+
+When devices are purchased through Primo and your Zero-Touch setup is complete in cockpit, the entire process is automated.
+
+- Devices are automatically linked to your Apple Business Manager account
+- No manual configuration is required
+- Devices are immediately eligible for Zero Touch deployment in Primo
+
+This is the recommended option to ensure a seamless and fully automated setup.
+
+## Purchase devices through a B2B reseller
+
+You can also purchase Apple devices through an authorized B2B reseller.
+
+In this case, make sure that:
+
+- The reseller is **Apple-authorized**
+- The reseller correctly assigns the devices to your **Apple Business Manager account** at the time of purchase
+
+Once assigned to ABM, the devices become available for enrollment in Primo and can be deployed using Zero Touch.
+
+## Add devices manually using Apple Configurator for Mac
+
+If a device was not purchased through Primo or an eligible reseller, you can add it manually to Apple Business Manager using **Apple Configurator for Mac**. The device must be erased and physically connected during the process.
+
+For detailed instructions, refer to Apple's official documentation:
+[Apple – Add devices to Apple Business Manager using Apple Configurator](https://support.apple.com/fr-fr/guide/apple-business-manager/axm200a54d59/web)
+
+Once added to Apple Business Manager, the device can be assigned to Primo and deployed using Zero Touch.
+
+# Employee's experience during 1st startup
+
+When a new employee receives an Apple device configured with ABM and Primo:
+
+1. The employee turns on the device
+2. Selects country, language, and keyboard settings
+3. Connects to the Internet
+4. The **Remote Management** screen is displayed
+5. The employee signs in using their email address (the employee must have been onboarded in Primo)
+6. Security settings and applications defined in the Primo Cockpit are automatically applied
+
+The device is ready to use without any additional manual configuration.

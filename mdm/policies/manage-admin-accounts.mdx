@@ -1,0 +1,69 @@
+---
+title: "Manage administrator accounts"
+description: "Utilize the Admin user management policy to deploy and manage administrator accounts on your devices, enabling features like password storage in Primo and the adjustment of existing user privileges while adhering to best practices for security and avoiding policy conflicts."
+---
+
+Use the policy **Admin user management** to deploy administrator sessions on your devices. This feature can be applied globally or to specific groups using Device Groups.
+
+It allows you to create administrator sessions, store their passwords in Primo, and optionally reduce the privileges of other existing sessions.
+
+<Tip>
+Coming soon: the ability to facilitate privilege escalation (giving temporary administrator access). In the meantime, you can use tools like Privileges and MakemeAdmin for these actions.
+</Tip>
+
+# **Deploy administrator accounts through MDM Controls**
+
+## Configure the policy
+
+1. Enable the feature.
+2. Define the username of the administrator session to create.
+3. Set the account password:
+   - **Random password**: generated per device
+   - **Fixed password**: identical across all targeted devices
+4. Choose whether to adjust existing users' rights:
+   - Default: no change
+   - Optional: reduce privileges for other sessions
+
+## Password storage locations
+
+- **Random password**: stored in each device's panel
+   - *Equipment > Devices > Device panel*
+- **Fixed password**: stored in the feature settings
+   - *Profiles > Relevant profile > Administrator account management*
+
+# Manage accounts at the device level
+
+From a device's **Users** tab, you can:
+- Grant administrator rights
+- Remove administrator rights
+- Create a local session
+- Rotate the password of an existing session
+
+These actions allow fine-grained management in addition to the global profile-based policy.
+
+# Modify or disable the policy
+
+<Warning>
+After activation on a profile, the policy cannot be edited directly.
+</Warning>
+
+- To update it, disable the policy and then re-enable it with new settings.
+- Disabling the policy stops its enforcement but does **not** delete the Primo administrator account or its password, which remain available in Primo.
+
+# Special Cases
+
+**Removing administrator access on a device with an active secure token**
+
+SecureToken is a macOS-specific feature that acts as an access key. It allows a user account to activate and manage critical security functions, such as FileVault encryption.
+
+Currently, it is not possible to remove administrator rights from an account if it is the only one with a SecureToken on the device. We are working to improve this management to allow the transfer of the SecureToken to another account, particularly the one administered via Primo.
+
+**Cases of devices targeted by multiple administrator account management policies**
+
+Policy duplications may occur if you activate the policy on a global profile and on a "specific" profile. In this case, Primo does not manage the conflict: the MDM attempts to create the requested user by only checking that the account name is not identical.
+
+# Best practices
+
+- Prefer random passwords to enhance security at scale.
+- Document macOS SecureToken exceptions in internal IT procedures.
+- Avoid activating duplicate policies on overlapping profiles to prevent conflicts.

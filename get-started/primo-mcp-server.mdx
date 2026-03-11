@@ -1,0 +1,143 @@
+---
+title: "Use the Primo MCP Server with AI Assistants"
+description: "Learn how to connect ChatGPT, Claude, Cursor, and other AI assistants to Primo using the MCP (Model Context Protocol) server to manage your IT fleet in natural language."
+---
+
+## What is MCP?
+
+The **Model Context Protocol (MCP)** is an open standard that allows AI assistants like ChatGPT, Claude, or Cursor to connect directly to external tools and data sources — including Primo.
+
+With the Primo MCP server, your AI assistant can query and manage your IT fleet in natural language: list devices, look up employees, manage accessories, create tickets, and more.
+
+---
+
+## Prerequisites
+
+To use the Primo MCP server, you just need:
+
+- A **Primo account** with access to your company's workspace
+- An AI assistant that supports MCP (ChatGPT, Claude, Cursor, etc.)
+
+Authentication is handled via **OAuth** — when you add the Primo MCP server to your AI assistant, you'll be redirected to sign in with your Primo account. No API key required.
+
+---
+
+## MCP Server URL
+
+The Primo MCP server is available at:
+
+```javascript
+https://api.getprimo.com/mcp
+```
+
+By default, the server runs in **read-only mode** — your AI assistant can query data but cannot make changes.
+
+To enable **write access** (create tickets, update accessories, etc.), use:
+
+```javascript
+https://api.getprimo.com/mcp?readOnly=false
+```
+
+---
+
+## Setup Guide
+
+### ChatGPT
+
+1. Open **ChatGPT** (Plus or Team plan required)
+2. Go to **Settings** → **Connected Apps** or use the **"Connect"** menu
+3. Select **"Add MCP Server"**
+4. Enter the server URL: `https://api.getprimo.com/mcp`
+5. You'll be redirected to **sign in with your Primo account** (OAuth)
+6. Authorize the connection — you're all set!
+
+**Example prompts:**
+
+- *"List all devices managed in Primo"*
+- *"Show me employees who joined this month"*
+- *"What tickets are currently pending?"*
+
+### Claude Desktop
+
+1. Open the **Claude Desktop** app
+2. Go to **Settings** → **Developer** → **MCP Servers**
+3. Click **"Add Server"**
+4. Enter a name (e.g. "Primo") and the URL: `https://api.getprimo.com/mcp`
+5. Complete the OAuth sign-in flow with your Primo account
+6. Save and reconnect — Primo tools will appear in Claude's toolbox
+
+### Cursor
+
+1. Open **Cursor** settings
+2. Navigate to **MCP Servers**
+3. Add a new server with the URL: `https://api.getprimo.com/mcp`
+4. Complete the OAuth authentication with your Primo account
+5. Primo tools will be available in Cursor's AI assistant
+
+### Other MCP-Compatible Clients
+
+Any application that supports the MCP standard can connect to Primo. Use the server URL `https://api.getprimo.com/mcp` — authentication is handled via OAuth.
+
+---
+
+## Multi-Company Support
+
+If your organization manages **multiple companies** in Primo, the MCP server defaults to your primary company.
+
+To target a specific company, add the `x-company-id` parameter to the URL:
+
+```javascript
+https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID
+```
+
+You can combine parameters:
+
+```javascript
+https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID&readOnly=false
+```
+
+<Note>
+To find your company ID, use the API to list your companies or check the URL in your Primo dashboard.
+</Note>
+
+---
+
+## What Can You Do?
+
+Once connected, your AI assistant can perform the following actions through Primo:
+
+| Category | Read Operations | Write Operations |
+|---|---|---|
+| **Companies** | List and view companies | — |
+| **Devices** | List, search, and view device details | Lock, unlock, wipe (⚠️) |
+| **Employees** | List and view employee profiles | — |
+| **Accessories** | List and view accessories | Create and update accessories |
+| **Tickets** | List, search, filter, and view tickets | Create tickets, add comments, update status/priority/assignee |
+
+<Warning>
+Device actions (lock, wipe) are powerful and irreversible. Use write mode with caution.
+</Warning>
+
+---
+
+## Troubleshooting
+
+**"404 Not Found" when opening the URL in a browser**
+
+This is normal. The MCP server is not a web page — it's a protocol endpoint designed to be used by AI assistants. Add it as an MCP server in your preferred client.
+
+**Authentication error**
+
+Make sure you complete the OAuth sign-in flow when prompted. You need an active Primo account with access to the company you want to query.
+
+**Data from the wrong company**
+
+If you manage multiple companies, specify the target company using the `x-company-id` parameter (see Multi-Company Support above).
+
+---
+
+## Need Help?
+
+Contact your Primo support team or reach out via the in-app chat if you need assistance setting up MCP.
+
+For API documentation, visit: [api.getprimo.com/apidoc](http://api.getprimo.com/apidoc)

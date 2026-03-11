@@ -1,0 +1,65 @@
+---
+title: "Deploy VPP applications"
+description: "Learn how to efficiently deploy and manage VPP applications through Apple Business Manager and Primo for centralized, automated installation, license management, and enhanced security across your organization's devices."
+---
+
+# Introduction to VPP Applications
+
+**VPP (Volume Purchase Program)** applications are part of the Apple Business Manager (ABM) framework. They allow organizations to purchase and distribute macOS and iOS app licenses in bulk across devices managed through an MDM.
+
+Instead of asking each employee to install an app via the App Store, VPP makes it possible to deploy and manage applications in a **centralized, secure, and automated** way.
+
+# **Benefits of VPP Deployment**
+
+- **Automatic installation**: apps are deployed from the App Store without user intervention
+- **License management**: easy assignment and reassignment of licenses
+- **Enhanced security**: only Apple-verified applications are installed
+- **Efficiency**: no more manual installations
+- **Standardization**: centralized and consistent deployment across all devices
+
+# **Prerequisites for app deployment**
+
+Prerequisites for managing app deployment on your devices:
+
+1. Activate Zero-Touch Deployment in Primo: if not already done, you can connect your ABM in your [MDM Settings](https://app.getprimo.com/settings/?tab=mdm).
+2. Establish the VPP (Volume Purchase Program) link between your ABM and Primo (FleetDM):
+   1. in ABM:
+      - Access the **Sites** section and create a new site (if necessary).
+      - Generate a **VPP token** from this site.
+   2. in FleetDM (Primo):
+      - Go to the **Software > Add > App Store (VPP)** tab.
+      - Select the "No Team" Team
+      - Import the VPP token.
+
+**[In case of migration]**: you will need to terminate the VPP link with your previous MDM
+- Once the VPP link is active in FleetDM and the apps are ready to be deployed,
+- Ask the previous MDM to **remove its VPP link**,
+- This may result in the **automatic removal of apps installed via this link**.
+- You can then redeploy the applications automatically via FleetDM (tutorial below).
+
+# **Install an VPP application**
+
+In ABM:
+1. Add the application to your ABM (Apps and Books tab)
+2. Add a sufficient number of licenses
+
+In FleetDM:
+1. Go to the **Software > Add > App Store (VPP)** tab.
+2. For each desired application:
+   - Select the application from the list.
+   - In **Deployment Options**, refine your audience and deployment mode:
+      - The deployment mode ("Install Automatically" or "Available for Install")
+      - The target (**Target**), e.g.: "All devices" or a specific group.
+   - Click on **Add Software**.
+   - Repeat the operation for each app to deploy.
+
+✅ Once this operation is complete, the applications will be automatically installed on phones under Primo management.
+
+# Update VPP application
+
+When an app was installed before enrolling the device you can manage its update in FleetDM:
+
+1. go to Host > Software > Library
+2. on the application you want to update, just click install
+
+The application will get the update without losing data.

@@ -1,0 +1,72 @@
+---
+title: "Manage apps via Primo & FleetDM (laptop)"
+description: "To manage apps via Primo and FleetDM, log into FleetDM, add software either from the maintained list or by uploading your own, define the installation target using labels, and follow the steps to either deploy or remove applications from devices."
+---
+
+## **Step 1: Connecting to FleetDM**
+
+To begin, log in to FleetDM from your Primo cockpit using one of these two options:
+
+1. **From MDM > Softwares**: Go to **"Add new app"**
+2. **From the main menu**: Access FleetDM directly through the menu
+
+Either way, you can connect to FleetDM seamlessly using SSO from your Primo account.
+
+## **Step 2: Accessing application configuration**
+
+1. Once connected to FleetDM, click on the **"Softwares"** tab.
+2. Ensure you are in the **"No Team"** team (visible at the top of the screen).
+3. Click the **"Add Software"** button on the right side of the screen.
+
+## **Step 3: Choose the application to add**
+
+The application configuration screen offers two options:
+
+1. **Applications maintained by FleetDM**: These are automatically managed and updated by FleetDM.
+2. **Upload your own application**: Add custom applications that aren't in FleetDM's maintained list.
+
+<Note>
+**Which package type to prefer?**
+- macOS: `.pkg`
+- Windows: `.msi`
+- Linux: `.deb` / `.rpm`
+</Note>
+
+## **Step 4: Define the installation target**
+
+After selecting your application, specify the installation scope:
+
+- **All devices**: Deploy to all enrolled devices.
+- **Devices associated with a Label**: Target specific users or devices using **Labels**.
+
+<Tip>
+**How Labels work:**
+- Labels are automatically generated in FleetDM from **Profiles** and **Tags** configured in Primo.
+- Look for the **[SET BY PRIMO]** indicator to identify them in FleetDM.
+</Tip>
+
+## **Step 5: Automatic Installation**
+
+After completing the configuration, the application will automatically deploy to all matching devices.
+
+<Warning>
+**Important**: During our current process migration, applications added via FleetDM won't appear in the Primo cockpit. This feature will be available in the coming weeks.
+</Warning>
+
+# Remove an app with Primo & FleetDM
+
+## Disable automatic app installation
+
+To disable automatic installation of an application, go to Primo > MDM > Softwares and change the target selection.
+
+This action stops automatic installation for devices in this target but doesn't remove the application from devices where it's already installed.
+
+## Remove an app from a device
+
+To remove an application from a specific device:
+
+1. Go to FleetDM
+2. Choose the device from which you want to remove the application
+3. Open the Host Software tab
+4. Select the Available for install applications (next to the search bar)
+5. Click on uninstall

@@ -1,0 +1,146 @@
+---
+title: "Migrate your device from another MDM"
+description: "Migrate your devices to Primo (FleetDM) seamlessly by following a structured timeline and checklist, ensuring no data loss or user disruption during the transition from your current MDM solution."
+---
+
+This documentation helps guide you through migrating your devices from your current MDM solution **without erasing devices or disrupting users**.
+
+This article explains **how to migrate your devices** to Primo (FleetDM) through:
+
+- A proposed migration timeline
+- A migration preparation checklist
+- A detailed step-by-step process
+
+# Prepare your migration
+
+### Sample timeline
+
+| Week | Key actions |
+|---|---|
+| **Day 1** | Onboarding meeting to help you set up the Primo dashboard |
+| **Week 1** | Configuration of Primo MDM with settings currently deployed on your devices<br>Device segmentation (MacOS, Windows, Linux, etc.)<br>→ [If MacOS migration] Connection between Primo and your Apple Business Manager (ABM)<br>→ [If Windows migration] Activation of automatic migration from Primo |
+| **Week 2** | Communication to users and deployment of the Primo agent on your devices (manual or via your current MDM) |
+| **Week 3** | [If MacOS migration] Reassignment in ABM and unenrollment of old MDM profiles |
+| **Week 4** | [If MacOS migration] Acceptance of Primo profiles by your employees and finalization of deployment |
+| **Week 5** | [If MacOS migration] Final checks and removal of the old MDM |
+
+# Migrate your devices based on your OS
+
+### Pre-migration checklist
+
+- [If MacOS migration] Link Primo and your Apple Business Manager (ABM)
+- [If Windows migration] Enable the "Windows MDM Automatic Migration" option in your Primo MDM Settings
+- List the policies and applications currently deployed on your machines
+- Apply your configurations on Primo via MDM Profiles
+- Prepare internal communication (email, Slack, FAQ)
+- Anticipate specific cases: store FileVault keys, Activation Lock, etc. in advance
+
+## MacBook Migration
+
+Two migration scenarios:
+
+### 1. Supervised devices (registered in your ABM)
+
+These devices benefit from Zero Touch deployment. This migration consists of unenrollment and changing the MDM server in ABM.
+
+Steps to follow:
+
+1. **Establish the connection** between Primo and your ABM
+2. **Reassign devices in ABM** to Primo's MDM server.
+   *(This operation does not erase device data.)*
+3. Once reassignment is complete:
+   - Devices will automatically be visible in Primo.
+   - They will be assigned to your employees to track migration progress
+4. **Remove the old MDM** from your previous solution's console.
+   *(ABM does not remove them automatically.)*
+5. **The user will receive a popup** "Remote Management" on their machine asking them to install the new Primo (FleetDM) MDM profile.
+   *This action does not disassociate devices from the old MDM; you need to do this manually.*
+
+<Note>
+[Find more information about this migration directly here](https://fleetdm.com/guides/mdm-migration).
+</Note>
+
+### 2. Unsupervised devices
+
+Apple does not allow two MDMs to coexist on the same device. The migration therefore consists of disenrollment followed by re-enrollment.
+
+Steps to follow:
+
+1. Unenroll the device from the current MDM.
+2. Launch the enrollment campaign via your Primo dashboard
+3. Primo sends reminders every 7 days until the user installs the MDM
+
+Once devices are removed from your previous MDM, use Primo's "invite to MDM" function to facilitate deployment. Reminders will be sent every 7 days to unenrolled employees, and you can track progress in your dashboard.
+
+## Windows Migration
+
+Two migration scenarios:
+
+### 1. From any MDM
+
+Simply activate the "Windows MDM Automatic Migration" option in your Primo MDM Settings. By enabling this option, FleetDM will automatically migrate Windows devices enrolled with another MDM solution.
+
+### 2. Specifically from Intune
+
+#### If you have connected Intune and Entra ID
+
+Here is the procedure to follow imperatively before initiating the migration:
+
+1. Set FleetDM up as external MDM on Entra ID:
+   [https://primo.mdm.getprimo.com/settings/integrations/automatic-enrollment/windows](https://primo.mdm.getprimo.com/settings/integrations/automatic-enrollment/windows)
+2. On Entra, switch the automatic enrollment to FleetDM:
+   - Go to: [https://entra.microsoft.com/#view/Microsoft_AAD_IAM/MdmList.ReactView](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/MdmList.ReactView) (or search "Mobility" on entra.microsoft.com)
+   - Alternatively, go to: [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility) (or search "Mobility" on portal.azure.com)
+   - Then select "Intune"
+   - Select "None" in both options and Save
+
+#### Migrating your devices individually from Intune
+
+Follow these steps to migrate your devices from Intune one by one:
+
+- Enroll the computer in Primo, the device will be created in Primo with the status "Enrolled in another MDM"
+- Use the migration button in Primo to apply the migration script
+
+#### Migrating all your devices from Intune
+
+Follow these steps to migrate your devices from Intune:
+
+1. **Upload the following script**
+   - Find your full MDM URL:
+     - The format is: `https://REPLACE_BY_COMPANY_NAME.mdm.getprimo.com/api/mdm/microsoft/discovery`
+     - Replace `REPLACE_BY_COMPANY_NAME` with the company name / domain that is present in the Fleet URL
+   - Paste it in the script, replacing `INPUT_URL_HERE`
+   - Upload the script on the your MDM instance (Controls > Scripts)
+
+   ```powershell
+   $EnrollmentsPath = "HKLM:\SOFTWARE\Microsoft\Enrollments\"
+   $Enrollments = Get-ChildItem -Path $EnrollmentsPath
+   $DiscoveryServerFullUrls = @("INPUT_URL_HERE")
+
+   FoEach ($Enrollment in $Enrollments) {
+       $EnrollmentObject = Get-ItemProperty Registry::$Enrollment
+       if ($EnrollmentObject."DiscoveryServiceFullURL" -in $DiscoveryServerFullUrls ) {
+           $EnrollmentPath = $EnrollmentsPath + $EnrollmentObject."PSChildName"
+           Write-Host "Suppression de l'inscription : $EnrollmentPath"
+           Remove-Item -Path $EnrollmentPath -Recurse
+           Write-Host "Inscription supprimée. Réinscription de l'appareil..."
+           & "C:\Windows\System32\deviceenroller.exe /c /AutoEnrollMDM"
+           Write-Host "L'appareil a été réinscrit."
+       }
+   }
+   ```
+
+2. **Create a policy to migrate**
+   - Re-use the URL from above
+   - Paste it in the query below, replacing `INPUT_URL_HERE`
+
+   ```sql
+   SELECT 1 FROM registry
+   WHERE path LIKE 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Enrollments\%%'
+   AND name = "DiscoveryServiceFullURL"
+   AND data NOT IN ("INPUT_URL_HERE")
+   ```
+
+3. **Link script to policy**
+   - Navigate to Policies > No team
+   - Click on "Manage automation" and link the script you uploaded to the newly created policy

@@ -1,0 +1,35 @@
+---
+title: "Device Orders with Zero-Touch"
+description: "Learn how to configure Apple Business Manager and Microsoft Entra for automatic registration of devices ordered through Primo by authorizing your reseller and following the outlined procedures for both platforms."
+---
+
+This article explains how to configure your Apple Business Manager and Microsoft Entra to ensure that devices ordered through Primo are automatically registered in your Apple Business Manager and Microsoft Entra.
+
+## Procedure for Apple Business Manager
+
+To automatically enroll devices you have ordered with Primo in Zero Touch, you need to authorize the Reseller to register devices in your ABM.
+
+1. Access your [Settings in Primo](https://app.getprimo.com/settings/), tab **Orders.**
+2. Under **Zero-Touch Deployment**, click on **Apple.**
+3. Choose the country(ies) for which you want to enable ZeroTouch procurement, and copy the ResellerID(s).
+4. Go to [Apple Business Manager](https://business.apple.com/), click on your account name at the bottom left and select **Preferences.**
+5. Select **Organisation Information**. Copy and paste your **Organisation ID** into your Primo application.
+6. Under **Device Management Services**, select **Management Assignment**. Next to **Customer Numbers**, click **Edit.**
+7. Add the Reseller ID(s)
+8. On Primo, activate the button.
+
+## Procedure for Microsoft Entra
+
+### Step 1: Authorize the reseller to register future devices in Entra
+
+1. Access your [organization settings in Primo](https://app.getprimo.com/settings/), tab **Orders**.
+2. In the **Zero-Touch Procurement** section, click on **Windows**.
+3. Select the country or countries where you want to enable Autopilot procurement, then click **Authorize our reseller.**
+4. Follow the displayed instructions.
+5. Once authorization is granted, a confirmation screen will indicate that the partner relationship has been successfully created.
+
+### Step 2: Enter Microsoft Entra information in Primo
+
+1. Log in to the [Azure portal](https://portal.azure.com/) and search for **Microsoft Entra ID**.
+2. **Copy** and **paste** your **Tenant ID** and **Primary Domain** into your Primo application.
+3. Activate the configuration button to finalize the integration in Primo.

@@ -1,0 +1,58 @@
+---
+title: "Configure an AI-based connector in Primo"
+description: "Learn how to configure an AI-based connector in Primo to automate user provisioning and deprovisioning for applications without standard APIs by setting up login instructions, defining interaction steps, and validating successful logins through a series of concise actions."
+---
+
+AI-based connectors in Primo allow you to automate user provisioning and deprovisioning in applications that do not support APIs or standard integration protocols. These connectors simulate user interactions with the application's interface through a predefined set of actions.
+
+This article explains how to configure an AI-based connector by setting up login instructions and defining steps for the AI agent.
+
+## Access the integration settings
+
+1. Sign in to the Primo console.
+2. Navigate to **Identities & access > Apps catalog**.
+3. Select the application that uses an AI-based connector.
+4. Open the **Settings** tab.
+
+You will see the configuration interface for AI-based actions such as login, listing users, creating users, or deleting users.
+
+## Set up the login sequence
+
+1. In the **Login** tab, locate the **Setup** section.
+2. Enter the required fields:
+   - **Login URL**: Provide the full URL of the application's login page (e.g., `https://app.example.com/sign-in`).
+   - **Email or Username**: Enter the username or email that the AI should use. Reference this input as `{USERNAME}` in your prompts.
+   - **Password**: Enter the password associated with the username. Reference this as `{PASSWORD}` in your prompts.
+
+These fields allow the AI to simulate a login using fixed credentials.
+
+## Define login steps for the AI
+
+1. In the **Define steps** section, describe the exact interaction the AI should perform.
+2. Click **Add step** if the login flow requires multiple actions.
+
+Example:
+`Fill the form with the {USERNAME} and {PASSWORD} and click on the Sign In button`
+
+Each step should be concise and describe a single action.
+
+## Set a validation condition
+
+1. In the **Success** section, specify how the AI should determine that the login was successful.
+2. Use visible indicators such as:
+   - A specific URL
+   - A success message
+   - A unique dashboard element
+
+Example:
+`You should see a dashboard with a welcome message`
+
+This validation helps ensure that the workflow has completed as expected.
+
+## Test the workflow
+
+Once all steps are configured:
+
+1. Click **Run** to test the login sequence.
+2. The AI will launch a simulated browser session and execute the defined prompts.
+3. Observe the behavior and adjust the steps if needed.

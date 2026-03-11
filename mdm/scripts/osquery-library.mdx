@@ -1,0 +1,112 @@
+---
+title: "OSQuery library for queries & policies"
+description: "Explore various OSQuery SQL queries and policies for monitoring Entra user sessions, analyzing process resource usage, retrieving current IP information, and checking device enrollment in Intune, along with application presence and activity detection across different operating systems."
+---
+
+# Queries
+
+## Get a snapshot of which Entra users are logged in to hosts
+
+**Compatibility: Windows**
+
+```sql
+SELECT
+	upn,
+	user,
+	logon_domain,
+	dns_domain_name,
+	authentication_package
+FROM
+	logon_sessions
+WHERE
+	upn LIKE "< your email domain here >"
+GROUP BY
+	upn
+```
+
+## Analyse specific processes running to understand how much RAM/CPU they are consuming
+
+**Compatibility: Mac, Windows, Linux**
+
+In this example, we are looking at processes where the name contains `RTProtection` (short for "real-time protection", aka Antivirus/EDR-type softwares). We get their `pid` (process Id), `name` , `system_time` (which we divide by 86400 to convert to days), `start_time` (which we convert to dd/mm/yyyy format) and RAM consumed (`total_size` which we divide by 1048576 to have it in megabytes).
+
+```sql
+SELECT
+	pid,
+	name,
+	ROUND((system_time / 86400), 2) AS system_time_days,
+	strftime('%d/%m/%Y', datetime(start_time, 'unixepoch')) AS start_time_date,
+	ROUND((total_size / 1048576), 2) AS total_size_mb
+FROM
+	processes
+WHERE
+	name LIKE '%RTProtection%';
+```
+
+## Get current IP from hosts
+
+**Compatibility: Mac, Windows, Linux**
+
+```sql
+SELECT
+	JSON_EXTRACT(result, '$.ip') AS ip,
+	JSON_EXTRACT(result, '$.city') AS city,
+	JSON_EXTRACT(result, '$.region') AS region,
+	JSON_EXTRACT(result, '$.country') AS country
+FROM
+	curl
+WHERE
+	url = 'http://ipapi.co/json';
+```
+
+# Policies
+
+## Check if device is still enrolled in Intune
+
+**Compatibility: Windows**
+
+This policy will fail if the device is still enrolled in Intune.
+
+```sql
+SELECT 1
+FROM
+	registry
+WHERE
+	path LIKE 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Enrollments\%%'
+	AND name =  "DiscoveryServiceFullURL"
+	AND data NOT IN (
+"https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc",
+"https://discovery.dm.microsoft.com/EnrollmentConfiguration?api-version=1.0"
+)
+```
+
+## Check presence of applications
+
+(for example to install an application if it is missing)
+
+### Mac
+
+```sql
+SELECT 1 FROM apps WHERE bundle_identifier = 'your_bundle_identifier';
+```
+
+<Note>
+To find the bundle identifier of an application, run the following command in Terminal: `osascript -e 'id of app "application_name"'`
+</Note>
+
+### Windows
+
+```sql
+SELECT 1 FROM programs WHERE name LIKE '%application_name%';
+```
+
+## Detect if an app is running
+
+```sql
+SELECT
+	1
+FROM
+	processes
+WHERE
+	name LIKE '% process_name %';
+```
