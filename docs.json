@@ -12,6 +12,7 @@
     "tabs": [
       {
         "tab": "Help Center",
+        "icon": "notebook",
         "groups": [
           {
             "group": "Getting Started",
