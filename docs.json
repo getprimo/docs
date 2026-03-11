@@ -155,6 +155,7 @@
               "saas/connected-saas-properties",
               "saas/enable-saas-mapping",
               "saas/manage-tracked-apps",
+              "saas/expense-tracking",
               "saas/ai-based-connector",
               "saas/configure-sso",
               "saas/licence-provisioning"
