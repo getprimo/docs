@@ -145,6 +145,7 @@
           },
           {
             "group": "Guides & Resources",
+            "icon": "briefcase",
             "pages": [
               "mdm/rollout/mdm-rollout-resources",
               "mdm/rollout/employee-mdm-installation",
@@ -165,6 +166,7 @@
         "groups": [
           {
             "group": "Getting Started",
+            "icon": "compass",
             "pages": [
               "api/create-primo-api-key",
               "api/create-fleet-api-key",
@@ -173,6 +175,7 @@
           },
           {
             "group": "API Reference",
+            "icon": "code-simple",
             "openapi": "https://api.getprimo.com/openapi.json"
           }
         ]
