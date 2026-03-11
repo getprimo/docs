@@ -1,0 +1,100 @@
+---
+title: "Automate your onboardings"
+description: "Learn how to use Primo to automate the full onboarding journey — from employee creation to device provisioning and app access — so every new hire starts on day one with everything they need."
+---
+
+Primo lets you automate the entire onboarding process so your team doesn't have to chase down tasks manually every time someone joins. Once configured, onboardings are triggered automatically based on contract start dates and can include device assignment, MDM enrollment, and SaaS app provisioning.
+
+## How onboarding automation works
+
+Automation in Primo is driven by your **employee data**. When a new employee is detected — either from your HRIS or added manually — Primo can automatically:
+
+- Create their profile in the platform
+- Trigger an onboarding workflow on their start date
+- Assign and ship equipment
+- Send an MDM enrollment invitation
+- Provision access to the apps they need based on their role or team
+
+The more connected your Primo account is (HRIS, MDM, SaaS), the more of this process can run without manual intervention.
+
+## Step 1 — Connect your HRIS
+
+The foundation of onboarding automation is your HRIS connection. When an HRIS is connected, Primo automatically detects upcoming arrivals based on contract start dates and creates employee profiles ahead of time.
+
+To connect your HRIS:
+
+1. Go to **Settings > Employee Sync**
+2. Select your HRIS provider (Personio, Lucca, BambooHR, and more)
+3. Follow the authentication steps
+4. Configure synchronization filters and field mappings
+5. Launch the first synchronization
+
+Once connected, Primo syncs your employee directory every hour — no manual action required.
+
+<Note>
+If you don't use an HRIS, you can still trigger onboarding flows by adding employees manually and setting a start date. See [Importing via CSV](/employees/import-via-csv).
+</Note>
+
+## Step 2 — Assign equipment
+
+When a new employee appears in Primo with an upcoming start date, you can assign equipment directly from their profile. Primo will handle the rest:
+
+- If the device is **in stock**, it can be prepared and shipped to the employee's address.
+- If you're ordering a **new device**, it can be configured for Zero Touch Deployment — the machine arrives pre-enrolled, ready to use out of the box.
+
+Equipment assignment can be done as soon as the employee profile is created, well before their start date.
+
+## Step 3 — Automate MDM enrollment
+
+Once an employee's device is assigned, you can send an MDM enrollment invitation automatically. Primo will:
+
+- Send the enrollment email to the employee
+- Automatically remind them every 7 days until the MDM agent is installed
+- Create and assign the device in Primo once enrollment is complete — no manual entry needed
+
+To send MDM invitations, go to **Employees > MDM invitations**.
+
+<Tip>
+Use Zero Touch Deployment if you're ordering devices through Primo. The device arrives with the MDM agent pre-installed — your employee just powers it on.
+</Tip>
+
+## Step 4 — Provision SaaS app access
+
+With Primo's SaaS Management, you can automatically grant access to business tools based on each employee's role, team, or legal entity — the moment they're onboarded.
+
+To set this up:
+
+1. Go to **Identity & Access > App Catalog** and connect your applications
+2. Define provisioning rules by role or team
+3. Enable automatic provisioning on onboarding
+
+When a new employee's onboarding is triggered, Primo provisions access to the right apps immediately — no tickets, no manual steps.
+
+Access is also automatically revoked when an employee is offboarded, keeping your SaaS licenses clean.
+
+## What a fully automated onboarding looks like
+
+| When | What happens automatically |
+|---|---|
+| **Employee added to HRIS** | Profile created in Primo, onboarding initiated |
+| **Equipment assigned** | Device shipped or prepared for Zero Touch |
+| **Start date approaches** | MDM enrollment invitation sent |
+| **Employee powers on device** | MDM agent installed, policies applied, apps pushed |
+| **Onboarding triggered** | SaaS apps provisioned based on role and team |
+
+## Requirements
+
+To automate the full onboarding flow, you need:
+
+- An HRIS connected to Primo (or employees added manually with a start date)
+- MDM activated in your Primo account
+- SaaS apps connected with provisioning rules configured
+
+Each step is independent — you can automate as much or as little as fits your setup.
+
+## Related articles
+
+- [Connect an HRIS to Primo](/employees/connect-hris)
+- [Importing via CSV](/employees/import-via-csv)
+- [Zero Touch Deployment for Macs](/mdm/zero-touch/zero-touch-macs)
+- [Licence provisioning](/saas/licence-provisioning)
