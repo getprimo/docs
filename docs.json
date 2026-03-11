@@ -226,5 +226,8 @@
   "banner": {
     "content": "🤖 Try out our new MCP! Head to our Developer documentation.",
     "dismissible": true
+  },
+  "fonts": {
+    "family": "Open Sans"
   }
 }
