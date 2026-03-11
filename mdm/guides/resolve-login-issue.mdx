@@ -1,5 +1,5 @@
 ---
-title: "Resolve a login issue related to a password"
+title: 'Resolve "incorrect password" issues'
 description: "To resolve a password-related login issue, verify the user's password entry and keyboard layout, check the applied password policy, and choose the appropriate recovery option while implementing preventive measures for future incidents."
 ---
 
@@ -45,6 +45,7 @@ A user may have the correct password but still be blocked if their account does 
 
 1. Open **Terminal** on the Mac.
 2. Run:
+
    ```sh
    sysadminctl -secureTokenStatus <username>
    ```
@@ -53,13 +54,14 @@ A user may have the correct password but still be blocked if their account does 
 **If SecureToken is disabled:**
 
 - An admin user with SecureToken can grant it to another user:
+
   ```sh
   sysadminctl -secureTokenOn <target_username> -password <target_password> -adminUser <admin_username> -adminPassword <admin_password>
   ```
 - Alternatively, you can use **MDM → Profiles → Admin User Management** to ensure a bootstrap admin account with SecureToken exists on all devices.
 
 <Note>
-SecureToken is required for FileVault unlock and for granting other users permission to unlock encrypted volumes. If a user cannot unlock FileVault even with the correct password, SecureToken is the most likely cause.
+  SecureToken is required for FileVault unlock and for granting other users permission to unlock encrypted volumes. If a user cannot unlock FileVault even with the correct password, SecureToken is the most likely cause.
 </Note>
 
 # Reset the password

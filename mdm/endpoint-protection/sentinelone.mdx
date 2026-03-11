@@ -1,12 +1,12 @@
 ---
-title: "Enable and deploy SentinelOne with Primo"
+title: "Deploy SentinelOne"
 description: "To enable and deploy SentinelOne with Primo, ensure you have Primo MDM and a SentinelOne license, then follow the steps to integrate and deploy the agent across your device fleet through the MDM configurations."
 ---
 
 <Note>
-**Deployment type: Automatic**
+  **Deployment type: Automatic**
 
-SentinelOne is deployed **automatically** via MDM. Once you connect your SentinelOne instance and create an MDM control, the agent is pushed to all targeted devices without any manual steps. No user interaction is required.
+  SentinelOne is deployed **automatically** via MDM. Once you connect your SentinelOne instance and create an MDM control, the agent is pushed to all targeted devices without any manual steps. No user interaction is required.
 </Note>
 
 This article explains how to enable SentinelOne integration in Primo to automatically deploy the agent on all or part of your fleet of devices.
@@ -17,21 +17,19 @@ This article explains how to enable SentinelOne integration in Primo to automati
 - Have a SentinelOne license (purchased through Primo or existing)
 
 <Note>
-
-Need a SentinelOne instance? Contact us for more information.
-
+  Need a SentinelOne instance? Contact us for more information.
 </Note>
 
 ## Enable SentinelOne Integration
 
-1. You can enable SentinelOne integration from your **Settings > MDM > Integrations (legacy)**
+1. You can enable SentinelOne integration from your **Settings \> MDM \> Integrations (legacy)**
 2. Fill out the form with the following information:
    - **SentinelOne URL**: `https://xxxxxxxxx.sentinelone.net`
    - **Site ID**:
-     - In SentinelOne, open **Policy & Settings > Sites**.
+     - In SentinelOne, open **Policy & Settings \> Sites**.
      - Click on your site to display the Site ID.
    - **Service User Token**:
-     - In SentinelOne, open **Policy & Settings > Service Users**.
+     - In SentinelOne, open **Policy & Settings \> Service Users**.
      - Create a new service user (**New Service User**).
      - Select your site and assign the **Admin** role.
 
@@ -39,7 +37,7 @@ Need a SentinelOne instance? Contact us for more information.
 
 Deploying SentinelOne on your fleet's devices is done through your MDM configurations.
 
-1. In Primo, go to **MDM > Controls > Add new control**
+1. In Primo, go to **MDM \> Controls \> Add new control**
 2. Choose the platform (available platforms)
 3. Enable the card **EDR - SentinelOne**
 4. Update the targeting to target the devices you want
@@ -59,7 +57,7 @@ If you need to migrate your endpoints from one S1 Console to another, you will n
   - Click on the edit button
   - Click "advanced options"
   - Update the install script
-- On your S1 Console, select all the endpoints you want to migrate and click Actions > Endpoint actions > migrate endpoints.
+- On your S1 Console, select all the endpoints you want to migrate and click Actions \> Endpoint actions \> migrate endpoints.
 - Enter the new site token and validate.
 
 ## Available Platforms
