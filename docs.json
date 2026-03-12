@@ -182,7 +182,12 @@
           {
             "group": "API Reference",
             "icon": "code-simple",
-            "openapi": "https://api.getprimo.com/openapi.json"
+            "openapi": "https://api.getprimo.com/openapi.json",
+            "servers": [
+              {
+                "url": "https://api.getprimo.com"
+              }
+            ]
           }
         ]
       }
@@ -218,8 +223,7 @@
   "api": {
     "playground": {
       "proxy": false
-    },
-    "url": "https://api.getprimo.com"
+    }
   },
   "banner": {
     "content": "🤖 Try out our new MCP! Head to our Developer documentation.",
