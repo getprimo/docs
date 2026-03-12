@@ -217,8 +217,9 @@
   },
   "api": {
     "playground": {
-      "proxy": true
-    }
+      "proxy": false
+    },
+    "url": "https://api.getprimo.com"
   },
   "banner": {
     "content": "🤖 Try out our new MCP! Head to our Developer documentation.",
