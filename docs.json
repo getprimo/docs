@@ -3,11 +3,11 @@
   "theme": "almond",
   "name": "Primo Documentation",
   "colors": {
-    "primary": "#51d2ef",
-    "light": "#68E4FF",
-    "dark": "#1e0918"
+    "primary": "#232D32",
+    "light": "#8D9AA1",
+    "dark": "#141A1E"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/icon_webclipPrimo@2x2.png",
   "navigation": {
     "tabs": [
       {
@@ -187,10 +187,6 @@
       }
     ]
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
     "links": [
       {
@@ -228,11 +224,28 @@
     "dismissible": true
   },
   "fonts": {
-    "family": "Open Sans"
+    "family": "Oracle",
+    "weight": 500,
+    "source": "https://cdn.prod.website-files.com/6410a18d09fd5347adff42aa/6410c8db766e96df6861fa52_ABCOracleVariable.woff",
+    "format": "woff",
+    "heading": {
+      "family": "Oracle"
+    },
+    "body": {
+      "family": "Oracle"
+    }
   },
   "background": {
     "color": {
-      "dark": "#232D32"
+      "dark": "#141A1E",
+      "light": "#FAFAFA"
     }
+  },
+  "appearance": {
+    "default": "system"
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   }
 }
