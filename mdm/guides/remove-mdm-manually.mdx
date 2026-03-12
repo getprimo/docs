@@ -14,6 +14,9 @@ If these conditions are met, simply select the device \> Actions \> Disenroll.
 
 The MDM will be removed from the device - immediately on macOS and after a brief delay on Windows.
 
+![Screenshot: Remove an MDM manually from a device](/images/notion-import/remove-an-mdm-manually-from-a-device__img-009__block-0011__1cf43d9f.png)
+
+
 ## Device Offline
 
 When a device is offline, the disenrollment action is unavailable. You'll need to wait for the device to come back online to uninstall the MDM.
@@ -21,6 +24,9 @@ When a device is offline, the disenrollment action is unavailable. You'll need t
 In such cases, you can use the "Mark as disenrolled" action to indicate that a device is no longer under MDM management when communication has already been lost.
 
 ## Manually uninstalling an MDM agent
+
+![Screenshot: Remove an MDM manually from a device](/images/notion-import/remove-an-mdm-manually-from-a-device__img-010__block-0018__1cf43d9f.png)
+
 
 ### Uninstalling on Windows
 
@@ -32,8 +38,12 @@ On your Windows device, use the Access settings to remove the configuration prof
 
 1. Click on the **Start** button \> **Settings**, then click on **Accounts**
 2. Go to **Accounts** then **Access work or school**
+    ![Screenshot: Uninstalling on Windows](/images/notion-import/remove-an-mdm-manually-from-a-device__img-011__block-0025__1b243d9f.png)
+
 3. You will see a list of accounts managing the device. Look for the entry corresponding to the MDM, for example, **Managed by Fleet MDM**
 4. Select the MDM account, then click **Disconnect** or **Remove**
+    ![Screenshot: Uninstalling on Windows](/images/notion-import/remove-an-mdm-manually-from-a-device__img-012__block-0028__1b243d9f.png)
+
 5. Follow the instructions to completely remove the management device from the device
 
 All that's left is to remove the MDM agent!
@@ -50,7 +60,11 @@ The MDM is now fully removed from the machine.
 1. On your Mac, open **System Settings** \> **Privacy & Security**
 2. Click on **Profiles** on the right. (You may need to scroll down)
 3. To remove a profile: select the profile named "[Your Company] enrollment", then click on the ➖ button
+    ![Screenshot: Uninstalling on MacOS](/images/notion-import/remove-an-mdm-manually-from-a-device__img-013__block-0041__1b243d9f.png)
+
 4. Finally, click on **Remove**
+    ![Screenshot: Uninstalling on MacOS](/images/notion-import/remove-an-mdm-manually-from-a-device__img-014__block-0043__1b243d9f.png)
+
 5. Enter your session password
 
 Finally, remove the MDM agent still present on the computer by downloading the disenrollment package. Once downloaded, right-click and open it to complete the removal.

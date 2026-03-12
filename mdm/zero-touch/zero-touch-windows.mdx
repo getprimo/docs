@@ -15,14 +15,23 @@ This article covers the full setup: from registering the FleetDM domain on Azure
 
 The minimum license covering both features is **Enterprise Mobility + Security E3** ([compare plans](https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing)).
 
+![Screenshot: What are the prerequisites?](/images/notion-import/zero-touch-enrollment-for-windows__img-024__block-0011__1b243d9f.png)
+
+
 ## Employee experience on first startup
 
 1. Power on the device
 2. Select country and language, configure keyboard layout
 3. Connect to the internet
 4. Accept FleetDM terms and conditions
+    ![Screenshot: What happens when an employee arrives with a workstation configured with Autopilot?](/images/notion-import/zero-touch-enrollment-for-windows__img-025__block-0018__1b243d9f.png)
+
 5. Sign in with Microsoft credentials (+ 2FA if enabled)
+    ![Screenshot: What happens when an employee arrives with a workstation configured with Autopilot?](/images/notion-import/zero-touch-enrollment-for-windows__img-026__block-0020__1b243d9f.png)
+
 6. Set up a PIN code and fingerprint (if supported)
+    ![Screenshot: What happens when an employee arrives with a workstation configured with Autopilot?](/images/notion-import/zero-touch-enrollment-for-windows__img-027__block-0022__1b243d9f.png)
+
 7. The workstation is ready — apps and policies defined in the Primo Cockpit are applied automatically
 
 ## Restrictions
@@ -72,11 +81,15 @@ You will perform three operations in the Microsoft Azure console with administra
 - Click on the **Fleet** application then on **Custom MDM application settings**
 - Click on the link below **Application ID URI** then click **Edit**
 - Enter your **Fleet** instance address (`https://{company}.mdm.getprimo.com`) and click **Save**
+    ![Screenshot: 2. Creating the FleetDM application](/images/notion-import/zero-touch-enrollment-for-windows__img-028__block-0065__27743d9f.png)
+
 - Choose **API permissions** then **Add a permission**
 - Click on **Microsoft Graph** then on **Delegated permissions**, then select:
   - **Group > Group.Read.All**
   - **Group > Group.ReadWrite.All**
   - and click **Add permissions**
+      ![Screenshot: 2. Creating the FleetDM application](/images/notion-import/zero-touch-enrollment-for-windows__img-029__block-0079__27743d9f.png)
+
 - Then return to **API permissions** and **Add a permission**, and choose **Microsoft Graph** again
 - This time, click on **Application permissions**, and add the following permissions:
   - **Device > Device.Read.All**
