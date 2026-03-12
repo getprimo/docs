@@ -89,7 +89,8 @@
             "icon": "shield-check",
             "pages": [
               "mdm/endpoint-protection/sentinelone",
-              "mdm/endpoint-protection/crowdstrike-falcon"
+              "mdm/endpoint-protection/crowdstrike-falcon",
+              "mdm/endpoint-protection/threatdown"
             ]
           },
           {

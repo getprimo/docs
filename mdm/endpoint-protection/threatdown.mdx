@@ -1,0 +1,54 @@
+---
+title: "Deploy ThreatDown"
+description: "To enable and deploy ThreatDown with Primo, ensure you have Primo MDM and a ThreatDown license, then follow the steps to integrate and deploy the agent across your device fleet through the MDM configurations."
+---
+
+<Note>
+  **Deployment type: Automatic**
+
+  ThreatDown is deployed **automatically** via MDM. Once you connect your ThreatDown instance and create an MDM control, the agent is pushed to all targeted devices without any manual steps. No user interaction is required.
+</Note>
+
+This article explains how to enable ThreatDown integration in Primo to automatically deploy the agent on all or part of your fleet of devices.
+
+## Prerequisites
+
+- Have Primo MDM
+- Have a ThreatDown license (purchased through Primo or existing)
+
+<Note>
+  Need a ThreatDown instance? Contact us for more information.
+</Note>
+
+## Enable ThreatDown integration
+
+1. You can enable ThreatDown integration from your **Settings \> MDM \> Integrations (legacy)**
+2. Fill out the form with the following information:
+   - **ThreatDown URL**: Your ThreatDown console URL
+   - **API Client ID**: 
+     - In ThreatDown, go to **Settings \> API Credentials**.
+     - Create a new API client or use an existing one.
+     - Copy the Client ID.
+   - **API Client Secret**:
+     - Copy the Client Secret from the same API credentials page.
+
+## Deploy ThreatDown to your fleet
+
+Deploying ThreatDown on your fleet's devices is done through your MDM configurations.
+
+1. In Primo, go to **MDM \> Controls \> Add new control**
+2. Choose the platform (available platforms)
+3. Enable the card **EDR - ThreatDown**
+4. Update the targeting to target the devices you want
+5. Confirm
+
+The ThreatDown agent will be automatically installed on all devices included in the control.
+
+## Available platforms
+
+ThreatDown in Primo is currently available for the following platforms:
+
+- **macOS** (arm64) - M1 chips and more
+- **Windows** (x64) - Supports Windows Pro
+
+If the platform is not mentioned above, you can still manually install ThreatDown by downloading the installer from the ThreatDown console and installing it manually with Fleet.
