@@ -182,6 +182,7 @@
           {
             "group": "API Reference",
             "icon": "code-simple",
+            "baseUrl": "",
             "openapi": "https://api.getprimo.com/openapi.json"
           }
         ]
@@ -216,6 +217,7 @@
     }
   },
   "api": {
+    "baseUrl": "",
     "playground": {
       "proxy": false,
       "display": "interactive"
