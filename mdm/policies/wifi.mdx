@@ -1,0 +1,63 @@
+---
+title: "WiFi"
+description: "Push corporate WiFi network settings to Windows, Linux, and Android devices so employees connect automatically without needing to enter credentials manually."
+---
+
+Automatically configure WiFi settings on managed devices so employees connect to your corporate network without any manual setup. This is especially useful during device provisioning, when onboarding new employees, or when your network credentials change.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | ✅ |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select your target OS tab and choose **WiFi**.
+3. Fill in the network details:
+   - **SSID**: the name of the WiFi network.
+   - **Security type**: WPA2-Personal, WPA2-Enterprise, WPA3, or open network.
+   - **Password** (for WPA2-Personal / WPA3-Personal): the network password.
+   - **Enterprise settings** (for WPA2-Enterprise): authentication method, identity, and certificate.
+4. Configure additional options:
+   - **Auto-join**: connect automatically when in range.
+   - **Hidden network**: enable if the SSID is not broadcast.
+5. Save and apply the control to the relevant device group.
+
+## Security types
+
+| Security type | Use case |
+|---------------|----------|
+| WPA2-Personal | Standard office or home network with a shared password |
+| WPA3-Personal | Newer standard with improved encryption |
+| WPA2-Enterprise | Corporate networks using RADIUS / 802.1X authentication |
+| Open | Unsecured networks (not recommended) |
+
+<Note>
+For WPA2-Enterprise networks, you may need to deploy a certificate alongside the WiFi profile. Use a **Custom file** control to deliver the required root CA or client certificate.
+</Note>
+
+## On Windows
+
+Primo pushes the WiFi profile as an MDM payload. Windows connects automatically based on the configured priority. The network appears in the WiFi list and is marked as managed.
+
+## On Linux
+
+Primo configures the network via the system's network manager. The profile is applied system-wide and takes effect at the next network scan.
+
+## On Android
+
+Primo pushes the WiFi profile as part of Android Enterprise managed configuration. The device connects automatically when in range. On work profile devices, the configuration applies to both the work and personal profiles if permitted by the Android Enterprise policy.
+
+## Troubleshooting
+
+**Devices are not connecting to the network automatically**
+- Confirm the SSID matches exactly, including capitalization.
+- Verify the password is correct — the profile cannot be tested directly; any typo requires redeploying the control with the corrected password.
+- On Windows, check that the device's WiFi adapter is not disabled by another MDM policy.
+
+**Enterprise authentication is failing**
+- Confirm the RADIUS server details are correct.
+- Ensure the required certificate is installed on the device before the WiFi profile is applied.
+- Check that the user's account has the required permissions on the RADIUS server.

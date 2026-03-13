@@ -1,0 +1,69 @@
+---
+title: "Deploy ThreatDown (Malwarebytes)"
+description: "Automatically deploy ThreatDown (by Malwarebytes) EDR to protect macOS, Windows, and Linux devices against malware, ransomware, and other security threats."
+---
+
+<Note>
+  **Deployment type: Automatic**
+
+  ThreatDown is deployed **automatically** via MDM. Once you connect your ThreatDown account and create an MDM control, the agent is pushed to all targeted devices without any manual steps. No user interaction is required.
+</Note>
+
+ThreatDown (formerly Malwarebytes for Teams/Business) is an endpoint detection and response (EDR) solution that protects devices against malware, ransomware, adware, and other threats. This article explains how to enable the ThreatDown integration in Primo and deploy the agent across your fleet.
+
+## Prerequisites
+
+- Primo MDM.
+- A ThreatDown license (purchased through Primo or an existing subscription).
+
+<Note>
+  Need a ThreatDown license? Contact us for more information.
+</Note>
+
+## Enable ThreatDown integration
+
+1. In Primo, go to **Settings > MDM > Integrations**.
+2. Select **ThreatDown** and enter your account credentials:
+   - **Account ID**: found in your ThreatDown console under Account settings.
+   - **API key**: generate an API key from the ThreatDown console with the required deployment permissions.
+3. Save the integration.
+
+## Deploy ThreatDown to your fleet
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select your target OS tab and choose **EDR - ThreatDown**.
+3. Enable the control.
+4. Update the targeting to select the devices or device groups you want to protect.
+5. Confirm.
+
+The ThreatDown agent will be automatically installed on all targeted devices.
+
+## Available platforms
+
+ThreatDown in Primo is available for the following platforms:
+
+- **macOS**
+- **Windows** (x64)
+- **Linux**
+  - Debian-based distributions (Ubuntu, Debian, etc.)
+  - RPM-based distributions (RHEL, CentOS, Fedora, etc.)
+
+## Verify deployment
+
+After the control is applied, verify that the agent is installed and reporting to your ThreatDown console:
+
+1. Open your ThreatDown console.
+2. Navigate to **Endpoints** and confirm the device appears with a **Connected** status.
+3. In Primo, the device panel will show ThreatDown as an active protection layer.
+
+## Troubleshooting
+
+**The agent is not appearing in the ThreatDown console**
+- Allow up to 15 minutes for the agent to enroll after installation.
+- Ensure the device has internet access to reach ThreatDown's cloud services.
+- Verify the API key used during integration setup has the correct permissions.
+
+**The control shows an error on a specific device**
+- Check that the device meets the minimum OS requirements for ThreatDown.
+- Review MDM command logs in the device panel for error details.
+- Re-applying the control from the device panel may resolve transient installation failures.

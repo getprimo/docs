@@ -1,0 +1,50 @@
+---
+title: "App blocking"
+description: "Define a list of applications to block or explicitly allow on macOS devices, preventing users from running unauthorized software."
+---
+
+Control which applications can run on your macOS devices by maintaining an allowlist or blocklist. App blocking lets you restrict access to specific software — such as games, file-sharing tools, or applications with known security risks — without requiring manual intervention on each device.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select the **macOS** tab and choose **App blocking**.
+3. Choose your enforcement mode:
+   - **Blocklist**: all applications are allowed except those explicitly listed.
+   - **Allowlist**: only the applications you list are permitted to run.
+4. Add applications by their **bundle identifier** (e.g. `com.spotify.client`) or **executable name**.
+5. Save and apply the control to the relevant device group.
+
+<Tip>
+To find an application's bundle identifier on macOS, run the following command in Terminal:
+
+`osascript -e 'id of app "AppName"'`
+</Tip>
+
+## How it works
+
+Once deployed, macOS evaluates running applications against the policy. Blocked applications are terminated and users see a system notification explaining that the application is not permitted.
+
+The policy is enforced continuously — if a user installs a blocked application after the control is applied, it will be prevented from running the next time they attempt to open it.
+
+## Best practices
+
+- Prefer a **blocklist** when you only need to restrict a few specific applications.
+- Use an **allowlist** in high-security environments where you need strict control over permitted software.
+- Combine app blocking with software management to proactively deploy approved applications before enabling an allowlist.
+
+## Troubleshooting
+
+**An allowed application is being blocked**
+- Double-check the bundle identifier for typos — identifiers are case-sensitive.
+- Confirm the control is targeting the correct device group.
+- Re-check the enforcement mode: if using an allowlist, make sure the application is explicitly listed.
+
+**A blocked application is still running**
+- The policy is applied at launch time. If the application was already open when the policy was deployed, restart the device or ask the user to quit and reopen the application.

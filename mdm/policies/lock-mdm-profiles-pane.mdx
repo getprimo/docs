@@ -1,0 +1,41 @@
+---
+title: "Lock MDM profiles pane"
+description: "Prevent users from viewing or removing MDM profiles from the Profiles section in macOS System Settings."
+---
+
+Block access to the **Profiles** section in macOS System Settings to prevent users from viewing, modifying, or removing MDM profiles installed on their device. This ensures your management controls remain in place even if a user attempts to remove them.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select the **macOS** tab and choose **Lock MDM profiles pane**.
+3. Enable the control.
+4. Save and apply the control to the relevant device group.
+
+No additional configuration is required. Once active, the Profiles preference pane is hidden from users.
+
+## How it works
+
+Primo pushes an MDM restriction that removes the **Profiles** entry from System Settings (previously System Preferences on macOS 12 and earlier). Users can no longer navigate to that section, view installed profiles, or attempt to remove them.
+
+<Note>
+This control restricts the user-facing interface only. IT administrators can still view and manage profiles from Primo's dashboard and the device panel.
+</Note>
+
+## Recommendations
+
+- Enable this control on all managed employee devices as a baseline security measure.
+- Combine with other controls like **Disk encryption** and **Firewall** to build a comprehensive device security posture.
+
+## Troubleshooting
+
+**The Profiles pane is still visible after applying the control**
+- Allow a few minutes for the MDM command to be delivered and processed.
+- On macOS 13 and later, the Profiles section is located under **System Settings > Privacy & Security > Profiles**. Confirm this path is what is hidden.
+- If the pane remains accessible, verify the control is active and the device is enrolled in MDM.

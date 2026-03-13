@@ -1,0 +1,45 @@
+---
+title: "Generate settings via AI"
+description: "Use Primo's AI engine to create tailored MDM configuration profiles for Apple devices in seconds by describing the settings you need in plain language."
+---
+
+Instead of building configuration profiles manually, describe what you want to configure and let Primo's AI engine generate a ready-to-deploy Apple configuration profile. This is useful for applying advanced or less common settings quickly, without needing to know the exact MDM payload structure.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## How to use it
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select the **macOS** tab and choose **Generate settings via AI**.
+3. Describe the configuration you want in plain language. For example:
+   - *"Disable Bluetooth on all devices"*
+   - *"Set the DNS servers to 1.1.1.1 and 8.8.8.8"*
+   - *"Enable automatic screen lock after 2 minutes of inactivity"*
+4. Review the generated profile — Primo will show you the resulting configuration before deployment.
+5. Adjust any settings if needed, then save and apply the control to the relevant device group.
+
+<Warning>
+Always review the generated profile before deploying. AI-generated configurations may require adjustments depending on your specific environment. Test on a small device group before rolling out broadly.
+</Warning>
+
+## What it generates
+
+The AI engine produces a standard Apple `.mobileconfig` profile based on your description. The generated profile:
+
+- Uses native Apple MDM payloads.
+- Can be reviewed and edited before deployment.
+- Is deployed to devices in the same way as any other Primo control.
+
+## Tips for better results
+
+- Be specific about the setting and the desired value.
+- Mention the context if relevant (e.g. "for shared devices" or "for the sales team").
+- If the first result is not exactly right, refine your description and regenerate.
+
+<Tip>
+If you already have an existing `.mobileconfig` file you want to deploy, use the **Custom file** control instead.
+</Tip>

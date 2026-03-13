@@ -60,10 +60,24 @@
               {
                 "group": "Controls & Policies",
                 "pages": [
-                  "mdm/policies/password-policy",
+                  "mdm/policies/generate-settings-via-ai",
+                  "mdm/policies/custom-file",
+                  "mdm/policies/admin-password-rotation",
+                  "mdm/policies/app-blocking",
+                  "mdm/policies/device-naming",
                   "mdm/policies/disk-encryption",
+                  "mdm/policies/enforce-minimum-os-version",
+                  "mdm/policies/firewall",
+                  "mdm/policies/google-chrome",
+                  "mdm/policies/lock-mdm-profiles-pane",
+                  "mdm/policies/mac-login-entra",
+                  "mdm/policies/mac-login-okta",
+                  "mdm/policies/manage-admin-accounts",
+                  "mdm/policies/password-policy",
+                  "mdm/policies/recoveros-protection",
                   "mdm/policies/remote-management",
-                  "mdm/policies/manage-admin-accounts"
+                  "mdm/policies/usb-storage-blocking",
+                  "mdm/policies/wifi"
                 ]
               },
               {
@@ -89,7 +103,8 @@
             "icon": "shield-check",
             "pages": [
               "mdm/endpoint-protection/sentinelone",
-              "mdm/endpoint-protection/crowdstrike-falcon"
+              "mdm/endpoint-protection/crowdstrike-falcon",
+              "mdm/endpoint-protection/threatdown"
             ]
           },
           {

@@ -1,0 +1,53 @@
+---
+title: "Firewall"
+description: "Enable and configure the built-in operating system firewall on macOS and Windows devices to block unauthorized inbound network connections."
+---
+
+Enable the operating system's built-in firewall on your managed devices to block unauthorized inbound connections. This adds a network-level layer of protection, particularly valuable for laptops used on untrusted networks such as public Wi-Fi.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select your target OS tab and choose **Firewall**.
+3. Enable the firewall.
+4. Configure additional options as needed (see platform-specific settings below).
+5. Save and apply the control to the relevant device group.
+
+## On macOS
+
+Primo enables the macOS Application Firewall via MDM. Available options include:
+
+- **Enable firewall**: turns on the macOS application firewall.
+- **Block all incoming connections**: allows only connections required by basic internet services (such as DHCP and Bonjour). Use with caution as this can disrupt file sharing and remote access.
+- **Enable stealth mode**: prevents the device from responding to probing requests such as ICMP ping, making it harder to discover on a network.
+
+<Note>
+The macOS Application Firewall controls inbound connections at the application level. It does not filter outbound connections.
+</Note>
+
+## On Windows
+
+Primo enables Windows Defender Firewall via MDM policy. The firewall is enabled for all network profiles:
+
+- **Domain network**: applies when the device is joined to a domain.
+- **Private network**: applies on trusted home or work networks.
+- **Public network**: applies on untrusted public networks.
+
+By default, Windows Defender Firewall blocks unsolicited inbound connections on all profiles while allowing outbound connections.
+
+## Troubleshooting
+
+**A required application stopped working after enabling the firewall**
+- On macOS, open **System Settings > Network > Firewall > Options** to add an exception for the application.
+- On Windows, open **Windows Security > Firewall & network protection > Allow an app through firewall** to add the application.
+- If managing exceptions via MDM is required, use a **Custom file** control to deploy a firewall exception rule.
+
+**The firewall status shows as disabled on the device**
+- Confirm the MDM control is active and assigned to the correct device group.
+- On Windows, verify that Windows Security Center is not reporting a conflict with a third-party security product.
