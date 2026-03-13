@@ -1,0 +1,52 @@
+---
+title: "Plattformunterstützung"
+description: "Zu den unterstützten Plattformen für Primo gehören verschiedene Betriebssysteme wie macOS, Windows (Home und Pro), Linux, ChromeOS, iOS und Android, wobei spezifische Funktionen wie Registrierung, Datenverschlüsselung und Anwendungsinstallation sowie die jeweiligen unterstützten Versionen detailliert beschrieben werden."
+---
+
+## Übersicht über die unterstützten Plattform-Betriebssysteme
+
+Hier ist eine Zusammenfassung der unterstützten Plattformen und der verschiedenen Dinge, die Sie mit jeder Plattform tun können:
+
+|                                                                           | **macOS** | **Windows Pro** | **Windows ARM** | **Windows Home** | **Linux** | **ChromeOS** | **iOS**                | **Android** |
+| ------------------------------------------------------------------------- | --------- | --------------- | --------------- | ---------------- | --------- | ------------ | ---------------------- | ----------- |
+| **Anmelden** und **Informationen und Daten lesen**                              | ✅         | ✅               | ✅               | ✅                | ✅         | ✅            | ✅                      | ✅           |
+| **Fragen** Sie Ihre Geräte ab                                                    | ✅         | ✅               | ✅               | ✅                | ✅         | ✅            | N/A                    | N/A         |
+| **Skripte** ausführen                                                           | ✅         | ✅               | ✅               | ❌                | ✅         | N/A          | N/A                    | ✅           |
+| **Anwendungen** installieren                                                  | ✅         | ✅               | 💬 (4)          | ❌                | ✅         | 💬 (1)       | ✅                      | ✅           |
+| **Betriebssystemeinstellungen** anwenden (Update-Zeitplan, WLAN, Bildschirmsperre, Drucker usw.) | ✅         | ✅               | ✅               | ❌                | ❌         | 💬 (1)       | ✅                      | ✅           |
+| **Daten verschlüsseln**                                                          | ✅         | ✅               | ✅               | ❌                | ❌ (3)     | 💬 (1)       | ✅                      | ❌           |
+| Remote-**Sperren** und **Löschen**                                                | ✅         | ✅               | ✅               | ❌                | ✅         | 💬 (1)       | Sperre: N/A<br />Wischen: ✅ | ❌           |
+
+### Notizen
+
+1. **ChromeOS**: Während Sie ChromeOS-Geräte registrieren können, erfolgt die Steuerung dieser Geräte (sowohl in Bezug auf die Anwendungsbereitstellung als auch auf die Betriebssystemeinstellungen) in Ihrer Google Admin-Konsole. Für weitere Informationen wenden Sie sich an den Support.
+2. **Linux:** Linux-Geräte sind schwierig zu verschlüsseln, da es manchmal erforderlich sein kann, die Festplatte zu löschen und ein Betriebssystem von Grund auf neu einzurichten. Mit Primo können Sie jedoch weiterhin die Berichterstattung darüber zentralisieren, welche Geräte verschlüsselt oder nicht, veraltet usw. sind.
+3. Hier sind die **Linux-Distributionen**, die wir unterstützen:
+   - ✅ Ubuntu 20.04+
+   - ✅ Debian 11+
+   - ✅ CentOS 7.1+
+   - ✅Fedora 38+
+   - ✅ Amazon Linux 2+
+   - ✅ Red Hat Enterprise Linux (RHEL) 7+
+   - ✅ openSUSE 15.6+
+   - ✅ Arch Linux
+   - ✅ Omarchie
+   - ❌ Alpine (Format APK)
+4. FleetDM bevorzugt 64-Bit-x86-Versionen von Anwendungen, sofern verfügbar. Die Installation auf ARM-Hosts (z. B. in einer VM auf einem Apple Silicon-Computer) funktioniert möglicherweise nicht oder hat andere unbeabsichtigte Folgen.
+
+### FleetDM-Dokumentation
+
+Aktuelle Dokumentation zu unterstützten Systemen finden Sie unter [diese Ressourcen](https://fleetdm.com/docs/get-started/faq#what-host-operating-systems-does-fleet-support).
+
+## Übersicht der unterstützten Plattformversionen
+
+| **Betriebssystem**         | **Unterstützte Version(en)**                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| **macOS**      | 14+ (Sonoma)                                                                                            |
+| **Windows**    | Pro und Enterprise 10+, Server 2012+                                                                    |
+| **Linux**      | CentOS 7.1+, Ubuntu 20.04+, Fedora 38+, Amazon Linux 2+, Debian 11+, Red Hat Enterprise Linux (RHEL) 7+ |
+| **ChromeOS**   | 112.0.5615.134+                                                                                         |
+| **iOS/iPadOS** | 17+                                                                                                     |
+| **Android**    | 13+                                                                                                     |
+
+Während Fleet möglicherweise noch teilweise oder vollständig mit älteren Betriebssystemversionen als den oben genannten funktioniert, führt Fleet keine aktiven Tests gegen nicht unterstützte Versionen durch und geht deren Fehlern nicht nach.

@@ -1,0 +1,45 @@
+---
+title: "Crittografia del disco e deposito a garanzia della chiave di ripristino"
+description: "La crittografia del disco è fondamentale per salvaguardare i dati dalla perdita o dal furto del dispositivo, con le chiavi di ripristino gestite e archiviate automaticamente da Primo durante il processo di crittografia, garantendo un facile accesso se un utente dimentica la password."
+---
+
+Proteggi i dati sui dispositivi smarriti o rubati applicando la crittografia dell'intero disco al tuo parco dispositivi. Primo abilita automaticamente la crittografia durante la registrazione di MDM e deposita le chiavi di ripristino in modo che gli amministratori IT possano sempre riottenere l'accesso senza fare affidamento sulle credenziali del dipendente.
+
+<Note>
+  Le chiavi di ripristino vengono archiviate solo se la crittografia è abilitata nelle policy di sicurezza MDM > scheda **Profili**.
+</Note>
+
+## Supporto del sistema operativo
+
+| macOS | Finestre | Linux | iOS/iPadOS | Androide |
+|-------|---------|-------|--------------|---------|
+| ✅ (FileVault) | ✅ (BitLocker) | | | |
+
+## Flusso di crittografia
+
+1. Registra il dispositivo in MDM
+2. Attendi dalle 3 alle 4 ore affinché l'assistente installi e gestisca la chiave di ripristino
+3. Riavviare il dispositivo (richiesto solo per macOS)
+4. Attendi altre 3 o 4 ore: la chiave di ripristino verrà salvata
+
+Le chiavi di ripristino vengono archiviate per dispositivo nella scheda **Fleet > Dispositivi**.
+
+La durata della crittografia dipende dalle dimensioni del disco e dalle prestazioni del dispositivo.
+
+## Su macOS
+
+- La crittografia è gestita da **FileVault**.
+- FileVault viene abilitato automaticamente durante l'installazione di MDM.
+- La crittografia diventa effettiva dopo il successivo riavvio.
+- La chiave di ripristino viene archiviata a quel punto.
+
+## Su Windows
+
+- La crittografia è gestita da **BitLocker**.
+- Viene abilitato automaticamente dopo l'installazione di MDM.
+- Non è richiesto il riavvio.
+- La chiave viene memorizzata non appena viene attivata la crittografia.
+
+## Su Linux
+
+Primo non supporta la crittografia automatica per i dispositivi Linux. L'abilitazione della crittografia dell'intero disco su Linux richiede in genere un ripristino completo del disco e la reinstallazione del sistema operativo, che devono essere eseguite manualmente prima di registrare il dispositivo.

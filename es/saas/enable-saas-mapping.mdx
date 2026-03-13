@@ -1,0 +1,91 @@
+---
+title: "Habilite el mapeo SaaS e implemente la extensión de Chrome"
+description: "Habilite el mapeo SaaS a través de Primo para obtener una vista completa de las aplicaciones SaaS utilizadas con su correo electrónico profesional, garantizando privacidad y seguridad estrictas mientras implementa la extensión de Chrome para una cobertura más amplia más allá del inicio de sesión de Google; asegúrese de cumplir con las condiciones requeridas y siga los pasos descritos para la activación y solución de problemas."
+---
+
+SaaS Mapping le brinda una vista consolidada de todas las aplicaciones SaaS e identidades de trabajo utilizadas en su empresa. Se ejecuta a través de la integración Google Workspace y se puede ampliar con una extensión de Chrome para una cobertura más allá del inicio de sesión basado en Google. Este artículo explica cómo habilitar SaaS Mapping, qué datos se procesan y cómo implementar la extensión.
+
+## Priorizar la seguridad y la privacidad
+
+Primo aplica estrictas medidas de seguridad para proteger a las personas y los datos.
+
+- El alcance se limita al contexto profesional.
+- La colección es mínima y está orientada a un propósito.
+- Los administradores controlan la activación y la orientación del dispositivo.
+
+### Qué procesos de mapeo SaaS
+
+SaaS Mapping captura la lista de aplicaciones SaaS a las que se accede con la dirección de correo electrónico de su empresa y la identidad laboral asociada. Nada más. Sin contenido del mensaje. Sin archivos. Sin historial de navegación. Sin pulsaciones de teclas. Sin cuentas personales.
+
+### Dónde se ejecuta la extensión de Chrome
+
+La extensión de Chrome requiere implementar MDM a través de Primo. Funciona sólo cuando se utiliza una dirección de correo electrónico profesional. Los perfiles personales de Chrome y las direcciones de correo electrónico personales están fuera de alcance.
+
+## Confirmar requisitos
+
+1. Tienes acceso de administrador.
+2. Google Workspace está conectado.
+3. Su organización tiene una suscripción activa a SaaS Management. La integración de Google Workspace es gratuita, pero SaaS Mapping requiere la suscripción de SaaS Management.
+
+## Habilite el mapeo SaaS con Google Workspace
+
+1. Abra Primo como administrador.
+2. Vaya a Integraciones y seleccione Google Workspace.
+3. Conecta la integración siguiendo los pasos que aparecen en pantalla.
+4. Una vez conectado, SaaS Mapping se habilita automáticamente. Primo comienza a mapear SaaS y las identidades a las que los usuarios accedieron con el inicio de sesión de Google usando su cuenta de trabajo.
+
+## Amplíe la cobertura con la extensión de Chrome
+
+El mapeo a través de Google Workspace cubre la actividad en la que los usuarios iniciaron sesión con Google. Para incluir el acceso a SaaS con una dirección de correo electrónico del trabajo sin iniciar sesión en Google, implemente la extensión de Chrome.
+
+1. Abra Primo y vaya a Perfiles MDM.
+2. Seleccione el perfil que utiliza para su fuerza laboral.
+3. Elija los dispositivos a los que desea dirigirse.
+4. Abra la tarjeta Chrome y active la extensión.
+5. Espere unos minutos para que la implementación llegue a los dispositivos de destino.
+
+Después de la activación, Primo asigna cada SaaS y la identidad laboral utilizada con la dirección de correo electrónico profesional, ya sea que se haya utilizado el inicio de sesión de Google o no.
+
+## Verifique que el mapeo esté funcionando
+
+1. En Primo, abra SaaS Mapping en el área de administración.
+2. Confirme que las solicitudes y las identidades laborales aparezcan para la actividad reciente.
+3. Filtre por perfil o grupo de dispositivos para verificar implementaciones específicas.
+
+Si no ve datos, revise la sección de solución de problemas a continuación.
+
+## Gestionar el acceso y la visibilidad
+
+- Utilice la orientación por dispositivo en Perfiles para incluir o excluir grupos específicos.
+- Elimine un dispositivo de la lista de destino para detener la extensión en ese dispositivo.
+- Desactive la tarjeta Chrome para detener la extensión del perfil seleccionado.
+
+## Solución de problemas
+
+### No aparece SaaS ni datos de identidad
+
+Verifique que Google Workspace esté conectado y que su suscripción de administración de SaaS esté activa.
+
+### La extensión no se instaló.
+
+Confirme que el dispositivo esté incluido en la lista de destino y que la tarjeta Chrome esté activada. Deje tiempo para la sincronización de políticas de Chrome (normalmente unos minutos).
+
+### La actividad personal es visible.
+
+Por diseño, la actividad personal está fuera de alcance. Verifique que el usuario esté en el perfil administrado de Chrome y esté utilizando una dirección de correo electrónico profesional. Elimine cualquier perfil personal de Chrome de la orientación por dispositivo.
+
+### Un usuario tiene varios perfiles de Chrome
+
+Solo el perfil administrado al que se dirigió está dentro del alcance. Solicite al usuario que cambie al perfil administrado para la actividad laboral.
+
+## Puntos clave para compartir con los empleados
+
+- Primo observa únicamente el uso de SaaS relacionado con el trabajo vinculado a la dirección de correo electrónico de la empresa.
+- Los perfiles personales y las direcciones de correo electrónico personales no están incluidos.
+- Primo no captura contenido, contraseñas ni navegación no relacionada con el trabajo.
+
+## Disponibilidad y facturación
+
+- La integración Google Workspace está disponible sin costo alguno.
+- SaaS Mapping requiere una suscripción activa a SaaS Management.
+- La extensión de Chrome requiere tener MDM implementado a través de Primo y está controlada por los administradores a través de Perfiles.

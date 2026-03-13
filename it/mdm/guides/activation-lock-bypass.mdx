@@ -1,0 +1,53 @@
+---
+title: "Blocco attivazione bypass codice impegno"
+description: "Le regole per garantire che i codici di bypass del blocco attivazione vengano depositati presso MDM in modo che i dispositivi possano essere ripristinati dopo una cancellazione o una riassegnazione."
+---
+
+Blocco attivazione impedisce l'uso non autorizzato di un dispositivo Apple dopo un ripristino delle impostazioni di fabbrica. Per i dispositivi di proprietà dell'azienda registrati in MDM, Primo può depositare automaticamente il codice di bypass, in modo che gli amministratori IT possano sbloccare un dispositivo dopo la cancellazione senza bisogno dell'ID Apple del dipendente.
+
+## Supporto del sistema operativo
+
+| macOS | Finestre | Linux | iOS/iPadOS | Androide |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | ✅ | |
+
+## Regole per il deposito in garanzia dei codici di bypass
+
+Affinché un codice di bypass venga depositato con successo, è necessario che siano soddisfatte tutte le seguenti condizioni:
+
+1. **Il dispositivo deve essere supervisionato tramite MDM** — i dispositivi non supervisionati non possono depositare codici di bypass.
+2. **Il dispositivo deve essere registrato prima che il Blocco attivazione sia abilitato**: se un utente attiva Trova il mio prima della registrazione di MDM, il codice di bypass non sarà disponibile.
+3. **Il dispositivo deve essere di proprietà dell'azienda**: i dispositivi di proprietà personale (BYOD) non sono idonei per il deposito a garanzia del codice di bypass.
+4. **Il profilo MDM deve essere installato a livello di sistema**: la registrazione approvata dall'utente (senza DEP/ABM) potrebbe non depositare in modo affidabile i codici di bypass.
+
+<Warning>
+  Se un dispositivo viene registrato in MDM dopo che l'utente ha già effettuato l'accesso con un ID Apple e abilitato Trova il mio, **il codice di bypass non verrà depositato**. L'unica opzione di ripristino sono le credenziali dell'ID Apple dell'utente.
+</Warning>
+
+## Verifica la disponibilità del codice bypass
+
+1. Vai a **Dispositivi > Tutti i dispositivi**.
+2. Aprire il record del dispositivo pertinente.
+3. Scorri fino alla sezione **Conformità**.
+4. Controlla lo stato del **Blocco iCloud**:
+   - ✅ _Abilitato_: il codice di bypass è disponibile e depositato in garanzia.
+   - ❌ _Codice bypass mancante_: non è stato eseguito il backup del codice; è richiesto l'ID Apple originale.
+
+<Tip>
+  Esegui un controllo regolare dei dispositivi che mostrano **Codice di bypass mancante** per identificare le macchine che potrebbero non essere recuperabili dopo la cancellazione. Se possibile, dai la priorità alla nuova registrazione di questi dispositivi tramite ABM.
+</Tip>
+
+## Su macOS
+
+Recuperare il codice bypass dalla scheda del dispositivo, quindi:
+
+- **macOS Catalina (10.15) e versioni successive:** nella schermata Blocco attivazione, fai clic sul punto interrogativo accanto al campo ID Apple, seleziona **Ignora blocco attivazione** e inserisci il codice.
+- **macOS Mojave (10.14) e versioni precedenti:** inserisci il codice di bypass direttamente nel campo della password nella schermata Blocco attivazione.
+
+Il codice di bypass fa distinzione tra maiuscole e minuscole ed è generalmente monouso per dispositivo.
+
+## Su iOS/iPadOS
+
+Per i dispositivi iOS e iPadOS, recupera il codice di bypass dal record del dispositivo e inseriscilo nella schermata Blocco attivazione quando richiesto durante la configurazione del dispositivo dopo una cancellazione.
+
+Il codice di bypass fa distinzione tra maiuscole e minuscole ed è generalmente monouso per dispositivo.

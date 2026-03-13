@@ -1,0 +1,230 @@
+---
+title: "Journal des modifications"
+description: "Les dernières mises à jour de produits de Primo"
+mode: "center"
+---
+
+<Update label="18 février 2026" tags={["Procurement"]}>
+  ## Améliorations des accessoires
+
+  La gestion des accessoires vient de bénéficier d'une mise à niveau majeure dans Primo.
+
+  Vous pouvez désormais gérer les accessoires avec beaucoup plus de flexibilité, un meilleur suivi et des flux de travail plus fluides dans votre inventaire.
+
+  Jetez un œil aux nouveautés :
+
+  - Télécharger et exporter des accessoires via CSV
+  - Créer des vues personnalisées à l'aide de filtres
+  - Plus de paramètres et d'options d'affichage dans la section Accessoires
+  - Gestion des balises améliorée pour une organisation plus facile
+  - Un nouveau type d'accessoire "Autre" pour les articles personnalisés
+  - Suivi des quantités pour les accessoires partagés
+  - Suivi de l'état pour garder votre inventaire précis au fil du temps
+
+  Cette mise à jour facilite grandement le maintien d'un inventaire d'accessoires propre et fiable à mesure que votre flotte s'agrandit.
+</Update>
+
+<Update label="15 février 2026" tags={["MDM"]}>
+  ## Mises à jour MDM : intégration plus fluide et davantage de contrôles Linux
+
+  Nous avons apporté quelques améliorations très demandées à MDM dans Primo.
+
+  ### Les mises à jour du système d'exploitation ne sont plus forcées lors du déploiement Zero Touch
+
+  Pendant ZTD, les mises à jour du système d'exploitation ne seront plus déclenchées automatiquement. Les employés peuvent désormais procéder à la configuration de leurs appareils sans interruption et mettre à jour leur ordinateur lorsque cela leur semble opportun.
+
+  Cela rend l’intégration plus rapide, plus fluide et beaucoup moins frustrante dès le premier jour.
+
+  ### Plus de contrôles Linux MDM
+
+  Nous avons également étendu la prise en charge de Linux avec de nouveaux contrôles, notamment :
+
+  - Blocage USB
+  - Configuration Wi-Fi
+
+  Et ce n'est qu'un début : d'autres contrôles Linux et Android seront bientôt disponibles !
+</Update>
+
+<Update label="11 février 2026" tags={["MDM", "Software"]}>
+  ## Gestion des logiciels et correctifs d'applications dans Primo
+
+  Vous pouvez désormais gérer les logiciels directement dans Primo, sans changer d'outil. Cette mise à jour apporte deux choses : une vue plus claire de ce qui est installé dans votre flotte et une toute nouvelle façon de maintenir les applications à jour.
+
+  ### Correctifs d'application
+
+  Primo vous permet désormais d'activer le **correctif automatique par application**, afin que les mises à jour soient gérées automatiquement. Depuis n'importe quelle page du logiciel, vous pouvez activer les correctifs pour :
+
+  - tenir les installateurs à jour
+  - déployer automatiquement les nouvelles versions
+  - utiliser des scripts d'installation si nécessaire
+
+  Cela facilite grandement la sécurité et réduit le travail de mise à jour manuelle.
+
+  ### Installer des applications de Primo
+
+  Vous pouvez également déployer de nouvelles applications directement depuis Primo. Nous prenons actuellement en charge les **applications maintenues Fleet** sur **macOS et Windows**, avec un contrôle sur :
+
+  - ciblage (groupes d'appareils, appareils spécifiques ou tous les appareils)
+  - disponibilité en libre service
+  - installer des scripts
+
+  ### Découvrez ce qui est installé, en un coup d'œil
+
+  Enfin, la section Logiciels affiche désormais ce qui est installé et où, avec les versions, le filtrage et les vues personnalisées pour suivre les applications les plus importantes.
+
+  _Prochainement_ : packages personnalisés et applications App Store pour iOS, iPadOS et Android.
+</Update>
+
+<Update label="18 décembre 2025" tags={["MDM"]}>
+  ## Contrôles et gestion des logiciels MDM
+
+  Nous venons de procéder à une mise à niveau majeure du fonctionnement de la gestion des appareils dans Primo.
+
+  ### Les stratégies MDM sont désormais des contrôles
+
+  Les stratégies MDM sont désormais appelées **Contrôles**, avec un espace dédié dans Primo. L’objectif est simple : rendre les politiques plus faciles à trouver, plus faciles à comprendre et plus faciles à gérer à grande échelle. Nous avons également simplifié la dénomination :
+
+  - Les profils sont désormais des **Groupes d'appareils**
+  - Les applications installées sont désormais des **logiciels**
+
+  ### Cibler les appareils directement, sans gymnastique de profil
+
+  Le plus gros changement concerne le ciblage. Au lieu de vous fier aux profils MDM, vous pouvez désormais attribuer des contrôles **directement aux appareils**.
+
+  Créez un contrôle basé sur la plateforme, configurez-le une fois, puis choisissez où il s'applique :
+
+  - un groupe de périphériques
+  - appareils spécifiques
+  - ou toute votre flotte
+
+  Cela rend les déploiements plus rapides, plus clairs et beaucoup plus faciles à raisonner.
+
+  ### Un seul endroit pour voir chaque politique déployée
+
+  Vous disposez désormais d'une vue unique de tous les contrôles appliqués à l'ensemble de votre flotte, afin de pouvoir répondre rapidement : qu'est-ce qui est déployé, où et à qui ?
+
+  ### Dupliquer les politiques en toute confiance
+
+  La duplication d’une politique était possible auparavant, mais elle est désormais beaucoup plus évidente et fluide. C'est le moyen le plus rapide de réutiliser une configuration et de l'adapter à un autre groupe ou cas d'exception.
+
+  ### Les profils deviennent des groupes de périphériques
+
+  Nous simplifions également la structure :
+
+  - Les profils MDM sont migrés vers **Contrôles**
+  - Les profils deviennent des **Groupes d'appareils**
+
+  Les groupes de périphériques sont désormais ce qu'ils auraient toujours dû être : un moyen simple d'organiser votre flotte, et non une simple exigence pour déployer des politiques.
+
+  ### Les applications installées deviennent des logiciels
+
+  Les applications installées sont désormais des **logiciels**, avec une expérience plus claire et une section dédiée.
+
+  Il s'agit de la première étape pour intégrer davantage de fonctionnalités de gestion logicielle de Fleet dans Primo, afin que vous puissiez gérer les logiciels avec le même niveau de clarté que les appareils et les politiques.
+</Update>
+
+<Update label="10 décembre 2025" tags={["SaaS"]}>
+  ## Mots clés pour SaaS
+
+  Rendez votre répertoire SaaS plus facile à naviguer et à agir avec des balises !
+
+  Les balises sont désormais disponibles sur toutes les applications SaaS que Primo découvre via le mappage SaaS et l'extension Chrome. Vous pouvez ajouter et modifier des balises manuellement pour regrouper les outils par équipe, propriétaire, sensibilité, niveau de risque, etc.
+
+  Si vous souhaitez que Primo fasse cela pour vous, vous pouvez activer le marquage automatique IA dans l'onglet **Paramètres \> SaaS**. Primo examinera ensuite vos applications existantes et nouvellement découvertes et appliquera automatiquement les balises les plus pertinentes.
+
+  Une fois vos applications balisées, vous pouvez filtrer par balise, créer des vues ciblées pour les audits ou les renouvellements et repérer les risques de sécurité beaucoup plus rapidement.
+</Update>
+
+<Update label="17 novembre 2025" tags={["SaaS"]}>
+  ## Cartographie SaaS et extension Chrome
+
+  Obtenez une vue claire de toutes les applications SaaS et identités professionnelles utilisées dans votre entreprise.
+
+  La cartographie SaaS est maintenant disponible. Il montre chaque application SaaS accessible avec un e-mail d'entreprise via Google Workspace. Si vous avez besoin de plus de couverture, vous pouvez ajouter la nouvelle extension Chrome. Il mappe toutes les identités professionnelles utilisées avec une messagerie d'entreprise, même lorsque les utilisateurs ne se connectent pas avec Google.
+
+  Le mappage SaaS est activé par défaut si vous avez connecté Google Workspace. Vous pouvez déployer l'extension Chrome via un profil MDM à l'aide de la stratégie Chrome MDM.
+
+  Cette fonctionnalité est disponible pour toutes les organisations disposant d'un abonnement actif à SaaS Management.
+
+  Primo se concentre uniquement sur l’utilisation de SaaS liée au travail. Aucun compte personnel, aucune donnée de navigation et aucun contenu ne sont collectés.
+</Update>
+
+<Update label="4 novembre 2025" tags={["Automation"]}>
+  ## Intégration du pilote automatique
+
+  Définissez-le une fois, planifiez la date et Primo exécute votre intégration de bout en bout avec un examen final.
+
+  Définissez une seule fois les paramètres récurrents, notamment la création d'e-mails, les applications par défaut et les groupes d'accès. Pour chaque embauche, choisissez la date et Primo génère une exécution que vous pouvez consulter et ajuster. Le jour prévu, Primo provisionne les comptes, crée des boîtes aux lettres, applique l'accès, puis enregistre les résultats.
+
+  L’expédition des équipements reste manuelle, et l’approvisionnement automatisé sera bientôt prévu.
+
+  Gardez tout au même endroit pour réduire les transferts et accélérer le premier jour.
+</Update>
+
+<Update label="3 septembre 2025" tags={["Feature"]}>
+  ## Assistance à distance via RustDesk
+
+  Accès à distance en un clic pour un dépannage plus rapide.
+
+  Activez RustDesk dans un profil pour installer automatiquement l'agent sur les appareils ciblés. Démarrez des sessions sécurisées directement à partir de la page d’un appareil sans demander de codes ou de mots de passe aux utilisateurs. Les sessions héritent de vos contrôles d'accès et sont enregistrées pour audit.
+
+  Utilisez-le pour diagnostiquer les problèmes en temps réel et réduire les échanges d'e-mails. Il est particulièrement utile pour l'intégration, le personnel distant et les incidents nécessitant une aide pratique rapide.
+</Update>
+
+<Update label="12 août 2025" tags={["Feature"]}>
+  ## Piste d’audit MDM
+
+  Visualisez chaque action de l’appareil avec une traçabilité complète.
+
+  Obtenez une chronologie chronologique des actions MDM sur tous les appareils. Filtrez par appareil, type d'action ou date pour confirmer les modifications de stratégie, déboguer les problèmes et satisfaire aux audits. Chaque entrée montre ce qui s'est passé, qui l'a déclenché et le résultat, avec des liens vers l'appareil ou la stratégie.
+
+  Utilisez les exportations pour partager des preuves avec des auditeurs ou des fournisseurs. La piste d'audit boucle la boucle entre une demande de modification et ce qui s'est réellement passé.
+</Update>
+
+<Update label="4 août 2025" tags={["Feature"]}>
+  ## Intégration SentinelOne
+
+  Déployez la protection des points finaux sur l’ensemble de votre flotte en un clic.
+
+  Connectez votre locataire SentinelOne dans Primo et déployez automatiquement S1 sur chaque appareil géré. Les nouvelles machines sont protégées lors de leur inscription, réduisant ainsi les écarts dus aux installations ad hoc. L’état et la couverture de l’appareil apparaissent dans une seule vue afin que vous puissiez repérer rapidement les retardataires.
+
+  Les politiques restent dans SentinelOne tandis que le déploiement et le suivi sont en direct dans Primo, gardant ainsi les responsabilités claires. Cette intégration permet de standardiser la sécurité à mesure que vous évoluez.
+</Update>
+
+<Update label="31 juillet 2025" tags={["Feature"]}>
+  ## Automatisations de l'IA : une gestion fluide et sans effort
+
+  Les automatisations IA vont au-delà de la simple délégation de tâches en automatisant vos processus de routine en arrière-plan, sans aucune intervention nécessaire de votre part. Pendant qu'Uno réagit aux demandes spécifiques, les automatisations gèrent automatiquement les tâches en cours, en fonction de vos règles définies.
+
+  Par exemple, en plus de demander à Uno d'envoyer un rappel à un utilisateur en retard dans les mises à jour, vous pouvez configurer une automatisation pour envoyer régulièrement des rappels à tous les utilisateurs concernés, sans lever le petit doigt. De même, une fois qu'Uno a configuré un paramètre MDM pour vous, laissez les automatisations prendre le relais et appliquer automatiquement les nouveaux paramètres sur tous les appareils de votre organisation.
+
+  _Voici comment vous pouvez commencer à les utiliser :_
+
+  - **Audits réguliers** : "Générez un rapport mensuel de tous les appareils non conformes."
+  - **Alertes automatisées** : "Envoyez-moi un e-mail chaque fois qu'un appareil n'est plus conforme à nos politiques MDM." / "Envoyer des e-mails de rappel aux employés qui n'ont pas enregistré leurs appareils après 7 jours."
+  - **Suivi des appareils** : "Envoyez-moi chaque mois une liste des appareils qui ont dépassé 80 % d'utilisation du processeur au cours des 7 derniers jours ou dont les batteries ont dépassé 10 000 cycles."
+</Update>
+
+<Update label="20 juillet 2025" tags={["Feature"]}>
+  ## Uno : votre nouvel assistant conversationnel
+
+  Uno n'est plus seulement un outil, c'est votre assistant informatique personnel. D'un simple clic dans la barre de menu, vous pouvez démarrer une conversation et lui dire instantanément exactement ce dont vous avez besoin. Qu'il s'agisse de créer une configuration MDM personnalisée, d'envoyer des e-mails de rappel automatiques aux employés en retard dans les mises à jour ou de générer des rapports PDF sur la sécurité ou l'inventaire, Uno est là pour automatiser vos tâches les plus chronophages.
+
+  En quelques secondes seulement, Uno peut exécuter des actions sans avoir recours à des menus complexes ou à des étapes manuelles. Considérez-le comme un assistant supplémentaire, toujours disponible pour gérer les tâches répétitives et critiques, vous donnant plus de temps pour vous concentrer sur ce qui compte vraiment.
+
+  _Voici comment vous pouvez commencer à l'utiliser :_
+
+  - **Audit rapide** : "Montrez-moi tous les appareils non conformes" et recevez le rapport instantanément.
+  - **Rapport exécutif** : "Générez un PDF combinant l'inventaire, la conformité et l'état de santé de la flotte."
+  - **Configuration MDM** : "Installer cette application sur mes appareils iOS."
+  - **Rappels automatisés** : "Envoyez un e-mail à tous les employés qui ne se sont pas encore inscrits ou qui sont en retard dans les mises à jour."
+  - **Aide** : "Comment puis-je modifier les noms des ordinateurs de ma flotte ?"
+</Update>
+
+<Update label="7 juillet 2025" tags={["Feature"]}>
+  ## Attribution d'appareils intelligents
+
+  Grâce à la puissance de l'IA, Primo attribue automatiquement chaque ordinateur au bon employé, à l'aide de données précises en temps réel. L'IA examine les sessions ouvertes, l'historique des connexions, les propriétaires précédents et d'autres points de données clés pour déterminer avec précision quel appareil appartient à qui, tout en garantissant le maintien de la confidentialité des données.
+
+  Dites adieu aux erreurs d'affectation et aux erreurs : cette fonctionnalité réduit le risque d'erreurs, rationalise la gestion des stocks et vous fait gagner un temps précieux. Fini les vérifications manuelles pour chaque appareil. Activez simplement cette option directement depuis les paramètres MDM de Primo !
+</Update>

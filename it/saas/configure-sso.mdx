@@ -1,0 +1,45 @@
+---
+title: "Configura SSO con Primo come provider di identità"
+description: "Configura Single Sign-On (SSO) con Primo come provider di identità recuperando i dettagli SSO necessari e inserendo le informazioni del tuo fornitore di servizi per abilitare l'autenticazione utente per applicazioni di terze parti."
+---
+
+È possibile configurare Single Sign-On (SSO) tra Primo e un fornitore di servizi esterno utilizzando Primo come provider di identità. Ciò consente agli utenti di autenticarsi tramite Primo quando accedono ad applicazioni di terze parti.
+
+Questo articolo descrive come recuperare le informazioni SSO necessarie da Primo e completare la configurazione con il fornitore di servizi.
+
+## Scegli Primo come provider di identità
+
+1. Accedi alla console Primo.
+2. Vai a **Identità e accesso > Catalogo app**.
+3. Nell'elenco dei provider di accesso, seleziona **Accedi con Primo, Google o Entra**.
+
+## Recupera i dettagli di configurazione da Primo
+
+Fornisci i seguenti dettagli SSO al tuo fornitore di servizi come richiesto (a seconda del tuo fornitore di servizi), ad esempio:
+
+### 1. ID del fornitore di identità
+
+Fai clic su **Copia ID fornitore di identità** per copiare l'identificatore richiesto da alcuni fornitori di servizi.
+
+### 2. Metadati
+
+- Fai clic su **Copia URL metadati** o **Copia metadati** per recuperare i metadati completi.
+- Forniscilo al tuo fornitore di servizi per stabilire un rapporto di fiducia con Primo.
+
+### 3. URL di accesso
+
+Fai clic su **Copia URL di accesso** se richiesto dal fornitore di servizi per il reindirizzamento SSO.
+
+### 4. Certificati
+
+- Fai clic su **Copia certificato** o **Scarica certificato** per ottenere il certificato pubblico.
+- Utilizza **Copia certificato SHA256** se il tuo fornitore di servizi richiede un'impronta digitale per la verifica.
+
+## Immettere le informazioni sul fornitore di servizi
+
+Dopo aver configurato il fornitore di servizi con le informazioni SSO di Primo, inserisci i seguenti dettagli:
+
+1. **ID entità del fornitore di servizi**: incolla l'ID entità fornito dal tuo fornitore di servizi.
+2. **URL ACS (Assertion Consumer Service)**: inserisci l'URL ACS utilizzato dal tuo fornitore di servizi per ricevere asserzioni SAML.
+
+Fai clic su **Connetti** per finalizzare l'integrazione.

@@ -1,0 +1,62 @@
+---
+title: "Configurar VPP (Programa de compras por volumen de Apple)"
+description: "Conecte su token del Programa de compras por volumen (VPP) de Apple Business Manager para habilitar la implementación de la aplicación App Store en dispositivos macOS, iOS y iPadOS."
+---
+
+**VPP (Programa de compras por volumen)** es parte de Apple Business Manager (ABM). Permite a las organizaciones comprar licencias de aplicaciones de la App Store al por mayor e implementarlas de forma centralizada en dispositivos macOS, iOS y iPadOS, sin requerir ID de Apple individuales de los empleados.
+
+Una vez que VPP esté conectado, puede implementar aplicaciones de App Store directamente desde **MDM > Software**. Ver:
+- [Implementar aplicaciones (macOS, Windows, Linux)](/es/mdm/policies/manage-apps-laptop) — para aplicaciones de macOS App Store
+- [Implementar aplicaciones (iOS, iPadOS y Android)](/es/mdm/policies/manage-apps-smartphone) — para aplicaciones de iOS/iPadOS App Store
+
+---
+
+## Requisitos previos
+
+- Una cuenta de **Apple Business Manager (ABM)**
+- Implementación sin intervención activada: conecte su ABM en [Configuración MDM] (https://app.getprimo.com/settings/?tab=mdm)
+
+---
+
+## Conecte su token VPP
+
+### Paso 1: Generar un token VPP en ABM
+
+1. En ABM, vaya a la sección **Sitios**.
+2. Crea un nuevo sitio si aún no tienes uno.
+3. Genere un **token VPP** desde ese sitio y descárguelo.
+
+### Paso 2: importar el token
+
+1. En Primo, vaya a **MDM > Software > Agregar aplicación > App Store (VPP)**.
+2. Seleccione el alcance **"Sin equipo"**.
+3. Cargue el archivo del token VPP.
+
+Una vez importadas, las aplicaciones de la App Store que hayas comprado estarán disponibles para implementarlas desde **MDM > Software**.
+
+---
+
+## Agregar licencias en ABM
+
+Antes de implementar una aplicación, asegúrese de tener suficientes licencias asignadas:
+
+1. En ABM, vaya a **Aplicaciones y libros**.
+2. Busque la aplicación y compre la cantidad requerida de licencias.
+3. Asigne las licencias al sitio vinculado a su token VPP.
+
+Las licencias se pueden reasignar en cualquier momento cuando se cancela la inscripción de un dispositivo.
+
+---
+
+## Migración desde otro MDM
+
+Si está cambiando desde otro MDM que ya usa VPP:
+
+1. Primero agregue sus aplicaciones (siguiendo los pasos de las guías de implementación anteriores).
+2. Pídale a su proveedor MDM anterior que **elimine su enlace VPP**.
+3. Esto puede provocar que las aplicaciones administradas por VPP se **eliminen temporalmente** de los dispositivos.
+4. Primo volverá a implementar automáticamente todas las aplicaciones configuradas una vez que el nuevo enlace VPP esté activo.
+
+<Warning>
+Nunca comparta el mismo token VPP entre dos MDM simultáneamente. Hacerlo provocará conflictos y puede provocar que se eliminen aplicaciones de los dispositivos.
+</Warning>

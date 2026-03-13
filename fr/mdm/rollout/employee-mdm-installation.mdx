@@ -1,0 +1,110 @@
+---
+title: "Guide d'inscription des employés"
+description: "Suivez ces instructions étape par étape pour installer Primo sur votre ordinateur, en vous assurant que vous disposez des droits d'administrateur pour une inscription réussie au système de gestion de flotte de votre entreprise."
+---
+
+Cet article vous guidera étape par étape dans l'installation de Primo sur votre appareil. Cette installation est cruciale pour la gestion du parc automobile de votre entreprise.
+
+**Un peu de contexte avant de commencer :**
+
+- **Primo** est l'outil que votre entreprise utilise pour suivre, gérer et sécuriser ses appareils.
+- **FleetDM** est la solution de gestion des appareils mobiles (MDM) déployée par Primo.
+
+La procédure est simple et rapide : elle prend **moins de 2 minutes**.
+
+<Warning>
+  **Important** : Vous devez disposer de **droits d'administrateur** sur l'appareil pour terminer l'installation. Si vous ne les avez pas, contactez votre administrateur avant de continuer.
+</Warning>
+
+## Étape 1 : Accédez à l'espace d'inscription Primo
+
+Vous pouvez accéder à l'espace d'inscription Primo de deux manières différentes.
+
+### Option 1 : Accédez à l'inscription depuis l'email d'invitation
+
+Si vous avez reçu un e-mail d'inscription intitulé **"Invitation à rejoindre \<Nom de l'entreprise\> sur Primo"** :
+
+1. Ouvrez l'e-mail d'inscription.
+2. Cliquez sur **Inscrire mon ordinateur sur Primo**.
+3. Vous êtes redirigé vers la page Web d'inscription Primo.
+    ![Capture d'écran : Option 1 : Accéder à l'inscription depuis l'email d'invitation](/images/notion-import/employee-mdm-installation-guide__img-001__block-0017__1b243d9f.png)
+
+
+### Option 2 : Accédez à l'inscription depuis un lien direct
+
+Si votre administrateur a partagé un lien d'inscription avec vous : ouvrez le lien et vous êtes directement redirigé vers la page Web d'inscription Primo.
+
+## Étape 2 : Authentifier
+
+Une fois sur la page d'inscription Primo :
+
+1. Saisissez votre adresse email professionnelle (ou votre adresse email personnelle si vous êtes nouveau dans l'entreprise).
+2. Saisissez le **code de vérification à 6 chiffres** envoyé à votre adresse e-mail.
+
+## Étape 3 : Démarrez l'installation
+
+![Capture d'écran : Étape 3 : Démarrer l'installation](/images/notion-import/employee-mdm-installation-guide__img-003__block-0040__2da43d9f.png)
+
+
+Une fois connecté, Primo vous demandera d'installer le MDM sur votre appareil.
+
+1. Choisissez l'une des options suivantes :
+   - Si un appareil vous est déjà attribué, sélectionnez-le et cliquez sur **Inscrire**.
+   - Si aucun appareil ne vous est attribué, cliquez sur **Déployer MDM sur un autre appareil**.
+2. Sélectionnez le système d'exploitation de votre appareil (Windows, MacOS, Linux, iOS, Android) et téléchargez le programme d'installation.
+3. Suivez les instructions d'installation correspondant à votre système d'exploitation.
+
+### Installation sur macOS
+
+1. Installez l'agent sur votre appareil
+   1. Localisez le fichier **primo-enrollment.mobileconfig** téléchargé sur votre appareil
+   2. Double-cliquez sur le fichier. Un message système confirme que le profil a été téléchargé et doit maintenant être installé.
+       ![Capture d'écran : Étape 3 : Démarrer l'installation](/images/notion-import/employee-mdm-installation-guide__img-002__block-0037__2da43d9f.png)
+
+1. Installez le profil sur votre appareil
+   1. Ouvrez **Paramètres système** et accédez à **Général \> Gestion des appareils** (Vous pouvez également utiliser le champ de recherche dans Paramètres système et rechercher Gestion des appareils.)
+   2. Sélectionnez le profil dans la liste et double-cliquez sur "**\<Votre Entreprise\> Inscription**"
+       ![Capture d'écran : Étape 3 : Démarrer l'installation](/images/notion-import/employee-mdm-installation-guide__img-004__block-0043__1b243d9f.png)
+
+   3. Cliquez sur **Inscrire** en bas à gauche de la fenêtre.
+       ![Capture d'écran : Étape 3 : Démarrer l'installation](/images/notion-import/employee-mdm-installation-guide__img-005__block-0046__1bc43d9f.png)
+
+   4. Entrez votre **mot de passe administrateur** pour confirmer l'installation.
+
+<details>
+  <summary>Cliquez ici en cas d'erreur lors de l'installation de l'agent</summary>
+
+  Si vous voyez une erreur indiquant que primo-enrollment.pkg est bloqué :
+
+  ![Capture d'écran : Étape 3 : Démarrer l'installation](/images/notion-import/employee-mdm-installation-guide__img-006__block-0050__2b843d9f.png)
+
+  Vous pouvez le débloquer dans Paramètres > Confidentialité et sécurité > Sécurité
+
+  ![Capture d'écran : Étape 3 : Démarrer l'installation](/images/notion-import/employee-mdm-installation-guide__img-007__block-0052__2b843d9f.png)
+
+</details>
+
+L'inscription est terminée. Vous recevrez un email de confirmation.
+
+### Installation sous Windows
+
+1. Double-cliquez sur le fichier "**primo-enrollment.msi**" téléchargé
+2. Une fenêtre de sécurité Windows s'ouvre, continuez en cliquant sur **"Oui"**
+    ![Capture d'écran : Étape 3 : Démarrer l'installation](/images/notion-import/employee-mdm-installation-guide__img-008__block-0058__1b243d9f.png)
+
+3. L'inscription est terminée. Vous recevrez un email de confirmation.
+
+### Installation sur iOS
+
+1. Accédez à **Paramètres** \> **Général** \> **Gestion des appareils**
+2. Sélectionnez et **installez le profil** MDM Primo
+3. **Confirmez l'installation** en entrant votre code de déverrouillage si vous y êtes invité
+
+### Installation sur Android
+
+1. Suivez les étapes d'inscription Android
+2. Lorsque vous êtes invité à fournir vos informations de connexion, entrez vos informations de connexion Primo.
+
+<Note>
+  Chez Primo, la protection de vos données est notre priorité absolue. Retrouvez notre page Transparence pour plus d’informations.
+</Note>

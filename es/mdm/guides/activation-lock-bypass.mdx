@@ -1,0 +1,53 @@
+---
+title: "Custodia del código de derivación del bloqueo de activación"
+description: "Reglas para garantizar que los códigos de derivación del bloqueo de activación se guarden a través de MDM para que los dispositivos se puedan recuperar después de un borrado o reasignación."
+---
+
+El bloqueo de activación evita el uso no autorizado de un dispositivo Apple después de un restablecimiento de fábrica. Para los dispositivos propiedad de la empresa inscritos en MDM, Primo puede guardar el código de derivación automáticamente, de modo que los administradores de TI puedan desbloquear un dispositivo después de un borrado sin necesidad del ID de Apple del empleado.
+
+## Soporte de sistema operativo
+
+| macos | ventanas | linux | iOS/iPadOS | androide |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | ✅ | |
+
+## Reglas para el depósito de códigos de derivación
+
+Para que un código de derivación se guarde correctamente, se deben cumplir todas las condiciones siguientes:
+
+1. **El dispositivo debe ser supervisado a través de MDM**: los dispositivos no supervisados no pueden guardar códigos de derivación en custodia.
+2. **El dispositivo debe registrarse antes de habilitar el bloqueo de activación**: si un usuario activa Buscar antes de registrarse en MDM, el código de derivación no estará disponible.
+3. **El dispositivo debe ser propiedad de la empresa**; los dispositivos de propiedad personal (BYOD) no son elegibles para el depósito de código de derivación.
+4. **El perfil MDM debe instalarse a nivel del sistema**: es posible que la inscripción aprobada por el usuario (sin DEP/ABM) no guarde de manera confiable los códigos de derivación.
+
+<Warning>
+  Si un dispositivo se inscribe en MDM después de que el usuario ya haya iniciado sesión con una ID de Apple y haya habilitado Buscar, **el código de derivación no se guardará en custodia**. La única opción de recuperación son las credenciales de ID de Apple del usuario.
+</Warning>
+
+## Verifique la disponibilidad del código de derivación
+
+1. Vaya a **Dispositivos > Todos los dispositivos**.
+2. Abra el registro del dispositivo correspondiente.
+3. Desplácese hasta la sección **Cumplimiento**.
+4. Verifique el estado de **Bloqueo de iCloud**:
+   - ✅ _Habilitado_: el código de derivación está disponible y en depósito.
+   - ❌ _Falta el código de derivación_: no se realizó una copia de seguridad de ningún código; Se requiere el ID de Apple original.
+
+<Tip>
+  Ejecute una auditoría periódica de los dispositivos que muestren **Falta un código de derivación** para identificar las máquinas que pueden ser irrecuperables después de un borrado. Priorice la reinscripción de estos dispositivos a través de ABM si es posible.
+</Tip>
+
+## En MacOS
+
+Recupere el código de derivación del registro del dispositivo y luego:
+
+- **macOS Catalina (10.15) y versiones posteriores:** en la pantalla de bloqueo de activación, haga clic en el signo de interrogación junto al campo ID de Apple, seleccione **Omitir bloqueo de activación** e ingrese el código.
+- **macOS Mojave (10.14) y versiones anteriores:** ingresa el código de derivación directamente en el campo de contraseña en la pantalla de bloqueo de activación.
+
+El código de derivación distingue entre mayúsculas y minúsculas y generalmente es de un solo uso por dispositivo.
+
+## En iOS/iPadOS
+
+Para dispositivos iOS y iPadOS, recupere el código de derivación del registro del dispositivo e introdúzcalo en la pantalla de bloqueo de activación cuando se le solicite durante la configuración del dispositivo después de un borrado.
+
+El código de derivación distingue entre mayúsculas y minúsculas y generalmente es de un solo uso por dispositivo.

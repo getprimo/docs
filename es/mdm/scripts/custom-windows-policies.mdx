@@ -1,0 +1,76 @@
+---
+title: "Ejemplos de políticas personalizadas de Windows"
+description: "Explore cómo aplicar políticas personalizadas de Windows para CSP de personalización, incluida su habilitación en Windows Pro y la configuración de imágenes de fondo para la pantalla de bloqueo y el escritorio a través de configuraciones XML específicas."
+---
+
+Amplíe sus perfiles de Windows MDM con políticas CSP (Proveedor de servicios de configuración) personalizadas utilizando XML sin formato. Utilícelo cuando los controles integrados de Primo no cubran una configuración específica de Windows que necesite implementar, como la personalización del escritorio, el modo quiosco u otras configuraciones empresariales.
+
+## soporte del sistema operativo
+
+| macos | ventanas | linux | iOS/iPadOS | androide |
+|-------|---------|-------|--------------|---------|
+| | ✅ | | | |
+
+## En Windows
+
+<Note>
+Al escribir un XML para aplicar una política CSP a un dispositivo, omite las primeras (y últimas) líneas del archivo XML y empieza (y termina) con `<Replace>` o `<Add>` (respectivamente `</Replace>` y `</Add>`)
+</Note>
+
+### Permitir personalización CSP en Windows Pro
+
+```xml
+<Replace>
+  <!-- Allows Personalization CSPs to be deployed on non-Enterprise versions of Windows.
+       Setting this value to true triggers the action to configure a device as education environment.
+       Thorough testing is crucial to ensure it does not disrupt workflows or create compatibility issues. -->
+  <Item>
+    <Meta>
+      <Format xmlns="syncml:metinf">bool</Format>
+    </Meta>
+    <Target>
+      <LocURI>./Vendor/MSFT/SharedPC/SetEduPolicies</LocURI>
+    </Target>
+    <Data>true</Data>
+  </Item>
+</Replace>
+```
+
+### Establecer imagen de fondo y pantalla de bloqueo
+
+<Note>
+El CSP de personalización es compatible con las ediciones Windows Enterprise y Education. Funciona en Windows Professional solo cuando está configurado SetEduPolicies en SharedPC CSP. Consulte "Permitir CSP de personalización en Windows Pro".
+</Note>
+
+```xml
+<Replace>
+  <CmdID>1</CmdID>
+  <Item>
+    <Target>
+      <LocURI>
+        ./Vendor/MSFT/Personalization/LockScreenImageUrl
+      </LocURI>
+    </Target>
+    <Meta>
+      <Format xmlns="syncml:metinf">chr</Format>
+      <Type>text/plain</Type>
+    </Meta>
+    <Data> … your URL here … </Data>
+  </Item>
+</Replace>
+<Replace>
+  <CmdID>2</CmdID>
+  <Item>
+    <Target>
+      <LocURI>
+        ./Vendor/MSFT/Personalization/DesktopImageUrl
+      </LocURI>
+    </Target>
+    <Meta>
+      <Format xmlns="syncml:metinf">chr</Format>
+      <Type>text/plain</Type>
+    </Meta>
+    <Data> … your URL here … </Data>
+  </Item>
+</Replace>
+```

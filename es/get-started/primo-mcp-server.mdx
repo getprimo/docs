@@ -1,0 +1,143 @@
+---
+title: "Conéctese a nuestro MCP"
+description: "Aprenda cómo conectar ChatGPT, Claude, Cursor y otros asistentes de IA a Primo utilizando el servidor MCP (Protocolo de contexto modelo) para administrar su flota de TI en lenguaje natural."
+---
+
+## ¿Qué es MCP?
+
+El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA como ChatGPT, Claude o Cursor conectarse directamente a herramientas y fuentes de datos externas, incluido Primo.
+
+Con el servidor MCP Primo, su asistente de IA puede consultar y administrar su flota de TI en lenguaje natural: enumerar dispositivos, buscar empleados, administrar accesorios, crear tickets y más.
+
+---
+
+## Requisitos previos
+
+Para utilizar el servidor MCP Primo, sólo necesita:
+
+- Una **cuenta Primo** con acceso al espacio de trabajo de su empresa
+- Un asistente de IA compatible con MCP (ChatGPT, Claude, Cursor, etc.)
+
+La autenticación se maneja a través de **OAuth**: cuando agrega el servidor MCP Primo a su asistente de IA, será redirigido para iniciar sesión con su cuenta Primo. No se requiere clave API.
+
+---
+
+## URL del servidor MCP
+
+El servidor MCP Primo está disponible en:
+
+```javascript
+https://api.getprimo.com/mcp
+```
+
+De forma predeterminada, el servidor se ejecuta en **modo de solo lectura**: su asistente de inteligencia artificial puede consultar datos pero no puede realizar cambios.
+
+Para habilitar el **acceso de escritura** (crear tickets, actualizar accesorios, etc.), utilice:
+
+```javascript
+https://api.getprimo.com/mcp?readOnly=false
+```
+
+---
+
+## Guía de configuración
+
+### ChatGPT
+
+1. Abrir **ChatGPT** (se requiere plan Plus o Team)
+2. Vaya a **Configuración** → **Aplicaciones conectadas** o use el menú **"Conectar"**
+3. Seleccione **"Agregar servidor MCP"**
+4. Ingrese la URL del servidor: `https://api.getprimo.com/mcp`
+5. Serás redirigido para **iniciar sesión con tu cuenta Primo** (OAuth)
+6. Autorice la conexión: ¡ya está todo listo!
+
+**Indicaciones de ejemplo:**
+
+- _"Listar todos los dispositivos administrados en Primo"_
+- _"Muéstrame los empleados que se unieron este mes"_
+- _"¿Qué tickets están pendientes actualmente?"_
+
+### Escritorio Claude
+
+1. Abra la aplicación **Claude Desktop**
+2. Vaya a **Configuración** → **Desarrollador** → **Servidores MCP**
+3. Haga clic en **"Agregar servidor"**
+4. Ingrese un nombre (por ejemplo, "Primo") y la URL: `https://api.getprimo.com/mcp`
+5. Complete el flujo de inicio de sesión de OAuth con su cuenta Primo
+6. Guarde y vuelva a conectarse: las herramientas Primo aparecerán en la caja de herramientas de Claude
+
+### Cursor
+
+1. Abra la configuración del **Cursor**
+2. Vaya a **Servidores MCP**
+3. Agregue un nuevo servidor con la URL: `https://api.getprimo.com/mcp`
+4. Complete la autenticación OAuth con su cuenta Primo
+5. Las herramientas Primo estarán disponibles en el asistente de IA de Cursor
+
+### Otros clientes compatibles con MCP
+
+Cualquier aplicación que admita el estándar MCP puede conectarse a Primo. Utilice la URL del servidor `https://api.getprimo.com/mcp`: la autenticación se gestiona a través de OAuth.
+
+---
+
+## Soporte multiempresa
+
+Si su organización administra **varias empresas** en Primo, el servidor MCP de forma predeterminada es su empresa principal.
+
+Para dirigirse a una empresa específica, agregue el parámetro `x-company-id` a la URL:
+
+```javascript
+https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID
+```
+
+Puedes combinar parámetros:
+
+```javascript
+https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID&readOnly=false
+```
+
+<Note>
+  Para encontrar el ID de su empresa, utilice API para enumerar sus empresas o consulte la URL en su panel de control Primo.
+</Note>
+
+---
+
+## ¿Qué puedes hacer?
+
+Una vez conectado, su asistente de IA puede realizar las siguientes acciones a través de Primo:
+
+| Categoría        | Leer operaciones                        | Operaciones de escritura                                              |
+| --------------- | -------------------------------------- | ------------------------------------------------------------- |
+| **Empresas**   | Listar y ver empresas                | —                                                             |
+| **Dispositivos**     | Listar, buscar y ver detalles del dispositivo  | Bloquear, desbloquear, borrar (⚠️)                                       |
+| **Empleados**   | Listar y ver perfiles de empleados        | —                                                             |
+| **Accesorios** | Listar y ver accesorios              | Crear y actualizar accesorios                                 |
+| **Entradas**     | Listar, buscar, filtrar y ver tickets | Crear tickets, agregar comentarios, actualizar estado/prioridad/asignado |
+
+<Warning>
+  Las acciones del dispositivo (bloquear, borrar) son poderosas e irreversibles. Utilice el modo de escritura con precaución.
+</Warning>
+
+---
+
+## Solución de problemas
+
+**"404 no encontrado" al abrir la URL en un navegador**
+
+Esto es normal. El servidor MCP no es una página web, es un punto final de protocolo diseñado para ser utilizado por asistentes de IA. Agréguelo como servidor MCP en su cliente preferido.
+
+**Error de autenticación**
+
+Asegúrese de completar el flujo de inicio de sesión de OAuth cuando se le solicite. Necesita una cuenta Primo activa con acceso a la empresa que desea consultar.
+
+**Datos de la empresa equivocada**
+
+Si administra varias empresas, especifique la empresa de destino mediante el parámetro `x-company-id` (consulte Soporte para varias empresas más arriba).
+
+---
+
+## ¿Necesitas ayuda?
+
+Comuníquese con su equipo de soporte de Primo o comuníquese a través del chat en la aplicación si necesita ayuda para configurar MCP.
+
+Para obtener documentación sobre API, visite: [api.getprimo.com/apidoc](https://api.getprimo.com/apidoc)

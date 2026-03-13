@@ -1,0 +1,230 @@
+---
+title: "Registro de cambios"
+description: "Las últimas actualizaciones de productos de Primo"
+mode: "center"
+---
+
+<Update label="18 de febrero de 2026" tags={["Procurement"]}>
+  ## Mejoras en accesorios
+
+  La gestión de accesorios acaba de recibir una importante actualización en Primo.
+
+  Ahora puede administrar accesorios con mucha más flexibilidad, mejor seguimiento y flujos de trabajo más fluidos en todo su inventario.
+
+  Echa un vistazo a las novedades:
+
+  - Cargar y exportar accesorios vía CSV
+  - Crear vistas personalizadas usando filtros
+  - Más configuraciones y opciones de visualización en la sección Accesorios
+  - Gestión de etiquetas mejorada para una organización más sencilla
+  - Un nuevo tipo de accesorio "Otro" para artículos personalizados
+  - Seguimiento de cantidad de accesorios compartidos
+  - Seguimiento de condiciones para mantener su inventario preciso a lo largo del tiempo
+
+  Esta actualización hace que sea mucho más fácil mantener un inventario de accesorios limpio y confiable a medida que crece su flota.
+</Update>
+
+<Update label="15 de febrero de 2026" tags={["MDM"]}>
+  ## Actualizaciones de MDM: incorporación más fluida y más controles de Linux
+
+  Enviamos algunas mejoras muy solicitadas a MDM en Primo.
+
+  ### Las actualizaciones del sistema operativo ya no se fuerzan durante la implementación sin intervención
+
+  Durante ZTD, las actualizaciones del sistema operativo ya no se activarán automáticamente. Los empleados ahora pueden realizar la configuración del dispositivo sin interrupciones y actualizar su computadora cuando sea conveniente para ellos.
+
+  Esto hace que la incorporación sea más rápida, fluida y mucho menos frustrante desde el primer día.
+
+  ### Más controles de Linux MDM
+
+  También ampliamos el soporte de Linux con nuevos controles, que incluyen:
+
+  - bloqueo de USB
+  - configuración wifi
+
+  Y esto es solo el comienzo: ¡pronto habrá más controles para Linux y Android!
+</Update>
+
+<Update label="11 de febrero de 2026" tags={["MDM", "Software"]}>
+  ## Gestión de software y parches de aplicaciones en Primo
+
+  Ahora puede administrar el software directamente en Primo, sin cambiar de herramienta. Esta actualización trae dos cosas: una vista más clara de lo que está instalado en su flota y una nueva forma de mantener las aplicaciones actualizadas.
+
+  ### Parcheo de aplicaciones
+
+  Primo ahora le permite habilitar **parches automáticos por aplicación**, para que las actualizaciones se manejen automáticamente. Desde cualquier página de software, puede activar la aplicación de parches para:
+
+  - mantener a los instaladores actualizados
+  - implementar automáticamente nuevas versiones
+  - utilizar scripts de instalación cuando sea necesario
+
+  Hace que sea mucho más fácil mantenerse seguro y reducir el trabajo de actualización manual.
+
+  ### Instalar aplicaciones desde Primo
+
+  También puede implementar nuevas aplicaciones directamente desde Primo. Actualmente admitimos **Aplicaciones mantenidas Fleet** en **macOS y Windows**, con control sobre:
+
+  - segmentación (grupos de dispositivos, dispositivos específicos o todos los dispositivos)
+  - disponibilidad de autoservicio
+  - instalar scripts
+
+  ### Vea lo que está instalado, de un vistazo
+
+  Finalmente, la sección Software ahora muestra qué está instalado y dónde, con versiones, filtrado y vistas personalizadas para rastrear las aplicaciones más importantes.
+
+  _Próximamente_: paquetes personalizados y aplicaciones de App Store para iOS, iPadOS y Android.
+</Update>
+
+<Update label="18 de diciembre de 2025" tags={["MDM"]}>
+  ## MDM Controles y Gestión de Software
+
+  Acabamos de realizar una actualización importante en el funcionamiento de la administración de dispositivos en Primo.
+
+  ### Las políticas MDM ahora son controles
+
+  Las políticas de MDM ahora se denominan **Controles**, con un espacio dedicado en Primo. El objetivo es simple: hacer que las políticas sean más fáciles de encontrar, comprender y gestionar a escala. También simplificamos los nombres:
+
+  - Los perfiles ahora son **Grupos de dispositivos**
+  - Las aplicaciones instaladas ahora son **Software**
+
+  ### Apunte a los dispositivos directamente, sin gimnasia de perfil
+
+  El mayor cambio es la focalización. En lugar de depender de los perfiles MDM, ahora puede asignar controles **directamente a los dispositivos**.
+
+  Cree un Control basado en la plataforma, configúrelo una vez y luego elija dónde se aplica:
+
+  - un grupo de dispositivos
+  - dispositivos específicos
+  - o toda tu flota
+
+  Esto hace que las implementaciones sean más rápidas, claras y mucho más fáciles de razonar.
+
+  ### Un lugar para ver cada política implementada
+
+  Ahora obtiene una vista única de todos los controles aplicados en su flota, para que pueda responder rápidamente: ¿qué se implementa, dónde y para quién?
+
+  ### Duplicar políticas con confianza
+
+  Antes era posible duplicar una política, pero ahora es mucho más obvio y sin fricciones. Es la forma más rápida de reutilizar una configuración y adaptarla para otro grupo o caso de excepción.
+
+  ### Los perfiles se convierten en grupos de dispositivos
+
+  También estamos simplificando la estructura:
+
+  - Los perfiles MDM se están moviendo a **Controles**
+  - Los perfiles se están convirtiendo en **Grupos de dispositivos**
+
+  Los grupos de dispositivos son ahora lo que siempre deberían haber sido: una forma limpia de organizar su flota, no un requisito solo para implementar políticas.
+
+  ### Las aplicaciones instaladas se convierten en software
+
+  Las aplicaciones instaladas ahora son **Software**, con una experiencia más clara y una sección dedicada.
+
+  Este es el primer paso para incorporar más capacidades de administración de software de Fleet a Primo, para que pueda administrar el software con el mismo nivel de claridad que los dispositivos y las políticas.
+</Update>
+
+<Update label="10 de diciembre de 2025" tags={["SaaS"]}>
+  ## Etiquetas para SaaS
+
+  ¡Haga que su directorio SaaS sea más fácil de navegar y actuar con etiquetas!
+
+  Las etiquetas ahora están disponibles en todas las aplicaciones SaaS que Primo descubre a través de SaaS Mapping y la extensión de Chrome. Puede agregar y editar etiquetas manualmente para agrupar herramientas por equipo, propietario, sensibilidad, nivel de riesgo y más.
+
+  Si desea que Primo haga esto por usted, puede habilitar el etiquetado automático AI en **Configuración \> pestaña SaaS**. Luego, Primo revisará sus aplicaciones existentes y recién descubiertas y aplicará automáticamente las etiquetas más relevantes.
+
+  Una vez que sus aplicaciones estén etiquetadas, puede filtrar por etiqueta, crear vistas enfocadas para auditorías o renovaciones y detectar riesgos de seguridad mucho más rápido.
+</Update>
+
+<Update label="17 de noviembre de 2025" tags={["SaaS"]}>
+  ## Mapeo SaaS y extensión de Chrome
+
+  Obtenga una vista clara de todas las aplicaciones SaaS e identidades laborales utilizadas en su empresa.
+
+  El mapeo SaaS ya está disponible. Muestra cada aplicación SaaS a la que se accede con un correo electrónico de la empresa a través de Google Workspace. Si necesitas más cobertura, puedes agregar la nueva extensión de Chrome. Mapea todas las identidades laborales utilizadas con un correo electrónico de la empresa, incluso cuando los usuarios no inician sesión con Google.
+
+  La asignación SaaS está habilitada de forma predeterminada si conectó Google Workspace. Puede implementar la extensión de Chrome a través de un perfil MDM utilizando la política MDM de Chrome.
+
+  Esta función está disponible para todas las organizaciones con una suscripción activa a SaaS Management.
+
+  Primo solo se centra en el uso de SaaS relacionado con el trabajo. No se recopilan cuentas personales, datos de navegación ni contenido.
+</Update>
+
+<Update label="4 de noviembre de 2025" tags={["Automation"]}>
+  ## Piloto automático de incorporación
+
+  Configúrelo una vez, programe la fecha y Primo ejecutará sus incorporaciones de principio a fin con una revisión final.
+
+  Defina configuraciones recurrentes una vez, incluida la creación de correo electrónico, aplicaciones predeterminadas y grupos de acceso. Para cada contratación, elija la fecha y Primo generará una ejecución que podrá revisar y ajustar. El día programado, Primo aprovisiona cuentas, crea buzones de correo, aplica el acceso y luego registra los resultados.
+
+  El envío de equipos sigue siendo manual y pronto llegará la adquisición automatizada.
+
+  Mantenga todo en un solo lugar para reducir los traspasos y acelerar el primer día.
+</Update>
+
+<Update label="3 de septiembre de 2025" tags={["Feature"]}>
+  ## Asistencia remota a través de RustDesk
+
+  Acceso remoto con un clic para una resolución de problemas más rápida.
+
+  Habilite RustDesk en un perfil para instalar automáticamente el agente en los dispositivos de destino. Inicie sesiones seguras directamente desde la página de un dispositivo sin pedir a los usuarios códigos o contraseñas. Las sesiones heredan sus controles de acceso y se registran para su auditoría.
+
+  Úselo para diagnosticar problemas en tiempo real y reducir el intercambio de correos electrónicos. Es especialmente útil para la incorporación, el personal remoto y los incidentes que necesitan ayuda práctica rápida.
+</Update>
+
+<Update label="12 de agosto de 2025" tags={["Feature"]}>
+  ## Registro de auditoría MDM
+
+  Vea cada acción del dispositivo con trazabilidad completa.
+
+  Obtenga una cronología cronológica de las acciones de MDM en todos los dispositivos. Filtre por dispositivo, tipo de acción o fecha para confirmar cambios de políticas, depurar problemas y satisfacer auditorías. Cada entrada muestra lo que sucedió, quién lo activó y el resultado, con enlaces al dispositivo o política.
+
+  Utilice exportaciones para compartir evidencia con auditores o proveedores. La pista de auditoría cierra el círculo entre una solicitud de cambio y lo que realmente sucedió.
+</Update>
+
+<Update label="4 de agosto de 2025" tags={["Feature"]}>
+  ## Integración de SentinelOne
+
+  Implemente protección de terminales en toda su flota con un solo clic.
+
+  Conecte su inquilino de SentinelOne en Primo e implemente automáticamente S1 en cada dispositivo administrado. Las máquinas nuevas quedan protegidas al inscribirse, lo que reduce las brechas de las instalaciones ad hoc. El estado y la cobertura del dispositivo aparecen en una sola vista para que puedas detectar rápidamente a los rezagados.
+
+  Las políticas permanecen en SentinelOne mientras la implementación y el seguimiento se encuentran en Primo, lo que mantiene limpias las responsabilidades. Esta integración ayuda a estandarizar la seguridad a medida que escala.
+</Update>
+
+<Update label="31 de julio de 2025" tags={["Feature"]}>
+  ## Automatizaciones de IA: gestión fluida y sin esfuerzo
+
+  Las automatizaciones de IA van más allá de la simple delegación de tareas al automatizar sus procesos rutinarios en segundo plano, sin necesidad de intervención suya. Mientras Uno reacciona a solicitudes específicas, las Automatizaciones manejan las tareas en curso automáticamente, según sus reglas definidas.
+
+  Por ejemplo, además de hacer que Uno envíe un recordatorio a un usuario que llega tarde a las actualizaciones, puede configurar una automatización para enviar recordatorios a todos los usuarios relevantes de forma regular, sin mover un dedo. Del mismo modo, una vez que Uno configure una configuración MDM por usted, deje que las Automatizaciones se hagan cargo y apliquen las nuevas configuraciones en todos los dispositivos de su organización automáticamente.
+
+  _Así es como puedes empezar a usarlos:_
+
+  - **Auditorías periódicas**: "Genere un informe mensual de todos los dispositivos que no cumplen".
+  - **Alertas automáticas**: "Envíeme un correo electrónico cada vez que un dispositivo no cumpla con nuestras políticas MDM". / "Enviar correos electrónicos de recordatorio a los empleados que no hayan registrado sus dispositivos después de 7 días".
+  - **Seguimiento de dispositivos**: "Envíeme un correo electrónico mensualmente con una lista de dispositivos que han superado el 80 % de uso de CPU en los últimos 7 días, o cuyas baterías han superado los 10 000 ciclos".
+</Update>
+
+<Update label="20 de julio de 2025" tags={["Feature"]}>
+  ## Uno: tu nuevo asistente conversacional
+
+  Uno ya no es sólo una herramienta: es su asistente de TI personal. Con solo un clic en la barra de menú, puedes iniciar un chat y decirle al instante exactamente lo que necesitas. Ya sea creando una configuración personalizada de MDM, enviando correos electrónicos recordatorios automáticos a los empleados que están atrasados ​​en las actualizaciones o generando informes en PDF sobre seguridad o inventario, Uno está aquí para automatizar sus tareas que consumen más tiempo.
+
+  En solo segundos, Uno puede ejecutar acciones sin necesidad de menús complejos o pasos manuales. Piense en ello como un asistente adicional, siempre disponible para manejar tareas repetitivas y críticas, lo que le brinda más tiempo para concentrarse en lo que realmente importa.
+
+  _Así es como puedes empezar a usarlo:_
+
+  - **Auditoría rápida**: "Muéstrame todos los dispositivos que no cumplen" y recibe el informe al instante.
+  - **Informe ejecutivo**: "Genere un PDF que combine el inventario, el cumplimiento y el estado de la flota".
+  - **Configuración MDM**: "Instalar esta aplicación en mis dispositivos iOS".
+  - **Recordatorios automáticos**: "Envíe un correo electrónico a todos los empleados que aún no se han inscrito o que están atrasados en las actualizaciones".
+  - **Ayuda**: "¿Cómo cambio los nombres de las computadoras de mi flota?"
+</Update>
+
+<Update label="7 de julio de 2025" tags={["Feature"]}>
+  ## Asignación de dispositivos inteligentes
+
+  Con el poder de la IA, Primo asigna automáticamente cada computadora al empleado adecuado, utilizando datos precisos en tiempo real. La IA examina las sesiones abiertas, el historial de conexiones, los propietarios anteriores y otros puntos de datos clave para determinar con precisión qué dispositivo pertenece a quién, todo ello garantizando al mismo tiempo que se mantenga la privacidad de los datos.
+
+  Diga adiós a las asignaciones erróneas y a los errores: esta función reduce el riesgo de errores, agiliza la gestión de inventario y le ahorra un tiempo valioso. No más comprobaciones manuales para cada dispositivo. ¡Simplemente active esta opción directamente desde la configuración MDM de Primo!
+</Update>

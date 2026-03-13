@@ -1,0 +1,58 @@
+---
+title: "Richten Sie die Lizenzbereitstellung ein"
+description: "Richten Sie die Bereitstellung ein, um die Erstellung und Aktualisierung von Benutzerkonten in Anwendungen wie Zendesk zu automatisieren und sicherzustellen, dass Mitarbeiter über die entsprechenden Zugriffsrollen basierend auf definierten Regeln verfügen, ohne dass eine manuelle Verwaltung erforderlich ist."
+---
+
+Durch die Bereitstellung wird sichergestellt, dass Benutzerkonten in verbundenen Anwendungen automatisch gemäß den von Ihnen definierten Regeln erstellt und aktualisiert werden. Durch die Konfiguration der Bereitstellung können Sie bestimmten Mitarbeitergruppen bestimmte Anwendungen und Rollen zuweisen.
+
+In diesem Artikel wird erläutert, wie Sie die Bereitstellung mithilfe von Regeln einrichten.
+
+## Zugriffsregeln
+
+1. Gehen Sie in der Primo-Konsole zu **Identitäten und Zugriff**.
+2. Wählen Sie **Regeln**.
+3. Entweder **aktualisieren Sie eine vorhandene Regel** oder **erstellen Sie eine neue**, um Bereitstellungsregeln zu verwalten.
+
+## Neue Regeln erstellen (optional)
+
+![Screenshot: Zugriffsregeln](/images/notion-import/set-up-licence-provisioning__img-090__block-0008__25443d9f.png)
+
+
+Wenn Sie eine neue Gruppe von Mitarbeitern ansprechen müssen, erstellen Sie eine spezielle Regel:
+
+1. Klicken Sie auf **Neue Regel erstellen**.
+2. Geben Sie einen Namen für die Regel ein (z. B. *Entwicklerteam*).
+3. Definieren Sie die Targeting-Bedingungen unter **Gezielte Mitarbeiter** (zum Beispiel: *Team ist Entwicklung*).
+4. Speichern Sie Ihre Regel.
+    ![Screenshot: Neue Regeln erstellen (optional)](/images/notion-import/set-up-licence-provisioning__img-091__block-0016__25443d9f.png)
+
+
+## Aktivieren Sie die Bereitstellung für eine Anwendung
+
+![Screenshot: Neue Regeln erstellen (optional)](/images/notion-import/set-up-licence-provisioning__img-092__block-0017__25443d9f.png)
+
+
+1. Öffnen Sie die Regel, die Sie verwenden möchten.
+2. Gehen Sie zur Registerkarte **Apps**.
+3. Wählen Sie die Anwendung aus, mit der Sie bereits verbunden sind (z. B. Zendesk).
+4. Schalten Sie **Bereitstellung** um, um es zu aktivieren.
+5. Wählen Sie unter **Rollenauswahl** die Rolle aus, die Sie den Zielmitarbeitern zuweisen möchten.
+
+So weisen Sie Ihrem Entwicklungsteam beispielsweise die Rolle „Light Agent“ in Zendesk zu:
+
+- Erstellen oder bearbeiten Sie die Regel *Dev Team*.
+- Targeting definieren: *Team ist Entwicklung*.
+- Wählen Sie **Apps > Zendesk**.
+- Aktivieren Sie **Provisioning** und weisen Sie die Rolle *Light Agent* zu.
+    ![Screenshot: Bereitstellung für eine Anwendung aktivieren](/images/notion-import/set-up-licence-provisioning__img-093__block-0030__25443d9f.png)
+
+
+## Ergebnis
+
+Sobald die Bereitstellung aktiviert und gespeichert ist:
+
+- Benutzer, die den Targeting-Bedingungen der Regel entsprechen, werden automatisch in der Anwendung erstellt, sofern sie noch nicht vorhanden sind.
+- Zugewiesene Rollen (z. B. Zendesk *Light Agent*) werden automatisch angewendet.
+- Alle Änderungen an Benutzern im HR-System werden über Primo mit der Anwendung synchronisiert.
+
+Dadurch wird sichergestellt, dass die Mitarbeiter immer über die richtige Zugriffsebene verfügen, ohne dass eine manuelle Kontoverwaltung erforderlich ist.

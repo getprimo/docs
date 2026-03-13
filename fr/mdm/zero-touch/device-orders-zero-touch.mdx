@@ -1,0 +1,113 @@
+---
+title: "Commandes d'appareils avec déploiement Zero-Touch"
+description: "Découvrez comment commander des appareils éligibles à ZTD et configurer Apple Business Manager ou Microsoft Entra afin que les appareils commandés via Primo soient automatiquement inscrits."
+---
+
+Cet article explique quand le déploiement Zero-Touch (ZTD) est disponible pour les appareils commandés via Primo et comment configurer Apple Business Manager (ABM) ou Microsoft Entra afin que les appareils soient automatiquement inscrits à la livraison.
+
+## Comprendre pourquoi ZTD dépend des claviers locaux
+
+Le déploiement Zero-Touch repose sur les accréditations des fournisseurs qui dépendent de la région :
+
+- **Les appareils Mac** nécessitent une inscription via **Apple Business Manager (ABM)**
+- **Les appareils Windows** nécessitent une inscription via **Microsoft Autopilot**
+
+Seuls les fournisseurs accrédités dans une région donnée peuvent fournir ces services, et ils sont autorisés à livrer des appareils **exclusivement avec la configuration de clavier locale de cette région**.
+
+Lorsqu'un clavier non local est sélectionné, la commande est acheminée vers un autre fournisseur qui n'est pas accrédité pour ZTD, ce qui rend le déploiement Zero-Touch indisponible.
+
+## Vérifiez la disponibilité de ZTD par région de livraison et par clavier
+
+| Région de livraison | Clavier local | ZTD disponible | Clavier non local | ZTD disponible |
+|---|---|---|---|---|
+| UE | AZERTY en France ; QWERTY local dans l'UE | Oui | QWERTY États-Unis / Royaume-Uni / International | Non |
+| ROYAUME-UNI | QWERTY ROYAUME-UNI | Oui | AZERTY / QWERTY US / QWERTZ | Non |
+| NOUS | QWERTY Américain | Oui | AZERTY / QWERTY ROYAUME-UNI / QWERTZ | Non |
+
+## Configurer Apple Business Manager pour ZTD
+
+Pour inscrire automatiquement les appareils Apple commandés via Primo dans Zero-Touch, autorisez le revendeur à enregistrer les appareils dans votre GAB.
+
+1. Dans Primo, accédez à [**Paramètres → Commandes**](https://app.getprimo.com/settings/).
+2. Sous **Déploiement Zero-Touch**, cliquez sur **Apple**.
+3. Choisissez le(s) pays pour lesquels vous souhaitez activer l'approvisionnement Zero-Touch et copiez le(s) identifiant(s) de revendeur.
+4. Accédez à [Apple Business Manager](https://business.apple.com/), cliquez sur le nom de votre compte en bas à gauche et sélectionnez **Préférences**.
+5. Sélectionnez **Informations sur l'organisation**. Copiez votre **ID d'organisation** et collez-le dans le cockpit.
+6. Sous **Services de gestion des appareils**, sélectionnez **Affectation de gestion**. À côté de **Numéros de client**, cliquez sur **Modifier**.
+7. Ajoutez le(s) identifiant(s) de revendeur.
+8. Dans Primo, activez la bascule pour finaliser.
+    ![Capture d'écran : Commandes d'appareils avec Zero-Touch](/images/notion-import/device-orders-with-ZXPROTECT0ZX__img-106__block-0018__19e5323d.png)
+
+    ![Capture d'écran : Commandes d'appareils avec Zero-Touch](/images/notion-import/device-orders-with-ZXPROTECT0ZX__img-105__block-0017__3ff17dd0.jpg)
+
+    ![Capture d'écran : Commandes d'appareils avec Zero-Touch](/images/notion-import/device-orders-with-ZXPROTECT0ZX__img-104__block-0016__eb022d41.png)
+
+
+## Configurer Microsoft Entra pour ZTD
+
+### Étape 1 : Autoriser le revendeur à enregistrer les futurs appareils
+
+1. Dans Primo, accédez à [**Paramètres → Commandes**](https://app.getprimo.com/settings/).
+2. Sous **Approvisionnement sans contact**, cliquez sur **Windows**.
+3. Sélectionnez le ou les pays dans lesquels vous souhaitez activer l'approvisionnement Autopilot, puis cliquez sur **Autoriser notre revendeur**.
+4. Suivez les instructions affichées.
+5. Un écran de confirmation indiquera que la relation partenaire a été créée avec succès.
+
+### Étape 2 : Saisissez les informations Microsoft Entra
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) et recherchez **Microsoft Entra ID**.
+2. Copiez votre **Tenant ID** et votre **Primary Domain** et collez-les dans le cockpit.
+3. Activez le bouton de configuration pour finaliser l'intégration.
+
+## Sélectionnez la disposition du clavier lors de la commande
+
+Lors de la commande d'un appareil via Primo, la sélection du clavier détermine l'éligibilité au ZTD.
+
+### Clavier local (recommandé)
+
+Applique automatiquement le clavier standard pour le pays de livraison. Garantit que la commande est traitée par un fournisseur agréé ZTD.
+
+Examples:
+- France → AZERTY
+- Belgique → QWERTY BE
+- Allemagne → QWERTZ DE
+- Royaume-Uni → QWERTY Royaume-Uni
+- États-Unis → QWERTY Américain
+
+### Disposition du clavier spécifique
+
+Options disponibles : QWERTY US, QWERTY UK, QWERTY International, QWERTZ, QWERTY espagnol, AZERTY.
+
+<Warning>
+La sélection d'une disposition de clavier qui n'est **pas locale au pays de livraison désactive le déploiement Zero Touch**.
+</Warning>
+
+## Scénarios de commande courants
+
+- **Livraison aux États-Unis**
+  - Clavier local → ZTD disponible
+  - QWERTY International ou AZERTY → ZTD non disponible
+
+- **Livraison en France (UE)**
+  - Clavier local (AZERTY) → ZTD disponible
+  - QWERTY US ou QWERTY International → ZTD non disponible
+
+- **Livraison en France avec exigence de claviers QWERTY US**
+  - ZTD n'est pas disponible via le flux de commande standard de Primo
+
+## Questions fréquemment posées
+
+### Pourquoi ZTD n'est-il pas disponible avec QWERTY International en France ?
+
+ZTD dépend des accréditations des fournisseurs liées à des régions spécifiques. En France, seuls les fournisseurs fournissant des claviers AZERTY sont accrédités Apple ABM ou Microsoft Autopilot. La sélection d'un clavier non local achemine la commande vers un autre fournisseur qui n'est pas autorisé pour ZTD dans cette région.
+
+### Puis-je commander des appareils en France avec des claviers QWERTY US ?
+
+Oui, deux options s'offrent à vous :
+
+1. **Passez une commande standard sans ZTD** — sélectionnez QWERTY US. Les appareils seront livrés prêts à l'emploi, sans déploiement Zero-Touch.
+2. **Soumettez une demande spéciale (délai de livraison plus long)** — ajoutez un commentaire à votre commande demandant **"QWERTY US + ABM"**. Primo vérifiera la disponibilité auprès des fournisseurs. Délai de livraison prévu : **3 à 4 semaines**.
+
+### La sélection de « AZERTY » active-t-elle toujours ZTD ?
+
+Non. Si vous sélectionnez manuellement AZERTY pour une livraison **hors France**, ZTD ne sera pas disponible. La commande ne sera pas traitée par un fournisseur basé en France et agréé ZTD. Pour garantir l'éligibilité à ZTD, sélectionnez toujours **Clavier local** plutôt qu'une disposition spécifique.

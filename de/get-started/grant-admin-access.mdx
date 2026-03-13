@@ -1,0 +1,77 @@
+---
+title: "Administratorzugriff verwalten"
+description: "Gewähren, widerrufen und verwalten Sie den Administratorzugriff auf Ihren Primo-Arbeitsbereich über die Admin-Verwaltungseinstellungen."
+---
+
+In diesem Artikel erfahren Sie, wie Sie Administratorrechte in Ihrem Primo-Cockpit verwalten. Administratoren können den gesamten Primo-Arbeitsbereich Ihres Unternehmens anzeigen, konfigurieren und verwalten.
+
+## Greifen Sie auf das Admin-Management-Panel zu
+
+Gehen Sie zu **Einstellungen** > **Administratorverwaltung**, um alle Administratoren in Ihrem Arbeitsbereich anzuzeigen und zu verwalten.
+
+Von diesem Panel aus können Sie:
+- Sehen Sie sich alle aktuellen Administratoren und ihre Zugriffsebene an.
+- Gewähren Sie vorhandenen Mitarbeitern Administratorrechte.
+- Administratorzugriff entziehen.
+
+## Gewähren Sie einem bestehenden Mitarbeiter Administratorrechte
+
+1. Gehen Sie zu **Einstellungen** > **Admin-Verwaltung**.
+2. Klicken Sie auf **Administrator hinzufügen**.
+3. Suchen Sie nach dem Mitarbeiter und wählen Sie ihn aus.
+4. Bestätigen.
+
+Der Mitarbeiter hat jetzt Administratorzugriff auf Primo.
+
+<Tip>
+Alternativ können Sie einen Mitarbeiter direkt über sein Mitarbeiterprofil befördern: Öffnen Sie das Profil, klicken Sie auf **Aktionen** und wählen Sie dann **Zum Administrator befördern** aus.
+</Tip>
+
+## Fügen Sie einen Mitarbeiter hinzu, der noch nicht im Cockpit ist
+
+Wenn die Person nicht unter „Mitarbeiter“ aufgeführt ist, fügen Sie sie zuerst hinzu:
+
+1. Gehen Sie zu **Einstellungen** > **Mitarbeitersynchronisierung**.
+2. Klicken Sie auf **Aus CSV importieren**.
+3. Wählen Sie **Oder klicken Sie hier, um Tabellendaten zu kopieren und einzufügen**.
+4. Fügen Sie Folgendes ein (passen Sie es nach Bedarf an):
+
+```
+First name,Last name,Email
+Clémentine,Cruz,support@getprimo.com
+```
+
+5. Schließen Sie den Import ab. Der Mitarbeiter wird nun unter **Mitarbeiter** angezeigt.
+6. Führen Sie dann die oben genannten Schritte aus, um ihnen Administratorzugriff zu gewähren.
+
+## Administratorzugriff entziehen
+
+1. Gehen Sie zu **Einstellungen** > **Admin-Verwaltung**.
+2. Suchen Sie den Administrator, den Sie entfernen möchten.
+3. Klicken Sie auf das Optionsmenü (⋯) neben ihrem Namen.
+4. Wählen Sie **Administratorzugriff entfernen**.
+
+## Administratorzugriffsebenen
+
+Primo bietet integrierte Rollen, die den Zugriff jedes Administrators auf bestimmte Bereiche der Plattform festlegen:
+
+| Rolle | Zugang |
+|---|---|
+| **Administrator** | Voller Zugriff auf alle Einstellungen, Abrechnung und Benutzerverwaltung. |
+| **HR-Manager** | Zugriff auf Mitarbeiterverwaltung, Onboarding/Offboarding und HR-Systemsynchronisierung. |
+| **MDM-Manager** | Zugriff auf Geräteverwaltung, MDM-Einstellungen, Richtlinien und Registrierung. |
+| **SaaS-Manager** | Zugriff auf Identität, SaaS-App-Verbindungen, Bereitstellungsregeln und Lizenzen. |
+
+### Benutzerdefinierte Rollen
+
+Zusätzlich zu den integrierten Rollen können Sie benutzerdefinierte Rollen erstellen, um eine bestimmte Kombination von Berechtigungen zu definieren, die zur Struktur Ihres Teams passt.
+
+So erstellen Sie eine benutzerdefinierte Rolle:
+
+1. Gehen Sie zu **Einstellungen** > **Admin-Verwaltung**.
+2. Klicken Sie auf **Rollen verwalten**.
+3. Klicken Sie auf **Rolle erstellen**.
+4. Benennen Sie die Rolle und wählen Sie die einzuschließenden Berechtigungen aus.
+5. Speichern.
+
+Anschließend können Sie die benutzerdefinierte Rolle zuweisen, wenn Sie einem Mitarbeiter Zugriff gewähren.

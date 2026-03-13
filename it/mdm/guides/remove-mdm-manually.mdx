@@ -1,0 +1,70 @@
+---
+title: "Annulla la registrazione dei dispositivi"
+description: 'To remove an MDM from a device, ensure it is enrolled and online, then follow the disenrollment process; for offline devices, use "Mark as disenrolled," and for manual uninstallation, access settings on Windows or macOS to disconnect the MDM account and remove the MDM agent.'
+---
+
+È possibile rimuovere MDM da un dispositivo direttamente da Primo tramite un processo chiamato disiscrizione. Ci sono due prerequisiti:
+
+1. Il dispositivo deve essere registrato e presente;
+2. Il dispositivo deve apparire come "Online".
+
+## Dispositivo in linea
+
+Se queste condizioni sono soddisfatte, seleziona semplicemente il dispositivo \> Azioni \> Disregistra.
+
+MDM verrà rimosso dal dispositivo immediatamente su macOS e dopo un breve ritardo su Windows.
+
+![Screenshot: Rimuovere manualmente un MDM da un dispositivo](/images/notion-import/remove-an-mdm-manually-from-a-device__img-009__block-0011__1cf43d9f.png)
+
+
+## Dispositivo non in linea
+
+Quando un dispositivo è offline, l'azione di disiscrizione non è disponibile. Dovrai attendere che il dispositivo torni online per disinstallare MDM.
+
+In questi casi, è possibile utilizzare l'azione "Segna come annullato" per indicare che un dispositivo non è più sotto la gestione di MDM quando la comunicazione è già stata persa.
+
+## Disinstallazione manuale di un agente MDM
+
+![Screenshot: Rimuovere manualmente un MDM da un dispositivo](/images/notion-import/remove-an-mdm-manually-from-a-device__img-010__block-0018__1cf43d9f.png)
+
+
+### Disinstallazione su Windows
+
+<Note>
+  Important: You need administrator access on the device to uninstall the MDM on Windows.
+</Note>
+
+Sul tuo dispositivo Windows, utilizza le impostazioni di accesso per rimuovere il profilo di configurazione.
+
+1. Fare clic sul pulsante **Start** \> **Impostazioni**, quindi fare clic su **Account**
+2. Vai su **Account** quindi **Accedi al lavoro o alla scuola**
+    ![Schermata: Disinstallazione su Windows](/images/notion-import/remove-an-mdm-manually-from-a-device__img-011__block-0025__1b243d9f.png)
+
+3. Vedrai un elenco di account che gestiscono il dispositivo. Cerca la voce corrispondente a MDM, ad esempio **Gestito da Fleet MDM**
+4. Seleziona l'account MDM, quindi fai clic su **Disconnetti** o **Rimuovi**
+    ![Schermata: Disinstallazione su Windows](/images/notion-import/remove-an-mdm-manually-from-a-device__img-012__block-0028__1b243d9f.png)
+
+5. Seguire le istruzioni per rimuovere completamente il dispositivo di gestione dal dispositivo
+
+Non resta che rimuovere l'agente MDM!
+
+1. Digita **Pannello di controllo** nella casella di ricerca sulla barra delle applicazioni e selezionalo dall'elenco dei risultati.
+2. Seleziona **Programmi** \> **Programmi e funzionalità**.
+3. Tieni premuto (o fai clic con il pulsante destro del mouse) sul programma **Fleet osquery** e seleziona **Disinstalla** o **Disinstalla**/**Change**.
+4. Quindi seguire le istruzioni visualizzate sullo schermo.
+
+MDM è ora completamente rimosso dalla macchina.
+
+### Disinstallazione su macOS
+
+1. Sul Mac, apri **Impostazioni di sistema** \> **Privacy e sicurezza**
+2. Clicca su **Profili** a destra. (Potrebbe essere necessario scorrere verso il basso)
+3. Per rimuovere un profilo: seleziona il profilo denominato "Iscrizione [La tua azienda]", quindi fai clic sul pulsante ➖
+    ![Screenshot: Disinstallazione su MacOS](/images/notion-import/remove-an-mdm-manually-from-a-device__img-013__block-0041__1b243d9f.png)
+
+4. Infine, fai clic su **Rimuovi**
+    ![Screenshot: Disinstallazione su MacOS](/images/notion-import/remove-an-mdm-manually-from-a-device__img-014__block-0043__1b243d9f.png)
+
+5. Inserisci la password della tua sessione
+
+Infine, rimuovi l'agente MDM ancora presente sul computer scaricando il pacchetto di disiscrizione. Una volta scaricato, fai clic con il pulsante destro del mouse e aprilo per completare la rimozione.

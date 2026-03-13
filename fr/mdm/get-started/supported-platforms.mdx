@@ -1,0 +1,52 @@
+---
+title: "Prise en charge de la plateforme"
+description: "Les plates-formes prises en charge pour Primo incluent divers systèmes d'exploitation tels que macOS, Windows (Home et Pro), Linux, ChromeOS, iOS et Android, détaillant des fonctionnalités spécifiques telles que l'inscription, le cryptage des données et l'installation d'applications, ainsi que leurs versions respectives prises en charge."
+---
+
+## Présentation du système d'exploitation de la plate-forme pris en charge
+
+Voici un récapitulatif des plateformes prises en charge et des différentes choses que vous pouvez faire avec chaque plateforme :
+
+|                                                                           | **macOS** | **Windows Professionnel** | **Windows ARM** | **Windows Accueil** | **Linux** | **ChromeOS** | **iOS**                | **Androïde** |
+| ------------------------------------------------------------------------- | --------- | --------------- | --------------- | ---------------- | --------- | ------------ | ---------------------- | ----------- |
+| **Inscrivez-vous** et **lisez les informations et les données**                              | ✅         | ✅               | ✅               | ✅                | ✅         | ✅            | ✅                      | ✅           |
+| **Interrogez** vos appareils                                                    | ✅         | ✅               | ✅               | ✅                | ✅         | ✅            | N / A                    | N / A         |
+| Exécuter des **scripts**                                                           | ✅         | ✅               | ✅               | ❌                | ✅         | N / A          | N / A                    | ✅           |
+| Installer des **applications**                                                  | ✅         | ✅               | 💬 (4)          | ❌                | ✅         | 💬 (1)       | ✅                      | ✅           |
+| Appliquer les **Paramètres du système d'exploitation** (programmation de mise à jour, Wifi, verrouillage de l'écran, imprimantes, etc.) | ✅         | ✅               | ✅               | ❌                | ❌         | 💬 (1)       | ✅                      | ✅           |
+| **Chiffrer** les données                                                          | ✅         | ✅               | ✅               | ❌                | ❌ (3)     | 💬 (1)       | ✅                      | ❌           |
+| **Verrouillage** et **effacement** à distance                                                | ✅         | ✅               | ✅               | ❌                | ✅         | 💬 (1)       | Verrouillage : N/A<br />Effacement : ✅ | ❌           |
+
+### Remarques
+
+1. **ChromeOS** : bien que vous puissiez inscrire des appareils ChromeOS, le contrôle de ces appareils (à la fois en termes de déploiement d'applications et de paramètres du système d'exploitation) s'effectue dans votre console d'administration Google. Pour plus de détails, contactez le support.
+2. **Linux :** Les appareils Linux sont difficiles à chiffrer, car cela peut parfois nécessiter d'effacer le disque dur et de configurer un système d'exploitation à partir de zéro. Cependant, avec Primo, vous pouvez toujours centraliser les rapports sur les appareils cryptés ou non, obsolètes, etc.
+3. Voici les **distributions Linux** que nous prenons en charge :
+   - ✅Ubuntu 20.04+
+   - ✅ Debian 11+
+   - ✅ CentOS 7.1+
+   - ✅ Fedora 38+
+   - ✅ Amazon Linux 2+
+   - ✅ Red Hat Enterprise Linux (RHEL) 7+
+   - ✅ ouvertSUSE 15.6+
+   - ✅ Arch Linux
+   - ✅Omarchie
+   - ❌ Alpin (format APK)
+4. FleetDM préfère les versions x86 64 bits des applications lorsqu'elles sont disponibles. L'installation sur des hôtes Arm (par exemple dans une VM sur une machine Apple Silicon) peut ne pas fonctionner ou avoir d'autres conséquences inattendues.
+
+### Documentation FleetDM
+
+Pour une documentation à jour sur les systèmes pris en charge, [consultez ces ressources] (https://fleetdm.com/docs/get-started/faq#what-host-operating-systems-does-fleet-support).
+
+## Présentation des versions de plate-forme prises en charge
+
+| **OS**         | **Version(s) prise(s) en charge**                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| **macOS**      | 14+ (Sonoma)                                                                                            |
+| **Fenêtres**    | Pro et Entreprise 10+, Serveur 2012+                                                                    |
+| **Linux**      | CentOS 7.1+, Ubuntu 20.04+, Fedora 38+, Amazon Linux 2+, Debian 11+, Red Hat Enterprise Linux (RHEL) 7+ |
+| **ChromeOS**   | 112.0.5615.134+                                                                                         |
+| **iOS/iPadOS** | 17+                                                                                                     |
+| **Androïde**    | 13+                                                                                                     |
+
+Bien que Fleet puisse encore fonctionner partiellement ou entièrement avec des versions de système d'exploitation antérieures à celles ci-dessus, Fleet ne teste pas activement les versions non prises en charge et ne recherche pas les bogues.

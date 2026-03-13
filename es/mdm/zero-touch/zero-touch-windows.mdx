@@ -1,0 +1,197 @@
+---
+title: "Implementación sin intervención para Windows (piloto automático)"
+description: "Configure Windows Autopilot con Primo: configure la aplicación FleetDM en Azure, cree perfiles de implementación y habilite la inscripción automática de dispositivos para nuevos dispositivos Windows."
+---
+
+Windows Autopilot brinda a los nuevos dispositivos Windows una experiencia de configuración lista para usar. Cuando un empleado enciende un dispositivo por primera vez, inicia sesión con sus credenciales de Microsoft y todas las aplicaciones, configuraciones y políticas de seguridad de la empresa se aplican automáticamente, sin necesidad de intervención de TI.
+
+Este artículo cubre la configuración completa: desde registrar el dominio FleetDM en Azure hasta crear perfiles de implementación y probar la experiencia de Autopilot.
+
+## Requisitos previos
+
+- Una cuenta de Microsoft con acceso de administrador
+- Un "inquilino" de Entra
+- Una licencia que incluye **Microsoft Entra ID Plan 1** (o **Plan 2**) y **Windows Autopilot**
+
+La licencia mínima que cubre ambas funciones es **Enterprise Mobility + Security E3** ([comparar planes](https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing)).
+
+![Captura de pantalla: ¿Cuáles son los requisitos previos?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-024__block-0011__1b243d9f.png)
+
+
+## Experiencia del empleado en la primera puesta en marcha
+
+1. Encienda el dispositivo
+2. Seleccione país e idioma, configure la distribución del teclado
+3. Conéctate a internet
+4. Acepte los términos y condiciones de FleetDM
+    ![Captura de pantalla: ¿Qué sucede cuando un empleado llega con una estación de trabajo configurada con Autopilot?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-025__block-0018__1b243d9f.png)
+
+5. Inicie sesión con credenciales de Microsoft (+ 2FA si está habilitado)
+    ![Captura de pantalla: ¿Qué sucede cuando un empleado llega con una estación de trabajo configurada con Autopilot?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-026__block-0020__1b243d9f.png)
+
+6. Configure un código PIN y una huella digital (si es compatible)
+    ![Captura de pantalla: ¿Qué sucede cuando un empleado llega con una estación de trabajo configurada con Autopilot?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-027__block-0022__1b243d9f.png)
+
+7. La estación de trabajo está lista: las aplicaciones y políticas definidas en Primo Cockpit se aplican automáticamente
+
+## Restricciones
+
+Los dispositivos de piloto automático utilizan **cuentas Entra** en lugar de cuentas locales. Microsoft está desaprobando progresivamente las cuentas locales en favor de las cuentas Entra.
+
+El administrador de Entra puede configurar si los usuarios tienen privilegios de cuenta estándar o de administrador. Los usuarios de Entra con la función **Administrador global** son automáticamente administradores en todas las máquinas Autopilot en las que inician sesión.
+
+Se requiere acceso a Internet durante el primer inicio para autenticarse con Entra.
+
+## Cómo configurarlo
+
+La configuración supone que su empresa se llama ACME y utiliza el dominio `acme.com`.
+
+## Paso 1: registre el dominio FleetDM y cree la aplicación Fleet en Azure
+
+<Note>
+Este paso requiere coordinación con el soporte de Primo. Cuando registra el dominio FleetDM en Azure, Microsoft genera un código de verificación que debe comunicarse al equipo de Primo. Espere hasta **2 días hábiles** para que la configuración DNS se propague antes de continuar.
+</Note>
+
+Realizarás tres operaciones en la consola de Microsoft Azure con derechos de administrador:
+1. Declarar el dominio FleetDM como legítimo con Azure
+2. Cree la aplicación Fleet y concédale permisos MDM
+3. Establezca FleetDM como el MDM predeterminado para dispositivos nuevos (reemplazando Intune si corresponde)
+
+### 1. Declarar el dominio FleetDM
+
+- Inicie sesión con una cuenta de administrador en: [Microsoft Azure](https://portal.azure.com/)
+- Busque y haga clic en [**Nombres de dominio**](https://portal.azure.com/#view/Microsoft_AAD_IAM/DomainsList.ReactView)
+- Haga clic en **+ Agregar dominio personalizado**
+- In the field, enter **{company}.mdm.getprimo.com** (i.e. [**acme.mdm.getprimo.com**](http://acme.mdm.getprimo.com/), [ask support](mailto:support@getprimo.com?subject=Connaître%20le%20domaine%20de%20notre%20instance%20FleetDM) ([support@getprimo.com](mailto:support@getprimo.com)) if you don't know this domain name)
+- Comparte con nosotros el valor del campo **Destino o dirección de ruta** (en el formato `MS=ms12345678`)
+- Espere nuestra respuesta (2 días hábiles como máximo) antes de continuar con el trámite.
+- Luego puede hacer clic en **Verificar**
+
+### 2. Cree la aplicación FleetDM
+
+- Inicie sesión con una cuenta de administrador en: [Microsoft Azure](https://portal.azure.com/)
+- Busque [**Movilidad (MDM y MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
+- Elija **+ Agregar aplicación**, luego elija **+ Crear su propia aplicación**
+- Ingrese **Fleet** como nombre de la aplicación y haga clic en **Crear**
+- Rellenar
+  - MDM terms of use URL: `https://{company}.mdm.getprimo.com/api/mdm/microsoft/tos`
+  - MDM discovery URL: `https://{company}.mdm.getprimo.com/api/mdm/microsoft/discovery`
+- Haga clic en **Guardar**
+- Volver a [**Movilidad (MDM y MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
+- Haga clic en la aplicación **Fleet** y luego en **Configuración personalizada de la aplicación MDM**
+- Haga clic en el siguiente enlace **URI de ID de aplicación** y luego haga clic en **Editar**
+- Enter your **Fleet** instance address (`https://{company}.mdm.getprimo.com`) and click **Save**
+    ![Captura de pantalla: 2. Creando la aplicación FleetDM](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-028__block-0065__27743d9f.png)
+
+- Elija **Permisos API** y luego **Agregar un permiso**
+- Haga clic en **Microsoft Graph**, luego en **Permisos delegados** y luego seleccione:
+  - **Grupo > Grupo.Leer.Todo**
+  - **Grupo > Grupo.LeerEscribir.Todo**
+  - y haga clic en **Agregar permisos**
+      ![Captura de pantalla: 2. Creando la aplicación FleetDM](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-029__block-0079__27743d9f.png)
+
+- Luego regrese a **Permisos API** y **Agregar un permiso**, y elija **Microsoft Graph** nuevamente.
+- Esta vez, haga clic en **Permisos de la aplicación** y agregue los siguientes permisos:
+  - **Dispositivo > Dispositivo.Leer.Todo**
+  - **Dispositivo > Dispositivo.LeerEscritura.Todo**
+  - **Directorio > Directorio.Leer.Todo**
+  - **Grupo > Grupo.Leer.Todo**
+  - **Usuario > Usuario.Leer.Todo**
+  - y haga clic en **Agregar permisos**
+- Una vez de regreso en la pantalla de permisos de API, haga clic en **Otorgar consentimiento de administrador para ACME**
+
+La aplicación Fleet ahora se declara como MDM legítima en Azure Portal.
+
+### 3. Configure FleetDM como MDM predeterminado para dispositivos nuevos
+
+- Inicie sesión con una cuenta de administrador en: [Microsoft Azure](https://portal.azure.com/)
+- Vaya a [**Movilidad (MDM y MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
+- Haga clic en **Microsoft Intune**
+- En **ámbito de usuario MDM**, seleccione **Ninguno**
+- En **ámbito de usuario MAM**, seleccione **Ninguno**
+- Haga clic en **Guardar**
+- Vaya a [**Movilidad (MDM y MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
+- Haga clic en **Fleet**
+- En **ámbito de usuario MDM**, seleccione **Todos**
+- En **ámbito de usuario MAM**, seleccione **Todos**
+- Haga clic en **Guardar**
+
+La aplicación Fleet ahora está declarada como MDM que manejará nuevos dispositivos con Azure Portal.
+
+**Nota**: Si comenzó a inscribir dispositivos en Primo/FleetDM antes de realizar estas operaciones, infórmenos para que podamos forzar el cambio de MDM de Intune a FleetDM ejecutando un script (sin el cual la máquina se encuentra en un estado inconsistente que puede afectar la experiencia de Primo).
+
+## Paso 2: crear perfiles de implementación de Autopilot
+
+Para completar la configuración de Autopilot, es necesario crear al menos un "perfil de implementación".
+
+Puede encontrar la documentación oficial de Microsoft sobre perfiles de implementación en este enlace: [https://learn.microsoft.com/fr-fr/autopilot/profiles](https://learn.microsoft.com/fr-fr/autopilot/profiles).
+
+A través de este perfil, es posible definir las siguientes configuraciones:
+
+- Elección del tipo de usuario: **Administrador** o **Estándar**
+
+Note: Entra users with a **Global Administrator** role will be administrators of all machines regardless of this setting's value
+
+- Elección de país predeterminada
+- Elección de idioma de teclado predeterminado
+- Patrón de nomenclatura de máquinas
+
+Por ejemplo: `ACME-%RAND:5%` generará los siguientes nombres:
+- ACME-23456
+- ACME-98479
+- ACME-19838
+
+Para crear un perfil de implementación, siga estas instrucciones:
+
+- Vaya a: [Centro de administración de Microsoft Intune](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/AutopilotDeploymentProfiles.ReactView)
+  - o inicie sesión en [https://intune.microsoft.com/](https://intune.microsoft.com/) y vaya a **Dispositivos** > **Inscripción** > **Perfiles de implementación**
+- Haga clic en **+ Crear perfil**
+- El primer paso le permite nombrar el perfil.
+- El segundo le permite describir los modos de implementación.
+- El tercer paso le permite asignar perfiles a dispositivos
+
+Cree un grupo dinámico para apuntar a todos los dispositivos ZTD:
+
+- Vaya a: [portal.azure.com](https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/Overview)
+- Haga clic en **+ Crear grupo**
+- Nómbrelo "Dispositivos Windows Autopilot", por ejemplo.
+- Como destino seleccione **"dispositivos dinámicos"**
+- Para la regla dinámica, utilice **(device.devicePhysicalIds -any (_ -startsWith "[ZTDid]"))**
+- Haga clic en **Crear**
+
+Finalmente, cree una configuración de página de estado de inscripción:
+
+- Vaya a: [Centro de administración de Microsoft Intune](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/EnrollmentStatusPageProfileList.ReactView)
+  - o inicie sesión en [https://intune.microsoft.com/](https://intune.microsoft.com/) y vaya a **Dispositivos > Inscripción > Página de estado de inscripción**
+- Haga clic en **+ Crear**
+- El primer paso le permite nombrar el perfil (es decir, Primo)
+- El segundo te permite definir si quieres mostrar el progreso al usuario o no. Sugerimos "sí". En caso afirmativo, puede poner la configuración que desee. Puedes mantener los valores predeterminados.
+- El tercer paso le permite asignar el ESP a los dispositivos. Asígnalo a tu grupo dinámico.
+
+## Paso 3: prueba la experiencia del piloto automático
+
+### Compartir el acceso a la consola de administración de Intune con InMac
+
+Para que Autopilot funcione automáticamente en dispositivos pedidos a través de Primo, es necesario realizar una operación con nuestro distribuidor asociado InMac:
+
+- Establecer una relación de asociación de Microsoft entre InMac y usted
+
+Este acceso les permitirá, para cada dispositivo solicitado, informar a Intune de su existencia y garantizar que Primo lo maneje durante su inicialización.
+
+Para hacer esto, debe utilizar el siguiente enlace desde una cuenta con el rol **Administrador global**:
+
+- [admin.microsoft.com](https://admin.microsoft.com/Adminportal/Home?invType=ResellerRelationship&partnerId=576fd34d-ccdb-48fb-a65e-ece0e985cd46&msppId=0#/partners/invitation)
+
+Siga las instrucciones hasta aceptar la relación de sociedad.
+
+### Alternativa: prueba en hardware existente (requiere reinicio del dispositivo)
+
+Existe otra forma de probar la experiencia de Autopilot sin necesariamente solicitar nuevos dispositivos a través de Primo (y, por lo tanto, sin tener que establecer la relación de asociación y el acceso granular a la consola de administración descrita en el párrafo anterior).
+
+Para hacer esto, simplemente siga [estas instrucciones de nuestro socio FleetDM](https://fleetdm.com/guides/windows-mdm-setup#step-2-register-a-test-workstation) (*Paso 2: registrar una estación de trabajo de prueba*) que describe el proceso que consiste en:
+
+- extraer el hash del dispositivo (su número de serie, por así decirlo)
+- importándolo a la lista de dispositivos Autopilot en su consola Azure/Intune (así es como se realiza el vínculo entre este dispositivo y su empresa)
+- restablecer el dispositivo
+
+Luego, el usuario puede disfrutar de la experiencia de Autopilot.

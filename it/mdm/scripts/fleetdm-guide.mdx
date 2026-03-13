@@ -1,0 +1,43 @@
+---
+title: "Guida FleetDM"
+description: "Esplora la guida FleetDM per gestire in modo efficace i tuoi dispositivi mobili, sfruttando funzionalità come host, controlli, query e policy per migliorare la sicurezza e semplificare le operazioni per le organizzazioni con 100-500 dipendenti."
+---
+
+L'obiettivo di questo documento è darti alcune idee sugli aspetti da considerare durante il test di FleetDM. Fleet MDM è una potente soluzione di gestione dei dispositivi mobili progettata per gli amministratori IT di aziende con 100-500 dipendenti. Semplifica la gestione dei dispositivi, migliora la sicurezza e automatizza i processi nel parco dispositivi della tua organizzazione, garantendo operazioni efficienti e conformità. È un po' diverso da MDM: sebbene sia molto potente, utilizzato in aziende leader (Stripe, Dropbox, Atlassian, Toast, Uber) e su milioni di dispositivi, non assomiglia agli altri MDM. Questo è il motivo per cui abbiamo creato questa piccola guida per iniziare la configurazione.
+
+**Buono a sapersi:**
+
+- FleetDM alimenta la parte MDM di Primo. Con il tuo abbonamento Primo, ottieni Fleet Premium e la tua istanza FleetDM viene ospitata, mantenuta e aggiornata per te
+- Abbiamo creato una potente sincronizzazione tra Primo e FleetDM, che ci consente di creare un migliore software di onboarding e offboarding, gestione di identità e accessi, integrazione delle risorse umane e altro ancora, beneficiando in modo trasparente della potenza di FleetDM per i tuoi dispositivi
+
+## Ospiti
+
+- **Che cosa fa**: la scheda "Host" fornisce una panoramica di tutti i dispositivi del tuo parco dispositivi, mostrando dettagli essenziali come lo stato del dispositivo, i certificati e l'inventario.
+- **In che modo aiuta gli amministratori IT**: questa funzionalità consente agli amministratori IT di valutare rapidamente l'integrità e la conformità dei dispositivi, facilitando la gestione proattiva e la risoluzione dei problemi
+- **Suggerimenti per la configurazione**: personalizza le colonne visualizzate per concentrarti sulle informazioni più rilevanti per la tua organizzazione. Valuta la possibilità di filtrare per tipo di dispositivo o stato per una gestione più semplice.
+
+## Controlli
+
+- **Che cosa fa**: la scheda "Controlli" offre funzionalità per la gestione di aggiornamenti, crittografia e scripting su tutti i dispositivi.
+- **In che modo aiuta gli amministratori IT**: questa funzionalità automatizza la gestione degli aggiornamenti e migliora la sicurezza consentendo agli amministratori di applicare la crittografia ed eseguire script, riducendo l'intervento manuale e potenziali errori.
+- **Suggerimenti per la configurazione**: imposta finestre consecutive per gli aggiornamenti del sistema operativo per garantire una conformità tempestiva. Utilizza la sezione di scripting per automatizzare le attività di routine, come installazioni di software o controlli di sistema.
+
+## Domande
+
+- **Che cosa fa**: la scheda "Query" consente agli amministratori di eseguire query di tipo SQL su tutti i dispositivi per raccogliere dati in tempo reale sullo stato del sistema, sulle applicazioni installate e altro ancora.
+- **In che modo aiuta gli amministratori IT**: questa funzionalità consente reporting e monitoraggio dettagliati, aiutando gli amministratori a identificare rapidamente problemi o lacune di conformità.
+- **Suggerimenti per la configurazione**: utilizza query predefinite per attività comuni e valuta la possibilità di pianificare l'esecuzione delle query a intervalli regolari per il monitoraggio continuo.
+
+## Politiche
+
+- **Che cosa fa**: la scheda "Politiche" consente agli amministratori di definire e applicare regole su tutti i dispositivi, come controlli di conformità e risposte automatizzate a condizioni specifiche.
+- **In che modo aiuta gli amministratori IT**: questa funzionalità automatizza la gestione della conformità e le azioni correttive, riducendo il carico amministrativo e migliorando la sicurezza.
+- **Suggerimenti per la configurazione**: crea policy in linea con i requisiti di sicurezza della tua organizzazione. Utilizza la funzionalità webhook per integrare gli avvisi con i sistemi di ticketing esistenti per una gestione semplificata degli incidenti.
+
+## Risorse aggiuntive
+
+Per informazioni più dettagliate, guide alla configurazione e best practice, fare riferimento alle seguenti risorse:
+
+- [Generatore di query Fleet](https://fleetdm.com/query-generator) - un'intelligenza artificiale appositamente addestrata per generare query e policy
+- [Documentazione Fleet](https://fleetdm.com/docs/get-started/why-fleet)
+- Modelli per [Query](https://fleetdm.com/queries), [Criteri](https://fleetdm.com/policies) e [Vitali](https://fleetdm.com/vitals/)

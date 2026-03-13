@@ -1,0 +1,77 @@
+---
+title: "Gestisci gli account amministratore"
+description: "Utilizza la policy di gestione degli utenti amministratori per distribuire e gestire gli account amministratore sui tuoi dispositivi, abilitando funzionalità come l'archiviazione delle password e la modifica dei privilegi utente esistenti rispettando al contempo le migliori pratiche per la sicurezza ed evitando conflitti tra policy."
+---
+
+Distribuisci e gestisci gli account amministratore locale nel tuo parco dispositivi da un'unica policy. Primo può creare sessioni di amministrazione con password casuali o fisse (memorizzate in modo sicuro nella piattaforma), opzionalmente ridurre i privilegi di altri account esistenti e consentire di eseguire operazioni dettagliate sull'account a livello di singolo dispositivo.
+
+## Supporto del sistema operativo
+
+| macOS | Finestre | Linux | iOS/iPadOS | Androide |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configura la politica
+
+Utilizza il criterio di **Gestione utenti amministratore** per distribuire sessioni di amministratore sui tuoi dispositivi. Questa funzionalità può essere applicata a livello globale o a gruppi specifici utilizzando Gruppi dispositivi.
+
+<Tip>
+Presto disponibile: la possibilità di facilitare l'escalation dei privilegi (concedendo l'accesso temporaneo come amministratore). Nel frattempo, puoi utilizzare strumenti come Privileges e MakemeAdmin per queste azioni.
+</Tip>
+
+1. Abilita la funzione.
+2. Definire il nome utente della sessione dell'amministratore da creare.
+3. Imposta la password dell'account:
+   - **Password casuale**: generata per dispositivo
+   - **Password fissa**: identica su tutti i dispositivi di destinazione
+4. Scegli se modificare i diritti degli utenti esistenti:
+   - Impostazione predefinita: nessuna modifica
+   - Facoltativo: ridurre i privilegi per altre sessioni
+
+**Posizioni di archiviazione delle password**
+
+- **Password casuale**: memorizzata nel pannello di ciascun dispositivo — *Attrezzatura > Dispositivi > Pannello dispositivo*
+- **Password fissa**: memorizzata nelle impostazioni della funzione — *Profili > Profilo pertinente > Gestione account amministratore*
+
+## Gestisci gli account a livello di dispositivo
+
+Dalla scheda **Utenti** di un dispositivo puoi:
+- Concedere i diritti di amministratore
+- Rimuovere i diritti di amministratore
+- Crea una sessione locale
+- Ruota la password di una sessione esistente
+
+Queste azioni consentono una gestione dettagliata oltre alla politica globale basata sui profili.
+
+## Modifica o disabilita la policy
+
+<Warning>
+Dopo l'attivazione su un profilo, la policy non può essere modificata direttamente.
+</Warning>
+
+- Per aggiornarlo, disabilita la policy e poi riabilitala con le nuove impostazioni.
+- La disabilitazione della policy ne interrompe l'applicazione ma **non** elimina l'account amministratore o la relativa password, che rimangono disponibili.
+
+## Su macOS
+
+**Rimozione dell'accesso amministratore su un dispositivo con un token sicuro attivo**
+
+SecureToken è una funzionalità specifica di macOS che funge da chiave di accesso, consentendo a un account utente di attivare e gestire funzioni di sicurezza critiche come la crittografia FileVault.
+
+Attualmente non è possibile rimuovere i diritti di amministratore da un account se è l'unico con un SecureToken sul dispositivo. Stiamo lavorando per migliorare questa gestione per consentire il trasferimento dei SecureToken su un altro conto, in particolare quello amministrato tramite Primo.
+
+## Su Windows
+
+La policy crea un account amministratore locale e memorizza la password. Le opzioni della password (casuale o fissa) e la riduzione dei privilegi per altri account funzionano allo stesso modo di macOS.
+
+## Casi speciali
+
+**Dispositivi presi di mira da più criteri di gestione degli account amministratore**
+
+Potrebbero verificarsi duplicazioni della policy se si attiva la policy su un profilo globale e su un profilo “specifico”. In questo caso Primo non gestisce il conflitto: MDM tenta di creare l'utente richiesto controllando solo che il nome dell'account non sia identico.
+
+## Migliori pratiche
+
+- Preferisci password casuali per migliorare la sicurezza su larga scala.
+- Documenta le eccezioni macOS SecureToken nelle procedure IT interne.
+- Evita di attivare policy duplicate su profili sovrapposti per evitare conflitti.

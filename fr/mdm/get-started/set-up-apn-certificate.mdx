@@ -1,0 +1,54 @@
+---
+title: "Configurez MDM pour vos appareils Apple"
+description: "Pour configurer le certificat APN pour macOS, iOS et iPadOS, assurez-vous de disposer d'un identifiant Apple professionnel et d'un accès administrateur, puis suivez les étapes pour créer et importer le certificat, ce qui est essentiel pour activer le service de notification push d'Apple pour la gestion des appareils à distance."
+---
+
+## Introduction
+
+Le service Apple Push Notification (APN) est un composant essentiel de la gestion des appareils mobiles (MDM) pour iPhone, iPad et Mac. Il permet à Primo de communiquer à distance avec les appareils Apple.
+
+Un certificat APNs est requis pour activer MDM sur les appareils Apple.
+
+## Qu’est-ce que les APN et pourquoi les connecter ?
+
+L'APN sert de canal de communication officiel entre les MDM et les appareils Apple.
+
+Une fois configuré, il permet à Primo de :
+
+- **Configurations push à distance** (cryptage, pare-feu, mises à jour, paramètres de mot de passe, paramètres de veille, installation d'applications, déploiement WiFi, etc.)
+- **Envoyez des commandes en temps réel**, même lorsque l'appareil est verrouillé ou en mode veille
+- **Assurer une communication silencieuse**, sans interaction de l'utilisateur
+
+Pour utiliser les APN, Apple nécessite un certificat Push **valable 12 mois**. Ce certificat vérifie que votre MDM est autorisé à gérer des appareils.
+
+<Tip>
+  En résumé : les APN permettent à Primo de communiquer avec les appareils Apple. Le certificat doit être renouvelé chaque année.
+</Tip>
+
+## Conditions préalables
+
+Avant de commencer, assurez-vous d'avoir :
+
+- Un **identifiant Apple** professionnel
+- Accès administrateur au **Primo Cockpit**
+
+<Note>
+  [**Contactez Apple pour obtenir de l'aide concernant les certificats du service Apple Push Notification**](https://support.apple.com/en-us/118629)
+</Note>
+
+## Créer et importer le certificat APNs
+
+1. Accédez à **Primo Cockpit** → **Paramètres** → **MDM** → **Fournissez votre certificat APN**
+2. Téléchargez le fichier CSR (Certificate Signing Request)
+3. Accédez au [Portail des certificats Apple Push](https://identity.apple.com/pushcert)
+4. Connectez-vous avec votre identifiant Apple
+5. Cliquez sur **Créer un certificat**
+6. Téléchargez le CSR téléchargé depuis Primo
+7. Téléchargez le certificat APN
+8. Téléchargez-le sur Primo
+
+Votre instance MDM est désormais entièrement configurée et opérationnelle.
+
+## Renouvellement du certificat APN
+
+Le certificat téléchargé sur Primo reste valable 12 mois. Primo vous avertira par e-mail et affichera une bannière d'information dans le cockpit lorsqu'il sera temps de renouveler. Répétez simplement les étapes ci-dessus en utilisant **le même identifiant Apple**.

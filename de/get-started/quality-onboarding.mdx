@@ -1,0 +1,132 @@
+---
+title: "Ihre ersten Wochen mit Primo"
+description: "Ein praktischer Leitfaden, wie ein typisches Primo-Onboarding aussieht – von der Cockpit-Einrichtung bis zur vollständigen Flottenbereitstellung."
+---
+
+Willkommen bei **Primo**. Dieser Leitfaden beschreibt, wie ein typisches Onboarding aussieht, damit Sie wissen, was Sie erwartet, und jede Phase sicher durchlaufen können.
+
+Die meisten Kunden benötigen von der Einrichtung bis zur vollständigen Bereitstellung **4 Wochen**, aber das Tempo hängt von der Größe Ihrer Flotte und den Primo-Produkten ab, die Sie aktivieren.
+
+## Was Sie einrichten werden
+
+- **Mitarbeiter** – Importieren Sie Ihr Team aus Ihrem HR-System oder über CSV.
+- **MDM** – Registrieren und verwalten Sie alle Ihre Geräte.
+- **EDR (Endpoint Detection and Response)** – Endpunktschutz bereitstellen (SentinelOne oder CrowdStrike).
+- **SaaS** – verbinden und automatisieren Sie den Zugriff auf Ihre Geschäftsanwendungen.
+
+Nicht alle Kunden aktivieren jedes Modul. Beginnen Sie mit dem, was für Ihr Team am dringendsten ist.
+
+## Typischer Zeitplan
+
+| Phase | Was passiert | Erwartetes Ergebnis |
+|---|---|---|
+| **Woche 1 – Einrichtung** | Mitarbeiter importieren, MDM aktivieren, Richtlinien festlegen, SaaS-Apps verbinden | Das Cockpit ist konfiguriert und bereit zum Testen |
+| **Woche 2 – Testen** | Registrieren Sie 1–3 Geräte, validieren Sie Richtlinien, testen Sie die SaaS-Bereitstellung | Die Konfigurationen haben bestätigt, dass sie funktionieren |
+| **Woche 3–4 – Bereitstellung** | Versenden Sie MDM-Einladungen an alle Mitarbeiter und überwachen Sie die Einschreibung | Vollständige Flotte registriert und gesichert |
+
+## Voraussetzungen
+
+Vor dem Start:
+
+| Schritt | Thema | Aufgabe | 🎯 Ziele |
+|---|---|---|---|
+| 1️⃣ | **Cockpit einrichten** | - Mitarbeiter importieren<br/>- Ihren Hardwarekatalog konfigurieren<br/>- [MDM] Ihre Instanz erstellen<br/>- [MDM] Ihre Richtlinien festlegen<br/>- [EDR] Bereitstellung über MDM konfigurieren<br/>- [SaaS] Ihren E-Mail-Anbieter verbinden<br/>- [SaaS] Verbinden Sie Ihre Apps mit der Bereitstellung/Deprovisionierung | Ihr Cockpit ist vollständig konfiguriert und Ihre Produkte sind einsatzbereit |
+| 2️⃣ | **Einschreibungstests** | Testen Sie die Bereitstellung auf einem oder mehreren Geräten | Ihre ersten Maschinen wurden erfolgreich registriert und Ihre MDM-Richtlinien validiert |
+| 3️⃣ | **Validierung** | Validieren Sie Konfigurationen und beheben Sie alle beim Testen festgestellten Probleme | Alle Konfigurationen sind verifiziert und bereit für den vollständigen Rollout |
+| 4️⃣ | **Globale Bereitstellung** | - Kommunizieren Sie intern mit Ihren Teams<br/>- Senden Sie Registrierungseinladungen an alle Mitarbeiter | Primo wird auf allen Ihren Geräten bereitgestellt |
+
+## Phase 1 – Richten Sie das Cockpit ein
+
+## Importieren Sie Ihre Mitarbeiter
+
+Durch die Anbindung Ihres HR-Systems können Sie Ihre Mitarbeiterliste automatisch importieren und eine manuelle Eingabe vermeiden.
+Es ermöglicht außerdem automatisiertes Onboarding/Offboarding in Primo und stellt Schlüsseldaten für MDM oder die Identitätskonfiguration bereit.
+
+1. Gehen Sie zu **Einstellungen → Mitarbeitersynchronisierung**
+2. Wählen Sie Ihren Anbieter (Personio, Lucca, BambooHR usw.)
+3. Geben Sie die erforderlichen Verbindungsdetails ein
+4. Filtern Sie und wählen Sie aus, welche Daten importiert werden sollen
+5. Starten Sie die Synchronisierung
+
+Ihre Mitarbeiter werden dann automatisch in Primo importiert.
+
+## Richten Sie Ihren Hardware-Katalog ein
+
+Wählen Sie Ihren Hardwarekatalog aus oder erstellen Sie ihn, um die Gerätezuweisung während des Onboardings vorzubereiten. Dies ist optional, aber nützlich, wenn Sie Geräte über Primo bestellen.
+
+---
+
+## Phase 2 – MDM aktivieren
+
+Mit MDM können Sie alle Ihre Geräte aus der Ferne verwalten und sichern – Mac, Windows, Linux, iOS und Android.
+
+## Aktivieren Sie Ihre MDM-Instanz
+
+1. Gehen Sie zu **Einstellungen → MDM**.
+2. Aktivieren Sie Ihre **FleetDM-Instanz**.
+3. Laden Sie Ihr **Apple Push Notification (APN)**-Zertifikat hoch.
+
+Ihr MDM ist jetzt betriebsbereit und in Ihrer Seitenleiste wird der Abschnitt **MDM** angezeigt.
+
+## Konfigurieren Sie Ihre Richtlinien
+
+Definieren Sie vor der Registrierung von Geräten Ihre Sicherheitsrichtlinien:
+
+- Verschlüsselung (FileVault, BitLocker)
+- Passwortanforderungen
+- Wi-Fi- und VPN-Profile
+- Zero-Touch-Bereitstellung (bei Bestellung von Geräten über Primo)
+
+## Testen Sie es auf einigen Geräten
+
+Senden Sie eine MDM-Einladung an 1–3 Geräte, um Ihr Setup zu validieren, bevor Sie es für alle bereitstellen. Gehen Sie zu **Mitarbeiter → MDM-Einladungen** und laden Sie diese Mitarbeiter ein.
+
+Geräte werden automatisch erstellt und zugewiesen, sobald der MDM-Agent installiert ist – eine manuelle Eingabe ist nicht erforderlich.
+
+## An alle weitergeben
+
+Sobald Sie mit Ihrem Test zufrieden sind:
+
+1. Bereiten Sie eine interne Kommunikation (E-Mail oder Slack) vor, um den Mitarbeitern mitzuteilen, was sie erwartet.
+2. Senden Sie über **Mitarbeiter → MDM-Einladungen** Einladungen an alle Mitarbeiter.
+
+Alle 7 Tage werden automatische Erinnerungen an Mitarbeiter gesendet, die die Installation noch nicht abgeschlossen haben.
+Sie können den Einsatz direkt von Ihrem **Cockpit** aus verfolgen.
+
+---
+
+## Phase 3 – Endpunktschutz (EDR) bereitstellen
+
+Endpoint Detection and Response (EDR) läuft parallel zu Ihrem MDM, um Bedrohungen in Echtzeit zu erkennen und darauf zu reagieren.
+
+Primo unterstützt:
+- **SentinelOne** – wird automatisch über MDM bereitgestellt.
+- **CrowdStrike Falcon** – erfordert die manuelle Paketeinrichtung in FleetDM.
+
+Nach der Konfiguration wird der Agent automatisch auf die registrierten Geräte übertragen.
+
+---
+
+## Phase 4 – SaaS-Apps verbinden
+
+Mit der SaaS-Verwaltung von Primo können Sie den Zugriff auf Ihre Geschäftstools basierend auf der Rolle jedes Mitarbeiters automatisch bereitstellen und entziehen.
+
+## Verbinden Sie Ihre Apps
+
+1. Gehen Sie zu **Identität & Zugriff → App-Katalog**.
+2. Verbinden Sie Ihre Anwendungen über die vorgefertigten Integrationen oder benutzerdefinierten Connectors von Primo (AI Agent oder SAML SSO).
+
+## Richten Sie Bereitstellungsregeln ein
+
+Definieren Sie, auf welche Apps jede Rolle oder jedes Team Zugriff erhält. Verwenden Sie Vorlagen, um die Bereitstellung beim Onboarding zu automatisieren und den Zugriff beim Offboarding automatisch zu widerrufen.
+
+---
+
+## Fehlerbehebung
+
+| Problem | Empfohlene Lösung |
+|---|---|
+| Keine Mitarbeiter aus HR-System importiert | Überprüfen Sie Ihre API-Berechtigungen oder verbinden Sie das HR-System erneut |
+| Registrierungsfehler | Weitere Informationen finden Sie im [Leitfaden zur Fehlerbehebung bei der Registrierung](/de/mdm/guides/resolve-enrollment-issues) |
+| App wird nicht automatisch installiert | Überprüfen Sie Ihr MDM-Profil und Ihre Softwarekonfiguration |
+| Die Bereitstellung von SaaS ist fehlgeschlagen | Überprüfen Sie die Protokolle und starten Sie fehlgeschlagene Aktionen erneut |

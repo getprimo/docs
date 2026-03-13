@@ -1,0 +1,78 @@
+---
+title: "Aggiornamenti del sistema operativo: esperienza dei dipendenti"
+description: "Scopri come gli amministratori possono monitorare lo stato degli aggiornamenti dei dispositivi e come i dipendenti ricevono le notifiche di aggiornamento del sistema operativo su macOS e Windows."
+---
+
+## Monitoraggio dello stato di aggiornamento del dispositivo
+
+Gli amministratori possono monitorare lo stato di aggiornamento del sistema operativo per tutti i dispositivi gestiti direttamente nel Cockpit Primo. Ciascun dispositivo visualizza uno dei tre stati di aggiornamento:
+
+| Stato             | Descrizione                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| **Aggiornato**     | Il dispositivo esegue una versione del sistema operativo che soddisfa i requisiti di scadenza degli aggiornamenti configurati. |
+| **Non aggiornato** | Sul dispositivo è in esecuzione una versione del sistema operativo obsoleta e la scadenza configurata è trascorsa.         |
+| **Non configurato**      | Nessun criterio di aggiornamento del sistema operativo è stato configurato per il dispositivo.                                      |
+
+<Note>
+  Lo stato dell'aggiornamento viene calcolato in base ai criteri di scadenza degli aggiornamenti del sistema operativo configurati. I dispositivi con MDM disabilitato non visualizzeranno lo stato di aggiornamento.
+</Note>
+
+Puoi filtrare l'elenco dei dispositivi in base allo stato di aggiornamento per identificare rapidamente i dispositivi che richiedono attenzione.
+
+## Esperienza dei dipendenti
+
+### macOS 14 e versioni successive
+
+![Screenshot: macOS 14 e versioni successive](/images/notion-import/employee-experience-for-os-updates__img-064__block-0005__1b243d9f.png)
+
+
+Quando viene applicata una versione minima, gli utenti finali visualizzano una notifica macOS nativa (DDM) una volta al giorno. Gli utenti possono scegliere di aggiornare prima della scadenza o programmarlo per quella notte. 24 ore prima della scadenza, la notifica viene visualizzata ogni ora e ignora la funzione Non disturbare. Un'ora prima della scadenza, la notifica appare ogni 30 minuti e poi ogni 10 minuti.
+
+Se l'host era spento allo scadere del termine, l'aggiornamento verrà pianificato un'ora dopo l'accensione.
+
+Per i dispositivi macOS che utilizzano la registrazione automatizzata del dispositivo (ADE), se la versione del dispositivo è inferiore alla versione minima specificata, sarà necessario aggiornarlo all'ultima versione disponibile durante ADE prima che la configurazione e la registrazione del dispositivo possano procedere.
+
+### macOS 13 e versioni precedenti
+
+Gli utenti finali sono incoraggiati ad aggiornare macOS tramite Nudge.
+
+![Schermata: Prima di macOS 14](/images/notion-import/employee-experience-for-os-updates__img-065__block-0012__1b243d9f.png)
+
+
+|                             | **> 1 giorno prima della scadenza** | **< 1 giorno prima della scadenza** | **Scadenza superata** |
+| --------------------------- | ---------------------------- | ---------------------------- | -------------------- |
+| Frequenza della finestra di spinta      | Una volta al giorno alle 20:00 GMT        | Una volta ogni 2 ore           | Immediatamente al login |
+| L'utente finale può rinviare          | ✅                            | ✅                            | ❌                    |
+| La finestra di spinta è ignorabile | ✅                            | ✅                            | ❌                    |
+
+### Finestre
+
+Gli utenti finali sono incoraggiati ad aggiornare Windows tramite la finestra di dialogo nativa di Windows.
+
+|                                      | **Prima della scadenza** | **Scadenza superata** |
+| ------------------------------------ | ------------------- | ----------------- |
+| L'utente finale può rinviare il riavvio automatico | ✅                   | ❌                 |
+
+Se un utente finale era in ferie allo scadere della scadenza, gli viene concesso un periodo di grazia (configurato) prima che l'host si riavvii automaticamente.
+
+<Note>
+  Per tutti gli scenari sopra descritti, la scadenza si applica dalla "data di disponibilità dell'aggiornamento", non dalla data di configurazione della policy. Se hai dipendenti che utilizzano una versione precedente per un periodo superiore alla scadenza scelta, verrà loro richiesto di aggiornare immediatamente il proprio sistema operativo.
+</Note>
+
+## Spazio su disco insufficiente
+
+<Warning>
+  Per tutti e 3 gli scenari, potrebbe essere necessario l'intervento di un amministratore se gli aggiornamenti non riescono e l'utente non è in grado di liberare spazio. Nessuna piattaforma gestisce autonomamente i problemi di spazio su disco per installare gli aggiornamenti.
+</Warning>
+
+### macOS 14 e versioni successive
+
+L'utente finale viene invitato a installare l'aggiornamento con una notifica di sistema e vedrà nelle Impostazioni di sistema che non dispone di spazio sufficiente per installare l'aggiornamento. Dovranno liberare spazio da soli per impedire ai fastidiosi aggiornamenti.
+
+### macOS 13 e versioni precedenti
+
+Verrà visualizzata la finestra Nudge e l'utente verrà indirizzato alle Preferenze di Sistema per scaricare e installare l'aggiornamento (che non riuscirà). La finestra Nudge si comporterà normalmente se non può essere chiusa dopo la scadenza. L'utente finale dovrà liberare spazio per installare l'aggiornamento e chiudere la finestra Nudge.
+
+### Finestre
+
+Una volta rispettata la scadenza, all'utente verrà detto che deve aggiornare, quindi l'aggiornamento fallirà e all'utente verrà detto che deve liberare spazio.

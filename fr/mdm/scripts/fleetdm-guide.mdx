@@ -1,0 +1,43 @@
+---
+title: "Guide FleetDM"
+description: "Explorez le guide FleetDM pour gérer efficacement vos appareils mobiles, en tirant parti de fonctionnalités telles que les hôtes, les contrôles, les requêtes et les politiques pour améliorer la sécurité et rationaliser les opérations des organisations de 100 à 500 employés."
+---
+
+Le but de ce document est de vous donner quelques idées sur les éléments à prendre en compte lors du test de FleetDM. Fleet MDM est une puissante solution de gestion des appareils mobiles conçue pour les administrateurs informatiques des entreprises de 100 à 500 employés. Il rationalise la gestion des appareils, améliore la sécurité et automatise les processus sur l'ensemble du parc d'appareils de votre organisation, garantissant ainsi l'efficacité des opérations et la conformité. C'est un MDM un peu différent - bien qu'il soit très puissant, déployé dans des entreprises leaders (Stripe, Dropbox, Atlassian, Toast, Uber) et sur des millions d'appareils, il ne ressemble pas aux autres MDM. C'est pourquoi nous avons créé ce petit guide pour vous aider à vous installer.
+
+**Bon à savoir :**
+
+- FleetDM alimente la partie MDM de Primo. Avec votre abonnement Primo, vous bénéficiez de Fleet Premium et votre instance FleetDM est hébergée, maintenue et mise à jour pour vous
+- Nous avons construit une synchronisation puissante entre Primo et FleetDM, nous permettant de créer un meilleur logiciel d'intégration et de désintégration, de gestion des identités et des accès, d'intégration RH et bien plus encore, tout en bénéficiant de manière transparente de la puissance de FleetDM pour vos appareils.
+
+## Hôtes
+
+- **Ce qu'il fait** : l'onglet "Hôtes" fournit un aperçu de tous les appareils de votre flotte, affichant des détails essentiels tels que l'état des appareils, les certificats et l'inventaire.
+- **Comment cela aide les administrateurs informatiques** : cette fonctionnalité permet aux administrateurs informatiques d'évaluer rapidement l'état et la conformité des appareils, facilitant ainsi la gestion et le dépannage proactifs.
+- **Conseils de configuration** : personnalisez les colonnes affichées pour vous concentrer sur les informations les plus pertinentes pour votre organisation. Pensez à filtrer par type ou état d'appareil pour une gestion plus facile.
+
+## Contrôles
+
+- **Ce qu'il fait** : L'onglet « Contrôles » offre des fonctionnalités permettant de gérer les mises à jour, le chiffrement et les scripts sur tous les appareils.
+- **Comment cela aide les administrateurs informatiques** : cette fonctionnalité automatise la gestion des mises à jour et améliore la sécurité en permettant aux administrateurs d'appliquer le chiffrement et d'exécuter des scripts, réduisant ainsi les interventions manuelles et les erreurs potentielles.
+- **Conseils de configuration** : configurez des fenêtres glissantes pour les mises à jour du système d'exploitation afin de garantir une conformité en temps opportun. Utilisez la section de script pour automatiser les tâches de routine, telles que les installations de logiciels ou les vérifications du système.
+
+## Requêtes
+
+- **Ce qu'il fait** : L'onglet "Requêtes" permet aux administrateurs d'exécuter des requêtes de type SQL sur tous les appareils afin de collecter des données en temps réel sur l'état du système, les applications installées, etc.
+- **Comment cela aide les administrateurs informatiques** : cette fonctionnalité permet des rapports et une surveillance détaillés, aidant ainsi les administrateurs à identifier rapidement les problèmes ou les lacunes en matière de conformité.
+- **Conseils de configuration** : utilisez des requêtes prédéfinies pour les tâches courantes et envisagez de planifier l'exécution des requêtes à intervalles réguliers pour une surveillance continue.
+
+## Politiques
+
+- **Ce qu'il fait** : l'onglet "Politiques" permet aux administrateurs de définir et d'appliquer des règles sur tous les appareils, telles que des contrôles de conformité et des réponses automatisées à des conditions spécifiques.
+- **Comment cela aide les administrateurs informatiques** : cette fonctionnalité automatise la gestion de la conformité et les actions correctives, réduisant ainsi la charge administrative et améliorant la sécurité.
+- **Conseils de configuration** : créez des politiques qui correspondent aux exigences de sécurité de votre organisation. Utilisez la fonctionnalité webhook pour intégrer des alertes à vos systèmes de billetterie existants afin de rationaliser la gestion des incidents.
+
+## Ressources supplémentaires
+
+Pour des informations plus détaillées, des guides de configuration et des bonnes pratiques, veuillez vous référer aux ressources suivantes :
+
+- [Générateur de requêtes Fleet](https://fleetdm.com/query-generator) - une IA spécialement formée pour générer des requêtes et des politiques
+- [Documentation Fleet](https://fleetdm.com/docs/get-started/why-fleet)
+- Modèles pour [Requêtes](https://fleetdm.com/queries), [Politiques](https://fleetdm.com/policies) et [Vitals](https://fleetdm.com/vitals/)

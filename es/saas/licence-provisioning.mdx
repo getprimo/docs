@@ -1,0 +1,58 @@
+---
+title: "Configurar el aprovisionamiento de licencias"
+description: "Configure el aprovisionamiento para automatizar la creación y actualización de cuentas de usuario en aplicaciones como Zendesk, garantizando que los empleados tengan roles de acceso adecuados basados en reglas definidas sin administración manual."
+---
+
+El aprovisionamiento garantiza que las cuentas de usuario se creen y actualicen automáticamente en las aplicaciones conectadas de acuerdo con las reglas que usted defina. Al configurar el aprovisionamiento, puede asignar aplicaciones y roles específicos a grupos específicos de empleados.
+
+Este artículo explica cómo configurar el aprovisionamiento mediante reglas.
+
+## Reglas de acceso
+
+1. En la consola Primo, vaya a **Identidades y acceso**.
+2. Seleccione **Reglas**.
+3. **Actualice una regla existente** o **cree una nueva** para administrar las reglas de aprovisionamiento.
+
+## Crear nuevas reglas (opcional)
+
+![Captura de pantalla: Reglas de acceso](/images/notion-import/set-up-licence-provisioning__img-090__block-0008__25443d9f.png)
+
+
+Si necesita dirigirse a un nuevo grupo de empleados, cree una regla dedicada:
+
+1. Haga clic en **Crear una nueva regla**.
+2. Ingrese un nombre para la regla (por ejemplo, *Equipo de desarrollo*).
+3. Defina las condiciones de orientación en **Empleados objetivo** (por ejemplo: *Equipo es desarrollo*).
+4. Guarde su regla.
+    ![Captura de pantalla: Crear nuevas reglas (opcional)](/images/notion-import/set-up-licence-provisioning__img-091__block-0016__25443d9f.png)
+
+
+## Habilitar el aprovisionamiento para una aplicación
+
+![Captura de pantalla: Crear nuevas reglas (opcional)](/images/notion-import/set-up-licence-provisioning__img-092__block-0017__25443d9f.png)
+
+
+1. Abra la regla que desea utilizar.
+2. Vaya a la pestaña **Aplicaciones**.
+3. Seleccione la aplicación que ya ha conectado (por ejemplo, Zendesk).
+4. Active **Aprovisionamiento** para habilitarlo.
+5. En **Selección de roles**, elija el rol que desea asignar a los empleados objetivo.
+
+Por ejemplo, para asignar el rol de *Agente Light* en Zendesk a su equipo de desarrollo:
+
+- Cree o edite la regla *Equipo de desarrollo*.
+- Definir segmentación: *Equipo es Desarrollo*.
+- Seleccione **Aplicaciones > Zendesk**.
+- Habilite **Aprovisionamiento** y asigne el rol *Agente ligero*.
+    ![Captura de pantalla: Habilitar el aprovisionamiento para una aplicación](/images/notion-import/set-up-licence-provisioning__img-093__block-0030__25443d9f.png)
+
+
+## Resultado
+
+Una vez que el aprovisionamiento esté habilitado y guardado:
+
+- Los usuarios que cumplan las condiciones de orientación de la regla se crean automáticamente en la aplicación si aún no están presentes.
+- Los roles asignados (p. ej., *agente ligero* de Zendesk) se aplican automáticamente.
+- Cualquier cambio de usuarios en el sistema de RR.HH. se sincronizará con la aplicación a través de Primo.
+
+Esto garantiza que los empleados siempre tengan el nivel adecuado de acceso sin gestión manual de cuentas.

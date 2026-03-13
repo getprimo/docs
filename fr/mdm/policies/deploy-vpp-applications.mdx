@@ -1,0 +1,62 @@
+---
+title: "Configurer le VPP (Apple Volume Purchase Program)"
+description: "Connectez votre jeton Apple Business Manager Volume Purchase Program (VPP) pour activer le déploiement de l’application App Store sur les appareils macOS, iOS et iPadOS."
+---
+
+**VPP (Volume Purchase Program)** fait partie d'Apple Business Manager (ABM). Il permet aux organisations d’acheter des licences d’applications App Store en gros et de les déployer de manière centralisée sur les appareils macOS, iOS et iPadOS, sans exiger d’identifiants Apple individuels de la part des employés.
+
+Une fois VPP connecté, vous pouvez déployer des applications App Store directement depuis **MDM > Logiciel**. Voir:
+- [Déployer des applications (macOS, Windows, Linux)](/fr/mdm/policies/manage-apps-laptop) — pour les applications macOS App Store
+- [Déployer des applications (iOS, iPadOS et Android)](/fr/mdm/policies/manage-apps-smartphone) — pour les applications iOS/iPadOS App Store
+
+---
+
+## Conditions préalables
+
+- Un compte **Apple Business Manager (ABM)**
+- Déploiement Zero-Touch activé — connectez votre GAB sous [Paramètres MDM] (https://app.getprimo.com/settings/?tab=mdm)
+
+---
+
+## Connectez votre jeton VPP
+
+### Étape 1 : Générer un jeton VPP dans ABM
+
+1. Dans ABM, accédez à la section **Sites**.
+2. Créez un nouveau site si vous n'en avez pas encore.
+3. Générez un **jeton VPP** à partir de ce site et téléchargez-le.
+
+### Étape 2 : Importer le jeton
+
+1. Dans Primo, accédez à **MDM > Logiciel > Ajouter une application > App Store (VPP)**.
+2. Sélectionnez le champ d'application **"Aucune équipe"**.
+3. Téléchargez le fichier du jeton VPP.
+
+Une fois importées, vos applications App Store achetées pourront être déployées à partir de **MDM > Logiciel**.
+
+---
+
+## Ajouter des licences dans ABM
+
+Avant de déployer une application, assurez-vous que vous disposez de suffisamment de licences :
+
+1. Dans ABM, accédez à **Applications et livres**.
+2. Recherchez l'application et achetez le nombre de licences requis.
+3. Attribuez les licences au site lié à votre token VPP.
+
+Les licences peuvent être réattribuées à tout moment lorsqu'un appareil est désinscrit.
+
+---
+
+## Migration depuis un autre MDM
+
+Si vous passez d'un autre MDM qui utilise déjà VPP :
+
+1. Ajoutez d’abord vos applications (en suivant les étapes des guides de déploiement ci-dessus).
+2. Demandez à votre ancien fournisseur MDM de **supprimer son lien VPP**.
+3. Cela peut entraîner la **suppression temporaire** des applications gérées par VPP des appareils.
+4. Primo redéployera automatiquement toutes les applications configurées une fois le nouveau lien VPP actif.
+
+<Warning>
+Ne partagez jamais le même token VPP entre deux MDM simultanément. Cela entraînerait des conflits et pourrait entraîner la suppression d'applications des appareils.
+</Warning>

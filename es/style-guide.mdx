@@ -1,0 +1,113 @@
+---
+title: Style guide
+description: Writing standards and conventions for Primo documentation
+---
+
+## Tono y voz
+
+Escriba en un estilo **técnico, directo al grano y conciso** sin dejar de ser accesible. Priorizar la claridad sobre la formalidad.
+
+- Utilice voz activa y segunda persona ("tú")
+- Mantenga las oraciones cortas: una idea por oración
+- Liderar con el objetivo y luego dar instrucciones.
+- Evite palabras de relleno innecesarias
+
+## Convenciones de idioma
+
+### Terminología
+
+| uso | evitar |
+|-----|-------|
+| sistema de recursos humanos | HRIS |
+| el tablero | en Primo, a Primo |
+| gestión de dispositivos | MDM (en el primer uso, deletrear) |
+
+### Referencias de productos
+
+Minimiza las menciones de "en Primo" o "para Primo". Incluya el nombre del producto únicamente cuando:
+- Distinguir Primo de otro sistema
+- Primera mención en un documento.
+- El contexto no estaría claro sin él.
+
+**Evitar:** "Navega hasta Primo y haz clic en Configuración"  
+**Prefiere:** "Navegar a **Configuración**"
+
+**Evitar:** "Importar empleados a Primo"  
+**Prefiere:** "Importar empleados"
+
+### Acrónimos
+
+Deletree las siglas cuando las use por primera vez, seguidas de la abreviatura entre paréntesis. Utilice la abreviatura para menciones posteriores.
+
+**Ejemplo:** La administración de dispositivos móviles (MDM) permite la configuración remota. Las políticas de MDM controlan la configuración del dispositivo.
+
+## Convenciones de estilo
+
+### Encabezamientos
+
+- Utilice mayúsculas y minúsculas: "Configure su cuenta", no "Configure su cuenta".
+- Utilice verbos imperativos: "Configurar SSO", no "Configurar SSO".
+- Mantenga los títulos concisos y orientados a la acción
+
+| evitar | Prefiero |
+|-------|--------|
+| Configurando tus ajustes | Configurar ajustes |
+| Administrar los dispositivos de los empleados | Administrar dispositivos |
+| Entendiendo zero-touch | Comprender zero-touch |
+| Importar mediante CSV | Importar vía CSV |
+
+### Formato
+
+- **Negrita** para elementos de la interfaz de usuario: haga clic en **Configuración** > **Integraciones**
+- `Code formatting` para:
+  - Nombres de archivos: `config.json`
+  - Comandos: `mint dev`
+  - Rutas: `/api/employees`
+  - Referencias de código: `deviceId`
+- Utilice listas numeradas para pasos secuenciales
+- Utilice viñetas para elementos no secuenciales
+
+### Estructura del artículo
+
+Siga un patrón consistente en todos los artículos:
+
+1. **Título** — Verbo imperativo + objeto (p. ej., "Conecta tu sistema de recursos humanos")
+2. **Descripción**: resumen de una frase de lo que logrará el lector.
+3. **Requisitos previos**: enumera los requisitos antes de comenzar (si corresponde)
+4. **Pasos**: instrucciones numeradas con acciones claras
+5. **Próximos pasos**: enlace al contenido relacionado (si corresponde)
+
+### Grupos de tarjetas
+
+Utilice `<CardGroup>` para mostrar enlaces relacionados como tarjetas visuales. Siga estas pautas:
+
+- **Maximum 3 cards per row** — Use `cols={3}` or fewer for readability
+- **Mantenga la copia de la tarjeta sincronizada**: los títulos y descripciones de las tarjetas deben coincidir con el texto del artículo al que se hace referencia.
+- **Utilice tarjetas para colecciones**: lo mejor para páginas de descripción general que enlazan con contenido relacionado
+
+```mdx
+<CardGroup cols={3}>
+  <Card title="Connect your HR system" icon="users" href="/es/employees/connect-hris">
+    Sync employee data automatically from your HR system.
+  </Card>
+  <Card title="Import via CSV" icon="file-csv" href="/es/employees/import-via-csv">
+    Bulk import employees using a spreadsheet.
+  </Card>
+  <Card title="Automate onboardings" icon="wand-magic-sparkles" href="/es/employees/automate-onboardings">
+    Set up automatic device provisioning for new hires.
+  </Card>
+</CardGroup>
+```
+
+**Mantenimiento:** Al actualizar el título o la descripción de un artículo, busque cualquier tarjeta que haga referencia a esa página y actualícela para que coincida.
+
+## Referencia rápida
+
+| Elemento | convención | Ejemplo |
+|---------|------------|---------|
+| Encabezamientos | Caso de oración, imperativo | "Configurar cifrado de disco" |
+| elementos de la interfaz de usuario | Negrita | Haga clic en **Guardar** |
+| Código/comandos | comillas invertidas | Ejecute `mint dev` |
+| Nombre del producto | Minimizar el uso | Omitir "en Primo" cuando sea obvio |
+| Acrónimos | Deletrea el primer uso | "Sistema de recursos humanos" no "HRIS" |
+| Card groups | Max 3 columns, synced copy | `<CardGroup cols={3}>` |

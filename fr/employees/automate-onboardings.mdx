@@ -1,0 +1,100 @@
+---
+title: "Automatisez vos intégrations"
+description: "Découvrez comment utiliser Primo pour automatiser le parcours d'intégration complet — de la création des employés à l'approvisionnement des appareils et à l'accès aux applications — afin que chaque nouvelle recrue commence dès le premier jour avec tout ce dont elle a besoin."
+---
+
+Primo vous permet d'automatiser l'ensemble du processus d'intégration afin que votre équipe n'ait pas à poursuivre les tâches manuellement à chaque fois que quelqu'un rejoint. Une fois configurées, les intégrations sont déclenchées automatiquement en fonction des dates de début du contrat et peuvent inclure l'attribution d'appareils, l'inscription à MDM et le provisionnement de l'application SaaS.
+
+## Comment fonctionne l'automatisation de l'intégration
+
+L'automatisation est pilotée par vos **données sur les employés**. Lorsqu'un nouvel employé est détecté — depuis votre système RH ou ajouté manuellement — le système peut automatiquement :
+
+- Créer son profil sur la plateforme
+- Déclenchez un workflow d'intégration à leur date de début
+- Attribuer et expédier le matériel
+- Envoyer une invitation d'inscription à MDM
+- Offrez l'accès aux applications dont ils ont besoin en fonction de leur rôle ou de leur équipe
+
+Plus votre compte est connecté (Système RH, MDM, SaaS), plus ce processus peut s'exécuter sans intervention manuelle.
+
+## Étape 1 — Connectez votre système RH
+
+La base de l’automatisation de l’intégration est votre connexion au système RH. Lorsqu'un système RH est connecté, les arrivées à venir sont automatiquement détectées en fonction des dates de début de contrat et les profils des employés sont créés à l'avance.
+
+Pour connecter votre système RH :
+
+1. Accédez à **Paramètres > Synchronisation des employés**.
+2. Sélectionnez votre fournisseur de système RH (Personio, Lucca, BambooHR, et plus)
+3. Suivez les étapes d'authentification
+4. Configurer les filtres de synchronisation et les mappages de champs
+5. Lancez la première synchronisation
+
+Une fois connecté, votre annuaire des employés se synchronise toutes les heures — aucune action manuelle n'est requise.
+
+<Note>
+Si vous n'utilisez pas de système RH, vous pouvez toujours déclencher des flux d'intégration en ajoutant manuellement des employés et en définissant une date de début. Voir [Importation via CSV](/fr/employees/import-via-csv).
+</Note>
+
+## Étape 2 — Attribuer l'équipement
+
+Lorsqu'un nouvel employé apparaît avec une date de début prochaine, vous pouvez lui attribuer des équipements directement depuis son profil. Le système gérera le reste :
+
+- Si l'appareil est **en stock**, il peut être préparé et expédié à l'adresse de l'employé.
+- Si vous commandez un **nouvel appareil**, il peut être configuré pour le déploiement Zero Touch : la machine arrive pré-enregistrée, prête à l'emploi, prête à l'emploi.
+
+L'affectation des équipements peut se faire dès la création du profil de l'employé, bien avant sa date de début.
+
+## Étape 3 — Automatisez l'inscription à MDM
+
+Une fois l'appareil d'un employé attribué, vous pouvez envoyer automatiquement une invitation d'inscription MDM. Le système :
+
+- Envoyer l'e-mail d'inscription au salarié
+- Rappelez-leur automatiquement tous les 7 jours jusqu'à ce que l'agent MDM soit installé
+- Créez et attribuez l'appareil une fois l'inscription terminée - aucune saisie manuelle n'est nécessaire
+
+Pour envoyer des invitations MDM, accédez à **Employés > Invitations MDM**.
+
+<Tip>
+Utilisez le déploiement Zero Touch si vous commandez des appareils via l'approvisionnement. L'appareil est livré avec l'agent MDM préinstallé : votre employé vient simplement de l'allumer.
+</Tip>
+
+## Étape 4 — Fournir l'accès à l'application SaaS
+
+Avec SaaS Management, vous pouvez automatiquement accorder l'accès aux outils commerciaux en fonction du rôle, de l'équipe ou de l'entité juridique de chaque employé, dès son intégration.
+
+Pour configurer cela :
+
+1. Accédez à **Identité et accès > Catalogue d'applications** et connectez vos applications.
+2. Définir des règles de provisionnement par rôle ou par équipe
+3. Activer le provisionnement automatique lors de l'intégration
+
+Lorsque l'intégration d'un nouvel employé est déclenchée, l'accès aux bonnes applications est immédiatement fourni : pas de ticket, pas d'étape manuelle.
+
+L'accès est également automatiquement révoqué lorsqu'un employé est démis de ses fonctions, ce qui permet de garder vos licences SaaS intactes.
+
+## À quoi ressemble une intégration entièrement automatisée
+
+| Quand | Que se passe-t-il automatiquement |
+|---|---|
+| **Employé ajouté au système RH** | Profil créé, intégration initiée |
+| **Équipement attribué** | Appareil expédié ou préparé pour Zero Touch |
+| **La date de début approche** | Invitation d'inscription MDM envoyée |
+| **L'employé allume l'appareil** | Agent MDM installé, stratégies appliquées, applications poussées |
+| **Intégration déclenchée** | Applications SaaS provisionnées en fonction du rôle et de l'équipe |
+
+## Exigences
+
+Pour automatiser le flux d'intégration complet, vous avez besoin de :
+
+- Un système RH connecté (ou des collaborateurs ajoutés manuellement avec une date de début)
+- MDM activé
+- Applications SaaS connectées avec des règles de provisionnement configurées
+
+Chaque étape est indépendante : vous pouvez automatiser autant ou aussi peu que votre configuration le permet.
+
+## Articles connexes
+
+- [Connecter un système RH](/fr/employees/connect-hris)
+- [Importation via CSV](/fr/employees/import-via-csv)
+- [Déploiement Zero Touch pour Mac](/fr/mdm/ZXPROTECT0ZX/ZXPROTECT1ZX-macs)
+- [Fourniture de licences](/fr/saas/licence-provisioning)

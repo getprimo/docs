@@ -1,0 +1,187 @@
+---
+title: "Références CEI"
+description: "CIS Benchmarks sont des guides de configuration sécurisés développés par la communauté qui aident à renforcer les systèmes et les réseaux, fournissant deux niveaux de profils pour équilibrer sécurité et convivialité tout en offrant un script détaillé pour la mise en œuvre des politiques via FleetDM."
+---
+
+Les benchmarks CIS sont des guides de configuration sécurisés basés sur un consensus, utilisés pour renforcer les systèmes, les logiciels et les réseaux – une référence reconnue par l'industrie pour réduire la surface d'attaque. Utilisez-les avec Primo et FleetDM pour évaluer la conformité et appliquer les paramètres dans votre flotte macOS et Windows.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Fenêtres | Linux | iOS/iPadOS | Androïde |
+|-------|---------|-------|--------------|---------|
+| ✅ macOS 13+ | ✅ Windows 10+ Entreprise | | | |
+
+## À propos des indices de référence CIS
+
+Les benchmarks CIS sont **développés par la communauté** dans le cadre d'un processus de consensus ouvert (CIS WorkBench) avec le gouvernement, l'industrie et le monde universitaire. Il existe **plus de 100 benchmarks** répartis dans **plus de 25 familles de fournisseurs**.
+
+Chaque benchmark est livré avec deux profils :
+
+- **Niveau 1** : paramètres prudents et à faible impact qui offrent une valeur de sécurité claire.
+- **Niveau 2** : paramètres de défense en profondeur plus puissants qui peuvent affecter la convivialité/les performances.
+
+## Comment ajouter des benchmarks CIS
+
+Exécutez ce script pour générer le fichier YAML de requêtes de politiques CIS pour votre instance FleetDM :
+
+```shell
+#!/bin/bash
+#shellcheck disable=SC2207
+
+# convert.cis.policy.queries.yml @2024 Fleet Device Management
+
+# CIS queries as written here:
+#    https://github.com/fleetdm/fleet/blob/main/ee/cis/macos-14/cis-policy-queries.yml
+# must be converted to be uploaded via Fleet GitOps.
+#
+# This script takes as input the YAML from the file linked above & creates a new YAML array compatible with the "Separate file" format documented here:
+#    https://fleetdm.com/docs/configuration/yaml-files#separate-file
+
+# get CIS queries raw file from Fleet repo
+cisfile='https://raw.githubusercontent.com/fleetdm/fleet/refs/heads/main/ee/cis/macos-14/cis-policy-queries.yml'
+cispath='/private/tmp/cis.yml'
+
+/usr/bin/curl -X GET -LSs "$cisfile" -o "$cispath"
+
+# create CIS benchmark array
+IFS=$'\n'
+cisarry=($(/opt/homebrew/bin/yq '.spec.name' "$cispath" | /usr/bin/grep -v '\-\-\-'))
+
+for i in "${cisarry[@]}"
+do
+    cisname="$(/opt/homebrew/bin/yq ".[] | select(.name == \"$i\") | (del(.platforms)) | (del(.purpose)) | (del(.tags)) | (del(.contributors))" "$cispath" | /opt/homebrew/bin/yq eval '.name')"
+    cispfrm="$(/opt/homebrew/bin/yq ".[] | select(.name == \"$i\") | (del(.platforms)) | (del(.purpose)) | (del(.tags)) | (del(.contributors))" "$cispath" | /opt/homebrew/bin/yq eval '.platform')"
+    cisdscr="$(/opt/homebrew/bin/yq ".[] | select(.name == \"$i\") | (del(.platforms)) | (del(.purpose)) | (del(.tags)) | (del(.contributors))" "$cispath" | /opt/homebrew/bin/yq eval --unwrapScalar=true '.description')"
+    cisrslt="$(/opt/homebrew/bin/yq ".[] | select(.name == \"$i\") | (del(.platforms)) | (del(.purpose)) | (del(.tags)) | (del(.contributors))" "$cispath" | /opt/homebrew/bin/yq eval --unwrapScalar=true '.resolution')"
+    cisqrry="$(/opt/homebrew/bin/yq ".[] | select(.name == \"$i\") | (del(.platforms)) | (del(.purpose)) | (del(.tags)) | (del(.contributors))" "$cispath" | /opt/homebrew/bin/yq eval --unwrapScalar=true '.query')"
+
+    printf "name: %s\nplatform: %s\ndescription: |\n%s\nresolution: |\n%s\nquery: |\n%s\n" "$cisname" "$cispfrm" "$cisdscr" "$cisrslt" "$cisqrry" | /usr/bin/sed 's/^/    /g;s/^[[:space:]]*name:/- name:/;s/^[[:space:]]*platform:/  platform:/;s/^[[:space:]]*description:/  description:/;s/^[[:space:]]*resolution:/  resolution:/;s/^[[:space:]]*query:/  query:/'
+
+done
+```
+
+Téléchargez ensuite les politiques sur votre instance FleetDM :
+
+```bash
+fleetctl apply --policies-team "Workstations" -f cis-policy-queries.yml
+```
+
+## Où s'adaptent les outils MDM (Fleet/Primo)
+
+Fleet expose des **requêtes de stratégie** pour évaluer la conformité CIS sur macOS 13+ et Windows 10+ (Enterprise).
+
+Les stratégies **ne corrigent pas** : vous avez toujours besoin de **profils MDM** et/ou de scripts pour appliquer les paramètres, et vous pouvez utiliser des automatisations pour piloter les flux de travail de correction. Certaines vérifications nécessitent une **inscription MDM** et des autorisations d'agent spécifiques.
+
+## Sur macOS
+
+### Chiffrement du disque
+
+*Cette politique est calquée sur Primo et fonctionne pour les appareils macOS et Windows.*
+
+1. Sur Primo, accédez à **MDM > Profils**
+2. Sélectionnez **tous les appareils**
+3. Cliquez sur la carte : **Cryptage**
+4. Cliquez sur "Activer les paramètres"
+5. Enfin, **confirmez**.
+    ![Capture d'écran : Chiffrement de disque](/images/notion-import/cis-benchmarks__img-099__block-0025__26843d9f.png)
+
+
+### Politique de mot de passe et verrouillage automatique de l'écran
+
+Des délais d'expiration de verrouillage courts et des mots de passe forts aident à prévenir les attaques telles que le surf sur l'épaule, les abus internes et l'accès opportuniste sur les ordinateurs portables sans surveillance.
+
+*Cette politique est calquée sur Primo et fonctionne pour les appareils iOS, macOS et Windows.*
+
+1. Sur Primo, accédez à **MDM > Profils**
+2. Sélectionnez **tous les appareils**
+3. Cliquez sur la carte : **Mot de passe et verrouillage de l'écran**
+4. Cliquez sur "Activer les paramètres"
+5. Accédez aux onglets **Mac, Windows** et **iOS** pour configurer chacun d'eux.
+6. Enfin, **confirmez.**
+
+### Pare-feu intégré
+
+![Capture d'écran : Politique de mot de passe et verrouillage automatique de l'écran](/images/notion-import/cis-benchmarks__img-100__block-0035__26843d9f.png)
+
+
+Le trafic entrant avec refus par défaut réduit le risque qu'un service inactif devienne un point d'entrée du réseau, en particulier sur le Wi-Fi public.
+
+*Cette politique est calquée sur Primo et fonctionne pour les appareils macOS et Windows.*
+
+1. Sur Primo, accédez à **MDM > Profils**
+2. Sélectionnez **tous les appareils**
+3. Cliquez sur la carte : **Pare-feu**
+4. Cliquez sur "activer les paramètres"
+5. Enfin, **confirmez.**
+    ![Capture d'écran : Pare-feu intégré](/images/notion-import/cis-benchmarks__img-101__block-0044__26843d9f.png)
+
+
+### Mode furtif du pare-feu
+
+Se cacher d'ICMP et des sondes similaires rend les périphériques plus difficiles à énumérer dans les analyses et ralentit la propagation des vers.
+
+*Cette stratégie n'est pas modélisée avec Primo et doit être configurée en tant que paramètre de profil personnalisé.*
+
+1. Sur Primo, accédez à **MDM > Profils**
+2. Sélectionnez **tous les appareils**
+3. Cliquez sur la carte : **Ajouter un paramètre MDM personnalisé**
+4. Donnez-lui un nom (c'est-à-dire Block ICMP) et une description (c'est-à-dire la description ci-dessus)
+5. Pour **macOS**, téléchargez la configuration mobile suivante
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadIdentifier</key>
+        <string>com.getprimo.cis.6EC2A11D-313F-410F-B2FA-80F1D726624A</string>
+        <key>PayloadUUID</key>
+        <string>AE317001-B5E0-4F78-B971-954506775306</string>
+        <key>PayloadDisplayName</key>
+        <string>Firewall Stealth Mode</string>
+        <key>PayloadRemovalDisallowed</key>
+        <true/>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadType</key>
+                <string>com.apple.security.firewall</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+                <key>PayloadIdentifier</key>
+                <string>com.getprimo.cis.stealth</string>
+                <key>PayloadUUID</key>
+                <string>B852FF89-DBE2-4F85-BE9C-20D180F5C859</string>
+                <key>EnableStealthMode</key>
+                <true/>
+            </dict>
+        </array>
+    </dict>
+</plist>
+```
+
+6. Enfin, **confirmez.**
+
+## Sous Windows
+
+### Chiffrement du disque
+
+*Cette politique est calquée sur Primo et fonctionne pour les appareils macOS et Windows.*
+
+Suivez les mêmes étapes que la section Chiffrement de disque macOS ci-dessus : la carte de chiffrement dans les profils s'applique aux deux plates-formes.
+
+### Politique de mot de passe et verrouillage automatique de l'écran
+
+*Cette politique est calquée sur Primo et fonctionne pour les appareils iOS, macOS et Windows.*
+
+Suivez les mêmes étapes que la section Politique de mot de passe macOS ci-dessus. Assurez-vous de configurer l'onglet **Windows** séparément.
+
+### Pare-feu intégré
+
+*Cette politique est calquée sur Primo et fonctionne pour les appareils macOS et Windows.*
+
+Suivez les mêmes étapes que la section Pare-feu intégré macOS ci-dessus : la carte Pare-feu dans les profils s'applique aux deux plates-formes.

@@ -1,0 +1,218 @@
+---
+title: "Distribuisci CrowdStrike Falcon"
+description: "Scopri come distribuire in modo efficiente l'agente CrowdStrike Falcon su dispositivi macOS e Windows seguendo i passaggi per scaricare i file di installazione, importarli in FleetDM, configurare gli script di installazione e creare policy di conformità."
+---
+
+<Warning>
+**Tipo di distribuzione: manuale**
+
+A differenza di SentinelOne, CrowdStrike Falcon richiede la **configurazione manuale** prima della distribuzione. Devi scaricare i pacchetti di installazione dalla console CrowdStrike, caricarli su FleetDM e configurare gli script di installazione con il tuo CustomerID. Non esiste un'integrazione automatica: segui attentamente i passaggi seguenti.
+</Warning>
+
+Questo articolo spiega come distribuire l'agente CrowdStrike Falcon su dispositivi macOS e Windows utilizzando FleetDM e Primo MDM. Imparerai come scaricare i pacchetti di installazione dalla console di amministrazione CrowdStrike, recuperare il tuo CustomerID, importare i pacchetti in FleetDM, configurare gli script di installazione e creare policy di conformità per entrambi i sistemi operativi.
+
+## Prerequisiti
+
+- Primo MDM correttamente configurato e funzionante
+- Accesso alla console di amministrazione CrowdStrike
+- Accesso alla tua istanza FleetDM: https://yourdomain.mdm.getprimo.com
+
+## Distribuisci l'agente CrowdStrike Falcon
+
+### Passaggio 1: scarica i file di installazione e recupera il CustomerID
+
+1. Accedi alla **Console di amministrazione CrowdStrike**.
+2. Passare a **Configurazione e gestione host > Distribuisci > Download sensori**.
+3. Scarica i seguenti file:
+   - macOS: programma di installazione .pkg
+   - Windows: programma di installazione .exe
+4. Copia il tuo **CustomerID** (noto anche come CID), che sarà necessario per attivare l'agente dopo l'installazione.
+
+### Passaggio 2: importa i file di installazione in FleetDM
+
+**2.1 Importa il pacchetto macOS**
+
+1. In FleetDM, vai su **Software > Aggiungi software > Pacchetto personalizzato**.
+2. Fai clic su **Carica pacchetto** e seleziona il file .pkg precedentemente scaricato.
+3. Fare clic su **Salva**.
+
+**2.2 Importa il pacchetto Windows**
+
+1. In FleetDM, vai su **Software > Aggiungi software > Pacchetto personalizzato**.
+2. Fai clic su **Carica pacchetto** e seleziona il file .exe scaricato in precedenza.
+3. Fare clic su **Salva**.
+
+### Passaggio 3: aggiungi i comandi di installazione con CustomerID
+
+**Script di installazione macOS 3.1**
+
+1. Nella configurazione del pacchetto macOS .pkg, individua il campo Installa script (mostra opzioni avanzate)
+2. Aggiungi la seguente riga alla fine dello script (sostituisci CustomerID con il tuo CID effettivo):
+   ```
+   /Applications/Falcon.app/Contents/Resources/falconctl license CustomerID
+   ```
+3. Fai clic su **Salva modifiche**.
+
+**3.2 Script di installazione di Windows**
+
+1. Nella configurazione del pacchetto Windows .exe, individua il campo dello script di installazione (mostra opzioni avanzate)
+2. Copia/incolla questo nello script di installazione (sostituisci CustomerID con il tuo CID effettivo):
+
+```powershell
+$exeFilePath = "${env:INSTALLER_PATH}"
+
+try {
+
+# Add argument to install silently
+# Argument to make install silent depends on installer,
+# each installer might use different argument (usually it's "/S" or "/s")
+$processOptions = @{
+  FilePath = "$exeFilePath"
+  ArgumentList = "/install /quiet /norestart CID=CustomerID"
+  PassThru = $true
+  Wait = $true
+}
+
+# Start process and track exit code
+$process = Start-Process @processOptions
+$exitCode = $process.ExitCode
+
+# Prints the exit code
+Write-Host "Install exit code: $exitCode"
+Exit $exitCode
+
+} catch {
+  Write-Host "Error: $_"
+  Exit 1
+}
+```
+
+3. Copia/incolla questo script come script di disinstallazione:
+
+```powershell
+# Fleet extracts name from installer (EXE) and saves it to PACKAGE_ID
+# variable
+$softwareName = $PACKAGE_ID
+
+# It is recommended to use exact software name here if possible to avoid
+# uninstalling unintended software.
+$softwareNameLike = "*$softwareName*"
+
+# Some uninstallers require a flag to run silently.
+# Each uninstaller might use different argument (usually it's "/S" or "/s")
+$uninstallArgs = "/S"
+
+$machineKey = `
+ 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*'
+$machineKey32on64 = `
+ 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
+
+$exitCode = 0
+
+try {
+
+[array]$uninstallKeys = Get-ChildItem `
+    -Path @($machineKey, $machineKey32on64) `
+    -ErrorAction SilentlyContinue |
+        ForEach-Object { Get-ItemProperty $_.PSPath }
+
+$foundUninstaller = $false
+foreach ($key in $uninstallKeys) {
+    # If needed, add -notlike to the comparison to exclude certain similar
+    # software
+    if ($key.DisplayName -like $softwareNameLike) {
+        $foundUninstaller = $true
+        # Get the uninstall command. Some uninstallers do not include
+        # 'QuietUninstallString' and require a flag to run silently.
+        $uninstallCommand = if ($key.QuietUninstallString) {
+            $key.QuietUninstallString
+        } else {
+            $key.UninstallString
+        }
+
+        # The uninstall command may contain command and args, like:
+        # "C:\Program Files\Software\uninstall.exe" --uninstall --silent
+        # Split the command and args
+        $splitArgs = $uninstallCommand.Split('"')
+        if ($splitArgs.Length -gt 1) {
+            if ($splitArgs.Length -eq 3) {
+                $uninstallArgs = "$( $splitArgs[2] ) $uninstallArgs".Trim()
+            } elseif ($splitArgs.Length -gt 3) {
+                Throw `
+                    "Uninstall command contains multiple quoted strings. " +
+                        "Please update the uninstall script.`n" +
+                        "Uninstall command: $uninstallCommand"
+            }
+            $uninstallCommand = $splitArgs[1]
+        }
+        Write-Host "Uninstall command: $uninstallCommand"
+        Write-Host "Uninstall args: $uninstallArgs"
+
+        $processOptions = @{
+            FilePath = $uninstallCommand
+            PassThru = $true
+            Wait = $true
+        }
+        if ($uninstallArgs -ne '') {
+            $processOptions.ArgumentList = "$uninstallArgs"
+        }
+
+        # Start process and track exit code
+        $process = Start-Process @processOptions
+        $exitCode = $process.ExitCode
+
+        # Prints the exit code
+        Write-Host "Uninstall exit code: $exitCode"
+        # Exit the loop once the software is found and uninstalled.
+        break
+    }
+}
+
+if (-not $foundUninstaller) {
+    Write-Host "Uninstaller for '$softwareName' not found."
+    # Change exit code to 0 if you don't want to fail if uninstaller is not
+    # found. This could happen if program was already uninstalled.
+    $exitCode = 1
+}
+
+} catch {
+    Write-Host "Error: $_"
+    $exitCode = 1
+}
+
+Exit $exitCode
+```
+
+4. Fai clic su **Salva modifiche**.
+
+### Passaggio 4: crea policy di conformità in FleetDM
+
+Crea due policy separate per confermare che l'agente CrowdStrike è installato sia sui dispositivi macOS che su quelli Windows.
+
+**Politica 4.1 macOS**
+
+1. In FleetDM, vai su **Politiche > Aggiungi politica**.
+2. Utilizza la seguente query:
+   ```
+   SELECT 1 FROM apps WHERE bundle_identifier = 'com.crowdstrike.falcon';
+   ```
+3. Assegna un nome alla policy: **CrowdStrike installato (macOS)**
+4. **Salva** la polizza.
+
+**4.2 Criteri di Windows**
+
+1. In FleetDM, vai su **Politiche > Aggiungi politica**.
+2. Utilizza la seguente query:
+   ```
+   SELECT 1 FROM programs WHERE name = 'Falcon';
+   ```
+3. Assegna un nome alla policy: **CrowdStrike installato (Windows)**
+4. **Salva** la polizza.
+
+### Passaggio 5: assegnare l'applicazione ai criteri di conformità
+
+1. In FleetDM, vai su **Politiche**.
+2. Clicca su **Gestisci automazioni > Software**.
+3. Seleziona le policy appena create e assegnale al Software corrispondente
+
+CrowdStrike Falcon è ora schierato.

@@ -1,0 +1,100 @@
+---
+title: "Automatisieren Sie Ihre Onboardings"
+description: "Erfahren Sie, wie Sie mit Primo den gesamten Onboarding-Prozess automatisieren – von der Mitarbeitererstellung über die Gerätebereitstellung bis zum App-Zugriff –, damit jeder neue Mitarbeiter vom ersten Tag an mit allem beginnt, was er braucht."
+---
+
+Mit Primo können Sie den gesamten Onboarding-Prozess automatisieren, sodass Ihr Team nicht jedes Mal, wenn jemand beitritt, Aufgaben manuell erledigen muss. Nach der Konfiguration werden Onboardings automatisch basierend auf den Vertragsstartdaten ausgelöst und können Gerätezuweisung, MDM-Registrierung und SaaS-App-Bereitstellung umfassen.
+
+## So funktioniert die Onboarding-Automatisierung
+
+Die Automatisierung wird durch Ihre **Mitarbeiterdaten** vorangetrieben. Wenn ein neuer Mitarbeiter erkannt wird – entweder von Ihrem HR-System oder manuell hinzugefügt – kann das System automatisch:
+
+- Erstellen Sie ihr Profil auf der Plattform
+- Lösen Sie am Startdatum einen Onboarding-Workflow aus
+- Ausrüstung zuweisen und versenden
+- Senden Sie eine MDM-Registrierungseinladung
+- Gewähren Sie Zugriff auf die Apps, die sie basierend auf ihrer Rolle oder ihrem Team benötigen
+
+Je stärker Ihr Konto verbunden ist (HR-System, MDM, SaaS), desto mehr Teile dieses Prozesses können ohne manuelle Eingriffe ausgeführt werden.
+
+## Schritt 1 – Verbinden Sie Ihr HR-System
+
+Die Grundlage der Onboarding-Automatisierung ist Ihre HR-Systemverbindung. Wenn ein HR-System angeschlossen ist, werden bevorstehende Neuzugänge automatisch anhand des Vertragsbeginns erkannt und Mitarbeiterprofile im Voraus erstellt.
+
+So verbinden Sie Ihr HR-System:
+
+1. Gehen Sie zu **Einstellungen > Mitarbeitersynchronisierung**
+2. Wählen Sie Ihren HR-Systemanbieter (Personio, Lucca, BambooHR und mehr)
+3. Befolgen Sie die Authentifizierungsschritte
+4. Konfigurieren Sie Synchronisierungsfilter und Feldzuordnungen
+5. Starten Sie die erste Synchronisierung
+
+Sobald die Verbindung hergestellt ist, wird Ihr Mitarbeiterverzeichnis stündlich synchronisiert – es sind keine manuellen Maßnahmen erforderlich.
+
+<Note>
+Wenn Sie kein HR-System nutzen, können Sie dennoch Onboarding-Abläufe auslösen, indem Sie Mitarbeiter manuell hinzufügen und ein Startdatum festlegen. Siehe [Importieren über CSV](/de/employees/import-via-csv).
+</Note>
+
+## Schritt 2 – Ausrüstung zuweisen
+
+Wenn ein neuer Mitarbeiter mit einem bevorstehenden Starttermin erscheint, können Sie die Ausrüstung direkt aus seinem Profil heraus zuweisen. Den Rest erledigt das System:
+
+- Wenn das Gerät **auf Lager** ist, kann es vorbereitet und an die Adresse des Mitarbeiters versendet werden.
+- Wenn Sie ein **neues Gerät** bestellen, kann es für die Zero-Touch-Bereitstellung konfiguriert werden – das Gerät wird vorregistriert geliefert und ist sofort einsatzbereit.
+
+Die Gerätezuweisung kann bereits bei der Erstellung des Mitarbeiterprofils erfolgen, also lange vor dem Startdatum.
+
+## Schritt 3 – Automatisieren Sie die MDM-Registrierung
+
+Sobald das Gerät eines Mitarbeiters zugewiesen ist, können Sie automatisch eine MDM-Registrierungseinladung senden. Das System wird:
+
+- Senden Sie die Anmelde-E-Mail an den Mitarbeiter
+- Erinnern Sie sie automatisch alle 7 Tage, bis der MDM-Agent installiert ist
+- Erstellen und weisen Sie das Gerät zu, sobald die Registrierung abgeschlossen ist – keine manuelle Eingabe erforderlich
+
+Um MDM-Einladungen zu versenden, gehen Sie zu **Mitarbeiter > MDM-Einladungen**.
+
+<Tip>
+Nutzen Sie Zero Touch Deployment, wenn Sie Geräte über den Beschaffungsdienst bestellen. Das Gerät wird mit vorinstalliertem MDM-Agent geliefert – Ihr Mitarbeiter schaltet es einfach ein.
+</Tip>
+
+## Schritt 4 – Bereitstellen des SaaS-App-Zugriffs
+
+Mit SaaS Management können Sie automatisch Zugriff auf Geschäftstools gewähren, basierend auf der Rolle, dem Team oder der juristischen Person jedes Mitarbeiters – sobald er an Bord ist.
+
+So richten Sie dies ein:
+
+1. Gehen Sie zu **Identität & Zugriff > App-Katalog** und verbinden Sie Ihre Anwendungen
+2. Definieren Sie Bereitstellungsregeln nach Rolle oder Team
+3. Aktivieren Sie die automatische Bereitstellung beim Onboarding
+
+Wenn das Onboarding eines neuen Mitarbeiters ausgelöst wird, wird der Zugriff auf die richtigen Apps sofort bereitgestellt – keine Tickets, keine manuellen Schritte.
+
+Der Zugriff wird auch automatisch widerrufen, wenn ein Mitarbeiter aus dem Unternehmen entlassen wird, sodass Ihre SaaS-Lizenzen sauber bleiben.
+
+## Wie ein vollautomatisches Onboarding aussieht
+
+| Wann | Was passiert automatisch |
+|---|---|
+| **Mitarbeiter zum HR-System hinzugefügt** | Profil erstellt, Onboarding eingeleitet |
+| **Zugeordnete Ausrüstung** | Das Gerät wurde für Zero Touch ausgeliefert oder vorbereitet |
+| **Starttermin rückt näher** | MDM-Registrierungseinladung gesendet |
+| **Mitarbeiter schaltet Gerät ein** | MDM-Agent installiert, Richtlinien angewendet, Apps gepusht |
+| **Onboarding ausgelöst** | SaaS-Apps werden basierend auf Rolle und Team bereitgestellt |
+
+## Anforderungen
+
+Um den gesamten Onboarding-Ablauf zu automatisieren, benötigen Sie:
+
+- Ein angeschlossenes HR-System (oder manuell hinzugefügte Mitarbeiter mit Startdatum)
+- MDM aktiviert
+- SaaS-Apps, die mit konfigurierten Bereitstellungsregeln verbunden sind
+
+Jeder Schritt ist unabhängig – Sie können so viel oder so wenig automatisieren, wie es zu Ihrem Setup passt.
+
+## Verwandte Artikel
+
+- [Ein HR-System verbinden](/de/employees/connect-hris)
+- [Importieren über CSV](/de/employees/import-via-csv)
+- [Zero Touch Deployment für Macs](/de/mdm/ZXPROTECT0ZX/ZXPROTECT1ZX-macs)
+- [Lizenzbereitstellung](/de/saas/licence-provisioning)

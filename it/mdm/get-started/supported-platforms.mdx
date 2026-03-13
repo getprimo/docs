@@ -1,0 +1,52 @@
+---
+title: "Supporto della piattaforma"
+description: "Le piattaforme supportate per Primo includono vari sistemi operativi come macOS, Windows (Home e Pro), Linux, ChromeOS, iOS e Android, descrivendo in dettaglio funzionalità specifiche come registrazione, crittografia dei dati e installazione di applicazioni, insieme alle rispettive versioni supportate."
+---
+
+## Panoramica del sistema operativo della piattaforma supportata
+
+Ecco un riepilogo delle piattaforme supportate e delle diverse cose che puoi fare con ciascuna piattaforma:
+
+|                                                                           | **macOS** | **Windows Pro** | **ARM di Windows** | **WindowsHome** | **Linux** | **ChromeOS** | **iOS**                | **Android** |
+| ------------------------------------------------------------------------- | --------- | --------------- | --------------- | ---------------- | --------- | ------------ | ---------------------- | ----------- |
+| **Iscriviti** e **leggi informazioni e dati**                              | ✅         | ✅               | ✅               | ✅                | ✅         | ✅            | ✅                      | ✅           |
+| **Interroga** i tuoi dispositivi                                                    | ✅         | ✅               | ✅               | ✅                | ✅         | ✅            | N/D                    | N/D         |
+| Esegui **script**                                                           | ✅         | ✅               | ✅               | ❌                | ✅         | N/D          | N/D                    | ✅           |
+| Installa **applicazioni**                                                  | ✅         | ✅               | 💬 (4)          | ❌                | ✅         | 💬 (1)       | ✅                      | ✅           |
+| Applica **Impostazioni sistema operativo** (pianificazione aggiornamenti, Wi-Fi, blocco schermo, stampanti ecc.) | ✅         | ✅               | ✅               | ❌                | ❌         | 💬 (1)       | ✅                      | ✅           |
+| **Crittografare** i dati                                                          | ✅         | ✅               | ✅               | ❌                | ❌ (3)     | 💬 (1)       | ✅                      | ❌           |
+| **Blocca** e **cancella** da remoto                                                | ✅         | ✅               | ✅               | ❌                | ✅         | 💬 (1)       | Blocco: N/D<br />Cancella: ✅ | ❌           |
+
+### Note
+
+1. **ChromeOS**: anche se puoi registrare dispositivi ChromeOS, il controllo di questi dispositivi (sia in termini di distribuzione delle applicazioni che di impostazioni del sistema operativo) viene effettuato nella Console di amministrazione Google. Per maggiori dettagli, contattare l'assistenza.
+2. **Linux:** i dispositivi Linux sono difficili da crittografare, poiché a volte può essere necessario pulire il disco rigido e configurare un sistema operativo da zero. Tuttavia, con Primo, puoi comunque centralizzare la segnalazione su quali dispositivi sono crittografati o meno, o non aggiornati, ecc.
+3. Ecco le **distribuzioni Linux** che supportiamo:
+   - ✅Ubuntu 20.04+
+   - ✅ Debian 11+
+   - ✅ CentOS 7.1+
+   - ✅Fedora38+
+   - ✅AmazonLinux 2+
+   - ✅ Red Hat Enterprise Linux (RHEL) 7+
+   - ✅ openSUSE 15.6+
+   - ✅ArchLinux
+   - ✅ Omarchia
+   - ❌ Alpino (formato APK)
+4. FleetDM preferisce le versioni x86 a 64 bit delle applicazioni quando disponibili. L'installazione su host Arm (ad esempio in una VM su una macchina Apple Silicon) potrebbe non funzionare o avere altre conseguenze indesiderate.
+
+### Documentazione FleetDM
+
+Per la documentazione aggiornata sui sistemi supportati, [controlla queste risorse](https://fleetdm.com/docs/get-started/faq#what-host-operating-systems-does-fleet-support).
+
+## Panoramica delle versioni della piattaforma supportate
+
+| **Sistema operativo**         | **Versioni supportate**                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| **macOS**      | 14+ (Sonoma)                                                                                            |
+| **Finestre**    | Pro ed Enterprise 10+, Server 2012+                                                                    |
+| **Linux**      | CentOS 7.1+, Ubuntu 20.04+, Fedora 38+, Amazon Linux 2+, Debian 11+, Red Hat Enterprise Linux (RHEL) 7+ |
+| **ChromeOS**   | 112.0.5615.134+                                                                                         |
+| **iOS/iPadOS** | 17+                                                                                                     |
+| **Android**    | 13+                                                                                                     |
+
+Sebbene Fleet possa ancora funzionare parzialmente o completamente con versioni del sistema operativo precedenti a quelle sopra indicate, Fleet non esegue test attivi con versioni non supportate e non persegue bug su di esse.

@@ -1,0 +1,118 @@
+---
+title: "Apps bereitstellen (iOS, iPadOS und Android)"
+description: "Stellen Sie Anwendungen auf iOS-, iPadOS- und Android-Geräten direkt über Primo MDM > Software bereit und verwalten Sie sie – über Apple VPP oder den Google Play Store."
+---
+
+Über **MDM > Software** können Sie Apps auf Ihren verwalteten iOS-, iPadOS- und Android-Geräten bereitstellen. Primo unterstützt:
+
+- **Apple App Store (iOS/iPadOS)** – Apps, die über das Volume Purchase Program (VPP) von Apple gekauft wurden
+- **Google Play Store** – Apps, die über Android Enterprise (verwaltetes Google Play) vertrieben werden
+
+<Note>
+Informationen zur App-Bereitstellung für macOS, Windows und Linux finden Sie unter [Apps bereitstellen (macOS, Windows, Linux)](/de/mdm/policies/manage-apps-laptop).
+</Note>
+
+---
+
+## Bereitstellungsoptionen
+
+Beim Hinzufügen einer mobilen App können Sie die folgenden Optionen konfigurieren:
+
+### Automatisch installieren
+Wenn die App aktiviert ist, wird sie automatisch auf alle passenden Geräte übertragen. Wenn diese Option nicht aktiviert ist, wird die App nur installiert, wenn Sie die Installation manuell auf einem bestimmten Gerät auslösen.
+
+### Bereitstellung per Self-Service
+Wenn die App aktiviert ist, erscheint sie im **Self-Service**-Portal, auf das Mitarbeiter über den Fleet-Agenten (oder das verwaltete Arbeitsprofil auf Android) zugreifen können. Mitarbeiter können es bei Bedarf selbst installieren.
+
+### Installation während Zero Touch
+Wenn die App aktiviert ist, wird sie als Teil des Zero Touch Deployment-Ablaufs installiert, sodass sie vorhanden ist, bevor der Mitarbeiter das Gerät zum ersten Mal verwendet.
+
+<Warning>
+Die Aktivierung von **Installation während Zero Touch** kann die Bereitstellungszeit verlängern. Reservieren Sie dies für Apps, die vor der ersten Verwendung wirklich benötigt werden.
+</Warning>
+
+---
+
+## App-Patching
+
+Für iOS/iPadOS VPP-Apps bietet Primo die Umschaltmöglichkeit **App auf allen Geräten aktualisieren**:
+
+| Umschalten | Was es bewirkt |
+|--------|--------------|
+| **App auf allen Geräten aktualisieren** | Aktualisiert die App automatisch auf jedem Gerät, auf dem die installierte Version älter als die aktuelle App Store-Version ist |
+
+<Note>
+Für Google Play Store-Apps werden Updates automatisch von Google Play auf registrierten Geräten verwaltet.
+</Note>
+
+---
+
+## Eine Apple App Store-App hinzufügen (iOS / iPadOS VPP)
+
+<Note>
+**Voraussetzung**: Sie müssen über ein Apple Business Manager (ABM)-Konto mit eingerichtetem VPP verfügen. Anweisungen zur Einrichtung finden Sie unter [VPP-Anwendungen bereitstellen](/de/mdm/policies/deploy-vpp-applications)).
+</Note>
+
+Im ABM:
+1. Gehen Sie zu **Apps und Bücher** und fügen Sie die App Ihrem ABM-Konto hinzu.
+2. Stellen Sie sicher, dass dem entsprechenden Standort eine ausreichende Anzahl von Lizenzen zugewiesen ist.
+
+In Primo:
+1. Gehen Sie zu **MDM > Software** und klicken Sie auf **App hinzufügen**.
+2. Wählen Sie **App Store (VPP)** und wählen Sie **iOS / iPadOS**.
+3. Durchsuchen oder suchen Sie nach der App.
+4. Konfigurieren Sie Bereitstellungsoptionen: **Automatisch installieren**, **Self-Service** und/oder **Zero Touch**.
+5. Aktivieren Sie **App auf allen Geräten aktualisieren**, wenn Sie automatische Updates wünschen.
+6. Klicken Sie auf **Software hinzufügen**.
+
+<Note>
+Das Quellinstallationsprogramm stammt immer aus dem Apple App Store – die Option **Quellinstallationsprogramm auf dem neuesten Stand halten** ist nicht anwendbar.
+</Note>
+
+**[Migrationshinweis]**: Wenn Sie von einem anderen MDM migrieren, müssen Sie den VPP-Link von Ihrem vorherigen MDM entfernen, nachdem Sie Ihre Apps hinzugefügt haben. Dadurch werden möglicherweise VPP-verwaltete Apps vorübergehend von Geräten entfernt. Sie werden automatisch erneut bereitgestellt, sobald der neue Link aktiv ist. Teilen Sie nicht dasselbe VPP-Token zwischen zwei MDMs.
+
+---
+
+## Eine Google Play Store-App hinzufügen (Android)
+
+<Note>
+**Voraussetzung**: Android Enterprise muss konfiguriert sein. Stellen Sie sicher, dass Ihre Android-Geräte über Android Enterprise registriert sind (verwaltetes Arbeitsprofil oder vollständig verwaltet).
+</Note>
+
+1. Gehen Sie zu **MDM > Software** und klicken Sie auf **App hinzufügen**.
+2. Wählen Sie **Google Play Store**.
+3. Suchen Sie im verwalteten Google Play-Katalog nach der App.
+4. Konfigurieren Sie Bereitstellungsoptionen: **Automatisch installieren**, **Self-Service** und/oder **Zero Touch**.
+5. Klicken Sie auf **Software hinzufügen**.
+
+<Note>
+Über Managed Google Play werden nur **kostenlose** Apps unterstützt. Bezahlte Apps sind für die Unternehmensverteilung über diesen Mechanismus nicht verfügbar.
+
+App-Updates werden auf registrierten Geräten automatisch von Google Play durchgeführt.
+</Note>
+
+---
+
+## Übersicht über die Fähigkeiten
+
+| Fähigkeit | iOS/iPadOS App Store (VPP) | Google Play Store |
+|---|:---:|:---:|
+| Automatisch installieren | ✅ | ✅ |
+| Selbstbedienung | ✅ | ✅ |
+| Null Berührung | ✅ | ✅ |
+| Quellinstallationsprogramm beibehalten | Immer im App Store | Immer von Google Play |
+| Automatische Aktualisierung | ✅ | ✅ |
+
+---
+
+## Entfernen Sie eine App
+
+### Deaktivieren Sie die automatische Installation
+
+Gehen Sie zu **MDM > Software**, suchen Sie die App und deaktivieren Sie **Automatisch installieren**. Dadurch werden zukünftige automatische Installationen gestoppt, die App wird jedoch nicht von Geräten entfernt, auf denen sie bereits installiert ist.
+
+### Von einem bestimmten Gerät deinstallieren
+
+1. Gehen Sie zu **MDM > Geräte** und öffnen Sie das Gerät.
+2. Öffnen Sie die Registerkarte **Software**.
+3. Suchen Sie die App und klicken Sie auf **Deinstallieren**.

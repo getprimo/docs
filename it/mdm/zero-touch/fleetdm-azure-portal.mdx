@@ -1,0 +1,73 @@
+---
+title: "Creare e autorizzare l'applicazione FleetDM nel portale di Azure"
+description: "Per passare da Intune a FleetDM come soluzione MDM, seguire i passaggi per dichiarare il dominio FleetDM, creare l'applicazione Fleet con le autorizzazioni necessarie e impostare FleetDM come MDM predefinito per i nuovi dispositivi nel portale di Azure."
+---
+
+<Tip>
+[Trova qui tutte le informazioni](/it/mdm/ZXPROTECT0ZX/ZXPROTECT1ZX-windows) relativo a Windows Autopilot e Zero-Touch Deployment su Windows con Primo.
+</Tip>
+
+Se attualmente utilizzi Intune come soluzione MDM per gestire la tua infrastruttura IT e prevedi di passare a FleetDM (MDM di Primo), dovrai eseguire una serie di operazioni nella console di Microsoft Azure con diritti amministrativi per:
+
+- declare the domain used by FleetDM as legitimate with Azure (e.g. [`{company}.mdm.getprimo.com`](https://primo.mdm.getprimo.com/api/mdm/microsoft/tos))
+- creare l'applicazione Fleet e concederle le autorizzazioni necessarie per agire come MDM
+- configurare Azure per gestire nuovi dispositivi tramite FleetDM anziché Intune
+
+## 1. Dichiarazione del dominio FleetDM
+
+- Accedi con un account amministratore all'indirizzo: [Microsoft Azure](https://portal.azure.com/)
+- Cerca e fai clic su [**Nomi di dominio**](https://portal.azure.com/#view/Microsoft_AAD_IAM/DomainsList.ReactView)
+- Fai clic su **+ Aggiungi dominio personalizzato**
+- In the field, enter **{company}.mdm.getprimo.com** (i.e. **acme.mdm.getprimo.com**, [contact support](mailto:support@getprimo.com?subject=Know%20the%20domain%20of%20our%20FleetDM%20instance) ([support@getprimo.com](mailto:support@getprimo.com)) if you don't know this domain name)
+- Condividi con noi il valore del campo **Destinazione o indirizzo di routing** (nel formato `MS=ms12345678`)
+- Attendi la nostra risposta (massimo 2 giorni lavorativi) prima di proseguire con la procedura
+- È quindi possibile fare clic su **Verifica**
+
+## 2. Creazione dell'applicazione FleetDM
+
+- Accedi con un account amministratore all'indirizzo: [Microsoft Azure](https://portal.azure.com/)
+- Cerca [**Mobilità (MDM e MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
+- Scegli **+ Aggiungi applicazione**, quindi seleziona **+ Crea la tua applicazione**
+- Inserisci **Fleet** come nome dell'applicazione e fai clic su **Crea**
+- Compila:
+  - MDM terms of use URL: `https://{company}.mdm.getprimo.com/api/mdm/microsoft/tos`
+  - MDM discovery URL: `https://{company}.mdm.getprimo.com/api/mdm/microsoft/discovery`
+- Fai clic su **Salva**
+- Torna a [**Mobilità (MDM e MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
+- Fare clic sull'applicazione **Fleet** quindi su **Impostazioni personalizzate dell'applicazione MDM**
+- Fai clic sul collegamento sottostante **URI ID applicazione**, quindi fai clic su **Modifica**
+- Enter your **Fleet** instance address ([`https://{company}.mdm.getprimo.com`](https://primo.mdm.getprimo.com/api/mdm/microsoft/tos)) and click **Save**
+- Scegli **Autorizzazioni API** quindi **Aggiungi un'autorizzazione**
+- Fai clic su **Microsoft Graph**, quindi su **Autorizzazioni delegate** e seleziona:
+  - **Gruppo > Raggruppa.Leggi.Tutto**
+  - **Gruppo > Gruppo.ReadWrite.All**
+  - e fai clic su **Aggiungi autorizzazioni**
+- Quindi torna alle **Autorizzazioni API** e **Aggiungi un'autorizzazione**, quindi scegli nuovamente **Microsoft Graph**
+- Questa volta, fai clic su **Autorizzazioni applicazione** e aggiungi le seguenti autorizzazioni:
+  - **Dispositivo > Dispositivo.Leggi.Tutto**
+  - **Dispositivo > Device.ReadWrite.All**
+  - **Directory > Directory.Leggi.Tutto**
+  - **Gruppo > Raggruppa.Leggi.Tutto**
+  - **Utente > Utente.Leggi.Tutto**
+  - e fai clic su **Aggiungi autorizzazioni**
+- Una volta tornato alla schermata delle autorizzazioni API, fai clic su **Concedi il consenso amministratore per ACME**
+
+L'applicazione Fleet è ora registrata come MDM legittima nel portale di Azure.
+
+## 3. Impostazione di FleetDM come MDM predefinito per i nuovi dispositivi
+
+- Accedi con un account amministratore all'indirizzo: [Microsoft Azure](https://portal.azure.com/)
+- Vai a [**Mobilità (MDM e MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
+- Fare clic su **Microsoft Intune**
+- Nell'**ambito utente MDM**, seleziona **Nessuno**
+- In **Ambito utente MAM**, seleziona **Nessuno**
+- Fai clic su **Salva**
+- Vai a [**Mobilità (MDM e MAM)**](https://portal.azure.com/#view/Microsoft_AAD_IAM/MdmAppsListBlade)
+- Fare clic su **Fleet**
+- Nell'**ambito utente MDM**, seleziona **Tutto**
+- In **Ambito utente MAM**, seleziona **Tutto**
+- Fai clic su **Salva**
+
+L'applicazione Fleet è ora impostata come MDM che gestirà i nuovi dispositivi nel portale di Azure.
+
+**Nota**: se hai iniziato a registrare i dispositivi prima di eseguire questi passaggi, faccelo sapere in modo da poter forzare la modifica di MDM da Intune a FleetDM eseguendo uno script (altrimenti la macchina si troverà in uno stato incoerente che potrebbe influire sull'esperienza).

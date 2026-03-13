@@ -1,0 +1,47 @@
+---
+title: "Administrar aplicaciones rastreadas"
+description: "Las aplicaciones rastreadas permiten el registro y monitoreo manual de las cuentas de los empleados, con propietarios designados responsables de administrar los cambios en las cuentas durante los procesos de incorporación o baja, asegurando un seguimiento centralizado y actualizado de la información de la cuenta."
+---
+
+Las aplicaciones rastreadas son aplicaciones SaaS que no están conectadas para el aprovisionamiento. Conectarlos permite a los administradores registrar y monitorear manualmente las cuentas de los empleados. Esto garantiza una visibilidad completa y un seguimiento centralizado de la información de la cuenta para cada cuenta, incluso cuando no se puede aprovisionar el SaaS.
+
+## Asignar un propietario a una aplicación rastreada
+
+- Cada aplicación rastreada puede tener un **propietario**.
+- El propietario suele ser la persona con una cuenta de administrador en esta aplicación conectada.
+- El propietario es responsable de completar las tareas relacionadas con la cuenta.
+
+## Solicitar cambios de cuenta en aplicaciones rastreadas
+
+Sólo los administradores pueden solicitar cambios de cuenta para las aplicaciones rastreadas.
+
+Estas solicitudes se pueden iniciar de dos formas:
+
+- Durante el **proceso de incorporación o baja** de un empleado
+- Directamente desde el **perfil del empleado**
+
+Una vez enviada una solicitud:
+
+1. Primo notifica al propietario de la aplicación.
+2. El propietario recibe una **tarea** para completar (crear, modificar o eliminar la cuenta en la aplicación conectada).
+3. Después de completar la acción en la aplicación conectada, el propietario confirma la tarea.
+4. La confirmación actualiza la información de la cuenta, manteniendo el seguimiento actualizado.
+
+### Cómo se agrupan las tareas
+
+Al aprovisionar o dar de baja varias aplicaciones para el mismo empleado (por ejemplo, durante la incorporación o baja), las tareas relacionadas se agrupan en un único ticket:
+
+- **Solicitud única**: se crea un ticket con un título como "Crear cuenta para John Doe en Slack".
+- **Múltiples aplicaciones**: se crea un ticket con un título como "Crear cuentas para John Doe", que contiene varias tareas, una por aplicación.
+
+Esta agrupación reduce el ruido de las notificaciones y ayuda a los propietarios de aplicaciones a gestionar las tareas relacionadas de manera eficiente.
+
+<Note>
+### Tipos de tareas disponibles
+
+Se pueden crear tareas para realizar un seguimiento de las siguientes acciones:
+
+- **Crear** una cuenta
+- **Modificar** una cuenta
+- **Eliminar** una cuenta
+</Note>

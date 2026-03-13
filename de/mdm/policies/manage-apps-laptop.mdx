@@ -1,0 +1,126 @@
+---
+title: "Apps bereitstellen (macOS, Windows, Linux)"
+description: "Stellen Sie Anwendungen auf macOS-, Windows- und Linux-Geräten direkt über Primo MDM > Software bereit und verwalten Sie sie – einschließlich von Fleet verwalteter Apps, Apple App Store (VPP)-Apps und benutzerdefinierter Apps."
+---
+
+Über **MDM > Software** können Sie Apps auf Ihren verwalteten macOS-, Windows- und Linux-Geräten bereitstellen, ohne Primo jemals verlassen zu müssen. Primo unterstützt vier Arten von Apps:
+
+- **Fleet-Maintained Apps (FMA)** – ein kuratierter Katalog beliebter Apps, die von Fleet gepflegt und aktualisiert werden
+- **Apple App Store (macOS)** – macOS-Apps, die über das Volume Purchase Program (VPP) von Apple gekauft wurden
+- **Benutzerdefinierte Apps** – Ihre eigenen `.pkg`-, `.msi`-, `.deb`- oder `.rpm`-Pakete
+
+<Note>
+Informationen zur Bereitstellung von iOS/iPadOS- und Android-Apps finden Sie unter [Apps bereitstellen (iOS und Android)](/de/mdm/policies/manage-apps-smartphone).
+</Note>
+
+---
+
+## Bereitstellungsoptionen
+
+Beim Hinzufügen einer App können Sie die folgenden Optionen konfigurieren:
+
+### Automatisch installieren
+Wenn die App aktiviert ist, wird sie automatisch auf alle passenden Geräte übertragen. Wenn diese Option nicht aktiviert ist, wird die App nur installiert, wenn Sie die Installation manuell auf einem bestimmten Gerät auslösen.
+
+### Bereitstellung per Self-Service
+Wenn die App aktiviert ist, erscheint sie im **Self-Service**-Portal, auf das Mitarbeiter über den Fleet-Agenten zugreifen können. Mitarbeiter können es bei Bedarf selbst installieren.
+
+### Installation während Zero Touch
+Wenn die App aktiviert ist, wird sie als Teil des Zero-Touch-Bereitstellungsablaufs installiert. Dadurch wird sichergestellt, dass Kern-Apps vorhanden sind, bevor das Gerät dem Mitarbeiter übergeben wird.
+
+<Warning>
+Die Aktivierung von **Installation während Zero Touch** kann die Bereitstellungszeit verlängern. Reservieren Sie dies für Apps, die vor der ersten Verwendung wirklich benötigt werden.
+</Warning>
+
+---
+
+## App-Patching
+
+Für berechtigte App-Typen bietet Primo zwei automatische Update-Schalter:
+
+| Umschalten | Was es bewirkt |
+|--------|--------------|
+| **Quellinstallationsprogramm auf dem neuesten Stand halten** | Prüft einmal täglich, ob eine neuere Version des Installationsprogramms verfügbar ist, und ersetzt diese automatisch |
+| **App auf allen Geräten aktualisieren** | Aktualisiert die App automatisch auf jedem Gerät, auf dem die installierte Version älter als das aktuelle Installationsprogramm ist |
+
+---
+
+## Fügen Sie eine von Fleet verwaltete App (FMA) hinzu.
+
+Fleet-Maintained Apps sind eine kuratierte Bibliothek beliebter Software (z. B. Chrome, Zoom, Slack), die Fleet auf dem neuesten Stand hält.
+
+1. Gehen Sie zu **MDM > Software** und klicken Sie auf **App hinzufügen**.
+2. Wählen Sie **Fleet-Maintained App**.
+3. Wählen Sie die App aus der Liste aus.
+4. Konfigurieren Sie Bereitstellungsoptionen: **Automatisch installieren**, **Self-Service** und/oder **Zero Touch**.
+5. Aktivieren Sie die Patch-Umschaltung nach Bedarf.
+6. Klicken Sie auf **Software hinzufügen**.
+
+---
+
+## Eine Apple App Store-App hinzufügen (macOS VPP)
+
+<Note>
+**Voraussetzung**: Sie müssen über ein Apple Business Manager (ABM)-Konto mit eingerichtetem VPP verfügen. Anweisungen zur Einrichtung finden Sie unter [VPP-Anwendungen bereitstellen](/de/mdm/policies/deploy-vpp-applications)).
+</Note>
+
+1. Gehen Sie zu **MDM > Software** und klicken Sie auf **App hinzufügen**.
+2. Wählen Sie **App Store (VPP)**.
+3. Durchsuchen oder suchen Sie nach der macOS-App.
+4. Konfigurieren Sie Bereitstellungsoptionen: **Automatisch installieren**, **Self-Service** und/oder **Zero Touch**.
+5. Klicken Sie auf **Software hinzufügen**.
+
+<Note>
+Das Quellinstallationsprogramm wird immer direkt aus dem Apple App Store bezogen – die Option **Quellinstallationsprogramm auf dem neuesten Stand halten** ist nicht anwendbar. Die automatische Aktualisierung ist für macOS VPP-Apps nicht verfügbar.
+</Note>
+
+---
+
+## Fügen Sie eine benutzerdefinierte App hinzu
+
+Benutzerdefinierte Apps sind Pakete, die Sie selbst hochladen (`.pkg` für macOS, `.msi` für Windows, `.deb`/`.rpm` für Linux).
+
+1. Gehen Sie zu **MDM > Software** und klicken Sie auf **App hinzufügen**.
+2. Wählen Sie **Benutzerdefinierte App**.
+3. Laden Sie Ihre Paketdatei hoch.
+4. Konfigurieren Sie Bereitstellungsoptionen: **Automatisch installieren**, **Self-Service** und/oder **Zero Touch**.
+5. Klicken Sie auf **Software hinzufügen**.
+
+<Warning>
+**Die Unterstützung der automatischen Installation variiert je nach Dateityp.** Die folgenden Typen unterstützen die Option **Automatisch installieren** nicht:
+- `.exe` (Windows)
+- `.sh` (Linux)
+- `.ps1` (Windows PowerShell)
+
+Verwenden Sie `.msi` für Windows und `.pkg` für macOS, um die automatische Bereitstellung zu aktivieren.
+</Warning>
+
+<Note>
+Das automatische Update für benutzerdefinierte Apps ist **bald verfügbar**. Der Schalter **Quellinstallationsprogramm auf dem neuesten Stand halten** ist für benutzerdefinierte Apps nicht verfügbar.
+</Note>
+
+---
+
+## Übersicht über die Fähigkeiten
+
+| Fähigkeit | Fleet-Verwaltete Apps | macOS App Store (VPP) | Benutzerdefinierte Apps |
+|---|:---:|:---:|:---:|
+| Automatisch installieren | ✅ | ✅ | ✅ |
+| Selbstbedienung | ✅ | ✅ | ✅ |
+| Null Berührung | ✅ | ✅ | ✅ |
+| Quellinstallationsprogramm beibehalten | ✅ | Immer im App Store | ❌ |
+| Automatische Aktualisierung | ✅ | ❌ | Kommt bald |
+
+---
+
+## Entfernen Sie eine App
+
+### Deaktivieren Sie die automatische Installation
+
+Gehen Sie zu **MDM > Software**, suchen Sie die App und deaktivieren Sie **Automatisch installieren**. Dadurch werden zukünftige automatische Installationen gestoppt, die App wird jedoch nicht von Geräten entfernt, auf denen sie bereits installiert ist.
+
+### Von einem bestimmten Gerät deinstallieren
+
+1. Gehen Sie zu **MDM > Geräte** und öffnen Sie das Gerät.
+2. Öffnen Sie die Registerkarte **Software**.
+3. Suchen Sie die App und klicken Sie auf **Deinstallieren**.

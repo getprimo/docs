@@ -1,0 +1,126 @@
+---
+title: 'Resolve "incorrect password" issues'
+description: "Pour résoudre un problème de connexion lié au mot de passe, vérifiez la saisie du mot de passe de l'utilisateur et la disposition du clavier, vérifiez la politique de mot de passe appliquée et choisissez l'option de récupération appropriée tout en mettant en œuvre des mesures préventives pour les incidents futurs."
+---
+
+Cet article explique comment identifier la cause d'un problème de connexion lié à un mot de passe, résoudre la situation (à distance ou localement) et prévenir de futurs incidents.
+
+## Identifier les causes courantes
+
+Les problèmes de connexion peuvent être causés par :
+
+- **Un mot de passe oublié** après une période d'inactivité ou un changement récent.
+- **Une erreur de frappe liée à la disposition du clavier** (par exemple, passage de AZERTY à QWERTY).
+- **Un changement dans les politiques de sécurité** (exigences de complexité, de durée ou de rotation).
+- **Un problème SecureToken sur macOS** : certaines invites de mot de passe sur l'écran de connexion demandent en fait un **compte compatible SecureToken**, et non le mot de passe de connexion habituel de l'utilisateur.
+
+## Diagnostiquer et sécuriser
+
+## Évitez les tentatives de connexion répétées
+
+**Important :** Demandez à l'utilisateur de ne pas tenter plusieurs connexions incorrectes.
+
+Sur macOS, plusieurs tentatives infructueuses peuvent déclencher **Recovery OS**, rendant la récupération de mot de passe plus complexe.
+
+## Vérifier la saisie du mot de passe avec l'utilisateur
+
+1. Demander à l'utilisateur de **taper le mot de passe dans un champ visible** (par exemple « Nom d'utilisateur ») pour vérifier les caractères saisis.
+2. **Vérifiez la disposition du clavier** et la langue de saisie :
+   - **macOS :** Paramètres système → Langue et région → Méthode de saisie
+   - **Windows :** Paramètres → Heure et langue → Langue et région
+
+## Vérifiez la politique de mot de passe appliquée
+
+Les administrateurs peuvent définir des **politiques de sécurité** (complexité, fréquence de renouvellement, rotation, etc.).
+
+Dans Primo, accédez à **Paramètres → Sécurité → Politiques de mot de passe** et confirmez la règle appliquée à l'appareil de l'utilisateur. Une politique récente a peut-être nécessité un changement de mot de passe.
+
+## Vérifier l'état de SecureToken (macOS uniquement)
+
+Sur macOS, certaines invites de connexion – en particulier lors du déverrouillage de FileVault, à l'aide de fonctionnalités de niveau administrateur ou après un changement de politique – demandent en fait un compte compatible **SecureToken**, et non le mot de passe de connexion habituel.
+
+Un utilisateur peut avoir le mot de passe correct mais être quand même bloqué si son compte ne possède pas de SecureToken ou s'il est invité à indiquer un autre compte (administrateur) contenant le jeton.
+
+**Pour vérifier l'état du SecureToken sur l'appareil :**
+
+1. Ouvrez **Terminal** sur Mac.
+2. Courir:
+
+   ```sh
+   sysadminctl -secureTokenStatus <username>
+   ```
+3. La sortie affichera `SecureToken is ENABLED` ou `SecureToken is DISABLED` pour cet utilisateur.
+
+**Si SecureToken est désactivé :**
+
+- Un utilisateur administrateur avec SecureToken peut l'accorder à un autre utilisateur :
+
+  ```sh
+  sysadminctl -secureTokenOn <target_username> -password <target_password> -adminUser <admin_username> -adminPassword <admin_password>
+  ```
+- Vous pouvez également utiliser **MDM → Profils → Gestion des utilisateurs administrateur** pour vous assurer qu'un compte administrateur d'amorçage avec SecureToken existe sur tous les appareils.
+
+<Note>
+  SecureToken est requis pour le déverrouillage de FileVault et pour accorder à d'autres utilisateurs l'autorisation de déverrouiller des volumes chiffrés. Si un utilisateur ne peut pas déverrouiller FileVault même avec le mot de passe correct, SecureToken est la cause la plus probable.
+</Note>
+
+## Réinitialiser le mot de passe
+
+Choisissez l'option appropriée en fonction de l'état de l'appareil.
+
+## Option 1 — Renouveler le mot de passe à distance depuis Primo
+
+**Exigences:**
+
+- Vous êtes administrateur de votre espace entreprise.
+- L'appareil est inscrit dans le MDM.
+- L'appareil est allumé et connecté à Internet (en ligne).
+- Une session administrateur existe sur l'appareil.
+
+## Option 2 — Utiliser le compte Apple ou Microsoft lié
+
+Si un compte est lié à l'appareil, suivez la procédure du fournisseur :
+
+- **macOS :** Connectez-vous avec le compte iCloud (voir le [Guide Apple](https://support.apple.com/en-us/guide/mac-help/mchlp1550/mac))
+- **Windows :** Connectez-vous avec le compte Microsoft (voir le [Guide Microsoft](https://support.microsoft.com/en-us/account-billing/what-to-do-if-you-forgot-your-microsoft-account-password-4ef4b1c3-5f47-4639-8003-689e92d8c0a3))
+
+## Option 3 — Déverrouiller avec la clé de récupération (FileVault / BitLocker)
+
+**Exigences:**
+
+- L'appareil est inscrit dans le MDM.
+- L'appareil n'est pas connecté à Internet ou ne communique pas avec le MDM.
+- Le cryptage est activé (FileVault sur macOS / BitLocker sur Windows).
+- La clé de récupération est synchronisée.
+
+**Actes:**
+
+1. Récupérez la clé de récupération à partir de l'enregistrement de l'appareil dans **Primo → Informations → Clé de récupération**.
+2. Déverrouillez la session localement à l'aide de cette clé.
+3. Définissez un nouveau mot de passe.
+
+## Option 4 — Réinitialiser complètement l'appareil
+
+Si aucune des options précédentes ne fonctionne, la seule solution consiste à **réinitialiser complètement l'appareil**.
+
+**Attention :** ce processus effacera toutes les données locales.
+
+## Prévenir de futurs incidents
+
+Pour éviter de futurs problèmes de connexion liés au mot de passe, mettez en œuvre les actions suivantes :
+
+- **Activez le cryptage de l'appareil** et assurez-vous que chaque clé de récupération est correctement stockée.
+- **Créez automatiquement une session administrateur** sur les appareils via MDM → Profils → **Gestion des utilisateurs administrateur**.
+- **Planifiez et communiquez les changements de politique de sécurité** à vos équipes (date d'entrée en vigueur, exigences de complexité).
+- **Informez les utilisateurs** avant tout renouvellement global de mot de passe.
+
+## Résumé
+
+Si un utilisateur rencontre un problème de connexion lié au mot de passe :
+
+1. Vérifiez la saisie du mot de passe et la disposition du clavier.
+2. Vérifiez la politique de mot de passe appliquée.
+3. Choisissez la bonne option : **renouvellement à distance**, **clé de récupération** ou **compte associé**.
+4. Mettre en œuvre des **mesures préventives** (chiffrement, session d'administration, communication des politiques).
+
+Le problème de connexion lié au mot de passe est désormais résolu.
