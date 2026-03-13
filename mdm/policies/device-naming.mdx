@@ -1,0 +1,54 @@
+---
+title: "Device naming"
+description: "Use AI to automatically generate and enforce consistent, up-to-date device names across your macOS, Windows, and Linux fleet based on employee and device attributes."
+---
+
+Enforce a consistent naming convention across your fleet without manually renaming each device. Primo uses AI to generate device names based on attributes such as the assigned employee's name, department, or device serial number, and keeps names up to date automatically when those attributes change.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | | |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select your target OS tab and choose **Device naming**.
+3. Define your naming template using available variables, for example:
+   - `{firstName}-{lastName}-{serialNumber}`
+   - `{department}-{deviceType}-{serialNumber}`
+4. Preview the generated names with sample data.
+5. Save and apply the control to the relevant device group.
+
+<Tip>
+Keep names under 15 characters if you need compatibility with older network systems that enforce NetBIOS name length limits — this is especially relevant for Windows devices.
+</Tip>
+
+## Available variables
+
+| Variable | Description |
+|----------|-------------|
+| `{firstName}` | Employee's first name |
+| `{lastName}` | Employee's last name |
+| `{email}` | Employee's email address |
+| `{department}` | Employee's department |
+| `{serialNumber}` | Device serial number |
+| `{deviceType}` | Device type (e.g. MacBook, Surface) |
+
+## How it works
+
+When a device is enrolled or the assigned employee changes, Primo evaluates the naming template and pushes the new hostname to the device via MDM. The device name is updated silently in the background — no user interaction or restart is required.
+
+Names are re-evaluated automatically whenever the underlying attributes change, ensuring your inventory always reflects the current state.
+
+## Troubleshooting
+
+**The device name was not updated after an employee change**
+- Allow a few minutes for the MDM command to reach the device.
+- Confirm the device is online and enrolled.
+- Check that the employee assignment is correctly set in the device panel.
+
+**The name contains unexpected characters**
+- Some characters (spaces, accents, special symbols) are not valid in hostnames and are stripped or replaced automatically.
+- Review the generated preview before saving the control to catch any unexpected output.

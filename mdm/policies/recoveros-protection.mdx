@@ -1,0 +1,46 @@
+---
+title: "recoveryOS protection"
+description: "Configure recoveryOS settings on macOS devices to prevent unauthorized access to recovery tools and protect against offline attacks."
+---
+
+macOS recoveryOS provides powerful tools — including the ability to reinstall macOS, reset passwords, and disable System Integrity Protection — that can be exploited if physical access to a device is obtained. This control lets you restrict what users can do in recoveryOS, reducing the risk of unauthorized offline attacks.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select the **macOS** tab and choose **recoveryOS protection**.
+3. Configure the options you want to enforce:
+   - **Require authentication to access recoveryOS**: users must enter an administrator password to boot into recovery mode.
+   - **Disable external boot**: prevents the device from booting from external drives or USB devices.
+4. Save and apply the control to the relevant device group.
+
+## How it works
+
+Primo delivers a macOS security configuration payload via MDM that applies restrictions to the recoveryOS environment. These settings are enforced at a firmware level on Apple Silicon Macs and at the security policy level on Intel Macs.
+
+<Note>
+On Apple Silicon Macs, recoveryOS restrictions are tightly integrated with the Secure Enclave. Full enforcement requires that the device is enrolled in MDM and that MDM has the appropriate supervision level.
+</Note>
+
+## Recommendations
+
+- Enable authentication for recoveryOS as a baseline on all managed devices, especially laptops that may leave the office.
+- Combine with **Disk encryption** (FileVault) to ensure data is protected even if recoveryOS restrictions are bypassed on Intel Macs.
+- For the highest security, use Apple Silicon devices — they provide hardware-enforced security policies that are significantly harder to bypass.
+
+## Troubleshooting
+
+**A user is locked out of recoveryOS and IT needs access**
+- IT administrators can unlock recoveryOS access from the device panel in Primo by temporarily lifting the restriction.
+- On Apple Silicon, an administrator with the device's recovery key and MDM credentials can regain access.
+
+**The restriction is not applied after deployment**
+- Confirm the device is enrolled in MDM and the control is active.
+- On Intel Macs, the device may require a restart for firmware-level settings to take effect.
+- Check the device panel for any MDM command errors.

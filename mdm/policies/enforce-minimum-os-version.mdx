@@ -1,0 +1,57 @@
+---
+title: "Enforce minimum OS version"
+description: "Require devices to run a minimum operating system version to ensure security patches and app compatibility are maintained across your fleet."
+---
+
+Keeping devices on a supported OS version is one of the most effective ways to protect against known vulnerabilities. This control lets you define a minimum required version for macOS and Windows devices, and automatically nudges users to update if their device falls below the threshold.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select your target OS tab and choose **Enforce minimum OS version**.
+3. Set the **minimum required version** (e.g. `14.4` for macOS, `22H2` for Windows 11).
+4. Configure the **grace period** — the number of days users have to update before stricter enforcement applies.
+5. Save and apply the control to the relevant device group.
+
+## How it works
+
+Primo checks each device's current OS version against the configured minimum. If a device is non-compliant:
+
+1. The user receives a notification prompting them to update.
+2. During the grace period, the user can defer the update.
+3. After the grace period expires, the update may be enforced at the next restart.
+
+Devices that are already compliant are unaffected.
+
+## On macOS
+
+- The minimum version check uses the macOS build version.
+- Primo delivers a software update command via MDM. If a newer OS is available, macOS will download and install it.
+- Users can view their current macOS version in **System Settings > General > Software Update**.
+
+## On Windows
+
+- The minimum version is checked against the Windows build number (e.g. `22621` for Windows 11 22H2).
+- Primo triggers Windows Update via MDM policy to install required updates.
+- Users are notified through the Windows Update interface.
+
+<Note>
+Windows Update delivery depends on network conditions and Windows Update service availability on the device. Large updates may take time to download and install.
+</Note>
+
+## Troubleshooting
+
+**Devices show as non-compliant after updating**
+- Allow up to 15 minutes for the device to report its new OS version back to Primo after an update.
+- Force a MDM check-in from the device panel if the status does not update.
+
+**Users are not seeing update prompts**
+- Confirm the device is enrolled and the control is active.
+- On macOS, verify that Software Update is not blocked by another MDM policy.
+- On Windows, check that Windows Update is not paused or disabled by another Group Policy or MDM setting.

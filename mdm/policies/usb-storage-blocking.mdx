@@ -1,0 +1,52 @@
+---
+title: "USB storage blocking"
+description: "Prevent USB keys, SD cards, and other removable storage devices from connecting to Windows and Linux devices to protect against data exfiltration and malware."
+---
+
+Block removable storage devices — including USB flash drives, SD cards, and external hard drives — from being mounted on managed devices. This reduces the risk of data exfiltration and prevents malware from being introduced via physical media.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select your target OS tab and choose **USB storage blocking**.
+3. Enable the control.
+4. Optionally configure exceptions for specific trusted devices (see below).
+5. Save and apply the control to the relevant device group.
+
+## Exceptions
+
+If specific USB storage devices need to remain accessible (e.g. a hardware security key used for authentication), you can add exceptions based on:
+
+- **Vendor ID (VID)**: the manufacturer identifier.
+- **Product ID (PID)**: the specific device model identifier.
+
+<Tip>
+USB storage blocking targets mass storage class devices (drives, SD cards, etc.). It does not block other USB device types such as keyboards, mice, or hardware security keys by default.
+</Tip>
+
+## On Windows
+
+Primo deploys a Windows MDM policy that blocks the installation and use of removable storage devices. The block is applied at the device class level, preventing the OS from mounting any device classified as removable storage.
+
+Blocked devices are visible in Device Manager as blocked, and users see a notification that the device cannot be used.
+
+## On Linux
+
+Primo applies a configuration that prevents the OS from auto-mounting removable storage devices. The policy is enforced system-wide and applies regardless of which user is logged in.
+
+## Troubleshooting
+
+**A USB device is still accessible after applying the control**
+- The device may have been connected before the policy was applied. Disconnect and reconnect the device to trigger enforcement.
+- Confirm the control is active and targeting the correct device group.
+- Some USB devices that present as a specific device class (e.g. a phone in PTP mode) may not be classified as removable storage and are therefore not blocked.
+
+**A required USB storage device is being blocked**
+- Add an exception using the device's Vendor ID and Product ID.
+- To find these values on Windows, open **Device Manager**, locate the device, and check its hardware IDs under **Properties > Details**.

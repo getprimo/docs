@@ -1,0 +1,65 @@
+---
+title: "Mac login with Okta"
+description: "Replace local macOS logins with Okta single sign-on so employees use their corporate Okta credentials to unlock their Mac."
+---
+
+Let employees sign in to their Mac using their Okta credentials instead of a separate local password. This centralizes identity management in Okta, simplifies the employee login experience, and gives IT full visibility and control over Mac access through your existing identity provider.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Prerequisites
+
+- An active Okta organization (Okta Workforce Identity Cloud).
+- Primo MDM deployed on the target Mac devices.
+- macOS 13 (Ventura) or later.
+
+## Connect your Okta organization
+
+Before deploying the control, connect Primo to your Okta organization:
+
+1. In Primo, go to **Settings > MDM > Integrations**.
+2. Select **Okta** and follow the authorization flow.
+3. Grant the required permissions to allow Primo to manage device-bound credentials.
+
+<Tip>
+If you already use Okta for SCIM or SAML within Primo, you may be able to reuse the existing connection. Check your current integration settings before creating a new one.
+</Tip>
+
+## Deploy the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select the **macOS** tab and choose **Mac login with Okta**.
+3. Enable the control.
+4. Save and apply the control to the relevant device group.
+
+Once deployed, macOS devices will use Platform SSO to bind the login screen to Okta. Employees authenticate with their Okta credentials at the login window.
+
+## How it works
+
+Primo uses macOS Platform Single Sign-On (Platform SSO), introduced in macOS 13, to integrate the login window with Okta. When a user logs in:
+
+1. macOS contacts Okta to validate the credentials.
+2. On success, the user's local session is created or unlocked.
+3. The Okta token is stored securely in the macOS Keychain for subsequent SSO to browser and app sign-ins.
+
+Offline login is supported — if the device cannot reach Okta, macOS falls back to the locally cached credentials.
+
+<Note>
+The first login after enabling this control requires an active internet connection to establish the Okta binding on the device.
+</Note>
+
+## Troubleshooting
+
+**Users cannot log in after the control is deployed**
+- Ensure the device has internet access to reach Okta during the first login.
+- Verify the user's Okta account is active, not locked, and not subject to an MFA policy that blocks device login.
+- Check that the Okta integration is correctly configured in **Settings > MDM > Integrations**.
+
+**The Okta login prompt does not appear at the login window**
+- Confirm the MDM profile was successfully delivered (check the device panel in Primo).
+- On macOS, Platform SSO requires macOS 13 or later. Verify the device OS version.
+- Re-enroll the device if the profile delivery shows an error.
