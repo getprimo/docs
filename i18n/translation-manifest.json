@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-13T11:25:38.062016+00:00",
+  "generatedAt": "2026-03-13T11:30:29.662788+00:00",
   "sourceLocale": "en",
   "locales": [
     "fr",
@@ -39,22 +39,22 @@
         "fr": {
           "path": "fr/api/create-primo-api-key.mdx",
           "sourceHash": "eb729c6c799f84c3e3ee811a8bda38d7f55872bf07206727e614391f0c53739b",
-          "syncedAt": "2026-03-13T11:25:23.037154+00:00"
+          "syncedAt": "2026-03-13T11:30:09.497320+00:00"
         },
         "de": {
           "path": "de/api/create-primo-api-key.mdx",
           "sourceHash": "eb729c6c799f84c3e3ee811a8bda38d7f55872bf07206727e614391f0c53739b",
-          "syncedAt": "2026-03-13T11:25:24.308606+00:00"
+          "syncedAt": "2026-03-13T11:30:10.502575+00:00"
         },
         "es": {
           "path": "es/api/create-primo-api-key.mdx",
           "sourceHash": "eb729c6c799f84c3e3ee811a8bda38d7f55872bf07206727e614391f0c53739b",
-          "syncedAt": "2026-03-13T11:25:25.101649+00:00"
+          "syncedAt": "2026-03-13T11:30:11.749347+00:00"
         },
         "it": {
           "path": "it/api/create-primo-api-key.mdx",
           "sourceHash": "eb729c6c799f84c3e3ee811a8bda38d7f55872bf07206727e614391f0c53739b",
-          "syncedAt": "2026-03-13T11:25:26.277017+00:00"
+          "syncedAt": "2026-03-13T11:30:12.864048+00:00"
         }
       }
     },
@@ -289,22 +289,22 @@
         "fr": {
           "path": "fr/index.mdx",
           "sourceHash": "68a4e0f256c3c56fe983f828cc249a6b87277d77f526c50001ffcfe2176819f4",
-          "syncedAt": "2026-03-13T11:25:34.750442+00:00"
+          "syncedAt": "2026-03-13T11:30:19.925173+00:00"
         },
         "de": {
           "path": "de/index.mdx",
           "sourceHash": "68a4e0f256c3c56fe983f828cc249a6b87277d77f526c50001ffcfe2176819f4",
-          "syncedAt": "2026-03-13T11:25:35.475939+00:00"
+          "syncedAt": "2026-03-13T11:30:22.954264+00:00"
         },
         "es": {
           "path": "es/index.mdx",
           "sourceHash": "68a4e0f256c3c56fe983f828cc249a6b87277d77f526c50001ffcfe2176819f4",
-          "syncedAt": "2026-03-13T11:25:36.387041+00:00"
+          "syncedAt": "2026-03-13T11:30:25.969013+00:00"
         },
         "it": {
           "path": "it/index.mdx",
           "sourceHash": "68a4e0f256c3c56fe983f828cc249a6b87277d77f526c50001ffcfe2176819f4",
-          "syncedAt": "2026-03-13T11:25:38.060842+00:00"
+          "syncedAt": "2026-03-13T11:30:29.662194+00:00"
         }
       }
     },
