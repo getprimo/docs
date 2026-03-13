@@ -227,14 +227,16 @@
   },
   "fonts": {
     "family": "Oracle",
-    "weight": 500,
+    "weight": 300,
     "source": "https://cdn.prod.website-files.com/6410a18d09fd5347adff42aa/6410c8db766e96df6861fa52_ABCOracleVariable.woff",
     "format": "woff",
     "heading": {
-      "family": "Oracle"
+      "family": "Oracle",
+      "weight": 500
     },
     "body": {
-      "family": "Oracle"
+      "family": "Oracle",
+      "weight": 300
     }
   },
   "background": {
