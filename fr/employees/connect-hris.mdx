@@ -1,0 +1,245 @@
+---
+title: "Synchronisez votre système RH"
+description: "Connectez votre système RH pour automatiser les tâches de gestion des employés, garantissant une synchronisation précise des données pour l'intégration, le départ et l'affectation des appareils tout en maintenant la sécurité des données et la conformité au RGPD."
+---
+
+Cet article explique comment connecter un système RH afin de synchroniser les données des employés et de maintenir automatiquement à jour votre annuaire des employés.
+
+La connexion à un système RH vous permet de vous appuyer sur une source unique de vérité pour les informations sur les employés et réduit la gestion manuelle des données.
+
+## Comprendre pourquoi connecter un système RH est utile
+
+La synchronisation avec votre système RH automatise les tâches quotidiennes chronophages telles que la gestion des arrivées et des départs, l'organisation des équipes et le suivi des affectations d'équipement.
+
+Cela permet de :
+
+- Créez et mettez à jour automatiquement les profils des employés dans Primo
+- Déclenchez des flux d'intégration et de désintégration en fonction des dates de contrat
+- Gardez les données d'équipe, de rôle et d'affectation cohérentes
+- Réduisez les mises à jour manuelles et les incohérences des données
+
+Vous pouvez connecter **une ou plusieurs sources du Système RH** au même compte. Ceci est utile si votre organisation utilise différents outils RH par pays ou entité juridique.
+
+## Connectez votre système RH
+
+Pour connecter un système RH :
+
+1. Accédez à **Paramètres \> Synchronisation des employés**
+2. Sélectionnez votre fournisseur de système RH
+3. Suivez les étapes d'authentification
+4. Lancez la première synchronisation
+
+Une fois connectés, les collaborateurs sont synchronisés dans Primo avec leurs métadonnées associées (coordonnées, dates de contrat, équipes, rôles).
+
+Vous pouvez connecter **plusieurs sources RH** et les gérer indépendamment.
+
+## Tenir compte des exigences spécifiques au système RH
+
+Certains fournisseurs de systèmes RH nécessitent une configuration supplémentaire.
+
+### Lucca
+
+Pour garantir que les intégrations et sorties à venir sont synchronisées, des autorisations spécifiques doivent être activées dans Lucca :
+
+1. Connectez-vous à votre compte administrateur Lucca
+2. Accédez à **Paramètres \> Clés API**
+3. Modifier les autorisations associées à la clé API
+    ![Capture d'écran : Compte pour les exigences spécifiques au SIRH](/images/notion-import/connect-an-hris-to-primo__img-019__block-0028__23b43d9f.png)
+
+4. Activer:
+   - _Voir les futurs employés_
+   - _Voir les employés partis_
+       ![Capture d'écran : Compte pour les exigences spécifiques au SIRH](/images/notion-import/connect-an-hris-to-primo__img-020__block-0032__23b43d9f.png)
+
+
+Sans ces autorisations, Primo ne recevra pas de données d'intégration et de désintégration de Lucca.
+
+La connexion d’un système RH est facultative. Vous pouvez également gérer les employés à l'aide de méthodes d'importation alternatives, telles que l'importation CSV.
+
+## Gérer la synchronisation du système RH
+
+<Note>
+  **Fréquence de synchronisation** : Une fois qu'un système RH est connecté, les données sont automatiquement synchronisées toutes les heures. Aucune action manuelle n’est requise pour importer de nouveaux employés ou des modifications.
+</Note>
+
+Cette synchronisation s'applique à :
+
+- Salariés nouvellement créés
+- Mises à jour apportées aux dossiers des employés existants
+- Intégrations et départs à venir, si pris en charge par le système RH
+
+Aucune action manuelle n’est requise après la configuration initiale.
+
+## Appliquer des filtres de synchronisation
+
+Vous pouvez restreindre les employés synchronisés depuis votre système RH.
+
+Des filtres peuvent être appliqués pour inclure uniquement des populations spécifiques, telles que :
+
+- Entités juridiques sélectionnées
+- Types de contrats ou d’emplois spécifiques
+- Équipes sélectionnées
+- …
+
+Ces filtres permettent de garantir que seuls les employés concernés sont gérés dans Primo.
+
+![Capture d'écran : Appliquer des filtres de synchronisation](/images/notion-import/connect-an-hris-to-primo__img-021__block-0055__23b43d9f.png)
+
+
+## Définir la manière dont les champs sont synchronisés
+
+Pour chaque champ synchronisé depuis le système RH, vous pouvez définir la manière dont les mises à jour sont traitées.
+
+Deux modes de synchronisation sont disponibles :
+
+- **Importer une fois :** le champ est importé lors de la première synchronisation uniquement et peut être géré directement.
+- **Synchronisation continue :** le champ est automatiquement mis à jour à chaque modification dans le système RH et ne peut pas être mis à jour manuellement.
+
+Exemples typiques :
+
+![Capture d'écran : Définir la façon dont les champs sont synchronisés](/images/notion-import/connect-an-hris-to-primo__img-022__block-0065__23b43d9f.png)
+
+
+- Les dates de début et de fin des contrats sont généralement synchronisées en permanence.
+- Les titres de poste ou les rôles internes peuvent être importés une seule fois et gérés manuellement.
+
+<Note>
+  **Résumé du comportement de synchronisation**
+
+  - **Lors de la première synchronisation :** tous les champs synchronisés du système RH écrasent les données existantes des employés.
+  - **Lorsqu'un salarié est créé via le Système RH** : le profil du salarié est automatiquement créé à partir des données du Système RH.
+  - **Pendant la synchronisation en cours** :
+    - Les champs définis en synchronisation continue sont écrasés par les mises à jour du système RH.
+    - Les champs définis pour être importés une fois restent inchangés.
+</Note>
+
+## Gérer les employés externes
+
+Certains systèmes RH peuvent inclure des personnes qui ne font pas partie de votre personnel opérationnel, telles que des consultants, des comptables externes ou des administrateurs RH.
+
+Si vous ne souhaitez pas que ces profils apparaissent dans votre liste d'employés :
+
+1. Ouvrir le profil de l'employé
+2. Sélectionnez **Masquer**
+
+Les employés masqués sont exclus des workflows de gestion des employés.
+
+## Sécurité et confidentialité des données
+
+## Comprendre quelles données sont récupérées
+
+Avant de connecter un système RH, la liste des données qui seront accessibles via Kombo s'affiche. Vous pouvez consulter ces informations avant d'autoriser la connexion.
+
+Les données typiques récupérées comprennent :
+
+| Données récupérées                      | Objet du système RH | But                                                                                         |
+| ----------------------------------- | --------------- | ----------------------------------------------------------------------------------------------- |
+| Prénom, nom, email, téléphone | Employé        | Créez et gérez les profils des employés, tenez-les informés des commandes et enregistrez-les dans le MDM |
+| Adresse postale                      | Employé        | Équipement de navire                                                                                  |
+| Poste, équipe, manager             | Employé / Équipe | Appliquer des contrôles par groupes de périphériques, appliquer des règles Saas                                               |
+| Dates de début et de fin                 | Contracter        | Gérer les intégrations et les sorties                                                             |
+
+### Liste exhaustive des données récupérées du système RH
+
+**Entités juridiques**
+
+- Nom
+- Adresse
+
+**Lieux de travail**
+
+- Nom
+- Adresse
+
+**Employés**
+
+- Numéro d'employé
+- Prénom
+- Nom de famille
+- Titre d'emploi
+- E-mail professionnel
+- E-mail personnel _(facultatif)_
+- Numéro de téléphone portable _(facultatif)_
+- Statut d'emploi
+- ID du lieu de travail
+- ID d'entité juridique
+- ID du gestionnaire
+- Adresse du domicile _(facultatif)_
+- Date de début
+
+**Emplois**
+
+- ID d'employé
+- Type d'emploi
+- Date d'entrée en vigueur
+
+**Groupes**
+
+- Nom
+- Taper
+
+<Note>
+  Si un champ de données n'est pas répertorié ci-dessus, il n'est pas récupéré. Kombo n'accède pas aux coordonnées bancaires, aux informations sur les salaires ou aux soldes de congés.
+</Note>
+
+## Politique RGPD et traitement des données
+
+Pour plus de détails concernant la conformité au RGPD et les pratiques de traitement des données de Kombo, reportez-vous au [Centre de confiance de Kombo](https://security.kombo.dev/).
+
+## Résoudre les problèmes des employés disparus
+
+### Résoudre les problèmes d'intégration et de désintégration manquants à partir de Lucca
+
+Si les intégrations ou les désintégrations n'apparaissent pas lors de l'utilisation de **Lucca**, la configuration Lucca–Kombo est probablement incomplète.
+
+Dans ce cas, vérifiez que la documentation de synchronisation Kombo a été correctement appliquée et que les autorisations requises sont activées dans Lucca.
+
+Reportez-vous à **Exigences spécifiques au compte pour le système RH \> Lucca** pour confirmer que :
+
+- Les futurs salariés pourront être récupérés
+- Les employés partis peuvent être récupérés
+
+Sans ces autorisations, les événements d'intégration et de désintégration ne seront pas synchronisés à partir de Lucca.
+
+### Enquêter sur un employé d'intégration disparu
+
+Si un employé qui devrait être intégré n’apparaît pas, suivez ces étapes.
+
+1. Vérifier la présence de l'employé dans le système RH
+   - Vérifiez que le salarié existe dans votre système RH.
+   - Confirmez qu'une **date de début** est correctement définie.
+2. Vérifier les listes d'employés existantes
+   - L'employé existe peut-être déjà. Vérifiez qu'ils ne sont pas présents dans :
+   - Salariés actifs (y compris les salariés masqués)
+   - Intégrations (assurez-vous de **supprimer tous les filtres**)
+3. Examiner les données récupérées par Kombo
+   - Si le salarié n'est pas visible, vous pouvez vérifier si ses données ont été récupérées par Kombo :
+   - Accédez à **Paramètres \> Synchronisation des employés**
+   - Cliquez sur le système RH où l'employé a été ajouté
+   - Sélectionnez **Mettre à jour les paramètres**
+   - Ouvrir **Filtrage des employés**
+   - Cliquez sur **Aperçu**
+
+Cet aperçu affiche les données du salarié récupérées par Kombo et si le salarié est inclus dans la synchronisation.
+
+**Résultats possibles des données Kombo**
+
+- **Inclus** : le salarié est inclus dans la synchronisation et doit exister. Effectuez une nouvelle recherche en utilisant le **nom de famille** de l'employé dans :
+  - Salariés actifs
+  - Intégrations
+  - Débarquements
+- **Exclus** : Kombo indique pourquoi le salarié est exclu (le plus souvent en raison de filtres de synchronisation ou de catégories exclues). Mettez à jour les filtres pour inclure l'employé.
+
+### Enquêter sur un employé disparu
+
+Si un employé n'apparaît pas dans la vue **Départs**, la date de départ peut ne pas être synchronisée correctement. Dans la plupart des cas, cela est dû à une configuration de champ incorrecte dans les paramètres de synchronisation de votre système RH.
+
+**Vérifiez les paramètres de synchronisation des champs**
+
+- Accédez à **Paramètres \> Synchronisation des employés**
+- Vérifiez comment le champ **date de départ ou de fin de contrat** est synchronisé
+- Assurez-vous que le champ est défini sur **Synchronisation continue**
+
+Si le champ est défini sur **Importer une fois**, les mises à jour effectuées dans le système RH ne seront pas reflétées.
+
+Le fait de basculer le champ sur **Synchronisation continue** permet de récupérer les dates de départ mises à jour.

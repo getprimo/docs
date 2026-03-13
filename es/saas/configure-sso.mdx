@@ -1,0 +1,45 @@
+---
+title: "Configure SSO con Primo como proveedor de identidad"
+description: "Configure el inicio de sesión único (SSO) con Primo como proveedor de identidad recuperando los detalles de SSO necesarios e ingresando la información de su proveedor de servicios para habilitar la autenticación de usuario para aplicaciones de terceros."
+---
+
+Puede configurar el inicio de sesión único (SSO) entre Primo y un proveedor de servicios externo utilizando Primo como proveedor de identidad. Esto permite a sus usuarios autenticarse a través de Primo cuando acceden a aplicaciones de terceros.
+
+Este artículo describe cómo recuperar la información de SSO necesaria de Primo y completar la configuración con su proveedor de servicios.
+
+## Elija Primo como proveedor de identidad
+
+1. Inicie sesión en la consola Primo.
+2. Vaya a **Identidades y acceso > Catálogo de aplicaciones**.
+3. En la lista de proveedores de inicio de sesión, seleccione **Iniciar sesión con Primo, Google o Entra**.
+
+## Recuperar detalles de configuración de Primo
+
+Proporcione los siguientes detalles de SSO a su proveedor de servicios según sea necesario (dependiendo de su proveedor de servicios), por ejemplo:
+
+### 1. ID del proveedor de identidad
+
+Haga clic en **Copiar ID del proveedor de identidad** para copiar el identificador que necesitan algunos proveedores de servicios.
+
+### 2. Metadatos
+
+- Haga clic en **Copiar URL de metadatos** o **Copiar metadatos** para recuperar los metadatos completos.
+- Proporcione esto a su proveedor de servicios para establecer confianza con Primo.
+
+### 3. URL de inicio de sesión
+
+Haga clic en **Copiar URL de inicio de sesión** si lo requiere el proveedor de servicios para la redirección SSO.
+
+### 4. Certificados
+
+- Haga clic en **Copiar certificado** o **Descargar certificado** para obtener el certificado público.
+- Utilice **Copiar certificado SHA256** si su proveedor de servicios requiere una huella digital para la verificación.
+
+## Ingrese la información del proveedor de servicios
+
+Después de configurar el proveedor de servicios con la información SSO de Primo, ingrese los siguientes detalles:
+
+1. **ID de entidad del proveedor de servicios**: pegue el ID de entidad proporcionado por su proveedor de servicios.
+2. **URL de servicio al consumidor de aserciones (ACS)**: ingrese la URL de ACS utilizada por su proveedor de servicios para recibir aserciones SAML.
+
+Haga clic en **Conectar** para finalizar la integración.

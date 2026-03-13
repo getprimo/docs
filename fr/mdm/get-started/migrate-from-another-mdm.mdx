@@ -1,0 +1,154 @@
+---
+title: "Migrez votre appareil depuis un autre MDM"
+description: "Migrez vos appareils vers Primo (FleetDM) de manière transparente en suivant un calendrier et une liste de contrôle structurés, garantissant ainsi l'absence de perte de données ou de perturbation des utilisateurs pendant la transition depuis votre solution MDM actuelle."
+---
+
+Cette documentation vous guide dans la migration de vos appareils depuis votre solution MDM actuelle **sans effacer les appareils ni perturber les utilisateurs**.
+
+Cet article explique **comment migrer vos appareils** vers Primo (FleetDM) via :
+
+- Un calendrier de migration proposé
+- Une liste de contrôle pour la préparation à la migration
+- Un processus détaillé étape par étape
+
+## Préparez votre migration
+
+### Exemple de chronologie
+
+| Semaine | Actions clés |
+|---|---|
+| **Jour 1** | Réunion d'intégration pour vous aider à configurer le tableau de bord Primo |
+| **Semaine 1** | Configuration de Primo MDM avec les paramètres actuellement déployés sur vos appareils<br/>Segmentation des appareils (MacOS, Windows, Linux, etc.)<br/>→ [Si migration MacOS] Connexion entre Primo et votre Apple Business Manager (ABM)<br/>→ [Si migration Windows] Activation de la migration automatique depuis Primo |
+| **Semaine 2** | Communication aux utilisateurs et déploiement de l'agent Primo sur vos appareils (manuel ou via votre MDM actuel) |
+| **Semaine 3** | [Si migration MacOS] Réaffectation dans ABM et désinscription des anciens profils MDM |
+| **Semaine 4** | [Si migration MacOS] Acceptation des profils Primo par vos collaborateurs et finalisation du déploiement |
+| **Semaine 5** | [Si migration MacOS] Vérifications finales et suppression de l'ancien MDM |
+
+## Migrez vos appareils en fonction de votre système d'exploitation
+
+### Liste de contrôle pré-migration
+
+- [Si migration MacOS] Liez Primo et votre Apple Business Manager (ABM)
+- [Si migration Windows] Activez l'option « Migration automatique Windows MDM » dans vos paramètres Primo MDM
+- Répertoriez les politiques et applications actuellement déployées sur vos machines
+- Appliquez vos configurations sur Primo via les profils MDM
+- Préparer la communication interne (email, Slack, FAQ)
+- Anticiper les cas particuliers : stocker à l'avance les clés FileVault, Activation Lock, etc.
+
+## Migration de MacBook
+
+Deux scénarios de migration :
+
+### 1. Appareils supervisés (enregistrés dans votre GAB)
+
+Ces appareils bénéficient du déploiement Zero Touch. Cette migration consiste à désinscrire et à changer le serveur MDM dans ABM.
+
+Étapes à suivre :
+
+1. **Établissez la connexion** entre Primo et votre GAB
+2. **Réaffectez les appareils dans ABM** au serveur MDM de Primo.
+   *(Cette opération n'efface pas les données de l'appareil.)*
+3. Une fois la réaffectation terminée :
+   - Les appareils seront automatiquement visibles dans Primo.
+   - Ils seront attribués à vos employés pour suivre la progression de la migration
+4. **Supprimez l'ancien MDM** de la console de votre solution précédente.
+   *(ABM ne les supprime pas automatiquement.)*
+5. **L'utilisateur recevra une fenêtre contextuelle** « Gestion à distance » sur sa machine lui demandant d'installer le nouveau profil Primo (FleetDM) MDM.
+   *Cette action ne dissocie pas les appareils de l'ancien MDM ; vous devez le faire manuellement.*
+
+![Capture d'écran : 1️⃣ Appareils supervisés (enregistrés dans votre GAB)](/images/notion-import/migrate-your-device-from-another-mdm__img-061__block-0038__24e43d9f.png)
+
+
+<Note>
+[Trouvez plus d'informations sur cette migration directement ici](https://fleetdm.com/guides/mdm-migration).
+
+![Capture d'écran : 1️⃣ Appareils supervisés (enregistrés dans votre GAB)](/images/notion-import/migrate-your-device-from-another-mdm__img-062__block-0039__24e43d9f.png)
+
+</Note>
+
+### 2. Appareils non supervisés
+
+Apple n'autorise pas la coexistence de deux MDM sur le même appareil. La migration consiste donc en une désinscription suivie d'une réinscription.
+
+Étapes à suivre :
+
+1. Désinscrivez l’appareil du MDM actuel.
+2. Lancez la campagne d'inscription via votre tableau de bord Primo
+3. Primo envoie des rappels tous les 7 jours jusqu'à ce que l'utilisateur installe le MDM
+
+Une fois les appareils supprimés de votre ancien MDM, utilisez la fonction « inviter à MDM » de Primo pour faciliter le déploiement. Des rappels seront envoyés tous les 7 jours aux employés non inscrits et vous pourrez suivre les progrès dans votre tableau de bord.
+
+## Migration Windows
+
+Deux scénarios de migration :
+
+### 1. Depuis n'importe quel MDM
+
+Activez simplement l'option « Migration automatique Windows MDM » dans vos paramètres Primo MDM. En activant cette option, FleetDM migrera automatiquement les appareils Windows inscrits avec une autre solution MDM.
+
+### 2. Spécifiquement depuis Intune
+
+#### Si vous avez connecté Intune et Entra ID
+
+Voici la procédure à suivre impérativement avant de lancer la migration :
+
+1. Configurez FleetDM en tant que MDM externe sur Entra ID :
+   `https://{company}.mdm.getprimo.com/settings/integrations/automatic-enrollment/windows`
+2. Sur Entra, basculez l'inscription automatique sur FleetDM :
+   - Accédez à : [https://entra.microsoft.com/#view/Microsoft_AAD_IAM/MdmList.ReactView](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/MdmList.ReactView) (ou recherchez « Mobilité » sur entra.microsoft.com)
+   - Vous pouvez également accéder à : [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility) (ou rechercher « Mobilité » sur portal.azure.com)
+   - Sélectionnez ensuite « Intune »
+   - Sélectionnez "Aucun" dans les deux options et enregistrez
+       ![Capture d'écran : Si vous avez connecté Intune et Entra ID](/images/notion-import/migrate-your-device-from-another-mdm__img-063__block-0063__23843d9f.png)
+
+
+#### Migration de vos appareils individuellement depuis Intune
+
+Suivez ces étapes pour migrer vos appareils depuis Intune un par un :
+
+- Enregistrez l'ordinateur dans Primo, l'appareil sera créé dans Primo avec le statut "Activé dans un autre MDM".
+- Utilisez le bouton de migration dans Primo pour appliquer le script de migration
+
+#### Migration de tous vos appareils depuis Intune
+
+Suivez ces étapes pour migrer vos appareils depuis Intune :
+
+1. **Téléchargez le script suivant**
+   - Trouvez votre URL MDM complète :
+     - Le format est : `https://REPLACE_BY_COMPANY_NAME.mdm.getprimo.com/api/mdm/microsoft/discovery`
+     - Remplacez `REPLACE_BY_COMPANY_NAME` par le nom de la société/domaine présent dans l'URL Fleet.
+   - Collez-le dans le script en remplaçant `INPUT_URL_HERE`
+   - Téléchargez le script sur votre instance MDM (Contrôles > Scripts)
+
+   ```powershell
+   $EnrollmentsPath = "HKLM:\SOFTWARE\Microsoft\Enrollments\"
+   $Enrollments = Get-ChildItem -Path $EnrollmentsPath
+   $DiscoveryServerFullUrls = @("INPUT_URL_HERE")
+
+   FoEach ($Enrollment in $Enrollments) {
+       $EnrollmentObject = Get-ItemProperty Registry::$Enrollment
+       if ($EnrollmentObject."DiscoveryServiceFullURL" -in $DiscoveryServerFullUrls ) {
+           $EnrollmentPath = $EnrollmentsPath + $EnrollmentObject."PSChildName"
+           Write-Host "Removing enrollment: $EnrollmentPath"
+           Remove-Item -Path $EnrollmentPath -Recurse
+           Write-Host "Enrollment removed. Re-enrolling device..."
+           & "C:\Windows\System32\deviceenroller.exe /c /AutoEnrollMDM"
+           Write-Host "Device has been re-enrolled."
+       }
+   }
+   ```
+
+2. **Créer une stratégie de migration**
+   - Réutilisez l'URL ci-dessus
+   - Collez-le dans la requête ci-dessous, en remplaçant `INPUT_URL_HERE`
+
+   ```sql
+   SELECT 1 FROM registry
+   WHERE path LIKE 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Enrollments\%%'
+   AND name = "DiscoveryServiceFullURL"
+   AND data NOT IN ("INPUT_URL_HERE")
+   ```
+
+3. **Lier le script à la stratégie**
+   - Accédez à Politiques > Aucune équipe
+   - Cliquez sur "Gérer l'automatisation" et liez le script que vous avez téléchargé à la politique nouvellement créée

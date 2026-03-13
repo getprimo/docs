@@ -1,0 +1,93 @@
+---
+title: "Gerätezuordnung"
+description: "Verwalten Sie die Gerätezuweisung effektiv, indem Sie automatisierte Prozesse über MDM nutzen, um nahtlose Erstzuweisungen, Aufhebungen und Neuzuweisungen zu ermöglichen und gleichzeitig Best Practices einzuhalten, um genaue Bestände aufrechtzuerhalten und Unternehmensdaten zu schützen."
+---
+
+In diesem Artikel wird erläutert, wie die Gerätezuweisung funktioniert, wie die erste Zuweisung erstellt wird, wie die Aufhebung und Neuzuweisung verwaltet wird und welche Best Practices Sie befolgen sollten, um Ihr Inventar korrekt zu halten.
+
+## Gerätestatus
+
+| Verfügbarkeitsstatus | Auftragsstatus | Was es bedeutet                                              |
+| ------------------- | ----------------- | ---------------------------------------------------------- |
+| **Im Einsatz**          | **Zugewiesen**      | Das Gerät wird einem Mitarbeiter zugeordnet und aktiv genutzt.   |
+| **Auf Lager**        | **Zuzuweisen**     | Das Gerät ist im Inventar, aber noch niemandem zugewiesen. |
+| **Im Einsatz**          | **Zuzuweisen**     | Das Gerät wird verwendet, hat aber keinen zugewiesenen Besitzer.   |
+| **Archiviert**        | —                 | Das Gerät wurde aus der Flotte entfernt.                |
+
+## Verstehen Sie die erste Gerätezuordnung
+
+### Verlassen Sie sich auf die automatisierte Zuweisung durch MDM
+
+Es ist **nicht notwendig**, Ihre Geräteliste manuell zu importieren.
+
+Die MDM-Bereitstellung erstellt und weist Geräte während der Registrierung automatisch zu.
+
+### Folgen Sie dem Anmeldevorgang
+
+1. Der Mitarbeiter meldet sich mit seiner E-Mail-Adresse auf seiner speziellen Primo-Registrierungsseite an. Dadurch kann Primo ein benutzerspezifisches Installationsprogramm generieren.
+2. Primo setzt dann auf eine zweite Verifizierung: die tatsächlich auf dem Gerät verwendete E-Mail-Adresse per SSO.
+
+Diese Informationen finden Sie in FleetDM im Feld „Verwendet von“.
+
+### Ergebnis
+
+Wenn ein Mitarbeiter Primo MDM auf einem Gerät installiert:
+
+- Das Gerät wird im Primo-Cockpit **automatisch erstellt**.
+- Das Gerät wird dem Mitarbeiter **automatisch** zugewiesen, ohne dass ein manueller Eingriff erforderlich ist.
+
+## Aufgabenvorschlag verwenden
+
+In einigen Fällen verfügt Primo nicht über genügend Informationen, um ein Gerät automatisch zuzuweisen (mehrere Benutzersitzungen, generische Installationsprogramme).
+
+In diesen Fällen können Sie das Gerät manuell zuweisen, wenn Sie den Besitzer kennen, oder die Funktion **Zuweisungsvorschlag** verwenden, die MDM-Daten verwendet, um die Zuweisung zu unterstützen oder zu automatisieren.
+
+### Aktivieren Sie den Aufgabenvorschlag
+
+Gehen Sie zu: **Einstellungen → MDM → Zuweisungsvorschlag**
+
+Verfügbare Optionen:
+
+1. **Aufgabenvorschlag aktivieren**
+
+   Primo zeigt nur Zuweisungsvorschläge an. Sie validieren sie manuell.
+2. **Gerät basierend auf Vorschlag automatisch zuweisen**
+
+   Wenn das Gerät noch nicht zugewiesen ist, weist Primo es automatisch dem relevantesten Mitarbeiter zu.
+
+Wenn diese Option aktiviert ist, können vorrätige Geräte automatisch basierend auf FleetDM-Informationen zugewiesen werden. Dies ist besonders in Umgebungen mit hoher Mitarbeiterfluktuation nützlich.
+
+## Heben Sie die Zuweisung eines Geräts zu einem Mitarbeiter auf
+
+### Zuweisung aufheben oder manuell neu zuweisen
+
+Auf der Geräteinventarseite oder im Gerätebereich können Sie:
+
+- Schicken Sie ein Gerät zurück in den Lagerbestand.
+- Weisen Sie es einem anderen Mitarbeiter zu.
+
+Durch das Senden eines Geräts an den Lagerbestand wird seine aktuelle Zuweisung sofort gelöscht.
+
+### Beim Offboarding die Zuweisung aufheben
+
+Beim Offboarding eines Mitarbeiters werden Sie im Offboarding-Ablauf gefragt, was mit dem Gerät geschehen soll:
+
+- Bringen Sie es wieder in den Lagerbestand zurück
+- Entfernen Sie es aus der Flotte
+- Weisen Sie es einem anderen Mitarbeiter zu
+
+Durch die Rücksendung des Geräts in den Lagerbestand wird die vorherige Zuordnung automatisch entfernt. Das Gerät kann dann automatisch über die Funktion „Automatisch zuweisen“ zugewiesen werden.
+
+**Bewährte Vorgehensweise**: Löschen Sie zu diesem Zeitpunkt das Gerät, um alle Daten des ehemaligen Mitarbeiters zu entfernen.
+
+## Konkrete Fälle
+
+Die automatische Zuweisung ist **für iOS- und Android-Geräte noch nicht verfügbar**, die Unterstützung ist jedoch für eine kommende Version geplant.
+
+<Note>
+  **Best Practices**
+
+  - Verwalten Sie alle Offboardings über Primo, um sicherzustellen, dass die Zuweisung von Geräten ordnungsgemäß aufgehoben wird.
+  - Löschen Sie Geräte, wenn Sie Zuweisungen ändern, um Unternehmensdaten und die Privatsphäre der Benutzer zu schützen.
+  - Verwenden Sie den Zuweisungsvorschlag, um den manuellen Aufwand zu reduzieren, wenn Sie eine große Anzahl von Geräten verwalten oder häufig wechseln.
+</Note>

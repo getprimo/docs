@@ -1,0 +1,91 @@
+---
+title: "Aktivieren Sie SaaS Mapping und stellen Sie die Chrome-Erweiterung bereit"
+description: "Aktivieren Sie die SaaS-Zuordnung über Primo, um einen umfassenden Überblick über die SaaS-Anwendungen zu erhalten, die mit Ihren beruflichen E-Mails verwendet werden. So gewährleisten Sie strengen Datenschutz und Sicherheit und stellen gleichzeitig die Chrome-Erweiterung für eine breitere Abdeckung über die Google-Anmeldung hinaus bereit. Stellen Sie sicher, dass die erforderlichen Bedingungen erfüllt sind, und befolgen Sie die beschriebenen Schritte zur Aktivierung und Fehlerbehebung."
+---
+
+Mit SaaS Mapping erhalten Sie eine konsolidierte Ansicht aller in Ihrem Unternehmen verwendeten SaaS-Anwendungen und Arbeitsidentitäten. Es läuft über die Google Workspace-Integration und kann mit einer Chrome-Erweiterung erweitert werden, um eine Abdeckung über die Google-basierte Anmeldung hinaus zu ermöglichen. In diesem Artikel wird erläutert, wie Sie SaaS Mapping aktivieren, welche Daten verarbeitet werden und wie die Erweiterung bereitgestellt wird.
+
+## Priorisieren Sie Sicherheit und Datenschutz
+
+Primo wendet strenge Sicherheitsmaßnahmen zum Schutz von Personen und Daten an.
+
+- Der Anwendungsbereich beschränkt sich auf den beruflichen Kontext.
+- Die Sammlung ist minimal und zweckorientiert.
+- Administratoren steuern die Aktivierung und das Geräte-Targeting.
+
+### What SaaS Mapping processes
+
+SaaS Mapping erfasst die Liste der SaaS-Anwendungen, auf die mit Ihrer Firmen-E-Mail-Adresse und der zugehörigen Arbeitsidentität zugegriffen wird. Mehr nicht. Kein Nachrichteninhalt. Keine Dateien. Kein Browserverlauf. Keine Tastenanschläge. Keine persönlichen Konten.
+
+### Wo die Chrome-Erweiterung ausgeführt wird
+
+Für die Chrome-Erweiterung muss MDM über Primo bereitgestellt werden. Es funktioniert nur, wenn eine professionelle E-Mail-Adresse verwendet wird. Persönliche Chrome-Profile und persönliche E-Mail-Adressen fallen nicht in den Geltungsbereich.
+
+## Anforderungen bestätigen
+
+1. Sie haben Administratorzugriff.
+2. Google Workspace ist verbunden.
+3. Ihre Organisation verfügt über ein aktives SaaS-Management-Abonnement. Die Google Workspace-Integration ist kostenlos, für die SaaS-Zuordnung ist jedoch das SaaS-Management-Abonnement erforderlich.
+
+## Aktivieren Sie die SaaS-Zuordnung mit Google Workspace
+
+1. Öffnen Sie Primo als Administrator.
+2. Gehen Sie zu Integrationen und wählen Sie Google Workspace aus.
+3. Verbinden Sie die Integration, indem Sie den Schritten auf dem Bildschirm folgen.
+4. Sobald die Verbindung hergestellt ist, wird SaaS Mapping automatisch aktiviert. Primo beginnt mit der Zuordnung von SaaS und Identitäten, auf die Benutzer mit Google zugreifen und sich mit ihrem Arbeitskonto anmelden.
+
+## Erweitern Sie die Abdeckung mit der Chrome-Erweiterung
+
+Die Zuordnung über Google Workspace deckt Aktivitäten ab, bei denen sich Benutzer bei Google angemeldet haben. Um SaaS einzuschließen, auf das mit einer geschäftlichen E-Mail-Adresse ohne Google-Anmeldung zugegriffen wird, stellen Sie die Chrome-Erweiterung bereit.
+
+1. Öffnen Sie Primo und gehen Sie zu MDM-Profile.
+2. Select the profile you use for your workforce.
+3. Wählen Sie die Geräte aus, die Sie ansprechen möchten.
+4. Öffnen Sie die Chrome-Karte und aktivieren Sie die Erweiterung.
+5. Warten Sie einige Minuten, bis die Bereitstellung die Zielgeräte erreicht.
+
+Nach der Aktivierung ordnet Primo alle verwendeten SaaS- und Arbeitsidentitäten der professionellen E-Mail-Adresse zu, unabhängig davon, ob die Google-Anmeldung verwendet wurde oder nicht.
+
+## Stellen Sie sicher, dass die Zuordnung funktioniert
+
+1. Öffnen Sie in Primo SaaS Mapping im Administrationsbereich.
+2. Bestätigen Sie, dass Anwendungen und Arbeitsidentitäten für aktuelle Aktivitäten angezeigt werden.
+3. Filtern Sie nach Profil oder Gerätegruppe, um gezielte Rollouts zu überprüfen.
+
+Wenn Sie keine Daten sehen, lesen Sie den Abschnitt zur Fehlerbehebung weiter unten.
+
+## Zugriff und Sichtbarkeit verwalten
+
+- Verwenden Sie Geräte-Targeting in Profilen, um bestimmte Gruppen einzuschließen oder auszuschließen.
+- Entfernen Sie ein Gerät aus der Zielliste, um die Erweiterung auf diesem Gerät zu stoppen.
+- Deaktivieren Sie die Chrome-Karte, um die Erweiterung für das ausgewählte Profil zu stoppen.
+
+## Fehlerbehebung
+
+### Es werden keine SaaS- oder Identitätsdaten angezeigt
+
+Überprüfen Sie, ob Google Workspace verbunden ist und ob Ihr SaaS-Verwaltungsabonnement aktiv ist.
+
+### Die Erweiterung wurde nicht installiert
+
+Bestätigen Sie, dass das Gerät in der Zielliste enthalten ist und die Chrome-Karte aktiviert ist. Nehmen Sie sich Zeit für die Synchronisierung der Chrome-Richtlinien (normalerweise einige Minuten).
+
+### Persönliche Aktivität ist sichtbar
+
+Persönliche Aktivitäten liegen konstruktionsbedingt außerhalb des Geltungsbereichs. Stellen Sie sicher, dass sich der Nutzer im verwalteten Chrome-Profil befindet und eine professionelle E-Mail-Adresse verwendet. Entfernen Sie alle persönlichen Chrome-Profile aus der Geräteausrichtung.
+
+### Ein Benutzer verfügt über mehrere Chrome-Profile
+
+Nur das verwaltete Profil, auf das Sie abzielen, ist im Geltungsbereich. Bitten Sie den Benutzer, für Arbeitsaktivitäten zum verwalteten Profil zu wechseln.
+
+## Wichtige Punkte, die Sie Ihren Mitarbeitern mitteilen sollten
+
+- Primo beobachtet nur die arbeitsbezogene SaaS-Nutzung, die an die E-Mail-Adresse des Unternehmens gebunden ist.
+- Persönliche Profile und persönliche E-Mail-Adressen sind nicht enthalten.
+- Primo erfasst keine Inhalte, Passwörter oder das Surfen außerhalb der Arbeit.
+
+## Verfügbarkeit und Abrechnung
+
+- Die Google Workspace-Integration ist kostenlos verfügbar.
+- Für die SaaS-Zuordnung ist ein aktives SaaS-Verwaltungsabonnement erforderlich.
+- Die Chrome-Erweiterung erfordert die Bereitstellung von MDM über Primo und wird von Administratoren über Profile gesteuert.

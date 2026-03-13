@@ -1,0 +1,124 @@
+---
+title: "Nützliche Skripte"
+description: "Die Seite stellt nützliche Skripte zum Ändern von Hostnamen unter macOS und zum Entfernen der USB-Blockierung unter Windows bereit und betont, wie wichtig es ist, ihre Ausgaben vor der Implementierung zu überprüfen, da für diese Skripte keine Unterstützung verfügbar ist."
+hidden: true
+---
+
+<Note>
+  Alle unten aufgeführten Skripte werden im Ist-Zustand bereitgestellt. Bitte überprüfen Sie deren Leistung und Auswirkungen, bevor Sie sie einführen. Wir stehen unseren Kunden bei diesen Skripten nicht zur Verfügung.
+</Note>
+
+## macOS
+
+### Ändern aller Hostnamen
+
+```bash
+#!/bin/bash
+# This script changes the hostname on macOS by updating:
+# - ComputerName: The user-friendly name seen in Sharing preferences.
+# - LocalHostName: The Bonjour name used on the local network (must be sanitized).
+# - HostName: The system's POSIX name.
+# - NetBIOSName: Used for SMB file sharing.
+#
+# Usage: sudo ./change_hostname.sh NewHostname
+
+# Check if the new hostname is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: sudo $0 <new_hostname>"
+    exit 1
+fi
+
+NEW_HOSTNAME="$1"
+
+# Sanitize the new hostname for LocalHostName (Bonjour) requirements:
+# - Convert to lowercase, remove invalid characters (keeping only letters, numbers, and hyphens).
+SANITIZED_HOSTNAME=$(echo "$NEW_HOSTNAME" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]-')
+
+echo "Changing hostname to: $NEW_HOSTNAME"
+echo "Using sanitized LocalHostName: $SANITIZED_HOSTNAME"
+
+# Change the ComputerName (visible in Sharing settings)
+sudo scutil --set ComputerName "$NEW_HOSTNAME"
+
+# Change the LocalHostName (used for Bonjour)
+sudo scutil --set LocalHostName "$SANITIZED_HOSTNAME"
+
+# Change the HostName (the underlying POSIX hostname)
+sudo scutil --set HostName "$NEW_HOSTNAME"
+
+# Optionally, change the NetBIOS name for SMB file sharing
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$NEW_HOSTNAME"
+
+echo "Hostname successfully updated!"
+echo "A reboot might be required for all changes to fully take effect."
+```
+
+### Das Installations-Popup des Slack Helper Tools wurde aufgrund des Root-Besitzes behoben
+
+Bei einigen Benutzern kann es unter macOS zu wiederholten Installations-Popups für das Slack-Hilfstool kommen, wenn Slack.app dem Root-Benutzer gehört, selbst nach der Eingabe von Administrator-Anmeldeinformationen. Um dieses Problem zu beheben, führen Sie das folgende Skript auf dem betroffenen Computer als Administrator aus, um den Besitz von Slack.app auf den aktuell angemeldeten Benutzer zu ändern:
+
+```bash
+#!/bin/bash
+get_target_user() {
+  local u
+  u=$(/usr/bin/stat -f "%Su" /dev/console)
+  if [[ "$u" == "loginwindow" || "$u" == "root" ]]; then
+    u=$(/usr/bin/defaults read /Library/Preferences/com.apple.loginwindow lastUserName 2>/dev/null || true)
+  fi
+  echo "$u"
+}
+
+TARGET_USER="$(get_target_user)"
+if [[ -z "$TARGET_USER" ]]; then
+  echo "Unable to determine target user, aborting."
+  exit 1
+fi
+
+echo "Current owner of /Applications/Slack.app:"
+ls -ld "/Applications/Slack.app"
+
+echo "Changing ownership to $TARGET_USER..."
+sudo chown -R "$TARGET_USER" "/Applications/Slack.app"
+
+echo "Ownership updated. Please retry launching Slack."
+```
+
+**Hinweise:**
+
+- Führen Sie dieses Skript mit Administratorrechten oder mit Fleet aus
+- Dieses Skript erkennt den aktuell angemeldeten Benutzer und ändert den Besitzer rekursiv.
+- Überprüfen Sie nach der Ausführung immer die Skriptausgabe und den Besitz von Slack.app.
+- Dieser Fix behebt berechtigungsbezogene Installationsaufforderungen, die durch Root-Besitz von Slack.app verursacht werden.
+- Verwenden Sie eine Fleet-Richtlinienautomatisierung, um dieses Skript automatisch auszuführen:
+
+```sql
+SELECT 1 FROM file WHERE path LIKE '/Applications/Slack.app/%%' and uid != 0;
+```
+
+## Windows
+
+### Entfernen Sie die USB-Blockierung
+
+```powershell
+# Run as Admin
+Write-Host "Removing RemovableStorage Blocking..." -ForegroundColor Cyan
+
+# CSP Paths
+$paths = @(
+  "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\ADMX_RemovableStorage",
+  "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\user\ADMX_RemovableStorage"
+)
+
+foreach ($path in $paths) {
+    if (Test-Path $path) {
+        Remove-Item -Path $path -Recurse -Force
+        Write-Host "Key removed : $path" -ForegroundColor Green
+    } else {
+        Write-Host "Key not found : $path" -ForegroundColor Yellow
+    }
+}
+
+# Refresh policies
+gpupdate /force
+Write-Host "USB should now be usable" -ForegroundColor Green
+```

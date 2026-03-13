@@ -1,0 +1,31 @@
+---
+title: "Erstellen Sie API-Schlüssel für Primo"
+description: "Generieren Sie einen Primo API-Schlüssel, um Anforderungen an den Primo REST API zu authentifizieren."
+---
+
+Primo API-Schlüssel werden zur Authentifizierung von Anforderungen an den [Primo REST API](/de/api-reference).) verwendet. Jeder Schlüssel ist auf den Arbeitsbereich Ihres Unternehmens beschränkt.
+
+## Generieren Sie einen API-Schlüssel
+
+1. Gehen Sie zu **Einstellungen** > **API**.
+2. Klicken Sie auf **API-Schlüssel erstellen**.
+3. Geben Sie dem Schlüssel einen Namen (z. B. „Meine Integration“).
+4. Klicken Sie auf **Erstellen**.
+5. Kopieren Sie den Schlüssel sofort – er wird nicht mehr angezeigt.
+
+<Warning>
+Bewahren Sie Ihren API-Schlüssel sicher auf. Jeder mit diesem Schlüssel kann über API auf Ihren Primo-Arbeitsbereich zugreifen.
+</Warning>
+
+## Verwenden Sie den Schlüssel API
+
+Übergeben Sie den Schlüssel im `Authorization`-Header Ihrer Anfragen:
+
+```bash
+curl https://api.getprimo.com/v1/devices \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Einen Schlüssel widerrufen
+
+Um einen Schlüssel zu widerrufen, gehen Sie zu **Einstellungen** > **API**, suchen Sie den Schlüssel und klicken Sie auf **Löschen**.

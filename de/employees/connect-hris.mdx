@@ -1,0 +1,245 @@
+---
+title: "Synchronisieren Sie Ihr HR-System"
+description: "Verbinden Sie Ihr HR-System, um Aufgaben der Mitarbeiterverwaltung zu automatisieren und eine genaue Datensynchronisierung für Onboarding, Offboarding und Gerätezuweisungen sicherzustellen, während gleichzeitig die Datensicherheit und die Einhaltung der DSGVO gewahrt bleiben."
+---
+
+In diesem Artikel erfahren Sie, wie Sie ein HR-System anbinden, um Mitarbeiterdaten zu synchronisieren und Ihr Mitarbeiterverzeichnis automatisch auf dem neuesten Stand zu halten.
+
+Durch die Anbindung eines HR-Systems können Sie sich auf eine einzige Quelle der Wahrheit für Mitarbeiterinformationen verlassen und die manuelle Datenverwaltung reduzieren.
+
+## Verstehen Sie, warum die Anbindung eines HR-Systems sinnvoll ist
+
+Durch die Synchronisierung mit Ihrem HR-System werden zeitaufwändige tägliche Aufgaben wie die Verwaltung von Ankünften und Abflügen, die Organisation von Teams und die Nachverfolgung von Ausrüstungszuweisungen automatisiert.
+
+Dadurch ist es möglich:
+
+- Erstellen und aktualisieren Sie Mitarbeiterprofile automatisch in Primo
+- Lösen Sie Onboarding- und Offboarding-Abläufe basierend auf Vertragsdaten aus
+- Halten Sie Team-, Rollen- und Zuweisungsdaten konsistent
+- Reduzieren Sie manuelle Aktualisierungen und Dateninkonsistenzen
+
+Sie können **eine oder mehrere HR-Systemquellen** mit demselben Konto verbinden. Dies ist nützlich, wenn Ihre Organisation je nach Land oder juristischer Person unterschiedliche HR-Tools verwendet.
+
+## Verbinden Sie Ihr HR-System
+
+So verbinden Sie ein HR-System:
+
+1. Gehen Sie zu **Einstellungen \> Mitarbeitersynchronisierung**
+2. Wählen Sie Ihren HR-Systemanbieter aus
+3. Befolgen Sie die Authentifizierungsschritte
+4. Starten Sie die erste Synchronisierung
+
+Sobald die Verbindung hergestellt ist, werden die Mitarbeiter mit den zugehörigen Metadaten (Kontaktdaten, Vertragsdaten, Teams, Rollen) in Primo synchronisiert.
+
+Sie können **mehrere HR-Quellen** verbinden und diese unabhängig verwalten.
+
+## Berücksichtigen Sie HR-systemspezifische Anforderungen
+
+Einige HR-Systemanbieter erfordern eine zusätzliche Konfiguration.
+
+### Lucca
+
+Um sicherzustellen, dass anstehende Onboardings und Offboardings synchronisiert werden, müssen in Lucca bestimmte Berechtigungen aktiviert werden:
+
+1. Melden Sie sich bei Ihrem Lucca-Administratorkonto an
+2. Gehen Sie zu **Einstellungen \> API-Schlüssel**
+3. Bearbeiten Sie die Berechtigungen, die dem Schlüssel API zugeordnet sind
+    ![Screenshot: Konto für HRIS-spezifische Anforderungen](/images/notion-import/connect-an-hris-to-primo__img-019__block-0028__23b43d9f.png)
+
+4. Aktivieren:
+   - _Zukünftige Mitarbeiter anzeigen_
+   - _Ausgeschiedene Mitarbeiter anzeigen_
+       ![Screenshot: Konto für HRIS-spezifische Anforderungen](/images/notion-import/connect-an-hris-to-primo__img-020__block-0032__23b43d9f.png)
+
+
+Ohne diese Berechtigungen erhält Primo keine Onboarding- und Offboarding-Daten von Lucca.
+
+Die Anbindung eines HR-Systems ist optional. Sie können Mitarbeiter auch über alternative Importmethoden verwalten, beispielsweise über den CSV-Import.
+
+## Verwalten Sie die Synchronisierung des HR-Systems
+
+<Note>
+  **Synchronisierungshäufigkeit**: Sobald ein HR-System verbunden ist, werden die Daten stündlich automatisch synchronisiert. Für den Import neuer Mitarbeiter oder Änderungen sind keine manuellen Maßnahmen erforderlich.
+</Note>
+
+Diese Synchronisierung gilt für:
+
+- Neu geschaffene Mitarbeiter
+- Aktualisierungen vorhandener Mitarbeiterdatensätze
+- Anstehende Onboardings und Offboardings, sofern vom HR-System unterstützt
+
+Nach der Ersteinrichtung sind keine manuellen Maßnahmen erforderlich.
+
+## Wenden Sie Synchronisierungsfilter an
+
+Sie können einschränken, welche Mitarbeiter aus Ihrem HR-System synchronisiert werden.
+
+Filter können angewendet werden, um nur bestimmte Populationen einzubeziehen, wie zum Beispiel:
+
+- Ausgewählte juristische Personen
+- Spezifische Vertrags- oder Beschäftigungsarten
+- Ausgewählte Teams
+- …
+
+Diese Filter tragen dazu bei, dass nur relevante Mitarbeiter in Primo verwaltet werden.
+
+![Screenshot: Synchronisierungsfilter anwenden](/images/notion-import/connect-an-hris-to-primo__img-021__block-0055__23b43d9f.png)
+
+
+## Definieren Sie, wie Felder synchronisiert werden
+
+Für jedes aus dem HR-System synchronisierte Feld können Sie festlegen, wie mit Aktualisierungen umgegangen wird.
+
+Es stehen zwei Synchronisationsmodi zur Verfügung:
+
+- **Einmal importieren:** Das Feld wird nur bei der ersten Synchronisierung importiert und kann direkt verwaltet werden.
+- **Kontinuierliche Synchronisierung:** Das Feld wird bei jeder Änderung im HR-System automatisch aktualisiert und kann nicht manuell aktualisiert werden.
+
+Typische Beispiele:
+
+![Screenshot: Definieren Sie, wie Felder synchronisiert werden](/images/notion-import/connect-an-hris-to-primo__img-022__block-0065__23b43d9f.png)
+
+
+- Vertragsbeginn und Vertragsende werden in der Regel fortlaufend synchronisiert.
+- Berufsbezeichnungen oder interne Rollen können einmalig importiert und manuell gepflegt werden.
+
+<Note>
+  **Zusammenfassung des Synchronisationsverhaltens**
+
+  - **Bei der ersten Synchronisierung:** Alle synchronisierten Felder aus dem HR-System überschreiben vorhandene Mitarbeiterdaten.
+  - **Wenn ein Mitarbeiter über das HR-System erstellt wird**: Das Mitarbeiterprofil wird automatisch anhand der HR-Systemdaten erstellt.
+  - **Während der laufenden Synchronisierung**:
+    - Felder, die auf kontinuierliche Synchronisierung eingestellt sind, werden durch Aktualisierungen des HR-Systems überschrieben.
+    - Felder, die auf einmaligen Import eingestellt sind, bleiben unverändert.
+</Note>
+
+## Umgang mit externen Mitarbeitern
+
+Einige HR-Systeme umfassen möglicherweise Personen, die nicht zu Ihrer operativen Belegschaft gehören, wie z. B. Berater, externe Buchhalter oder HR-Administratoren.
+
+Wenn Sie nicht möchten, dass diese Profile in Ihrer Mitarbeiterliste erscheinen:
+
+1. Öffnen Sie das Mitarbeiterprofil
+2. Wählen Sie **Ausblenden**
+
+Ausgeblendete Mitarbeiter werden von den Arbeitsabläufen der Mitarbeiterverwaltung ausgeschlossen.
+
+## Datensicherheit und Vertraulichkeit
+
+## Verstehen Sie, welche Daten abgerufen werden
+
+Vor der Anbindung eines HR-Systems wird die Liste der Daten angezeigt, auf die über Kombo zugegriffen wird. Sie können diese Informationen überprüfen, bevor Sie die Verbindung autorisieren.
+
+Zu den typischen abgerufenen Daten gehören:
+
+| Daten abgerufen                      | HR-Systemobjekt | Zweck                                                                                         |
+| ----------------------------------- | --------------- | ----------------------------------------------------------------------------------------------- |
+| Vorname, Nachname, E-Mail, Telefon | Mitarbeiter        | Erstellen und verwalten Sie Mitarbeiterprofile, halten Sie sie über Bestellungen auf dem Laufenden und registrieren Sie sie im MDM |
+| Postanschrift                      | Mitarbeiter        | Schiffsausrüstung                                                                                  |
+| Position, Team, Manager             | Mitarbeiter / Team | Anwenden von Kontrollen nach Gerätegruppen, Anwenden von Saas-Regeln                                               |
+| Start- und Enddatum                 | Vertrag        | Verwalten Sie Onboardings und Offboardings                                                             |
+
+### Vollständige Liste der aus dem HR-System abgerufenen Daten
+
+**Juristische Personen**
+
+- Name
+- Adresse
+
+**Arbeitsorte**
+
+- Name
+- Adresse
+
+**Mitarbeiter**
+
+- Mitarbeiternummer
+- Vorname
+- Nachname
+- Berufsbezeichnung
+- Arbeits-E-Mail
+- Persönliche E-Mail _(optional)_
+- Mobiltelefonnummer _(optional)_
+- Beschäftigungsstatus
+- Arbeitsstandort-ID
+- ID der juristischen Person
+- Manager-ID
+- Heimatadresse _(optional)_
+- Startdatum
+
+**Beschäftigungen**
+
+- Mitarbeiter-ID
+- Beschäftigungsart
+- Datum des Inkrafttretens
+
+**Gruppen**
+
+- Name
+- Typ
+
+<Note>
+  Wenn ein Datenfeld oben nicht aufgeführt ist, wird es nicht abgerufen. Kombo greift nicht auf Bankdaten, Gehaltsinformationen oder Urlaubsguthaben zu.
+</Note>
+
+## DSGVO-Richtlinie und Datenverarbeitung
+
+Einzelheiten zur DSGVO-Konformität und Datenverarbeitungspraktiken von Kombo finden Sie im [Kombo's Trust Center](https://security.kombo.dev/).
+
+## Beheben Sie fehlende Mitarbeiter
+
+### Beheben Sie fehlende Onboardings und Offboardings von Lucca
+
+Wenn Onboardings oder Offboardings bei Verwendung von **Lucca** nicht angezeigt werden, ist die Konfiguration Lucca–Kombo wahrscheinlich unvollständig.
+
+Stellen Sie in diesem Fall sicher, dass die Kombo-Synchronisierungsdokumentation korrekt angewendet wurde und dass die erforderlichen Berechtigungen in Lucca aktiviert sind.
+
+Bestätigen Sie unter **Konto für HR-systemspezifische Anforderungen \> Lucca**, um Folgendes zu bestätigen:
+
+- Zukünftige Mitarbeiter können abgerufen werden
+- Ausgeschiedene Mitarbeiter können abgerufen werden
+
+Ohne diese Berechtigungen werden Onboarding- und Offboarding-Ereignisse nicht von Lucca synchronisiert.
+
+### Untersuchen Sie einen vermissten Onboarding-Mitarbeiter
+
+Wenn ein Mitarbeiter, der aufgenommen werden sollte, nicht angezeigt wird, befolgen Sie diese Schritte.
+
+1. Überprüfen Sie die Anwesenheit des Mitarbeiters im HR-System
+   - Überprüfen Sie, ob der Mitarbeiter in Ihrem HR-System vorhanden ist.
+   - Bestätigen Sie, dass ein **Startdatum** richtig eingestellt ist.
+2. Überprüfen Sie vorhandene Mitarbeiterlisten
+   - Möglicherweise existiert der Mitarbeiter bereits. Stellen Sie sicher, dass sie nicht vorhanden sind in:
+   - Aktive Mitarbeiter (einschließlich versteckter Mitarbeiter)
+   - Onboardings (stellen Sie sicher, dass Sie **alle Filter entfernen**)
+3. Überprüfen Sie die von Kombo abgerufenen Daten
+   - Wenn der Mitarbeiter nicht sichtbar ist, können Sie überprüfen, ob seine Daten von Kombo abgerufen wurden:
+   - Gehen Sie zu **Einstellungen \> Mitarbeitersynchronisierung**
+   - Klicken Sie auf das HR-System, in dem der Mitarbeiter hinzugefügt wurde
+   - Wählen Sie **Einstellungen aktualisieren**
+   - **Mitarbeiterfilterung** öffnen
+   - Klicken Sie auf **Vorschau**
+
+Diese Vorschau zeigt die von Kombo abgerufenen Mitarbeiterdaten und ob der Mitarbeiter in die Synchronisierung einbezogen wird.
+
+**Mögliche Ergebnisse der Kombo-Daten**
+
+- **Eingeschlossen**: Der Mitarbeiter wird in die Synchronisierung einbezogen und sollte vorhanden sein. Suchen Sie erneut mit dem **Nachnamen** des Mitarbeiters in:
+  - Aktive Mitarbeiter
+  - Onboardings
+  - Offboardings
+- **Ausgeschlossen**: Kombo gibt an, warum der Mitarbeiter ausgeschlossen ist (am häufigsten aufgrund von Synchronisierungsfiltern oder ausgeschlossenen Kategorien). Aktualisieren Sie die Filter, um den Mitarbeiter einzubeziehen.
+
+### Untersuchen Sie einen vermissten Offboarding-Mitarbeiter
+
+Wenn ein Mitarbeiter nicht in der Ansicht **Offboardings** erscheint, wird das Offboarding-Datum möglicherweise nicht korrekt synchronisiert. In den meisten Fällen wird dies durch eine falsche Feldkonfiguration in den Synchronisierungseinstellungen Ihres HR-Systems verursacht.
+
+**Einstellungen für die Feldsynchronisierung überprüfen**
+
+- Gehen Sie zu **Einstellungen \> Mitarbeitersynchronisierung**
+- Überprüfen Sie, wie das Feld **Offboarding- oder Vertragsenddatum** synchronisiert wird
+- Stellen Sie sicher, dass das Feld auf **Kontinuierliche Synchronisierung** eingestellt ist.
+
+Wenn das Feld auf **Einmal importieren** eingestellt ist, werden im HR-System vorgenommene Aktualisierungen nicht berücksichtigt.
+
+Wenn Sie das Feld auf **Kontinuierliche Synchronisierung** umstellen, können aktualisierte Abreisedaten abgerufen werden.

@@ -1,0 +1,31 @@
+---
+title: "Créer des clés API pour Primo"
+description: "Générez une clé Primo API pour authentifier les demandes auprès du Primo REST API."
+---
+
+Les clés Primo API sont utilisées pour authentifier les demandes adressées au [Primo REST API](/fr/api-reference). Chaque clé est limitée à l'espace de travail de votre entreprise.
+
+## Générer une clé API
+
+1. Accédez à **Paramètres** > **API**.
+2. Cliquez sur **Créer une clé API**.
+3. Donnez un nom à la clé (par exemple "Mon intégration").
+4. Cliquez sur **Créer**.
+5. Copiez la clé immédiatement – ​​elle ne sera plus affichée.
+
+<Warning>
+Conservez votre clé API en toute sécurité. Toute personne disposant de cette clé peut accéder à votre espace de travail Primo via le API.
+</Warning>
+
+## Utilisez la clé API
+
+Passez la clé dans l'entête `Authorization` de vos requêtes :
+
+```bash
+curl https://api.getprimo.com/v1/devices \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Révoquer une clé
+
+Pour révoquer une clé, accédez à **Paramètres** > **API**, recherchez la clé et cliquez sur **Supprimer**.

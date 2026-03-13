@@ -1,0 +1,425 @@
+---
+title: "Configurer les imprimantes pour macOS"
+description: "Découvrez comment configurer les imprimantes IPP sur les appareils macOS en découvrant les imprimantes disponibles sur le réseau, en identifiant leurs adresses IP, en générant un fichier mobileconfig et en important la configuration pour une intégration transparente de l'impression."
+---
+
+Cet article explique comment configurer les imprimantes IPP sur les appareils macOS. Le processus consiste à découvrir les imprimantes disponibles sur le réseau, à identifier leurs adresses IP et à importer la configuration via un paramètre MDM personnalisé.
+
+## Scanner les imprimantes IPP sur le réseau
+
+*Si vous connaissez déjà la configuration de votre imprimante, vous pouvez ignorer cette partie.*
+
+1. Ouvrez **Terminal** sur un appareil macOS.
+2. **Exécutez** la commande suivante pour découvrir toutes les imprimantes disponibles via Internet Printing Protocol (IPP) :
+
+```bash
+ippfind
+```
+
+3. **Notez** la liste des imprimantes découvertes et leurs URI IPP.
+
+## Identifiez les adresses IP de l'imprimante
+
+*Si vous connaissez déjà la configuration de votre imprimante, vous pouvez ignorer cette partie.*
+
+1. Pour chaque imprimante découverte, exécutez une commande ping pour vérifier sa disponibilité et obtenir son adresse IP :
+
+```bash
+ping [printer-hostname]
+```
+
+Remplacez `[printer-hostname]` par le nom d'hôte réel affiché par ippfind
+
+2. Enregistrez les adresses IP et les URI IPP correspondants.
+
+## Générer le fichier mobileconfig
+
+Si vous avez besoin d'aide pour générer le fichier mobileconfig avec la commande ippfind et ping, vous pouvez exécuter ce script sur votre Mac pendant que vous êtes connecté au réseau de votre bureau. Il affichera le fichier mobileconfig dans votre terminal.
+
+```shell
+#!/bin/bash
+# macOS + bash 3.2 compatible
+# Discovers IPP printers and generates a .mobileconfig
+# Dependencies: ippfind, ipptool, uuidgen, ping, nc, plutil, arp
+# Usage:
+#   ./gen_airprint_profile.sh [-o file.mobileconfig] [-i com.profile.id] [-s CIDR]
+# Example:
+#   ./gen_airprint_profile.sh -o Primo-AirPrint.mobileconfig -i com.getprimo.printer.airprint -s 192.168.1.0/24
+
+set -euo pipefail
+
+OUTPUT="AirPrint.mobileconfig"
+ROOT_ID="com.getprimo.printer.airprint"
+CIDR=""
+TIMEOUT_DISC=5
+PING_WAIT_MS=1000
+
+while getopts ":o:i:s:" opt; do
+  case "$opt" in
+    o) OUTPUT="$OPTARG" ;;
+    i) ROOT_ID="$OPTARG" ;;
+    s) CIDR="$OPTARG" ;;
+    \?) echo "Invalid option: -$OPTARG" >&2; exit 2 ;;
+  esac
+done
+
+need() { command -v "$1" >/dev/null 2>&1 || { echo "Missing required tool: $1" >&2; exit 1; }; }
+need uuidgen; need ping; need plutil; need ipptool
+# ippfind and nc are recommended; without ippfind the script will fallback to CIDR/ARP
+command -v ippfind >/dev/null 2>&1 || echo "Warning: ippfind not found: mDNS discovery will be skipped."
+command -v nc >/dev/null 2>&1 || { echo "nc (netcat) is required for the network fallback."; exit 1; }
+
+xml_escape() {
+  sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' \
+      -e 's/\"/\&quot;/g' -e "s/'/\&apos;/g"
+}
+
+# -------- mDNS discovery via ippfind ----------
+URIS=()
+discover_mdns() {
+  [ -x "$(command -v ippfind)" ] || return 0
+  # --timeout varies across versions; try short IPv4 timeout when available
+  local out
+  if ippfind --help 2>/dev/null | grep -q -- '--timeout'; then
+    out=$(ippfind --timeout ${TIMEOUT_DISC} _ipp._tcp,_print _ipps._tcp,_print -q 2>/dev/null || true)
+  else
+    out=$(ippfind _ipp._tcp _ipps._tcp -q 2>/dev/null || true)
+  fi
+  if [ -n "$out" ]; then
+    while IFS= read -r line; do
+      [ -n "$line" ] && URIS+=("$line")
+    done <<< "$out"
+  fi
+}
+
+# -------- Fallback without mDNS ----------
+# 1) Build candidate IPs: explicit CIDR (/24 only) or ARP table
+candidates_from_arp() {
+  arp -an 2>/dev/null | awk '{print $2}' | tr -d '()' | grep -E '^[0-9.]+$' | sort -u
+}
+
+candidates_from_cidr() {
+  # Minimal /24 generator (e.g., 192.168.1.0/24); other masks are not supported here
+  local cidr="$1"
+  if ! echo "$cidr" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/24$'; then
+    echo "Warning: Unsupported CIDR for this mini-scanner (only /24): $cidr" >&2
+    return 1
+  fi
+  local base="${cidr%/24}"
+  local net=$(echo "$base" | awk -F. '{print $1"."$2"."$3"."}')
+  local i
+  for i in $(seq 1 254); do echo "${net}${i}"; done
+}
+
+# 2) Probe port 631 and try common IPP paths
+try_make_uri() {
+  local ip="$1"
+  local path
+  for path in "/ipp/print" "/.well-known/ipp" "/printers/print" "/ipp" "/printers/ipp"; do
+    if ipptool -T 3 -q "ipp://$ip:631$path" get-printer-attributes.test >/dev/null 2>&1; then
+      echo "ipp://$ip:631$path"
+      return 0
+    fi
+  done
+  for path in "/ipp/print" "/.well-known/ipp" "/ipp"; do
+    if ipptool -T 5 -q "ipps://$ip:631$path" get-printer-attributes.test >/dev/null 2>&1; then
+      echo "ipps://$ip:631$path"
+      return 0
+    fi
+  done
+  echo ""
+  return 1
+}
+
+discover_fallback() {
+  local candidates
+  if [ -n "$CIDR" ]; then
+    candidates=$(candidates_from_cidr "$CIDR" || true)
+  else
+    candidates=$(candidates_from_arp || true)
+  fi
+  [ -z "$candidates" ] && return 0
+
+  local ip uri
+  while IFS= read -r ip; do
+    [ -z "$ip" ] && continue
+    if nc -G 1 -z "$ip" 631 2>/dev/null; then
+      uri=$(try_make_uri "$ip")
+      [ -n "$uri" ] && URIS+=("$uri")
+    fi
+  done <<< "$candidates"
+}
+
+# -------- Collect attributes for each URI ----------
+IPs=(); Ports=(); Paths=(); Names=(); Models=(); Locs=(); ForceTLS=()
+
+extract_components() {
+  local uri="$1" scheme host port path ip name model loc
+  scheme=$(printf '%s' "$uri" | sed -E 's#^([a-zA-Z0-9+.-]+)://.*#\1#')
+  host=$(printf '%s' "$uri" | sed -E 's#^[a-zA-Z0-9+.-]+://([^/:]+).*#\1#')
+  port=$(printf '%s' "$uri" | sed -E 's#^[a-zA-Z0-9+.-]+://[^/:]+:([0-9]+).*#\1#')
+  path=$(printf '%s' "$uri" | sed -E 's#^[a-zA-Z0-9+.-]+://[^/]+(/.*)$#\1#')
+  [ -z "${port:-}" ] && port=631
+  [ -z "${path:-}" ] && path="/ipp/print"
+
+  ip=$(ping -c 1 -W ${PING_WAIT_MS} "$host" 2>/dev/null | sed -n '1s/.*(\\([0-9.]*\\)).*/\1/p')
+  [ -z "${ip:-}" ] && ip="$host"
+
+  name=""; model=""; loc=""
+  if ipptool -T 5 -q "$uri" get-printer-attributes.test >/tmp/ipp.$$ 2>/dev/null; then
+    name=$(sed -n 's/^printer-info[^=]*= //p' /tmp/ipp.$$ | head -n1)
+    model=$(sed -n 's/^printer-make-and-model[^=]*= //p' /tmp/ipp.$$ | head -n1)
+    loc=$(sed -n 's/^printer-location[^=]*= //p' /tmp/ipp.$$ | head -n1)
+    rm -f /tmp/ipp.$$
+  fi
+  [ -z "$name" ] && name="$host"
+  [ -z "$model" ] && model="$name"
+
+  IPs+=("$ip"); Ports+=("$port"); Paths+=("$path");
+  Names+=("$name"); Models+=("$model"); Locs+=("$loc");
+  if [ "$scheme" = "ipps" ]; then ForceTLS+=("true"); else ForceTLS+=("false"); fi
+}
+
+# --------- RUN ----------
+discover_mdns
+if [ ${#URIS[@]} -eq 0 ]; then
+  echo "No printer visible via mDNS (ippfind). Attempting network discovery…"
+  discover_fallback
+fi
+
+if [ ${#URIS[@]} -eq 0 ]; then
+  echo "No IPP printer found" >&2
+  exit 1
+fi
+
+# Remove duplicates / keep stable order
+tmp_uniq="$(mktemp)"
+printf "%s\n" "${URIS[@]}" | awk '!seen[$0]++' > "$tmp_uniq"
+URIS=()
+while IFS= read -r line; do [ -n "$line" ] && URIS+=("$line"); done < "$tmp_uniq"
+rm -f "$tmp_uniq"
+
+# Gather attributes
+i=0
+while [ $i -lt ${#URIS[@]} ]; do
+  extract_components "${URIS[$i]}"
+  i=$((i+1))
+done
+
+# --------- Generate .mobileconfig ----------
+PROFILE_UUID=$(uuidgen)
+AIRPRINT_UUID=$(uuidgen)
+MCX_UUID=$(uuidgen)
+TMP="$(mktemp /tmp/airprint.XXXXXX.mobileconfig)"
+
+{
+cat <<'XML'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>AirPrint</key>
+      <array>
+XML
+
+idx=0
+for uri in "${URIS[@]}"; do
+  ft="${ForceTLS[$idx]}"; ip="${IPs[$idx]}"; port="${Ports[$idx]}"; path="${Paths[$idx]}"
+  printf '        <dict>\n'
+  printf '          <key>ForceTLS</key>\n'
+  [ "$ft" = "true" ] && printf '          <true/>\n' || printf '          <false/>\n'
+  printf '          <key>IPAddress</key>\n'
+  printf '          <string>%s</string>\n' "$(printf '%s' "$ip" | xml_escape)"
+  printf '          <key>Port</key>\n'
+  printf '          <integer>%s</integer>\n' "$port"
+  printf '          <key>ResourcePath</key>\n'
+  printf '          <string>%s</string>\n' "$(printf '%s' "$path" | xml_escape)"
+  printf '        </dict>\n'
+  idx=$((idx+1))
+done
+
+cat <<XML
+      </array>
+      <key>PayloadDisplayName</key>
+      <string>AirPrint</string>
+      <key>PayloadIdentifier</key>
+      <string>com.apple.airprint.${AIRPRINT_UUID}</string>
+      <key>PayloadType</key>
+      <string>com.apple.airprint</string>
+      <key>PayloadUUID</key>
+      <string>${AIRPRINT_UUID}</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+    </dict>
+    <dict>
+      <key>DefaultPrinter</key>
+      <dict>
+        <key>DeviceURI</key>
+      <string>$(printf '%s' "${URIS[0]}" | xml_escape)</string>
+        <key>DisplayName</key>
+      <string>$(printf '%s' "${Names[0]}" | xml_escape)</string>
+      </dict>
+      <key>PayloadDisplayName</key>
+      <string>Printing</string>
+      <key>PayloadIdentifier</key>
+      <string>com.apple.mcxprinting.${MCX_UUID}</string>
+      <key>PayloadType</key>
+      <string>com.apple.mcxprinting</string>
+      <key>PayloadUUID</key>
+      <string>${MCX_UUID}</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>UserPrinterList</key>
+      <dict>
+        <key>Printer</key>
+        <array>
+XML
+
+idx=0
+for uri in "${URIS[@]}"; do
+  name="${Names[$idx]}"; model="${Models[$idx]}"; loc="${Locs[$idx]}"
+  cat <<XML
+          <dict>
+            <key>DeviceURI</key>
+            <string>$(printf '%s' "$uri" | xml_escape)</string>
+            <key>DisplayName</key>
+            <string>$(printf '%s' "$name" | xml_escape)</string>
+            <key>Location</key>
+            <string>$(printf '%s' "$loc" | xml_escape)</string>
+            <key>Model</key>
+            <string>$(printf '%s' "$model" | xml_escape)</string>
+            <key>PPDURL</key>
+            <string>file://localhost/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</string>
+            <key>PrinterLocked</key>
+            <false/>
+          </dict>
+XML
+  idx=$((idx+1))
+done
+
+cat <<XML
+        </array>
+      </dict>
+    </dict>
+  </array>
+  <key>PayloadDisplayName</key>
+  <string>AirPrint</string>
+  <key>PayloadIdentifier</key>
+  <string>${ROOT_ID}</string>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadUUID</key>
+  <string>${PROFILE_UUID}</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+</dict>
+</plist>
+XML
+} > "$TMP"
+
+plutil -lint "$TMP" >/dev/null
+plutil -convert xml1 -o "$OUTPUT" "$TMP"
+rm -f "$TMP"
+
+echo "Profile generated: $OUTPUT"
+echo "Default Printer: ${Names[0]} (${URIS[0]})"
+cat "$OUTPUT"
+```
+
+## Importer la configuration
+
+1. Accédez à **MDM > Profils.** Sélectionnez le profil que vous souhaitez cibler.
+2. Sélectionnez **Ajouter un paramètre MDM personnalisé.**
+3. Téléchargez le fichier **.mobileconfig** suivant, en remplaçant les espaces réservés (IP, UUID, etc.) par les détails de configuration de votre imprimante :
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>AirPrint</key>
+			<array>
+				<dict>
+					<key>ForceTLS</key>
+					<false/>
+					<key>IPAddress</key>
+					<string>[IP_ADDRESS]</string>
+					<key>Port</key>
+					<integer>631</integer>
+					<key>ResourcePath</key>
+					<string>[RESOURCE_PATH]</string>
+				</dict>
+			</array>
+			<key>PayloadDisplayName</key>
+			<string>AirPrint</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.airprint.[UUID]</string>
+			<key>PayloadType</key>
+			<string>com.apple.airprint</string>
+			<key>PayloadUUID</key>
+			<string>[UUID]</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>DefaultPrinter</key>
+			<dict>
+				<key>DeviceURI</key>
+				<string>ipp://[IP_ADDRESS]/[RESOURCE_PATH]</string>
+				<key>DisplayName</key>
+				<string>[DISPLAY_NAME]</string>
+			</dict>
+			<key>PayloadDisplayName</key>
+			<string>Printing</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.mcxprinting.[UUID]</string>
+			<key>PayloadType</key>
+			<string>com.apple.mcxprinting</string>
+			<key>PayloadUUID</key>
+			<string>[UUID]</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>UserPrinterList</key>
+			<dict>
+				<key>Printer</key>
+				<array>
+					<dict>
+						<key>DeviceURI</key>
+						<string>ipp://[IP_ADDRESS]/[RESOURCE_PATH]</string>
+						<key>DisplayName</key>
+						<string>[DISPLAY_NAME]</string>
+						<key>Location</key>
+						<string>[LOCATION]</string>
+						<key>Model</key>
+						<string>[MODEL]</string>
+						<key>PPDURL</key>
+						<string>file://localhost/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</string>
+						<key>PrinterLocked</key>
+						<false/>
+					</dict>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>AirPrint</string>
+	<key>PayloadIdentifier</key>
+	<string>com.getprimo.printer.airprint</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>[UUID]</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
+```
+
+4. **Enregistrez** et **déployez** le profil.

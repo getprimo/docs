@@ -1,0 +1,60 @@
+---
+title: "Règles SecureToken"
+description: "Le jeton sécurisé est un identifiant de sécurité critique dans macOS qui permet des actions telles que la modification des mots de passe et la création de comptes utilisateur, garantissant ainsi la conformité aux normes de sécurité d'Apple et une gestion appropriée des utilisateurs via Primo."
+---
+
+Cet article explique ce qu'est le **Secure Token** sur macOS, son rôle dans la gestion locale des utilisateurs et pourquoi il est requis pour des actions telles que la modification des mots de passe des utilisateurs ou la création de nouveaux comptes d'utilisateurs.
+
+## Qu'est-ce que le jeton sécurisé ?
+
+Le **Secure Token** est un identifiant de sécurité généré par macOS et lié à un compte utilisateur local.
+
+Il permet le cryptage et le déchiffrement des données via **FileVault**. Un utilisateur disposant d'un jeton sécurisé est considéré comme « autorisé » à effectuer des actions système sensibles telles que :
+
+- Activation ou désactivation de FileVault
+- Modification du mot de passe d'un autre utilisateur local (si l'utilisateur dispose d'un jeton sécurisé)
+- Créer un nouvel utilisateur local
+- Accorder un jeton sécurisé à un autre compte
+
+Sans jeton sécurisé, ces opérations échoueront, même si elles sont effectuées par un compte administrateur.
+
+## Pourquoi le jeton sécurisé est important pour Primo
+
+Primo s'appuie sur le jeton sécurisé pour gérer en toute sécurité les utilisateurs macOS.
+
+Lors de la réinitialisation d'un mot de passe ou de la création d'un nouvel utilisateur via Primo, macOS exige que l'action soit initiée par un compte détenteur d'un jeton sécurisé.
+
+Cela garantit :
+
+- Conformité aux exigences de sécurité d'Apple
+- Accès continu au disque chiffré par FileVault
+- Bonne exécution des actions de gestion des utilisateurs via Primo
+
+## Vérifiez l'état du jeton sécurisé dans Primo
+
+L'état du Secure Token est affiché directement dans le **cockpit Primo**, sous l'onglet **Utilisateurs** de l'appareil concerné.
+
+Vous pouvez vérifier rapidement si le compte administrateur macOS utilisé par Primo détient un jeton sécurisé actif.
+
+> Pour garantir une bonne gestion des utilisateurs via Primo, assurez-vous que le compte administrateur lié à l'appareil dispose d'un jeton sécurisé.
+
+## Transférer un jeton sécurisé
+
+Si vous disposez d'un compte doté d'un SecureToken et que vous souhaitez qu'un autre compte l'ait, suivez cette procédure :
+
+1. Si nécessaire, faites la promotion du compte avec SecureToken Granted (doit être sudoers)
+2. Exécutez `sudo sysadminctl -secureTokenOn seconduseraccount -password - -adminUser firstuseraccount -adminPassword -`
+3. Pour vérifier si le secureToken est activé sur le nouveau compte, exécutez `sudo sysadminctl -secureTokenStatus seconduseraccount`
+4. Si nécessaire, rétrogradez le compte.
+
+Le cockpit peut prendre jusqu'à 24 heures pour mettre à jour l'état du compte local sur l'onglet utilisateurs de l'appareil.
+
+## Comportements des jetons sécurisés (macOS uniquement)
+
+| Méthode de création | Compte administrateur | Compte non-administrateur |
+|---|---|---|
+| Créé par Primo pendant ZTD | SecureToken automatiquement activé | Aucun SecureToken fourni |
+| Créé automatiquement par la stratégie "Compte administrateur" | SecureToken fourni lors de la première connexion du compte | Aucun SecureToken fourni |
+| Créé manuellement par le client via Primo | SecureToken fourni lors de la première connexion du compte | Aucun SecureToken fourni |
+| Créé manuellement par le client localement | SecureToken fourni s'il est créé à partir d'un compte administrateur avec SecureToken | Aucun SecureToken fourni |
+| Créé via sysadminctl par le client localement ou à distance | SecureToken fourni s'il est créé à l'aide de l'administrateur avec SecureToken | SecureToken fourni s'il est créé à l'aide de l'administrateur avec SecureToken |

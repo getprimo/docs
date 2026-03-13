@@ -1,0 +1,78 @@
+---
+title: "Mises à jour du système d'exploitation : expérience employé"
+description: "Découvrez comment les administrateurs peuvent surveiller l’état des mises à jour des appareils et comment les employés reçoivent des notifications de mise à jour du système d’exploitation sur macOS et Windows."
+---
+
+## Surveillance de l'état de mise à jour de l'appareil
+
+Les administrateurs peuvent surveiller l'état de mise à jour du système d'exploitation pour tous les appareils gérés directement dans le cockpit Primo. Chaque appareil affiche l'un des trois états de mise à jour :
+
+| Statut             | Description                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| **À jour**     | L'appareil exécute une version du système d'exploitation qui répond aux exigences de date limite de mise à jour configurées. |
+| **Pas à jour** | L'appareil exécute une version de système d'exploitation obsolète et le délai configuré est dépassé.         |
+| **Pas de configuration**      | Aucune stratégie de mise à jour du système d'exploitation n'a été configurée pour l'appareil.                                      |
+
+<Note>
+  L'état de la mise à jour est calculé en fonction de la politique de délai de mise à jour du système d'exploitation configurée. Les appareils sur lesquels MDM est désactivé n'afficheront pas d'état de mise à jour.
+</Note>
+
+Vous pouvez filtrer la liste des appareils par état de mise à jour pour identifier rapidement les appareils qui nécessitent une attention.
+
+## Expérience employé
+
+### macOS 14 et supérieur
+
+![Capture d'écran : macOS 14 et supérieur](/images/notion-import/employee-experience-for-os-updates__img-064__block-0005__1b243d9f.png)
+
+
+Lorsqu'une version minimale est appliquée, les utilisateurs finaux voient une notification native macOS (DDM) une fois par jour. Les utilisateurs peuvent choisir de mettre à jour avant la date limite ou de la planifier pour cette nuit-là. 24 heures avant la date limite, la notification apparaît toutes les heures et ignore Ne pas déranger. Une heure avant l'heure limite, la notification apparaît toutes les 30 minutes puis toutes les 10 minutes.
+
+Si l'hôte a été éteint une fois le délai écoulé, la mise à jour sera programmée une heure après sa mise sous tension.
+
+Pour les appareils macOS qui utilisent l'inscription automatisée des appareils (ADE), si l'appareil est inférieur à la version minimale spécifiée, il sera nécessaire d'effectuer une mise à jour vers la dernière version disponible pendant ADE avant que la configuration et l'inscription de l'appareil puissent procéder.
+
+### macOS 13 et versions antérieures
+
+Les utilisateurs finaux sont encouragés à mettre à jour macOS via Nudge.
+
+![Capture d'écran : Avant macOS 14](/images/notion-import/employee-experience-for-os-updates__img-065__block-0012__1b243d9f.png)
+
+
+|                             | **> 1 jour avant la date limite** | **< 1 jour avant la date limite** | **Délai dépassé** |
+| --------------------------- | ---------------------------- | ---------------------------- | -------------------- |
+| Fréquence de la fenêtre de déplacement      | Une fois par jour à 20h GMT        | Une fois toutes les 2 heures           | Immédiatement après la connexion |
+| L'utilisateur final peut différer          | ✅                            | ✅                            | ❌                    |
+| La fenêtre de déplacement peut être ignorée | ✅                            | ✅                            | ❌                    |
+
+### Fenêtres
+
+Les utilisateurs finaux sont encouragés à mettre à jour Windows via la boîte de dialogue Windows native.
+
+|                                      | **Avant la date limite** | **Délai dépassé** |
+| ------------------------------------ | ------------------- | ----------------- |
+| L'utilisateur final peut différer le redémarrage automatique | ✅                   | ❌                 |
+
+Si un utilisateur final était en vacances une fois la date limite dépassée, l'utilisateur final bénéficie d'un délai de grâce (configuré) avant le redémarrage automatique de l'hôte.
+
+<Note>
+  Pour tous les scénarios détaillés ci-dessus, la date limite s'applique à partir de la « date de disponibilité de la mise à jour », et non de la date de configuration de la politique. Si vos employés utilisent une ancienne version depuis plus longtemps que la date limite choisie, ils seront invités à mettre immédiatement à jour leur système d'exploitation.
+</Note>
+
+## Espace disque faible
+
+<Warning>
+  Pour les 3 scénarios, un administrateur devra peut-être intervenir si les mises à jour échouent et que l'utilisateur ne parvient pas à libérer de l'espace. Aucune des plateformes ne gère seule les problèmes d’espace disque pour installer les mises à jour.
+</Warning>
+
+### macOS 14 et supérieur
+
+L'utilisateur final est invité à installer la mise à jour avec une notification système et verra dans les paramètres système qu'il ne dispose pas de suffisamment d'espace pour installer la mise à jour. Ils devront libérer de l’espace par eux-mêmes pour stopper les bourrins de mise à jour.
+
+### macOS 13 et versions antérieures
+
+La fenêtre Nudge apparaîtra et l'utilisateur sera dirigé vers les Préférences Système pour télécharger et installer la mise à jour (qui échouera). La fenêtre Nudge se comportera normalement et ne pourra pas être fermée après la date limite. L'utilisateur final devra libérer de l'espace par lui-même pour installer la mise à jour afin de fermer la fenêtre Nudge.
+
+### Fenêtres
+
+Lorsque le délai est respecté, il sera indiqué à l'utilisateur qu'il doit effectuer une mise à jour, puis la mise à jour échouera et l'utilisateur sera informé qu'il doit libérer de l'espace.

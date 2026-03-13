@@ -1,0 +1,42 @@
+---
+title: "Déployer ThreatDown"
+description: "Déployez automatiquement ThreatDown via Primo MDM. ThreatDown est disponible exclusivement via Primo et se déploie sur votre flotte d'appareils sans étapes manuelles."
+---
+
+<Note>
+  **Type de déploiement : Automatique**
+
+  ThreatDown est déployé **automatiquement** via MDM. Une fois que vous avez acheté ThreatDown via Primo et créé un contrôle MDM, l'agent est transmis à tous les appareils ciblés sans aucune étape manuelle. Aucune interaction de l'utilisateur n'est requise.
+</Note>
+
+Cet article explique comment déployer ThreatDown sur tout ou partie de votre flotte d'appareils.
+
+## Conditions préalables
+
+- Avoir Primo MDM
+- Avoir une licence ThreatDown achetée via Primo
+
+<Note>
+  Le déploiement automatique de ThreatDown est uniquement disponible pour les licences achetées via Primo. Contactez-nous pour commencer.
+</Note>
+
+## Déployez ThreatDown sur votre flotte
+
+Le déploiement de ThreatDown sur les appareils de votre flotte se fait via vos configurations MDM.
+
+1. Dans Primo, accédez à **MDM \> Contrôles \> Ajouter un nouveau contrôle**
+2. Choisissez la plateforme (plateformes disponibles)
+3. Activer la carte **EDR - ThreatDown**
+4. Mettez à jour le ciblage pour cibler les appareils souhaités
+5. Confirmer
+
+L'agent ThreatDown sera automatiquement installé sur tous les appareils inclus dans le contrôle.
+
+## Plateformes disponibles
+
+ThreatDown dans Primo est actuellement disponible pour les plateformes suivantes :
+
+- **macOS** (arm64) - Puces M1 et plus
+- **Windows** (x64) - Prend en charge Windows Pro
+
+Si la plate-forme n'est pas mentionnée ci-dessus, vous pouvez toujours installer manuellement ThreatDown en téléchargeant le programme d'installation depuis la console ThreatDown et en l'installant manuellement avec Fleet.

@@ -1,0 +1,143 @@
+---
+title: "Connettiti al nostro MCP"
+description: "Scopri come connettere ChatGPT, Claude, Cursor e altri assistenti AI a Primo utilizzando il server MCP (Model Context Protocol) per gestire il tuo parco IT in linguaggio naturale."
+---
+
+## Cos'è l'MCP?
+
+Il Model Context Protocol (MCP) è uno standard aperto che consente agli assistenti AI come ChatGPT, Claude o Cursor di connettersi direttamente a strumenti e origini dati esterni, incluso Primo.
+
+Con il server MCP Primo, il tuo assistente AI può interrogare e gestire la tua flotta IT in linguaggio naturale: elencare dispositivi, cercare dipendenti, gestire accessori, creare ticket e altro ancora.
+
+---
+
+## Prerequisiti
+
+Per utilizzare il server MCP Primo è sufficiente:
+
+- Un **account Primo** con accesso allo spazio di lavoro della tua azienda
+- Un assistente AI che supporta MCP (ChatGPT, Claude, Cursor, ecc.)
+
+L'autenticazione viene gestita tramite **OAuth**: quando aggiungi il server MCP Primo al tuo assistente AI, verrai reindirizzato per accedere con il tuo account Primo. Nessuna chiave API richiesta.
+
+---
+
+## URL del server MCP
+
+Il server MCP Primo è disponibile all'indirizzo:
+
+```javascript
+https://api.getprimo.com/mcp
+```
+
+Per impostazione predefinita, il server viene eseguito in **modalità di sola lettura**: il tuo assistente AI può eseguire query sui dati ma non può apportare modifiche.
+
+Per abilitare l'**accesso in scrittura** (creare ticket, aggiornare accessori, ecc.), utilizzare:
+
+```javascript
+https://api.getprimo.com/mcp?readOnly=false
+```
+
+---
+
+## Guida all'installazione
+
+### ChatGPT
+
+1. Apri **ChatGPT** (è richiesto il piano Plus o Team)
+2. Vai su **Impostazioni** → **App connesse** o utilizza il menu **"Connetti"**
+3. Seleziona **"Aggiungi server MCP"**
+4. Immettere l'URL del server: `https://api.getprimo.com/mcp`
+5. Verrai reindirizzato a **accedi con il tuo account Primo** (OAuth)
+6. Autorizza la connessione: è tutto pronto!
+
+**Progetti di esempio:**
+
+- _"Elenca tutti i dispositivi gestiti in Primo"_
+- _"Mostrami i dipendenti che hanno aderito questo mese"_
+- _"Quali ticket sono attualmente in sospeso?"_
+
+### Claudio Desktop
+
+1. Apri l'app **Claude Desktop**
+2. Vai su **Impostazioni** → **Sviluppatore** → **Server MCP**
+3. Fai clic su **"Aggiungi server"**
+4. Inserisci un nome (ad esempio "Primo") e l'URL: `https://api.getprimo.com/mcp`
+5. Completa il flusso di accesso OAuth con il tuo account Primo
+6. Salva e riconnetti: gli strumenti Primo verranno visualizzati nella casella degli strumenti di Claude
+
+### Cursore
+
+1. Apri le impostazioni del **Cursore**
+2. Passare a **Server MCP**
+3. Aggiungi un nuovo server con l'URL: `https://api.getprimo.com/mcp`
+4. Completa l'autenticazione OAuth con il tuo account Primo
+5. Gli strumenti Primo saranno disponibili nell'assistente AI del cursore
+
+### Altri client compatibili con MCP
+
+Qualsiasi applicazione che supporta lo standard MCP può connettersi a Primo. Utilizza l'URL del server `https://api.getprimo.com/mcp`: l'autenticazione viene gestita tramite OAuth.
+
+---
+
+## Supporto multiaziendale
+
+Se la tua organizzazione gestisce **più aziende** in Primo, per impostazione predefinita il server MCP è quello della tua azienda principale.
+
+Per scegliere come target un'azienda specifica, aggiungi il parametro `x-company-id` all'URL:
+
+```javascript
+https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID
+```
+
+Puoi combinare i parametri:
+
+```javascript
+https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID&readOnly=false
+```
+
+<Note>
+  Per trovare l'ID della tua azienda, utilizza API per elencare le tue aziende o controlla l'URL nella dashboard Primo.
+</Note>
+
+---
+
+## Cosa puoi fare?
+
+Una volta connesso, il tuo assistente AI può eseguire le seguenti azioni tramite Primo:
+
+| Categoria        | Leggi Operazioni                        | Operazioni di scrittura                                              |
+| --------------- | -------------------------------------- | ------------------------------------------------------------- |
+| **Aziende**   | Elenca e visualizza le aziende                | —                                                             |
+| **Dispositivi**     | Elenca, cerca e visualizza i dettagli del dispositivo  | Blocca, sblocca, cancella (⚠️)                                       |
+| **Dipendenti**   | Elenca e visualizza i profili dei dipendenti        | —                                                             |
+| **Accessori** | Elenca e visualizza gli accessori              | Crea e aggiorna gli accessori                                 |
+| **Biglietti**     | Elenca, cerca, filtra e visualizza i biglietti | Crea ticket, aggiungi commenti, aggiorna stato/priorità/assegnatario |
+
+<Warning>
+  Le azioni del dispositivo (blocco, cancellazione) sono potenti e irreversibili. Utilizzare la modalità di scrittura con cautela.
+</Warning>
+
+---
+
+## Risoluzione dei problemi
+
+**"404 Not Found" quando si apre l'URL in un browser**
+
+Questo è normale. Il server MCP non è una pagina Web: è un endpoint di protocollo progettato per essere utilizzato dagli assistenti AI. Aggiungilo come server MCP nel tuo client preferito.
+
+**Errore di autenticazione**
+
+Assicurati di completare il flusso di accesso OAuth quando richiesto. Hai bisogno di un account Primo attivo con accesso all'azienda che desideri interrogare.
+
+**Dati provenienti dall'azienda sbagliata**
+
+Se gestisci più aziende, specifica l'azienda di destinazione utilizzando il parametro `x-company-id` (vedi Supporto multiaziendale sopra).
+
+---
+
+## Hai bisogno di aiuto?
+
+Contatta il tuo team di supporto Primo o contattaci tramite la chat in-app se hai bisogno di assistenza per la configurazione di MCP.
+
+Per la documentazione di API, visitare: [api.getprimo.com/apidoc](https://api.getprimo.com/apidoc)

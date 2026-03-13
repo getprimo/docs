@@ -1,0 +1,113 @@
+---
+title: Style guide
+description: Writing standards and conventions for Primo documentation
+---
+
+## Ton et voix
+
+Écrivez dans un style **technique, direct et concis** tout en restant accessible. Privilégiez la clarté à la formalité.
+
+- Utilisez la voix active et la deuxième personne (« vous »)
+- Gardez les phrases courtes – une idée par phrase
+- Mener avec l’objectif, puis donner des instructions
+- Évitez les mots de remplissage inutiles
+
+## Conventions linguistiques
+
+### Terminologie
+
+| Utiliser | Éviter |
+|-----|-------|
+| Système RH | SIRH |
+| le tableau de bord | dans Primo, vers Primo |
+| gestion des appareils | MDM (à la première utilisation, épeler) |
+
+### Références produits
+
+Réduisez les mentions « dans Primo » ou « vers Primo ». N'incluez le nom du produit que lorsque :
+- Distinguer Primo d'un autre système
+- Première mention dans un document
+- Le contexte ne serait pas clair sans cela
+
+**Éviter :** "Accédez à Primo et cliquez sur Paramètres"
+**Préférer :** "Accédez à **Paramètres**"
+
+**Éviter :** "Importer des employés vers Primo"
+**Préférer :** "Importer des employés"
+
+### Acronymes
+
+Épelez les acronymes lors de la première utilisation, suivis de l’abréviation entre parenthèses. Utilisez l’abréviation pour les mentions ultérieures.
+
+**Exemple :** La gestion des appareils mobiles (MDM) permet la configuration à distance. Les stratégies MDM contrôlent les paramètres des appareils.
+
+## Conventions de style
+
+### Rubriques
+
+- Utilisez la casse de la phrase : « Configurez votre compte » et non « Configurez votre compte »
+- Utilisez des verbes impératifs : « Configurer SSO » et non « Configuration de SSO »
+- Gardez les titres concis et orientés vers l’action
+
+| Éviter | Préférer |
+|-------|--------|
+| Configuration de vos paramètres | Configurer les paramètres |
+| Gestion des appareils des employés | Gérer les appareils |
+| Comprendre zero-touch | Comprendre zero-touch |
+| Importation via CSV | Importer via CSV |
+
+### Formatage
+
+- **Gras** pour les éléments de l'interface utilisateur : cliquez sur **Paramètres** > **Intégrations**.
+- `Code formatting` pour :
+  - Noms de fichiers : `config.json`
+  - Commandes : `mint dev`
+  - Chemins : `/api/employees`
+  - Références du code : `deviceId`
+- Utiliser des listes numérotées pour les étapes séquentielles
+- Utilisez des puces pour les éléments non séquentiels
+
+### Structure des articles
+
+Suivez un modèle cohérent dans tous les articles :
+
+1. **Titre** — Verbe impératif + objet (par exemple, « Connectez votre système RH »)
+2. **Description** — Résumé en une phrase de ce que le lecteur accomplira
+3. **Prérequis** – Énumérer les exigences avant de commencer (le cas échéant)
+4. **Étapes** – Instructions numérotées avec des actions claires
+5. **Prochaines étapes** — Lien vers le contenu connexe (le cas échéant)
+
+### Groupes de cartes
+
+Utilisez `<CardGroup>` pour afficher les liens associés sous forme de cartes visuelles. Suivez ces directives :
+
+- **Maximum 3 cards per row** — Use `cols={3}` or fewer for readability
+- **Gardez la copie de la carte synchronisée** — Les titres et les descriptions des cartes doivent correspondre à la couverture de l'article référencé.
+- **Utiliser des cartes pour les collections** – Idéal pour les pages de présentation renvoyant vers du contenu connexe
+
+```mdx
+<CardGroup cols={3}>
+  <Card title="Connect your HR system" icon="users" href="/fr/employees/connect-hris">
+    Sync employee data automatically from your HR system.
+  </Card>
+  <Card title="Import via CSV" icon="file-csv" href="/fr/employees/import-via-csv">
+    Bulk import employees using a spreadsheet.
+  </Card>
+  <Card title="Automate onboardings" icon="wand-magic-sparkles" href="/fr/employees/automate-onboardings">
+    Set up automatic device provisioning for new hires.
+  </Card>
+</CardGroup>
+```
+
+**Maintenance :** Lors de la mise à jour du titre ou de la description d'un article, recherchez toutes les cartes faisant référence à cette page et mettez-les à jour en conséquence.
+
+## Référence rapide
+
+| Élément | Convention | Exemple |
+|---------|------------|---------|
+| Rubriques | Cas de phrase, impératif | "Configurer le chiffrement du disque" |
+| Éléments de l'interface utilisateur | Audacieux | Cliquez sur **Enregistrer** |
+| Codes/commandes | Backticks | Exécutez `mint dev` |
+| Nom du produit | Minimiser l'utilisation | Omettre "dans Primo" lorsqu'il est évident |
+| Acronymes | Épelez la première utilisation | "Système RH" et non "SIRH" |
+| Card groups | Max 3 columns, synced copy | `<CardGroup cols={3}>` |

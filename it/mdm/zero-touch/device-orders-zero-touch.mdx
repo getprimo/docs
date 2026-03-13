@@ -1,0 +1,113 @@
+---
+title: "Ordini di dispositivi con Zero-Touch Deployment"
+description: "Scopri come ordinare dispositivi idonei per ZTD e configurare Apple Business Manager o Microsoft Entra in modo che i dispositivi ordinati tramite Primo vengano registrati automaticamente."
+---
+
+Questo articolo spiega quando Zero-Touch Deployment (ZTD) è disponibile per i dispositivi ordinati tramite Primo e come configurare Apple Business Manager (ABM) o Microsoft Entra in modo che i dispositivi vengano registrati automaticamente alla consegna.
+
+## Comprendi perché ZTD dipende dalle tastiere locali
+
+Zero-Touch Deployment si basa sugli accreditamenti dei fornitori che dipendono dalla regione:
+
+- **I dispositivi Mac** richiedono la registrazione tramite **Apple Business Manager (ABM)**
+- **I dispositivi Windows** richiedono la registrazione tramite **Microsoft Autopilot**
+
+Solo i fornitori accreditati in una determinata regione possono fornire questi servizi e sono autorizzati a consegnare dispositivi **esclusivamente con la configurazione della tastiera locale di quella regione**.
+
+Quando viene selezionata una tastiera non locale, l'ordine viene instradato a un fornitore diverso che non è accreditato per ZTD, rendendo non disponibile Zero-Touch Deployment.
+
+## Verifica la disponibilità ZTD per regione di consegna e tastiera
+
+| Regione di consegna | Tastiera locale | ZTD disponibile | Tastiera non locale | ZTD disponibile |
+|---|---|---|---|---|
+| UE | AZERTY in Francia; QWERTY locale nell'UE | Sì | QWERTY USA/Regno Unito/Internazionale | No |
+| Regno Unito | QWERTY Regno Unito | Sì | AZERTY / QWERTY USA / QWERTZ | No |
+| Stati Uniti | QWERTY NOI | Sì | AZERTY / QWERTY UK / QWERTZ | No |
+
+## Configura Apple Business Manager per ZTD
+
+Per registrare automaticamente i dispositivi Apple ordinati tramite Primo in Zero-Touch, autorizza il rivenditore a registrare i dispositivi nel tuo ABM.
+
+1. In Primo, vai a [**Impostazioni → Ordini**](https://app.getprimo.com/settings/).
+2. In **Distribuzione Zero-Touch**, fai clic su **Apple**.
+3. Scegli il paese o i paesi per i quali desideri abilitare l'approvvigionamento Zero-Touch e copia gli ID rivenditore.
+4. Vai a [Apple Business Manager](https://business.apple.com/), fai clic sul nome del tuo account in basso a sinistra e seleziona **Preferenze**.
+5. Seleziona **Informazioni sull'organizzazione**. Copia il tuo **ID organizzazione** e incollalo nel Cockpit.
+6. In **Servizi di gestione dispositivi**, seleziona **Assegnazione di gestione**. Accanto a **Numeri cliente**, fai clic su **Modifica**.
+7. Aggiungi gli ID rivenditore.
+8. In Primo, attiva l'interruttore per finalizzare.
+    ![Screenshot: Ordini di dispositivi con Zero-Touch](/images/notion-import/device-orders-with-ZXPROTECT0ZX__img-106__block-0018__19e5323d.png)
+
+    ![Screenshot: Ordini di dispositivi con Zero-Touch](/images/notion-import/device-orders-with-ZXPROTECT0ZX__img-105__block-0017__3ff17dd0.jpg)
+
+    ![Screenshot: Ordini di dispositivi con Zero-Touch](/images/notion-import/device-orders-with-ZXPROTECT0ZX__img-104__block-0016__eb022d41.png)
+
+
+## Configura Microsoft Entra per ZTD
+
+### Passaggio 1: autorizza il rivenditore a registrare futuri dispositivi
+
+1. In Primo, vai a [**Impostazioni → Ordini**](https://app.getprimo.com/settings/).
+2. In **Approvvigionamento zero-touch**, fai clic su **Windows**.
+3. Seleziona il Paese o i Paesi in cui desideri abilitare l'approvvigionamento Autopilot, quindi fai clic su **Autorizza il nostro rivenditore**.
+4. Seguire le istruzioni visualizzate.
+5. Una schermata di conferma indicherà che la relazione del partner è stata creata con successo.
+
+### Passaggio 2: immettere le informazioni Microsoft Entra
+
+1. Accedi al [portale di Azure](https://portal.azure.com/) e cerca **Microsoft Entra ID**.
+2. Copia il tuo **ID tenant** e il **Dominio primario** e incollali nel Cockpit.
+3. Attiva l'interruttore di configurazione per finalizzare l'integrazione.
+
+## Seleziona il layout della tastiera al momento dell'ordine
+
+Quando si ordina un dispositivo tramite Primo, la selezione della tastiera determina l'idoneità ZTD.
+
+### Tastiera locale (consigliata)
+
+Applica automaticamente la tastiera standard per il paese di consegna. Garantisce che l'ordine venga gestito da un fornitore autorizzato ZTD.
+
+Examples:
+- Francia → AZERTY
+- Belgio → QWERTY BE
+- Germania → QWERTZ DE
+- Regno Unito → QWERTY UK
+- Stati Uniti → QWERTY USA
+
+### Layout di tastiera specifico
+
+Opzioni disponibili: QWERTY US, QWERTY UK, QWERTY International, QWERTZ, QWERTY spagnola, AZERTY.
+
+<Warning>
+La selezione di un layout di tastiera **non locale per il paese di consegna disabilita Zero Touch Deployment**.
+</Warning>
+
+## Scenari di ordinazione comuni
+
+- **Consegna negli Stati Uniti**
+  - Tastiera locale → ZTD disponibile
+  - QWERTY Internazionale o AZERTY → ZTD non disponibile
+
+- **Consegna in Francia (UE)**
+  - Tastiera locale (AZERTY) → ZTD disponibile
+  - QWERTY US o QWERTY Internazionale → ZTD non disponibile
+
+- **Consegna in Francia con richiesta di tastiere QWERTY americane**
+  - ZTD non è disponibile tramite il flusso di ordinazione standard di Primo
+
+## Domande frequenti
+
+### Perché ZTD non è disponibile con QWERTY International in Francia?
+
+La ZTD dipende dagli accreditamenti dei fornitori legati a regioni specifiche. In Francia, solo i fornitori che forniscono tastiere AZERTY sono accreditati per Apple ABM o Microsoft Autopilot. La selezione di una tastiera non locale instrada l'ordine a un fornitore diverso che non è autorizzato per ZTD in quella regione.
+
+### Posso ordinare dispositivi in Francia con tastiere QWERTY americane?
+
+Sì, sono disponibili due opzioni:
+
+1. **Effettua un ordine standard senza ZTD**: seleziona QWERTY US. I dispositivi verranno consegnati pronti all'uso, senza Zero-Touch Deployment.
+2. **Invia una richiesta speciale (tempi di consegna più lunghi)** — aggiungi un commento al tuo ordine richiedendo **"QWERTY US + ABM"**. Primo verificherà la disponibilità con i fornitori. Tempi di consegna previsti: **da 3 a 4 settimane**.
+
+### La selezione di "AZERTY" abilita sempre ZTD?
+
+No. Se selezioni manualmente AZERTY per una consegna **fuori dalla Francia**, ZTD non sarà disponibile. L'ordine non sarà gestito da un fornitore autorizzato ZTD con sede in Francia. Per garantire l'idoneità alla ZTD, seleziona sempre **Tastiera locale** anziché un layout specifico.

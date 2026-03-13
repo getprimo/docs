@@ -1,0 +1,62 @@
+---
+title: "Créer des clés API pour Fleet"
+description: "Générez une clé FleetDM API pour authentifier les demandes directes vers votre instance Fleet."
+---
+
+Les clés Fleet (FleetDM) API vous permettent d'interagir directement avec votre instance Fleet, par exemple pour exécuter des scripts, interroger les données de l'appareil ou intégrer d'autres outils.
+
+Vous pouvez créer des clés Fleet API directement depuis Primo ou via le tableau de bord Fleet.
+
+## Générer une clé Fleet API à partir de Primo
+
+1. Accédez à **Paramètres** > **Développeurs** > **Clés Fleet API**.
+2. Cliquez sur **Créer une clé API**.
+3. Donnez un nom à la clé et configurez les autorisations.
+4. Cliquez sur **Créer**.
+5. Copiez le jeton immédiatement : il ne sera plus affiché.
+
+<Warning>
+Gardez votre jeton Fleet API secret et ne le partagez pas. Il dispose des autorisations que vous avez configurées lors de la création.
+</Warning>
+
+## Générer une clé Fleet API à partir du tableau de bord Fleet
+
+1. Ouvrez votre tableau de bord **Fleet** (accessible depuis le cockpit du Primo via **Paramètres** > **MDM** > **Ouvrir Fleet**).
+2. Cliquez sur votre avatar dans le coin supérieur droit et accédez à **Mon compte**.
+3. Faites défiler jusqu'à **Jeton API**.
+4. Cliquez sur **Obtenir le jeton API**.
+5. Copiez le jeton : il est lié à votre compte utilisateur Fleet.
+
+<Warning>
+Votre jeton Fleet API dispose des mêmes autorisations que votre compte utilisateur Fleet. Gardez-le secret et ne le partagez pas.
+</Warning>
+
+## Générer une clé Fleet API à partir de CLI
+
+Vous pouvez également créer des clés Fleet API par programme à l'aide de la CLI Fleet :
+
+```bash
+fleetctl login --email your-email@example.com --url https://<your-fleet-instance>
+fleetctl get api-token
+```
+
+Ou créez une clé API directement via le Fleet API :
+
+```bash
+curl -X POST https://<your-fleet-instance>/api/v1/fleet/users/<user-id>/api_token \
+  -H "Authorization: Bearer YOUR_EXISTING_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+## Utilisez la clé Fleet API
+
+Passez le token dans l'en-tête `Authorization` :
+
+```bash
+curl https://<your-fleet-instance>/api/v1/fleet/hosts \
+  -H "Authorization: Bearer YOUR_FLEET_API_TOKEN"
+```
+
+## Régénérer ou révoquer un jeton
+
+Les jetons Fleet API n’expirent pas automatiquement. Pour révoquer l'accès, accédez à **Mon compte** dans Fleet et cliquez sur **Régénérer le jeton API**. Cela invalide immédiatement le jeton précédent.

@@ -1,0 +1,62 @@
+---
+title: "Crear claves API para Fleet"
+description: "Genere una clave FleetDM API para autenticar solicitudes directas en su instancia Fleet."
+---
+
+Fleet (FleetDM) Las claves API le permiten interactuar directamente con su instancia Fleet, por ejemplo, para ejecutar scripts, consultar datos del dispositivo o integrarse con otras herramientas.
+
+Puede crear claves Fleet API directamente desde Primo o mediante el panel de control Fleet.
+
+## Generar una clave Fleet API desde Primo
+
+1. Vaya a **Configuración** > **Desarrolladores** > **Claves Fleet API**.
+2. Haga clic en **Crear clave API**.
+3. Asigne un nombre a la clave y configure los permisos.
+4. Haga clic en **Crear**.
+5. Copie el token inmediatamente; no se volverá a mostrar.
+
+<Warning>
+Mantenga su token Fleet API en secreto y no lo comparta. Tiene los permisos que configuraste durante la creación.
+</Warning>
+
+## Genere una clave Fleet API desde el panel Fleet
+
+1. Abra su panel de **Fleet** (accesible desde la cabina de Primo a través de **Configuración** > **MDM** > **Abrir Fleet**).
+2. Haz clic en tu avatar en la esquina superior derecha y ve a **Mi cuenta**.
+3. Desplácese hasta **Token API**.
+4. Haga clic en **Obtener token API**.
+5. Copie el token: está vinculado a su cuenta de usuario Fleet.
+
+<Warning>
+Su token Fleet API tiene los mismos permisos que su cuenta de usuario Fleet. Mantenlo en secreto y no lo compartas.
+</Warning>
+
+## Genere una clave Fleet API desde CLI
+
+También puede crear claves Fleet API mediante programación utilizando la CLI Fleet:
+
+```bash
+fleetctl login --email your-email@example.com --url https://<your-fleet-instance>
+fleetctl get api-token
+```
+
+O cree una clave API directamente a través de Fleet API:
+
+```bash
+curl -X POST https://<your-fleet-instance>/api/v1/fleet/users/<user-id>/api_token \
+  -H "Authorization: Bearer YOUR_EXISTING_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+## Utilice la clave Fleet API
+
+Pase el token en el encabezado `Authorization`:
+
+```bash
+curl https://<your-fleet-instance>/api/v1/fleet/hosts \
+  -H "Authorization: Bearer YOUR_FLEET_API_TOKEN"
+```
+
+## Regenerar o revocar un token
+
+Los tokens Fleet API no caducan automáticamente. Para revocar el acceso, vaya a **Mi cuenta** en Fleet y haga clic en **Regenerar token API**. Esto invalida inmediatamente el token anterior.

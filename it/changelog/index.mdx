@@ -1,0 +1,230 @@
+---
+title: "Registro delle modifiche"
+description: "Gli ultimi aggiornamenti del prodotto da Primo"
+mode: "center"
+---
+
+<Update label="18 febbraio 2026" tags={["Procurement"]}>
+  ## Miglioramenti degli accessori
+
+  La gestione degli accessori ha appena ricevuto un importante aggiornamento in Primo.
+
+  Ora puoi gestire gli accessori con molta più flessibilità, un migliore monitoraggio e flussi di lavoro più fluidi nel tuo inventario.
+
+  Dai un'occhiata alle novità:
+
+  - Carica ed esporta accessori tramite CSV
+  - Crea visualizzazioni personalizzate utilizzando i filtri
+  - Ulteriori impostazioni e opzioni di visualizzazione nella sezione Accessori
+  - Gestione dei tag migliorata per un'organizzazione più semplice
+  - Un nuovo tipo di accessorio "Altro" per articoli personalizzati
+  - Monitoraggio della quantità per gli accessori condivisi
+  - Monitoraggio delle condizioni per mantenere il tuo inventario accurato nel tempo
+
+  Questo aggiornamento rende molto più semplice mantenere un inventario di accessori pulito e affidabile man mano che la tua flotta cresce.
+</Update>
+
+<Update label="15 febbraio 2026" tags={["MDM"]}>
+  ## Aggiornamenti MDM: onboarding più fluido e più controlli Linux
+
+  Abbiamo fornito alcuni miglioramenti molto richiesti a MDM in Primo.
+
+  ### Gli aggiornamenti del sistema operativo non vengono più forzati durante la distribuzione Zero Touch
+
+  Durante ZTD, gli aggiornamenti del sistema operativo non verranno più attivati automaticamente. I dipendenti ora possono eseguire la configurazione del dispositivo senza interruzioni e aggiornare il proprio computer quando risulta opportuno per loro.
+
+  Ciò rende l'onboarding più veloce, più fluido e molto meno frustrante fin dal primo giorno.
+
+  ### Altri controlli Linux MDM
+
+  Abbiamo anche ampliato il supporto Linux con nuovi controlli, tra cui:
+
+  - Blocco USB
+  - Configurazione Wi-Fi
+
+  E questo è solo l'inizio: presto arriveranno altri controlli Linux e Android!
+</Update>
+
+<Update label="11 febbraio 2026" tags={["MDM", "Software"]}>
+  ## Gestione software e patch delle app in Primo
+
+  Ora puoi gestire il software direttamente in Primo, senza cambiare strumento. Questo aggiornamento offre due cose: una visione più chiara di ciò che è installato nella tua flotta e un modo completamente nuovo di mantenere aggiornate le app.
+
+  ### Patch dell'app
+
+  Primo ora ti consente di abilitare l'**applicazione automatica di patch per app**, in modo che gli aggiornamenti vengano gestiti automaticamente. Da qualsiasi pagina del software è possibile attivare l'applicazione di patch a:
+
+  - mantenere aggiornati gli installatori
+  - implementare automaticamente le nuove versioni
+  - utilizzare gli script di installazione quando necessario
+
+  Rende molto più semplice rimanere al sicuro e ridurre il lavoro di aggiornamento manuale.
+
+  ### Installa app da Primo
+
+  Puoi anche distribuire nuove app direttamente da Primo. Attualmente supportiamo le **app gestite Fleet** su **macOS e Windows**, con controllo su:
+
+  - targeting (gruppi di dispositivi, dispositivi specifici o tutti i dispositivi)
+  - disponibilità del servizio self-service
+  - installare gli script
+
+  ### Scopri cosa è installato a colpo d'occhio
+
+  Infine, la sezione Software ora mostra cosa è installato e dove, con versioni, filtri e visualizzazioni personalizzate per tenere traccia delle app più importanti.
+
+  _Prossimamente_: pacchetti personalizzati e app dell'App Store per iOS, iPadOS e Android.
+</Update>
+
+<Update label="18 dicembre 2025" tags={["MDM"]}>
+  ## MDM Controlli e gestione software
+
+  Abbiamo appena apportato un importante aggiornamento al funzionamento della gestione dei dispositivi in Primo.
+
+  ### Le policy MDM sono ora Controlli
+
+  Le policy MDM ora si chiamano **Controls**, con uno spazio dedicato in Primo. L’obiettivo è semplice: rendere le policy più facili da trovare, da comprendere e da gestire su larga scala. Abbiamo anche semplificato la denominazione:
+
+  - I profili ora sono **Gruppi di dispositivi**
+  - Le app installate ora sono **Software**
+
+  ### Punta i dispositivi direttamente, senza ginnastica del profilo
+
+  Il cambiamento più grande riguarda il targeting. Invece di fare affidamento sui profili MDM, ora puoi assegnare i controlli **direttamente ai dispositivi**.
+
+  Crea un controllo basato sulla piattaforma, configuralo una volta, quindi scegli dove applicarlo:
+
+  - un gruppo di dispositivi
+  - dispositivi specifici
+  - o l'intera flotta
+
+  Ciò rende le implementazioni più veloci, più chiare e molto più facili da ragionare.
+
+  ### Un posto dove vedere ogni politica implementata
+
+  Ora hai una visione unica di tutti i controlli applicati alla tua flotta, in modo da poter rispondere rapidamente: cosa viene implementato, dove e a chi?
+
+  ### Duplica le policy in tutta sicurezza
+
+  Duplicare una politica era già possibile prima, ma ora è molto più ovvio e senza attriti. È il modo più veloce per riutilizzare una configurazione e adattarla per un altro gruppo o caso di eccezione.
+
+  ### I profili diventano gruppi di dispositivi
+
+  Stiamo anche semplificando la struttura:
+
+  - I profili MDM verranno spostati in **Controlli**
+  - I profili stanno diventando **Gruppi di dispositivi**
+
+  I gruppi di dispositivi sono ora quello che avrebbero dovuto essere sempre: un modo pulito per organizzare il tuo parco dispositivi, non un semplice requisito per implementare policy.
+
+  ### Le app installate diventano software
+
+  Le app installate ora sono **Software**, con un'esperienza più chiara e una sezione dedicata.
+
+  Questo è il primo passo per portare più funzionalità di gestione del software di Fleet in Primo, in modo da poter gestire il software con lo stesso livello di chiarezza di dispositivi e policy.
+</Update>
+
+<Update label="10 dicembre 2025" tags={["SaaS"]}>
+  ## Tag per SaaS
+
+  Rendi la tua directory SaaS più facile da navigare e agire con i tag!
+
+  I tag sono ora disponibili su tutte le app SaaS che Primo rileva tramite SaaS Mapping e l'estensione Chrome. Puoi aggiungere e modificare manualmente i tag agli strumenti di gruppo per team, proprietario, sensibilità, livello di rischio e altro.
+
+  Se desideri che Primo faccia questo per te, puoi abilitare la codifica automatica AI in **Impostazioni \> scheda SaaS**. Primo esaminerà quindi le app esistenti e quelle appena scoperte e applicherà automaticamente i tag più pertinenti.
+
+  Una volta taggate le tue app, puoi filtrare per tag, creare visualizzazioni mirate per controlli o rinnovi e individuare i rischi per la sicurezza molto più rapidamente.
+</Update>
+
+<Update label="17 novembre 2025" tags={["SaaS"]}>
+  ## Mappatura SaaS ed estensione Chrome
+
+  Ottieni una visione chiara di tutte le app SaaS e delle identità lavorative utilizzate nella tua azienda.
+
+  La mappatura SaaS è ora disponibile. Mostra tutte le app SaaS a cui si accede con un'e-mail aziendale tramite Google Workspace. Se hai bisogno di più copertura, puoi aggiungere la nuova estensione Chrome. Mappa tutte le identità lavorative utilizzate con un'e-mail aziendale, anche quando gli utenti non accedono con Google.
+
+  La mappatura SaaS è abilitata per impostazione predefinita se hai collegato Google Workspace. Puoi implementare l'estensione Chrome tramite un profilo MDM utilizzando la policy MDM di Chrome.
+
+  Questa funzionalità è disponibile per tutte le organizzazioni con un abbonamento attivo a SaaS Management.
+
+  Primo si concentra solo sull'utilizzo di SaaS correlato al lavoro. Non vengono raccolti account personali, dati di navigazione e contenuti.
+</Update>
+
+<Update label="4 novembre 2025" tags={["Automation"]}>
+  ## Pilota automatico di onboarding
+
+  Impostalo una volta, pianifica la data e Primo eseguirà le tue onboarding dall'inizio alla fine con una revisione finale.
+
+  Definisci le impostazioni ricorrenti una volta, inclusa la creazione di email, app predefinite e gruppi di accesso. Per ogni assunzione, scegli la data e Primo genera una corsa che puoi rivedere e modificare. Nel giorno pianificato, Primo effettua il provisioning degli account, crea caselle di posta, applica l'accesso, quindi registra i risultati.
+
+  La spedizione delle apparecchiature rimane manuale, con l’approvvigionamento automatizzato in arrivo.
+
+  Mantieni tutto in un unico posto per ridurre i trasferimenti e accelerare il primo giorno.
+</Update>
+
+<Update label="3 settembre 2025" tags={["Feature"]}>
+  ## Assistenza remota tramite RustDesk
+
+  Accesso remoto con un clic per una risoluzione dei problemi più rapida.
+
+  Abilita RustDesk in un profilo per installare automaticamente l'agente sui dispositivi di destinazione. Avvia sessioni sicure direttamente dalla pagina di un dispositivo senza chiedere agli utenti codici o password. Le sessioni ereditano i tuoi controlli di accesso e vengono registrate per il controllo.
+
+  Usalo per diagnosticare i problemi in tempo reale e ridurre lo scambio di email. È particolarmente utile per l'onboarding, il personale remoto e gli incidenti che necessitano di un aiuto pratico e rapido.
+</Update>
+
+<Update label="12 agosto 2025" tags={["Feature"]}>
+  ## MDM Traccia di controllo
+
+  Visualizza ogni azione del dispositivo con tracciabilità completa.
+
+  Ottieni una sequenza temporale cronologica delle azioni MDM su tutti i dispositivi. Filtra per dispositivo, tipo di azione o data per confermare le modifiche alle policy, eseguire il debug dei problemi e soddisfare i controlli. Ogni voce mostra cosa è successo, chi l'ha attivato e il risultato, con collegamenti al dispositivo o alla policy.
+
+  Utilizzare le esportazioni per condividere prove con revisori o fornitori. L'audit trail chiude il ciclo tra una richiesta di modifica e ciò che è effettivamente accaduto.
+</Update>
+
+<Update label="4 agosto 2025" tags={["Feature"]}>
+  ## Integrazione SentinelOne
+
+  Distribuisci la protezione degli endpoint nel tuo parco dispositivi con un clic.
+
+  Connetti il tuo tenant SentinelOne in Primo e distribuisci automaticamente S1 su ogni dispositivo gestito. Le nuove macchine vengono protette al momento della registrazione, riducendo le lacune dovute a installazioni ad hoc. Lo stato del dispositivo e la copertura vengono visualizzati in un'unica visualizzazione in modo da poter individuare rapidamente i ritardatari.
+
+  Le policy rimangono in SentinelOne mentre la distribuzione e il monitoraggio sono attivi in Primo, mantenendo pulite le responsabilità. Questa integrazione aiuta a standardizzare la sicurezza man mano che si espande.
+</Update>
+
+<Update label="31 luglio 2025" tags={["Feature"]}>
+  ## Automazioni IA: gestione fluida e senza sforzo
+
+  Le automazioni AI vanno oltre la semplice delega delle attività automatizzando i processi di routine in background, senza che sia necessario alcun intervento da parte tua. Mentre Uno reagisce a richieste specifiche, le automazioni gestiscono automaticamente le attività in corso, in base alle regole definite.
+
+  Ad esempio, oltre a fare in modo che Uno invii un promemoria a un utente in ritardo sugli aggiornamenti, puoi impostare un'automazione per inviare promemoria a tutti gli utenti interessati su base regolare, senza muovere un dito. Allo stesso modo, una volta che Uno configura un'impostazione MDM per te, lascia che le automazioni prendano il controllo e applichino automaticamente le nuove impostazioni su tutti i dispositivi della tua organizzazione.
+
+  _Ecco come puoi iniziare a usarli:_
+
+  - **Controlli regolari**: "Genera un rapporto mensile di tutti i dispositivi non conformi."
+  - **Avvisi automatici**: "Inviami un'e-mail ogni volta che un dispositivo non è più conforme alle nostre politiche MDM." / "Invia e-mail di promemoria ai dipendenti che non hanno registrato i propri dispositivi dopo 7 giorni."
+  - **Tracciamento dispositivo**: "Inviami un'e-mail mensile con l'elenco dei dispositivi che hanno superato l'80% di utilizzo della CPU negli ultimi 7 giorni o le cui batterie hanno superato 10.000 cicli."
+</Update>
+
+<Update label="20 luglio 2025" tags={["Feature"]}>
+  ## Uno: il tuo nuovo assistente conversazionale
+
+  Uno non è più solo uno strumento: è il tuo assistente IT personale. Con un semplice clic dalla barra dei menu, puoi avviare una chat e dirle immediatamente esattamente ciò di cui hai bisogno. Che si tratti di creare una configurazione MDM personalizzata, inviare e-mail di promemoria automatiche ai dipendenti che sono in ritardo sugli aggiornamenti o generare report PDF sulla sicurezza o sull'inventario, Uno è qui per automatizzare le attività che richiedono più tempo.
+
+  In pochi secondi, Uno può eseguire azioni senza la necessità di menu complessi o passaggi manuali. Consideralo come un assistente extra, sempre disponibile a gestire attività ripetitive e critiche, dandoti più tempo per concentrarti su ciò che conta veramente.
+
+  _Ecco come puoi iniziare a usarlo:_
+
+  - **Audit rapido**: "Mostrami tutti i dispositivi non conformi" e ricevi immediatamente il report.
+  - **Rapporto esecutivo**: "Genera un PDF che combina inventario, conformità e stato di salute della flotta."
+  - **Configurazione MDM**: "Installa questa app sui miei dispositivi iOS."
+  - **Promemoria automatici**: "Invia un'email a tutti i dipendenti che non si sono ancora iscritti o che sono in ritardo con gli aggiornamenti."
+  - **Aiuto**: "Come posso cambiare i nomi dei computer della mia flotta?"
+</Update>
+
+<Update label="7 luglio 2025" tags={["Feature"]}>
+  ## Assegnazione del dispositivo intelligente
+
+  Grazie alla potenza dell'intelligenza artificiale, Primo assegna automaticamente ciascun computer al dipendente giusto, utilizzando dati accurati e in tempo reale. L'intelligenza artificiale esamina le sessioni aperte, la cronologia delle connessioni, i precedenti proprietari e altri dati chiave per determinare con precisione quale dispositivo appartiene a chi, il tutto garantendo al tempo stesso il mantenimento della privacy dei dati.
+
+  Di' addio ad assegnazioni errate ed errori: questa funzionalità riduce il rischio di errori, semplifica la gestione dell'inventario e ti fa risparmiare tempo prezioso. Niente più controlli manuali per ciascun dispositivo. Basta attivare questa opzione direttamente dalle impostazioni MDM di Primo!
+</Update>

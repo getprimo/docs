@@ -1,0 +1,69 @@
+---
+description: "Um die Okta-Authentifizierungsintegration auf Ihren Geräten einzurichten, befolgen Sie die beschriebenen Schritte, um die Platform Single Sign-On-Anwendung hinzuzufügen, eine SCEP-Herausforderung zu erstellen und die Bereitstellung innerhalb des Primo-Profils abzuschließen. Stellen Sie dabei sicher, dass Sie alle erforderlichen Informationen für die Konfiguration sammeln."
+title: "Okta Plattform-SSO"
+---
+
+Integrieren Sie Okta als Authentifizierungsanbieter für Ihre verwalteten Geräte mithilfe von Apples Platform Single Sign-On. Nach der Konfiguration melden sich Mitarbeiter mit ihren Okta-Anmeldeinformationen an ihrem Mac an – es ist kein separates lokales Passwort erforderlich – und SSO wird an alle mit Okta verbundenen Apps weitergegeben.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Auf macOS
+
+### Fügen Sie die Platform Single Sign-On-Anwendung in Okta hinzu
+
+1. Gehen Sie zu **Admin-Konsole > Anwendungen > Anwendungen > App-Katalog durchsuchen**
+2. Suchen Sie nach **Plattform-Single-Sign-On für macOS**
+3. Klicken Sie auf **Integration hinzufügen**.
+
+   > Wenn die Meldung *Diese Funktion ist nicht aktiviert* angezeigt wird, wenden Sie sich an Ihren Okta-Kontomanager, um den Okta-Gerätezugriff (kostenpflichtige Funktion) zu aktivieren.
+4. Öffnen Sie die App aus Ihrer Anwendungsliste
+5. Benennen Sie auf der Registerkarte **Allgemein** das App-Label bei Bedarf um
+6. Notieren Sie sich auf der Registerkarte **Anmelden** die **Client-ID** (erforderlich für die MDM-Konfiguration).
+7. Weisen Sie auf der Registerkarte **Zuweisungen** die App den relevanten Benutzern oder Gruppen zu
+
+### Erstellen Sie eine SCEP-Herausforderung in Okta
+
+1. Gehen Sie zu **Admin-Konsole > Sicherheit > Geräteintegrationen**
+2. Stellen Sie sicher, dass die Registerkarte **Gerätezugriff** sichtbar ist (neben *Endpoint Management*).
+
+   > Wenn die Registerkarte fehlt, ist der Okta-Gerätezugriff noch nicht aktiviert
+3. Fügen Sie eine **Statische SCEP-Zertifizierungsstelle** hinzu
+4. Beachten Sie Folgendes:
+   - **SCEP-Zertifikat-URL**
+   - **SCEP-Zertifikatsherausforderung**
+
+### Fügen Sie Okta Verify zu Fleet hinzu
+
+1. Gehen Sie in der Okta-Administratorkonsole zu **Einstellungen > Downloads**
+2. Laden Sie **Okta Verify für macOS** herunter
+3. Fügen Sie die App als Software zu Fleet hinzu:
+   - Laden Sie einfach die Bewerbungsunterlagen hoch
+   - Aktivieren Sie weder die automatische Bereitstellung noch den Self-Service
+   - **Primo passt die Einstellungen automatisch an, um die Bereitstellung zu handhaben**
+
+### Bewahren Sie wichtige Informationen für die MDM-Konfiguration auf
+
+Stellen Sie sicher, dass Sie die folgenden Details für bevorstehende Einrichtungsschritte speichern:
+
+- **Okta-Domäne** (z. B. `yourorganization.okta.com`)
+- **Client-ID** (aus der Platform Single Sign-On-Anwendung)
+- **SCEP-Zertifikat-URL**
+- **SCEP-Zertifikatsherausforderung**
+
+### Schließen Sie die Bereitstellung ab
+
+Um die Bereitstellung von **Okta Platform SSO** abzuschließen, gehen Sie zu einem Profil: https://app.getprimo.com/profiles
+
+1. Aktivieren Sie die Einstellung **Okta Platform SSO**
+2. Geben Sie die erforderlichen Informationen ein (Domäne, Client-ID, SCEP-URL und Challenge).
+3. Speichern Sie die Änderungen
+
+Okta Platform SSO wird dann auf allen Zielgeräten des Profils aktiviert.
+
+<Note>
+  Die Bereitstellung kann mehrere Minuten dauern, da Okta Verify auf allen Zielgeräten installiert werden muss.
+</Note>

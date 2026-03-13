@@ -1,0 +1,31 @@
+---
+title: "Crear claves API para Primo"
+description: "Genere una clave Primo API para autenticar solicitudes en Primo REST API."
+---
+
+Las claves Primo API se utilizan para autenticar solicitudes en [Primo REST API](/es/api-reference). Cada clave tiene como ámbito el espacio de trabajo de su empresa.
+
+## Generar una clave API
+
+1. Vaya a **Configuración** > **API**.
+2. Haga clic en **Crear clave API**.
+3. Asigne un nombre a la clave (por ejemplo, "Mi integración").
+4. Haga clic en **Crear**.
+5. Copie la clave inmediatamente; no se volverá a mostrar.
+
+<Warning>
+Guarde su clave API de forma segura. Cualquiera que tenga esta clave puede acceder a su espacio de trabajo Primo a través de API.
+</Warning>
+
+## Utilice la clave API
+
+Pase la clave en el encabezado `Authorization` de sus solicitudes:
+
+```bash
+curl https://api.getprimo.com/v1/devices \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Revocar una clave
+
+Para revocar una clave, vaya a **Configuración** > **API**, busque la clave y haga clic en **Eliminar**.

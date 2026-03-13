@@ -1,0 +1,60 @@
+---
+title: "Reglas de token seguro"
+description: "El Secure Token es un identificador de seguridad crítico en macOS que permite acciones como cambiar contraseñas y crear cuentas de usuario, garantizando el cumplimiento de los estándares de seguridad de Apple y la adecuada gestión de usuarios a través de Primo."
+---
+
+Este artículo explica qué es el **Token seguro** en macOS, su función en la administración local de usuarios y por qué es necesario para acciones como cambiar las contraseñas de los usuarios o crear nuevas cuentas de usuario.
+
+## ¿Qué es el token seguro?
+
+El **Token seguro** es un identificador de seguridad generado por macOS y vinculado a una cuenta de usuario local.
+
+Permite el cifrado y descifrado de datos a través de **FileVault**. Un usuario con un token seguro se considera "autorizado" para realizar acciones sensibles del sistema como:
+
+- Habilitar o deshabilitar FileVault
+- Cambiar la contraseña de otro usuario local (si el usuario tiene un token seguro)
+- Creando un nuevo usuario local
+- Otorgar un token seguro a otra cuenta
+
+Sin un token seguro, estas operaciones fallarán, incluso si las realiza una cuenta de administrador.
+
+## Por qué es importante el token seguro para Primo
+
+Primo se basa en Secure Token para administrar de forma segura a los usuarios de macOS.
+
+Al restablecer una contraseña o crear un nuevo usuario a través de Primo, macOS requiere que la acción sea iniciada por una cuenta que tenga un token seguro.
+
+Esto asegura:
+
+- Cumplimiento de los requisitos de seguridad de Apple
+- Acceso continuo al disco cifrado con FileVault
+- Correcta ejecución de acciones de gestión de usuarios a través de Primo
+
+## Verifique el estado del token seguro en Primo
+
+El estado del token seguro se muestra directamente en la cabina **Primo**, en la pestaña **Usuarios** del dispositivo correspondiente.
+
+Puede verificar rápidamente si la cuenta de administrador de macOS utilizada por Primo tiene un token seguro activo.
+
+> Para garantizar una gestión adecuada de los usuarios a través de Primo, asegúrese de que la cuenta de administrador vinculada al dispositivo tenga un token seguro.
+
+## Transferir token seguro
+
+Si tienes una cuenta que tiene un SecureToken otorgado y quieres que otra cuenta lo tenga, sigue este procedimiento:
+
+1. Si es necesario, promueva la cuenta con SecureToken Concedido (deben ser sudoers)
+2. Ejecute `sudo sysadminctl -secureTokenOn seconduseraccount -password - -adminUser firstuseraccount -adminPassword -`
+3. Para verificar si el SecureToken está habilitado en la nueva cuenta, ejecute `sudo sysadminctl -secureTokenStatus seconduseraccount`
+4. Si es necesario, degradar la cuenta.
+
+La cabina puede tardar hasta 24 horas en actualizar el estado de la cuenta local en la pestaña de usuarios del dispositivo.
+
+## Comportamientos de tokens seguros (solo macOS)
+
+| Método de creación | cuenta de administrador | Cuenta no administrador |
+|---|---|---|
+| Creado por Primo durante ZTD | SecureToken habilitado automáticamente | No se proporciona SecureToken |
+| Creado automáticamente por la política "Cuenta de administrador" | SecureToken proporcionado en el primer inicio de sesión de la cuenta | No se proporciona SecureToken |
+| Creado manualmente por el cliente a través de Primo | SecureToken proporcionado en el primer inicio de sesión de la cuenta | No se proporciona SecureToken |
+| Creado manualmente por el cliente localmente | SecureToken se proporciona si se crea desde una cuenta de administrador con SecureToken | No se proporciona SecureToken |
+| Creado a través de sysadminctl por el cliente de forma local o remota | SecureToken se proporciona si se crea usando el administrador con SecureToken | SecureToken se proporciona si se crea usando el administrador con SecureToken |

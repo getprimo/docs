@@ -1,0 +1,58 @@
+---
+title: "Configurar un conector basado en IA"
+description: "Aprenda a configurar un conector basado en IA para automatizar el aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones sin API estándar configurando instrucciones de inicio de sesión, definiendo pasos de interacción y validando inicios de sesión exitosos a través de una serie de acciones concisas."
+---
+
+Los conectores basados en IA le permiten automatizar el aprovisionamiento y desaprovisionamiento de usuarios en aplicaciones que no admiten API ni protocolos de integración estándar. Estos conectores simulan las interacciones del usuario con la interfaz de la aplicación a través de un conjunto predefinido de acciones.
+
+Este artículo explica cómo configurar un conector basado en IA configurando instrucciones de inicio de sesión y definiendo pasos para el agente de IA.
+
+## Accede a la configuración de integración
+
+1. Inicie sesión en la consola Primo.
+2. Vaya a **Identidades y acceso > Catálogo de aplicaciones**.
+3. Seleccione la aplicación que utiliza un conector basado en IA.
+4. Abra la pestaña **Configuración**.
+
+Verá la interfaz de configuración para acciones basadas en IA, como iniciar sesión, enumerar usuarios, crear usuarios o eliminar usuarios.
+
+## Configurar la secuencia de inicio de sesión
+
+1. En la pestaña **Iniciar sesión**, busque la sección **Configuración**.
+2. Ingrese los campos requeridos:
+   - **URL de inicio de sesión**: proporcione la URL completa de la página de inicio de sesión de la aplicación (por ejemplo, `https://app.example.com/sign-in`).
+   - **Email or Username**: Enter the username or email that the AI should use. Reference this input as `{USERNAME}` in your prompts.
+   - **Password**: Enter the password associated with the username. Reference this as `{PASSWORD}` in your prompts.
+
+Estos campos permiten a la IA simular un inicio de sesión utilizando credenciales fijas.
+
+## Definir los pasos de inicio de sesión para la IA
+
+1. En la sección **Definir pasos**, describe la interacción exacta que debe realizar la IA.
+2. Haga clic en **Agregar paso** si el flujo de inicio de sesión requiere varias acciones.
+
+Example:
+`Fill the form with the {USERNAME} and {PASSWORD} and click on the Sign In button`
+
+Cada paso debe ser conciso y describir una única acción.
+
+## Establecer una condición de validación
+
+1. En la sección **Éxito**, especifique cómo la IA debe determinar que el inicio de sesión fue exitoso.
+2. Utilice indicadores visibles como:
+   - Una URL específica
+   - Un mensaje de éxito
+   - Un elemento de tablero único
+
+Example:
+`You should see a dashboard with a welcome message`
+
+Esta validación ayuda a garantizar que el flujo de trabajo se haya completado según lo esperado.
+
+## Pruebe el flujo de trabajo
+
+Una vez que todos los pasos estén configurados:
+
+1. Haga clic en **Ejecutar** para probar la secuencia de inicio de sesión.
+2. La IA iniciará una sesión de navegador simulada y ejecutará las indicaciones definidas.
+3. Observe el comportamiento y ajuste los pasos si es necesario.

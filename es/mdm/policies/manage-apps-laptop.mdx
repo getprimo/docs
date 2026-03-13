@@ -1,0 +1,126 @@
+---
+title: "Implementar aplicaciones (macOS, Windows, Linux)"
+description: "Implemente y administre aplicaciones en dispositivos macOS, Windows y Linux directamente desde Primo MDM > Software, incluidas aplicaciones mantenidas por Fleet, aplicaciones de Apple App Store (VPP) y aplicaciones personalizadas."
+---
+
+Desde **MDM > Software**, puede implementar aplicaciones en sus dispositivos macOS, Windows y Linux administrados sin tener que salir de Primo. Primo admite cuatro tipos de aplicaciones:
+
+- **Aplicaciones mantenidas por Fleet (FMA)**: un catálogo seleccionado de aplicaciones populares mantenidas y actualizadas por Fleet
+- **Apple App Store (macOS)**: aplicaciones de macOS compradas a través del Programa de compras por volumen (VPP) de Apple
+- **Aplicaciones personalizadas**: sus propios paquetes `.pkg`, `.msi`, `.deb` o `.rpm`
+
+<Note>
+Para la implementación de aplicaciones iOS/iPadOS y Android, consulte [Implementar aplicaciones (iOS y Android)](/es/mdm/policies/manage-apps-smartphone).
+</Note>
+
+---
+
+## Opciones de implementación
+
+Al agregar cualquier aplicación, puede configurar las siguientes opciones:
+
+### Instalar automáticamente
+Cuando está habilitada, la aplicación se envía automáticamente a todos los dispositivos coincidentes. Si no se marca, la aplicación solo se instalará cuando active manualmente la instalación en un dispositivo específico.
+
+### Poner a disposición mediante autoservicio
+Cuando está habilitada, la aplicación aparece en el portal **Autoservicio**, al que pueden acceder los empleados a través del agente Fleet. Los empleados pueden instalarlo ellos mismos a pedido.
+
+### Instalar durante Zero Touch
+Cuando está habilitada, la aplicación se instala como parte del flujo de implementación Zero Touch. Esto garantiza que las aplicaciones principales estén presentes antes de entregar el dispositivo al empleado.
+
+<Warning>
+Habilitar **Instalar durante Zero Touch** puede aumentar el tiempo de aprovisionamiento. Reserve esto para aplicaciones que realmente sean necesarias antes del primer uso.
+</Warning>
+
+---
+
+## Parcheo de aplicaciones
+
+Para los tipos de aplicaciones elegibles, Primo proporciona dos alternancias de actualización automática:
+
+| Alternar | que hace |
+|--------|--------------|
+| **Mantener actualizado el instalador fuente** | Comprueba una vez al día si hay una versión más reciente del instalador y la reemplaza automáticamente |
+| **Actualizar aplicación en todos los dispositivos** | Actualiza automáticamente la aplicación en cualquier dispositivo donde la versión instalada sea anterior al instalador actual |
+
+---
+
+## Agregar una aplicación mantenida por Fleet (FMA)
+
+Las aplicaciones mantenidas por Fleet son una biblioteca seleccionada de software popular (por ejemplo, Chrome, Zoom, Slack) que Fleet mantiene actualizada.
+
+1. Vaya a **MDM > Software** y haga clic en **Agregar aplicación**.
+2. Seleccione **Aplicación mantenida por Fleet**.
+3. Elija la aplicación de la lista.
+4. Configure las opciones de implementación: **Instalar automáticamente**, **Autoservicio** y/o **Zero Touch**.
+5. Habilite los cambios de parches según sea necesario.
+6. Haga clic en **Agregar software**.
+
+---
+
+## Agregar una aplicación Apple App Store (macOS VPP)
+
+<Note>
+**Requisito previo**: Debe tener una cuenta de Apple Business Manager (ABM) con VPP configurado. Consulte [Implementar aplicaciones VPP](/es/mdm/policies/deploy-vpp-applications) para obtener instrucciones de configuración.
+</Note>
+
+1. Vaya a **MDM > Software** y haga clic en **Agregar aplicación**.
+2. Seleccione **Tienda de aplicaciones (VPP)**.
+3. Explore o busque la aplicación macOS.
+4. Configure las opciones de implementación: **Instalar automáticamente**, **Autoservicio** y/o **Zero Touch**.
+5. Haga clic en **Agregar software**.
+
+<Note>
+El instalador de origen siempre se obtiene directamente de la App Store de Apple; la opción **Mantener el instalador de origen actualizado** no es aplicable. La actualización automática no está disponible para aplicaciones VPP de macOS.
+</Note>
+
+---
+
+## Agregar una aplicación personalizada
+
+Las aplicaciones personalizadas son paquetes que usted mismo carga (`.pkg` para macOS, `.msi` para Windows, `.deb`/`.rpm` para Linux).
+
+1. Vaya a **MDM > Software** y haga clic en **Agregar aplicación**.
+2. Seleccione **Aplicación personalizada**.
+3. Cargue el archivo de su paquete.
+4. Configure las opciones de implementación: **Instalar automáticamente**, **Autoservicio** y/o **Zero Touch**.
+5. Haga clic en **Agregar software**.
+
+<Warning>
+**La compatibilidad con la instalación automática varía según el tipo de archivo.** Los siguientes tipos no admiten la opción **Instalar automáticamente**:
+- `.exe` (Windows)
+- `.sh` (Linux)
+- `.ps1` (Windows PowerShell)
+
+Utilice `.msi` para Windows y `.pkg` para macOS para habilitar la implementación automática.
+</Warning>
+
+<Note>
+La actualización automática para aplicaciones personalizadas **llegará pronto**. La opción **Mantener el instalador de origen actualizado** no está disponible para aplicaciones personalizadas.
+</Note>
+
+---
+
+## Descripción general de capacidades
+
+| Capacidad | Aplicaciones mantenidas por Fleet | Tienda de aplicaciones macOS (VPP) | Aplicaciones personalizadas |
+|---|:---:|:---:|:---:|
+| Instalar automáticamente | ✅ | ✅ | ✅ |
+| Autoservicio | ✅ | ✅ | ✅ |
+| Toque cero | ✅ | ✅ | ✅ |
+| Instalador de origen mantenido | ✅ | Siempre desde la App Store | ❌ |
+| Actualización automática | ✅ | ❌ | Próximamente |
+
+---
+
+## Eliminar una aplicación
+
+### Deshabilitar la instalación automática
+
+Vaya a **MDM > Software**, busque la aplicación y desmarque **Instalar automáticamente**. Esto detiene futuras instalaciones automáticas pero no elimina la aplicación de los dispositivos donde ya está instalada.
+
+### Desinstalar de un dispositivo específico
+
+1. Vaya a **MDM > Dispositivos** y abra el dispositivo.
+2. Abra la pestaña **Software**.
+3. Busque la aplicación y haga clic en **Desinstalar**.

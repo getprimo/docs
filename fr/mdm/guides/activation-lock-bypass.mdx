@@ -1,0 +1,53 @@
+---
+title: "Séquestre du code de contournement du verrouillage d'activation"
+description: "Les règles permettant de garantir que les codes de contournement du verrouillage d'activation sont déposés via MDM afin que les appareils puissent être récupérés après un effacement ou une réaffectation."
+---
+
+Le verrouillage d'activation empêche l'utilisation non autorisée d'un appareil Apple après une réinitialisation d'usine. Pour les appareils appartenant à l'entreprise inscrits dans MDM, Primo peut automatiquement déposer le code de contournement, afin que les administrateurs informatiques puissent déverrouiller un appareil après un effacement sans avoir besoin de l'identifiant Apple de l'employé.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Fenêtres | Linux | iOS/iPadOS | Androïde |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | ✅ | |
+
+## Règles de dépôt des codes de contournement
+
+Pour qu’un code de contournement soit déposé avec succès, toutes les conditions suivantes doivent être remplies :
+
+1. **L'appareil doit être supervisé via MDM** — les appareils non supervisés ne peuvent pas déposer de codes de contournement.
+2. **L'appareil doit être inscrit avant que le verrouillage d'activation soit activé** — si un utilisateur active Find My avant l'inscription à MDM, le code de contournement ne sera pas disponible.
+3. **L'appareil doit appartenir à l'entreprise** : les appareils personnels (BYOD) ne sont pas éligibles au dépôt de code de contournement.
+4. **Le profil MDM doit être installé au niveau du système** — l'inscription approuvée par l'utilisateur (sans DEP/ABM) peut ne pas bloquer de manière fiable les codes de contournement.
+
+<Warning>
+  Si un appareil est inscrit dans MDM après que l'utilisateur s'est déjà connecté avec un identifiant Apple et a activé Find My, **le code de contournement ne sera pas déposé**. La seule option de récupération concerne les informations d'identification Apple de l'utilisateur.
+</Warning>
+
+## Vérifier la disponibilité du code de contournement
+
+1. Accédez à **Appareils > Tous les appareils**.
+2. Ouvrez l'enregistrement de l'appareil correspondant.
+3. Faites défiler jusqu'à la section **Conformité**.
+4. Vérifiez l'état du **iCloud Lock** :
+   - ✅ _Enabled_ — le code de contournement est disponible et déposé.
+   - ❌ _Code de contournement manquant_ — aucun code n'a été sauvegardé ; l'identifiant Apple d'origine est requis.
+
+<Tip>
+  Exécutez un audit régulier des appareils affichant **Code de contournement manquant** pour identifier les machines qui pourraient être irrécupérables après un effacement. Si possible, donnez la priorité à la réinscription de ces appareils via ABM.
+</Tip>
+
+## Sur macOS
+
+Récupérez le code de contournement dans l'enregistrement de l'appareil, puis :
+
+- **macOS Catalina (10.15) et versions ultérieures :** sur l'écran de verrouillage d'activation, cliquez sur le point d'interrogation à côté du champ Identifiant Apple, sélectionnez **Contourner le verrouillage d'activation** et saisissez le code.
+- **macOS Mojave (10.14) et versions antérieures :** saisissez le code de contournement directement dans le champ du mot de passe de l'écran de verrouillage d'activation.
+
+Le code de contournement est sensible à la casse et est généralement à usage unique par appareil.
+
+## Sur iOS/iPadOS
+
+Pour les appareils iOS et iPadOS, récupérez le code de contournement dans l'enregistrement de l'appareil et saisissez-le sur l'écran de verrouillage d'activation lorsque vous y êtes invité lors de la configuration de l'appareil après un effacement.
+
+Le code de contournement est sensible à la casse et est généralement à usage unique par appareil.

@@ -1,0 +1,47 @@
+---
+title: "Gestisci le applicazioni tracciate"
+description: "Le applicazioni tracciate consentono la registrazione e il monitoraggio manuale degli account dei dipendenti, con proprietari designati responsabili della gestione delle modifiche dell'account durante i processi di onboarding o offboarding, garantendo il monitoraggio centralizzato e aggiornato delle informazioni sull'account."
+---
+
+Le applicazioni tracciate sono applicazioni SaaS non connesse per il provisioning. Collegandoli si consente agli amministratori di registrare e monitorare manualmente gli account dei dipendenti. Ciò garantisce visibilità completa e monitoraggio centralizzato delle informazioni sull'account per ciascun account, anche quando non è possibile eseguire il provisioning di SaaS.
+
+## Assegnare un proprietario a un'applicazione monitorata
+
+- Ogni applicazione tracciata può avere un **proprietario**.
+- Il proprietario è solitamente la persona con un account amministratore su questa app connessa.
+- Il proprietario è responsabile del completamento delle attività relative all'account.
+
+## Richiedi modifiche all'account nelle applicazioni monitorate
+
+Solo gli amministratori possono richiedere modifiche all'account per le applicazioni monitorate.
+
+Queste richieste possono essere avviate in due modi:
+
+- Durante il **processo di onboarding o offboarding** di un dipendente
+- Direttamente dal **profilo del dipendente**
+
+Una volta inviata la richiesta:
+
+1. Primo avvisa il proprietario dell'applicazione.
+2. Il proprietario riceve un'**attività** da completare (creare, modificare o eliminare l'account nell'app connessa).
+3. Dopo aver completato l'azione nell'app connessa, il proprietario conferma l'attività.
+4. La conferma aggiorna le informazioni sull'account, mantenendo aggiornato il monitoraggio.
+
+### Come vengono raggruppate le attività
+
+Quando si effettua il provisioning o il deprovisioning di più applicazioni per lo stesso dipendente (ad esempio, durante l'onboarding o l'offboarding), le attività correlate vengono raggruppate in un unico ticket:
+
+- **Applicazione singola**: viene creato un ticket con un titolo come "Crea un account per John Doe su Slack".
+- **Più applicazioni**: viene creato un ticket con un titolo come "Crea account per John Doe", contenente più attività, una per applicazione.
+
+Questo raggruppamento riduce il rumore delle notifiche e aiuta i proprietari delle applicazioni a gestire le attività correlate in modo efficiente.
+
+<Note>
+### Tipi di attività disponibili
+
+È possibile creare attività per tenere traccia delle seguenti azioni:
+
+- **Crea** un account
+- **Modifica** un account
+- **Elimina** un account
+</Note>

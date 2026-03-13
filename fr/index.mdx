@@ -1,0 +1,216 @@
+---
+title: "Bienvenue chez Primo"
+description: "Tout ce dont vous avez besoin pour gérer l'informatique de votre entreprise (appareils, MDM, achats et SaaS) au même endroit."
+mode: "wide"
+---
+
+{/* ── HERO ─────────────────────────────────────────────────── */}
+<div style={{
+  background: "#fffbf4",
+  border: "2px dashed rgba(30,9,24,0.18)",
+  borderRadius: "20px",
+  padding: "64px 60px",
+  marginBottom: "56px",
+  display: "flex",
+  alignItems: "center",
+  gap: "56px",
+}}>
+
+  {/* Left — text */}
+  <div style={{ flex: "1", minWidth: 0 }}>
+    <div style={{
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+      background: "#51d2ef",
+      color: "#1e0918",
+      borderRadius: "100px",
+      padding: "5px 14px",
+      fontSize: "11px",
+      fontWeight: "700",
+      marginBottom: "24px",
+      letterSpacing: "0.07em",
+      textTransform: "uppercase",
+    }}>
+      ✦ Centre d'aide
+    </div>
+    <h1 style={{
+      fontSize: "52px",
+      fontWeight: "800",
+      lineHeight: "1.05",
+      margin: "0 0 20px",
+      color: "#1e0918",
+      letterSpacing: "-0.025em",
+    }}>
+      Comment pouvons-nous<br />vous aider ?
+    </h1>
+    <p style={{
+      fontSize: "17px",
+      lineHeight: "1.7",
+      color: "rgba(30,9,24,0.5)",
+      margin: "0 0 32px",
+      maxWidth: "420px",
+    }}>
+      Guides et ressources pour tirer le meilleur parti de Primo — MDM, les achats, les employés et SaaS en un seul endroit.
+    </p>
+    <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+      <a href="/fr/mdm/get-started/introduction-to-mdm" style={{
+        display: "inline-flex", alignItems: "center", gap: "6px",
+        background: "#1e0918", color: "#ffffff",
+        borderRadius: "100px", padding: "10px 22px",
+        fontSize: "14px", fontWeight: "700", textDecoration: "none",
+      }}>Commencer</a>
+      <a href="mailto:support@getprimo.com" style={{
+        display: "inline-flex", alignItems: "center", gap: "6px",
+        background: "transparent", color: "#1e0918",
+        border: "1.5px solid rgba(30,9,24,0.2)",
+        borderRadius: "100px", padding: "10px 22px",
+        fontSize: "14px", fontWeight: "600", textDecoration: "none",
+      }}>Contacter l'assistance</a>
+    </div>
+  </div>
+
+  {/* Right — feature grid */}
+  <div style={{
+    flex: "0 0 420px",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "12px",
+  }}>
+    {[
+      { icon: "🛡️", label: "MDM", desc: "Sécurisez votre flotte", href: "/fr/mdm/get-started/introduction-to-mdm", accent: "#51d2ef" },
+      { icon: "🛒", label: "Approvisionnement", desc: "Acheter et gérer du matériel", href: "/fr/procurement/buy-it-products", accent: "#fbbf24" },
+      { icon: "☁️", label: "SaaS", desc: "Suivez vos applications", href: "/fr/saas/introduction", accent: "#a78bfa" },
+      { icon: "👥", label: "Employés", desc: "Synchronisez vos RH", href: "/fr/employees/connect-hris", accent: "#34d399" },
+    ].map(({ icon, label, desc, href, accent }) => (
+      <a key={label} href={href} style={{
+        background: "white",
+        border: "1.5px solid rgba(30,9,24,0.08)",
+        borderRadius: "16px",
+        padding: "22px 20px",
+        textDecoration: "none",
+        display: "block",
+        transition: "box-shadow 0.15s",
+      }}>
+        <div style={{
+          width: "40px", height: "40px",
+          background: accent + "22",
+          borderRadius: "10px",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: "20px", marginBottom: "12px",
+        }}>{icon}</div>
+        <div style={{ fontWeight: "700", fontSize: "14px", color: "#1e0918", marginBottom: "3px" }}>{label}</div>
+        <div style={{ fontSize: "12px", color: "rgba(30,9,24,0.45)" }}>{desc}</div>
+      </a>
+    ))}
+  </div>
+</div>
+
+{/* ── GET STARTED ───────────────────────────────────────────── */}
+<div style={{ marginBottom: "16px" }}>
+  <p style={{
+    fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em",
+    textTransform: "uppercase", color: "rgba(30,9,24,0.35)", margin: 0,
+  }}>Commencer</p>
+</div>
+
+<CardGroup cols={4}>
+  <Card title="Importer du matériel" icon="upload" href="/fr/get-started/import-your-equipment">
+    Intégrez les appareils existants dans Primo via CSV.
+  </Card>
+  <Card title="Accorder l'accès administrateur" icon="user-shield" href="/fr/get-started/grant-admin-access">
+    Ajoutez des membres de l'équipe et définissez les autorisations.
+  </Card>
+  <Card title="Intégration de qualité" icon="circle-check" href="/fr/get-started/quality-onboarding">
+    Meilleures pratiques pour une configuration propre.
+  </Card>
+  <Card title="Serveur MCP Primo" icon="robot" href="/fr/get-started/primo-mcp-server">
+    Connectez votre assistant IA à Primo.
+  </Card>
+</CardGroup>
+
+{/* ── MDM ───────────────────────────────────────────────────── */}
+<div style={{ marginTop: "48px", marginBottom: "16px" }}>
+  <p style={{
+    fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em",
+    textTransform: "uppercase", color: "rgba(30,9,24,0.35)", margin: 0,
+  }}>Gestion des appareils mobiles</p>
+</div>
+
+<CardGroup cols={3}>
+  <Card title="Présentation de MDM" icon="shield-halved" href="/fr/mdm/get-started/introduction-to-mdm">
+    Comprenez comment fonctionne le MDM de Primo et ce qu'il peut faire pour votre flotte.
+  </Card>
+  <Card title="Déployer auprès des collaborateurs" icon="users" href="/fr/mdm/rollout/invite-employees">
+    Invitez votre équipe et guidez-la dans son inscription.
+  </Card>
+  <Card title="Plateformes prises en charge" icon="laptop" href="/fr/mdm/get-started/supported-platforms">
+    macOS, Windows, Linux, iOS, Android.
+  </Card>
+  <Card title="Déploiement sans contact" icon="wand-magic-sparkles" href="/fr/mdm/zero-touch/understand-zero-touch">
+    Inscrivez automatiquement les nouveaux appareils au premier démarrage.
+  </Card>
+  <Card title="Politiques et gestion des applications" icon="sliders" href="/fr/mdm/policies/manage-apps-laptop">
+    Déployez des applications, appliquez les paramètres, gérez le cryptage.
+  </Card>
+  <Card title="Guides et dépannage" icon="book-open" href="/fr/mdm/guides/device-lost-stolen">
+    Guides étape par étape pour les scénarios courants.
+  </Card>
+</CardGroup>
+
+{/* ── MORE FEATURES ─────────────────────────────────────────── */}
+<div style={{ marginTop: "48px", marginBottom: "16px" }}>
+  <p style={{
+    fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em",
+    textTransform: "uppercase", color: "rgba(30,9,24,0.35)", margin: 0,
+  }}>Plus de fonctionnalités</p>
+</div>
+
+<CardGroup cols={3}>
+  <Card title="Achats informatiques" icon="cart-shopping" href="/fr/procurement/buy-it-products">
+    Commandez des appareils et des accessoires directement via Primo.
+  </Card>
+  <Card title="Gestion SaaS" icon="cloud" href="/fr/saas/introduction">
+    Suivez, gérez et optimisez vos abonnements logiciels.
+  </Card>
+  <Card title="Gérer les employés" icon="address-card" href="/fr/employees/connect-hris">
+    Synchronisez votre système RH et gérez le profil informatique de votre équipe.
+  </Card>
+</CardGroup>
+
+{/* ── FOOTER CTA ────────────────────────────────────────────── */}
+<div style={{
+  marginTop: "56px",
+  background: "#1e0918",
+  borderRadius: "20px",
+  padding: "48px 56px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  gap: "24px",
+  flexWrap: "wrap",
+}}>
+  <div>
+    <p style={{ fontSize: "22px", fontWeight: "700", color: "#ffffff", margin: "0 0 6px" }}>
+      Vous avez encore besoin d'aide ?
+    </p>
+    <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.5)", margin: 0 }}>
+      Notre équipe d'assistance est prête : contactez-nous à tout moment.
+    </p>
+  </div>
+  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+    <a href="mailto:support@getprimo.com" style={{
+      display: "inline-flex", alignItems: "center", gap: "8px",
+      background: "#51d2ef", color: "#1e0918",
+      borderRadius: "100px", padding: "12px 26px",
+      fontSize: "14px", fontWeight: "700", textDecoration: "none",
+    }}>Contacter l'assistance</a>
+    <a href="https://app.getprimo.com" style={{
+      display: "inline-flex", alignItems: "center", gap: "8px",
+      background: "rgba(255,255,255,0.08)", color: "#ffffff",
+      border: "1px solid rgba(255,255,255,0.12)",
+      borderRadius: "100px", padding: "12px 26px",
+      fontSize: "14px", fontWeight: "700", textDecoration: "none",
+    }}>Ouvrir le tableau de bord ↗</a>
+  </div>
+</div>

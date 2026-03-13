@@ -1,0 +1,45 @@
+---
+title: "Chiffrement du disque et dépôt de clé de récupération"
+description: "Le chiffrement du disque est crucial pour protéger les données contre la perte ou le vol de l'appareil, avec des clés de récupération automatiquement gérées et stockées par Primo pendant le processus de chiffrement, garantissant un accès facile si un utilisateur oublie son mot de passe."
+---
+
+Protégez les données des appareils perdus ou volés en appliquant le cryptage complet du disque sur l'ensemble de votre flotte. Primo active automatiquement le chiffrement lors de l'inscription à MDM et dépose les clés de récupération afin que les administrateurs informatiques puissent toujours retrouver l'accès sans se fier aux informations d'identification de l'employé.
+
+<Note>
+  Les clés de récupération ne sont stockées que si le cryptage est activé dans vos politiques de sécurité MDM > onglet **Profils**.
+</Note>
+
+## Prise en charge du système d'exploitation
+
+| macOS | Fenêtres | Linux | iOS/iPadOS | Androïde |
+|-------|---------|-------|--------------|---------|
+| ✅ (FileVault) | ✅ (BitLocker) | | | |
+
+## Flux de chiffrement
+
+1. Enregistrez l'appareil dans le MDM
+2. Attendez 3 à 4 heures pour que l'assistant installe et gère la clé de récupération
+3. Redémarrez l'appareil (obligatoire uniquement pour macOS)
+4. Attendez encore 3 à 4 heures : la clé de récupération sera enregistrée
+
+Les clés de récupération sont stockées par appareil dans l'onglet **Fleet > Appareils**.
+
+La durée du cryptage dépend de la taille du disque et des performances de l'appareil.
+
+## Sur macOS
+
+- Le chiffrement est géré par **FileVault**.
+- FileVault est automatiquement activé lors de l'installation de MDM.
+- Le chiffrement devient effectif après le prochain redémarrage.
+- La clé de récupération est stockée à ce stade.
+
+## Sous Windows
+
+- Le chiffrement est géré par **BitLocker**.
+- Il est automatiquement activé après l'installation de MDM.
+- Aucun redémarrage n'est requis.
+- La clé est stockée dès que le cryptage est activé.
+
+## Sous Linux
+
+Primo ne prend pas en charge le chiffrement automatique pour les appareils Linux. L'activation du chiffrement complet du disque sous Linux nécessite généralement une réinitialisation complète du disque et une réinstallation du système d'exploitation, qui doivent être effectuées manuellement avant d'enregistrer l'appareil.

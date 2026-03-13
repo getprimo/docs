@@ -1,0 +1,78 @@
+---
+title: "Actualizaciones del sistema operativo: experiencia del empleado"
+description: "Descubra cómo los administradores pueden monitorear el estado de actualización del dispositivo y cómo los empleados reciben notificaciones de actualización del sistema operativo en macOS y Windows."
+---
+
+## Monitorear el estado de actualización del dispositivo
+
+Los administradores pueden monitorear el estado de actualización del sistema operativo para todos los dispositivos administrados directamente en la cabina Primo. Cada dispositivo muestra uno de tres estados de actualización:
+
+| Estado             | Descripción                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| **Actualizado**     | El dispositivo ejecuta una versión del sistema operativo que cumple con los requisitos de fecha límite de actualización configurados. |
+| **No actualizado** | El dispositivo ejecuta una versión del sistema operativo desactualizada y la fecha límite configurada ya pasó.         |
+| **No configurado**      | No se ha configurado ninguna política de actualización del sistema operativo para el dispositivo.                                      |
+
+<Note>
+  El estado de la actualización se calcula en función de la política de fecha límite de actualización del sistema operativo configurada. Los dispositivos con MDM deshabilitado no mostrarán un estado de actualización.
+</Note>
+
+Puede filtrar la lista de dispositivos por estado de actualización para identificar rápidamente los dispositivos que requieren atención.
+
+## Experiencia del empleado
+
+### macOS 14 y superior
+
+![Captura de pantalla: macOS 14 y superior](/images/notion-import/employee-experience-for-os-updates__img-064__block-0005__1b243d9f.png)
+
+
+Cuando se aplica una versión mínima, los usuarios finales ven una notificación nativa de macOS (DDM) una vez al día. Los usuarios pueden optar por actualizar antes de la fecha límite o programarla para esa noche. 24 horas antes de la fecha límite, la notificación aparece cada hora e ignora No molestar. Una hora antes de la fecha límite, la notificación aparece cada 30 minutos y luego cada 10 minutos.
+
+Si el host se apagó cuando pasó la fecha límite, la actualización se programará una hora después de que se encienda.
+
+Para los dispositivos macOS que utilizan la inscripción automatizada de dispositivos (ADE), si el dispositivo está por debajo de la versión mínima especificada, será necesario actualizar a la última versión disponible durante ADE antes de que se pueda continuar con la configuración y la inscripción del dispositivo.
+
+### macOS 13 y anteriores
+
+Se anima a los usuarios finales a actualizar macOS mediante Nudge.
+
+![Captura de pantalla: antes de macOS 14](/images/notion-import/employee-experience-for-os-updates__img-065__block-0012__1b243d9f.png)
+
+
+|                             | **> 1 día antes de la fecha límite** | **< 1 día antes de la fecha límite** | **Fecha límite superada** |
+| --------------------------- | ---------------------------- | ---------------------------- | -------------------- |
+| Frecuencia de ventana de desplazamiento      | Una vez al día a las 8 p.m. GMT        | Una vez cada 2 horas           | Inmediatamente al iniciar sesión |
+| El usuario final puede diferir          | ✅                            | ✅                            | ❌                    |
+| La ventana de desplazamiento no se puede cerrar | ✅                            | ✅                            | ❌                    |
+
+### ventanas
+
+Se anima a los usuarios finales a actualizar Windows a través del cuadro de diálogo nativo de Windows.
+
+|                                      | **Antes de la fecha límite** | **Fecha límite pasada** |
+| ------------------------------------ | ------------------- | ----------------- |
+| El usuario final puede diferir el reinicio automático | ✅                   | ❌                 |
+
+Si un usuario final estaba de vacaciones cuando pasó la fecha límite, se le otorga un período de gracia (configurado) antes de que el host se reinicie automáticamente.
+
+<Note>
+  Para todos los escenarios detallados anteriormente, la fecha límite se aplica a partir de la "fecha de disponibilidad de la actualización", no de la fecha de configuración de la política. Si tiene empleados con una versión anterior durante más tiempo que la fecha límite elegida, se les pedirá que actualicen su sistema operativo inmediatamente.
+</Note>
+
+## Poco espacio en disco
+
+<Warning>
+  Para los 3 escenarios, es posible que un administrador deba intervenir si las actualizaciones fallan y el usuario no puede liberar espacio. Ninguna de las plataformas gestiona por sí sola los problemas de espacio en disco para instalar actualizaciones.
+</Warning>
+
+### macOS 14 y superior
+
+Se insta al usuario final a instalar la actualización con una notificación del sistema y verá en Configuración del sistema que no tiene suficiente espacio para instalar la actualización. Tendrán que liberar espacio por su cuenta para evitar que los molestos se actualicen.
+
+### macOS 13 y anteriores
+
+Aparecerá la ventana Nudge y se dirigirá al usuario a Preferencias del Sistema para descargar e instalar la actualización (que fallará). La ventana Nudge se comportará normalmente y no podrá cerrarse después de la fecha límite. El usuario final tendrá que liberar espacio por su cuenta para instalar la actualización y cerrar la ventana Nudge.
+
+### ventanas
+
+Cuando se cumpla la fecha límite, se le indicará al usuario que necesita actualizar, luego la actualización fallará y se le indicará al usuario que necesita liberar espacio.

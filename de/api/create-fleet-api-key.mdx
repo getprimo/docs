@@ -1,0 +1,62 @@
+---
+title: "Erstellen Sie API-Schlüssel für Fleet"
+description: "Generieren Sie einen FleetDM API-Schlüssel, um direkte Anfragen an Ihre Fleet-Instanz zu authentifizieren."
+---
+
+Fleet (FleetDM) Mit API-Schlüsseln können Sie direkt mit Ihrer Fleet-Instanz interagieren – beispielsweise um Skripte auszuführen, Gerätedaten abzufragen oder mit anderen Tools zu integrieren.
+
+Sie können Fleet API-Schlüssel direkt aus Primo oder über das Fleet-Dashboard erstellen.
+
+## Generieren Sie einen Fleet API-Schlüssel aus Primo
+
+1. Gehen Sie zu **Einstellungen** > **Entwickler** > **Fleet API-Schlüssel**.
+2. Klicken Sie auf **API-Schlüssel erstellen**.
+3. Geben Sie dem Schlüssel einen Namen und konfigurieren Sie die Berechtigungen.
+4. Klicken Sie auf **Erstellen**.
+5. Kopieren Sie das Token sofort – es wird nicht mehr angezeigt.
+
+<Warning>
+Halten Sie Ihr Fleet API-Token geheim und geben Sie es nicht weiter. Es verfügt über die Berechtigungen, die Sie bei der Erstellung konfiguriert haben.
+</Warning>
+
+## Generieren Sie einen Fleet API-Schlüssel aus dem Fleet-Dashboard
+
+1. Öffnen Sie Ihr **Fleet**-Dashboard (zugänglich über das Primo-Cockpit über **Einstellungen** > **MDM** > **Fleet öffnen**).
+2. Klicken Sie oben rechts auf Ihren Avatar und gehen Sie zu **Mein Konto**.
+3. Scrollen Sie zu **API-Token**.
+4. Klicken Sie auf **API-Token abrufen**.
+5. Kopieren Sie das Token – es ist an Ihr Fleet-Benutzerkonto gebunden.
+
+<Warning>
+Ihr Fleet API-Token verfügt über dieselben Berechtigungen wie Ihr Fleet-Benutzerkonto. Halten Sie es geheim und geben Sie es nicht weiter.
+</Warning>
+
+## Generieren Sie einen Fleet API-Schlüssel über die CLI
+
+Sie können Fleet API-Schlüssel auch programmgesteuert mit der Fleet-CLI erstellen:
+
+```bash
+fleetctl login --email your-email@example.com --url https://<your-fleet-instance>
+fleetctl get api-token
+```
+
+Oder erstellen Sie einen API-Schlüssel direkt über den Fleet API:
+
+```bash
+curl -X POST https://<your-fleet-instance>/api/v1/fleet/users/<user-id>/api_token \
+  -H "Authorization: Bearer YOUR_EXISTING_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+## Verwenden Sie den Schlüssel Fleet API
+
+Übergeben Sie das Token im `Authorization`-Header:
+
+```bash
+curl https://<your-fleet-instance>/api/v1/fleet/hosts \
+  -H "Authorization: Bearer YOUR_FLEET_API_TOKEN"
+```
+
+## Ein Token neu generieren oder widerrufen
+
+Fleet API-Token verfallen nicht automatisch. Um den Zugriff zu widerrufen, gehen Sie in Fleet zu **Mein Konto** und klicken Sie auf **API-Token neu generieren**. Dadurch wird der vorherige Token sofort ungültig.

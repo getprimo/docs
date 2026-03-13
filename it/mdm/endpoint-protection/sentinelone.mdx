@@ -1,0 +1,73 @@
+---
+title: "Distribuisci SentinelOne"
+description: "Per abilitare e distribuire SentinelOne con Primo, assicurati di avere Primo MDM e una licenza SentinelOne, quindi segui i passaggi per integrare e distribuire l'agente nel tuo parco dispositivi tramite le configurazioni MDM."
+---
+
+<Note>
+  **Tipo di distribuzione: automatica**
+
+  SentinelOne viene distribuito **automaticamente** tramite MDM. Una volta connessa l'istanza SentinelOne e creato un controllo MDM, l'agente viene inviato a tutti i dispositivi di destinazione senza alcuna procedura manuale. Non è richiesta alcuna interazione da parte dell'utente.
+</Note>
+
+Questo articolo spiega come abilitare l'integrazione di SentinelOne in Primo per distribuire automaticamente l'agente su tutto o parte del tuo parco dispositivi.
+
+## Prerequisiti
+
+- Avere Primo MDM
+- Avere una licenza SentinelOne (acquistata tramite Primo o esistente)
+
+<Note>
+  Hai bisogno di un'istanza di SentinelOne? Contattaci per ulteriori informazioni.
+</Note>
+
+## Abilita l'integrazione di SentinelOne
+
+1. Puoi abilitare l'integrazione SentinelOne da **Impostazioni \> MDM \> Integrazioni (legacy)**
+2. Compila il modulo con le seguenti informazioni:
+   - **URL SentinelOne**: `https://xxxxxxxxx.sentinelone.net`
+   - **ID sito**:
+     - In SentinelOne, apri **Politiche e impostazioni \> Siti**.
+     - Fai clic sul tuo sito per visualizzare l'ID del sito.
+   - **Token utente servizio**:
+     - In SentinelOne, apri **Politiche e impostazioni \> Utenti del servizio**.
+     - Creare un nuovo utente del servizio (**Nuovo utente del servizio**).
+     - Seleziona il tuo sito e assegna il ruolo **Amministratore**.
+
+## Distribuisci SentinelOne alla tua flotta
+
+La distribuzione di SentinelOne sui dispositivi della tua flotta viene effettuata tramite le configurazioni MDM.
+
+1. In Primo, vai a **MDM \> Controlli \> Aggiungi nuovo controllo**
+2. Scegli la piattaforma (piattaforme disponibili)
+3. Abilita la carta **EDR - SentinelOne**
+4. Aggiorna il targeting per scegliere come target i dispositivi che desideri
+5. Conferma
+
+L'agente SentinelOne verrà installato automaticamente su tutti i dispositivi inclusi nel controllo.
+
+## Migrare SentinelOne
+
+Se devi migrare i tuoi endpoint da una console S1 a un'altra, dovrai seguire i passaggi successivi:
+
+- Nell'istanza Fleet, aggiorna gli script di installazione dei pacchetti dell'agente Sentinel con il nuovo token del sito.
+  - Vai all'istanza della tua flotta: https://xxx.mdm.getprimo.com
+  - Apri la scheda Software
+  - Cerca "Sentinel" (SentinelOne, Sentinel Agent, ecc.)
+  - Seleziona ciascun pacchetto
+  - Fare clic sul pulsante Modifica
+  - Fare clic su "Opzioni avanzate"
+  - Aggiorna lo script di installazione
+- Nella console S1, seleziona tutti gli endpoint di cui desideri eseguire la migrazione e fai clic su Azioni \> Azioni endpoint \> Migra endpoint.
+- Inserisci il nuovo token del sito e convalida.
+
+## Piattaforme disponibili
+
+SentinelOne in Primo è attualmente disponibile per le seguenti piattaforme:
+
+- **macOS** (arm64) - Chip M1 e altro ancora
+- **Windows** (x64): supporta Windows Pro
+- **Linux**
+  - Pacchetti .deb (arm64): compatibile con Ubuntu, Debian e distribuzioni derivate
+  - Pacchetti .rpm (arm64): compatibile con RHEL, CentOS, Fedora, SUSE e distribuzioni derivate
+
+Se la piattaforma non è menzionata sopra, puoi comunque installare manualmente SentinelOne scaricando il programma di installazione desiderato dal sito Web SentinelOne e installandolo manualmente con Fleet.

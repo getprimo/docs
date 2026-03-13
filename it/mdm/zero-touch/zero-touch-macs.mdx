@@ -1,0 +1,168 @@
+---
+title: "Distribuzione Zero-Touch per Mac (ABM)"
+description: "Configura Apple Business Manager con Primo per abilitare la registrazione e la configurazione automatiche dei dispositivi Mac, inclusa la migrazione dei Mac tra server MDM utilizzando macOS Sequoia/Tahoe."
+---
+
+Questo articolo spiega come connettere Apple Business Manager (ABM) per abilitare la distribuzione Zero Touch per i dispositivi Apple. Spiega anche come migrare i Mac da un MDM a un altro utilizzando ABM, una funzionalità introdotta con macOS Sequoia e ampliata in macOS Tahoe.
+
+## Comprendere il ruolo dell'ABM
+
+Apple Business Manager è un portale web Apple che consente alle organizzazioni di gestire e distribuire i dispositivi Apple (iPhone, iPad, Mac, Apple TV) da una posizione centralizzata.
+
+<Note>
+Quando Apple Business Manager è connesso, i dispositivi acquistati tramite rivenditori autorizzati possono essere:
+- iscritto automaticamente,
+- preconfigurato durante la configurazione iniziale,
+- protetto secondo le politiche definite nel Primo Cockpit.
+
+Questo processo è denominato **Zero Touch Deployment**.
+</Note>
+
+## Prerequisiti
+
+Prima di connettere Apple Business Manager, assicurati che:
+
+- Possiedi un **account amministratore di Apple Business Manager**.
+- Disponi di **accesso amministratore**.
+- La tua organizzazione dispone di un **numero DUNS valido**.
+
+## Se non disponi di un account ABM: crea un account ABM
+
+Se la tua organizzazione non dispone ancora di un account Apple Business Manager, creane uno seguendo la procedura ufficiale di Apple: [Apple - Iscriviti a Apple Business Manager](https://support.apple.com/en-us/guide/apple-business-manager/axm402206497/web).
+
+## Crea un account ABM per la tua azienda (tempo stimato: 2 minuti)
+
+1. Vai a [https://business.apple.com/](https://business.apple.com/)
+2. Seleziona **Iscriviti adesso**
+3. Inserisci le informazioni sull'organizzazione richieste:
+   - Nome e cognome della persona che si registra per conto dell'organizzazione
+   - Un indirizzo email aziendale non associato a un ID Apple
+   - Nome dell'organizzazione
+   - Sito web dell'organizzazione (consigliato)
+4. Crea una password, quindi verifica il tuo indirizzo email e il numero di telefono
+5. Seleziona **Inizia** per completare la creazione dell'account
+
+Per maggiori dettagli, fare riferimento alla documentazione di Apple: [Apple – Iscriviti a Apple Business Manager](https://support.apple.com/en-us/guide/apple-business-manager/axm402206497/web)
+
+## Convalida la tua registrazione (tempo stimato: 5 minuti)
+
+Dopo aver creato l'account, Apple deve convalidare la tua organizzazione.
+
+1. Accedi a [https://business.apple.com/](https://business.apple.com/)
+2. Vai a [**Impostazioni organizzazione**](https://business.apple.com/#/main/preferences/organizationsettings)
+3. Seleziona **Convalida**
+4. Inserisci:
+   - Il numero D-U-N-S della tua organizzazione (ulteriori informazioni: [Numero D-U-N-S®](https://developer.apple.com/support/D-U-N-S/))
+   - I dettagli di contatto del contatto di convalida
+5. Controlla nella tua casella di posta l'e-mail di convalida di Apple Business Manager
+6. Il contatto designato verrà raggiunto telefonicamente per confermare le informazioni
+
+Assicurati che il tuo sistema di posta elettronica consenta messaggi provenienti da domini `apple.com`.
+
+Potrebbe essere necessario un ulteriore passaggio di convalida tramite AppleCare al **0805 540 758**.
+
+## Connetti Apple Business Manager
+
+Una volta convalidato il tuo account Apple Business Manager:
+
+1. Accedi alla cabina di pilotaggio
+2. Vai a **Integrazioni**
+3. Seleziona **Apple Business Manager**
+4. Seguire le istruzioni visualizzate sullo schermo per connettere l'ABM
+5. Conferma che la sincronizzazione è attiva
+
+Una volta completata l'integrazione, i dispositivi Apple associati alla tua organizzazione potranno essere registrati automaticamente.
+
+## Ottieni un dispositivo Apple idoneo per Zero-Touch Deployment
+
+Per beneficiare dell'implementazione Zero Touch con Primo, il dispositivo Apple deve essere associato all'account Apple Business Manager della tua organizzazione. Esistono tre modi supportati per raggiungere questo obiettivo.
+
+## Acquista i dispositivi direttamente tramite Primo
+
+Quando i dispositivi vengono acquistati tramite Primo e la configurazione Zero-Touch è completa nella cabina di pilotaggio, l'intero processo è automatizzato.
+
+- I dispositivi vengono automaticamente collegati al tuo account Apple Business Manager
+- Non è richiesta alcuna configurazione manuale
+- I dispositivi sono immediatamente idonei per la distribuzione Zero Touch
+
+Questa è l'opzione consigliata per garantire una configurazione semplice e completamente automatizzata.
+
+## Acquista dispositivi tramite un rivenditore B2B
+
+Puoi anche acquistare dispositivi Apple tramite un rivenditore B2B autorizzato.
+
+In questo caso, assicurati che:
+
+- Il rivenditore è **autorizzato Apple**
+- Il rivenditore assegna correttamente i dispositivi al tuo **account Apple Business Manager** al momento dell'acquisto
+
+Una volta assegnati ad ABM, i dispositivi diventano disponibili per la registrazione e possono essere distribuiti utilizzando Zero Touch.
+
+## Aggiungi dispositivi manualmente utilizzando Apple Configurator per Mac
+
+Se un dispositivo non è stato acquistato tramite Primo o un rivenditore idoneo, puoi aggiungerlo manualmente a Apple Business Manager utilizzando **Apple Configurator per Mac**. Il dispositivo deve essere cancellato e connesso fisicamente durante il processo.
+
+Per istruzioni dettagliate, fare riferimento alla documentazione ufficiale di Apple:
+[Apple – Aggiungi dispositivi a Apple Business Manager utilizzando Apple Configurator](https://support.apple.com/fr-fr/guide/apple-business-manager/axm200a54d59/web)
+
+Una volta aggiunto a Apple Business Manager, il dispositivo può essere assegnato e distribuito utilizzando Zero Touch.
+
+## Esperienza dei dipendenti al primo avvio
+
+Quando un nuovo dipendente riceve un dispositivo Apple configurato con ABM e Primo:
+
+1. Accendi il dispositivo
+2. Seleziona le impostazioni del Paese, della lingua e della tastiera
+    ![Screenshot: Esperienza del dipendente durante il primo avvio](/images/notion-import/ZXPROTECT0ZX-enrollment-for-macs__img-058__block-0072__1fb43d9f.png)
+
+3. Connettersi a Internet
+4. Viene visualizzata la schermata **Gestione remota**
+    ![Screenshot: Esperienza del dipendente durante il primo avvio](/images/notion-import/ZXPROTECT0ZX-enrollment-for-macs__img-059__block-0075__1fb43d9f.png)
+
+5. Il dipendente accede utilizzando il proprio indirizzo e-mail (il dipendente deve essere già inserito)
+6. Le impostazioni di sicurezza e le applicazioni definite nel Cockpit Primo vengono applicate automaticamente
+
+Il dispositivo è pronto per l'uso senza alcuna configurazione manuale aggiuntiva.
+
+---
+
+## Migra i Mac tra server MDM utilizzando ABM
+
+## Cosa è cambiato con macOS Sequoia e Tahoe
+
+A partire da **macOS Sequoia (15)** e ulteriormente migliorato in **macOS Tahoe (16)**, Apple ha introdotto la possibilità di **riassegnare un Mac supervisionato a un server MDM diverso direttamente tramite Apple Business Manager**, senza dover cancellare i dati del dispositivo.
+
+In precedenza, la migrazione di un Mac da un MDM a un altro richiedeva:
+1. Cancellazione del dispositivo (o utilizzo della procedura di rimozione manuale)
+2. Reiscrizione da zero
+
+Con la riassegnazione MDM basata su ABM, puoi:
+- Sposta i Mac da un MDM precedente (ad esempio Jamf, Mosyle, Kandji, Intune) senza perdita di dati
+- Evita l'interruzione della cancellazione completa del dispositivo
+- Esegui migrazioni in blocco per l'intera flotta direttamente dalla console ABM
+
+## Requisiti
+
+- macOS Sequoia (15) o versione successiva sul Mac di destinazione
+- Il Mac deve essere supervisionato da ABM (acquistato tramite il canale collegato ad ABM o aggiunto tramite Apple Configurator)
+- Accesso come amministratore a Apple Business Manager
+- Il server MDM di destinazione (Primo) deve essere già connesso ad ABM
+
+## Come riassegnare i Mac tramite ABM
+
+1. Accedi a [Apple Business Manager](https://business.apple.com/).
+2. Vai a **Dispositivi**.
+3. Seleziona i Mac di cui desideri eseguire la migrazione.
+4. Fare clic su **Modifica server MDM**.
+5. Seleziona il tuo **server Primo MDM** come destinazione.
+6. Conferma l'incarico.
+
+La prossima volta che il Mac effettuerà il check-in con MDM (o dopo un riavvio), riceverà il profilo di registrazione da Primo ed effettuerà la transizione automaticamente.
+
+<Note>
+La riassegnazione avrà effetto al successivo check-in MDM del dispositivo. Ciò avviene in genere entro pochi minuti se il dispositivo è online. Non è richiesta alcuna azione da parte dell'utente su macOS Tahoe: lo switch MDM è trasparente.
+</Note>
+
+<Warning>
+Le app e i profili distribuiti dal precedente MDM rimarranno sul dispositivo finché Primo non li rimuoverà o li sostituirà. Rivedi le tue policy Primo per assicurarti che le configurazioni in conflitto vengano gestite.
+</Warning>

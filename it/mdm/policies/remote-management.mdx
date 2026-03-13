@@ -1,0 +1,50 @@
+---
+title: "Accesso remoto con RustDesk"
+description: "Abilita l'accesso remoto per i tuoi dispositivi senza sforzo con RustDesk tramite il controllo MDM di Primo, consentendo sessioni remote istantanee senza la necessità di password utente o configurazione manuale, garantendo al tempo stesso connessioni sicure e registrate."
+---
+
+Fornisci al tuo team IT l'accesso remoto con un clic ai dispositivi gestiti tramite RustDesk, distribuito automaticamente tramite un profilo MDM. Nessuna installazione manuale, nessuna condivisione di password: le sessioni sono crittografate, registrate nell'audit trail MDM e disponibili direttamente dal drawer del dispositivo.
+
+## Supporto del sistema operativo
+
+| macOS | Finestre | Linux | iOS/iPadOS | Androide |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | | |
+
+## Abilita RustDesk in un profilo MDM
+
+1. Vai alla sezione **Profili** nel abitacolo Primo.
+2. Seleziona un profilo (o creane uno nuovo).
+3. Nell'elenco dei controlli disponibili, attiva **RustDesk**.
+
+L'agente RustDesk verrà quindi installato automaticamente su tutti i dispositivi che utilizzano questo profilo.
+
+## Avvia una sessione di gestione remota
+
+1. Seleziona il dispositivo a cui desideri connetterti e apri il suo drawer.
+2. Scorri fino alla scheda "Accesso remoto" e fai clic su **Avvia sessione**.
+   - Puoi eseguire la sessione nel tuo browser o tramite l'app locale sul tuo computer.
+
+Potrebbero essere necessari fino a 30 secondi affinché la sessione sia pronta. L'utente non deve fare nulla da parte sua.
+
+## Su macOS
+
+<Warning>
+  Alla prima esecuzione dell'applicazione, all'utente verrà chiesto di **accettare autorizzazioni** come la condivisione dello schermo. Queste autorizzazioni non possono essere distribuite da MDM e devono essere **approvate** dall'utente.
+</Warning>
+
+Dopo che l'utente ha concesso le autorizzazioni richieste, le sessioni successive vengono avviate senza alcuna interazione da parte dell'utente.
+
+## Su Windows
+
+RustDesk si installa silenziosamente e non richiede l'interazione dell'utente. Le sessioni remote possono essere avviate direttamente dal drawer del dispositivo senza alcuna configurazione sul lato del dispositivo.
+
+## Su Linux
+
+RustDesk si installa automaticamente sui dispositivi Linux registrati nel profilo. Le sessioni remote funzionano allo stesso modo delle altre piattaforme: avvia la sessione dal drawer dei dispositivi.
+
+## Sicurezza e accesso
+
+- **Nessuna password aggiuntiva**: gli utenti non devono mai inviare codici o dettagli di accesso.
+- **Registri disponibili**: ogni sessione viene registrata in modo da poter controllare l'attività passata.
+- **Connessione crittografata**: la sessione è sicura dall'inizio alla fine.

@@ -1,0 +1,143 @@
+---
+title: "Connectez-vous à notre MCP"
+description: "Découvrez comment connecter ChatGPT, Claude, Cursor et d'autres assistants IA à Primo à l'aide du serveur MCP (Model Context Protocol) pour gérer votre parc informatique en langage naturel."
+---
+
+## Qu’est-ce que le MCP ?
+
+Le Model Context Protocol (MCP) est un standard ouvert qui permet aux assistants d'IA comme ChatGPT, Claude ou Cursor de se connecter directement à des outils et sources de données externes, notamment Primo.
+
+Avec le serveur MCP Primo, votre assistant IA peut interroger et gérer votre parc informatique en langage naturel : lister les appareils, rechercher des employés, gérer les accessoires, créer des tickets, etc.
+
+---
+
+## Conditions préalables
+
+Pour utiliser le serveur MCP Primo, il vous suffit de :
+
+- Un **compte Primo** avec accès à l'espace de travail de votre entreprise
+- Un assistant IA prenant en charge MCP (ChatGPT, Claude, Cursor, etc.)
+
+L'authentification est gérée via **OAuth** : lorsque vous ajoutez le serveur MCP Primo à votre assistant IA, vous serez redirigé pour vous connecter avec votre compte Primo. Aucune clé API requise.
+
+---
+
+## URL du serveur MCP
+
+Le serveur Primo MCP est disponible à l'adresse :
+
+```javascript
+https://api.getprimo.com/mcp
+```
+
+Par défaut, le serveur s'exécute en **mode lecture seule** : votre assistant IA peut interroger les données mais ne peut pas y apporter de modifications.
+
+Pour activer l'**accès en écriture** (créer des tickets, mettre à jour les accessoires, etc.), utilisez :
+
+```javascript
+https://api.getprimo.com/mcp?readOnly=false
+```
+
+---
+
+## Guide de configuration
+
+### ChatGPT
+
+1. Ouvrez **ChatGPT** (forfait Plus ou Team requis)
+2. Accédez à **Paramètres** → **Applications connectées** ou utilisez le menu **« Connecter »**.
+3. Sélectionnez **"Ajouter un serveur MCP"**
+4. Entrez l'URL du serveur : `https://api.getprimo.com/mcp`
+5. Vous serez redirigé vers **vous connecter avec votre compte Primo** (OAuth)
+6. Autorisez la connexion : vous êtes prêt !
+
+**Exemples d'invites :**
+
+- _"Liste de tous les appareils gérés dans Primo"_
+- _"Montrez-moi les employés qui ont rejoint ce mois-ci"_
+- _"Quels billets sont actuellement en attente ?"_
+
+### Claude Bureau
+
+1. Ouvrez l'application **Claude Desktop**
+2. Accédez à **Paramètres** → **Développeur** → **Serveurs MCP**
+3. Cliquez sur **"Ajouter un serveur"**
+4. Saisissez un nom (par exemple "Primo") et l'URL : `https://api.getprimo.com/mcp`
+5. Complétez le flux de connexion OAuth avec votre compte Primo
+6. Enregistrer et reconnecter — Les outils Primo apparaîtront dans la boîte à outils de Claude
+
+### Curseur
+
+1. Ouvrir les paramètres du **Curseur**
+2. Accédez à **Serveurs MCP**
+3. Ajoutez un nouveau serveur avec l'URL : `https://api.getprimo.com/mcp`
+4. Complétez l'authentification OAuth avec votre compte Primo
+5. Les outils Primo seront disponibles dans l'assistant AI de Cursor
+
+### Autres clients compatibles MCP
+
+Toute application prenant en charge la norme MCP peut se connecter à Primo. Utilisez l'URL du serveur `https://api.getprimo.com/mcp` — l'authentification est gérée via OAuth.
+
+---
+
+## Prise en charge multi-entreprises
+
+Si votre organisation gère **plusieurs sociétés** dans Primo, le serveur MCP est par défaut votre société principale.
+
+Pour cibler une entreprise spécifique, ajoutez le paramètre `x-company-id` à l'URL :
+
+```javascript
+https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID
+```
+
+Vous pouvez combiner les paramètres :
+
+```javascript
+https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID&readOnly=false
+```
+
+<Note>
+  Pour trouver l'identifiant de votre entreprise, utilisez le API pour répertorier vos entreprises ou vérifiez l'URL dans votre tableau de bord Primo.
+</Note>
+
+---
+
+## Que pouvez-vous faire ?
+
+Une fois connecté, votre assistant IA peut effectuer les actions suivantes via Primo :
+
+| Catégorie        | Opérations de lecture                        | Opérations d'écriture                                              |
+| --------------- | -------------------------------------- | ------------------------------------------------------------- |
+| **Entreprises**   | Répertorier et visualiser les entreprises                | —                                                             |
+| **Appareils**     | Répertorier, rechercher et afficher les détails de l'appareil  | Verrouiller, déverrouiller, effacer (⚠️)                                       |
+| **Employés**   | Répertorier et afficher les profils des employés        | —                                                             |
+| **Accessoires** | Liste et affichage des accessoires              | Créer et mettre à jour des accessoires                                 |
+| **Billets**     | Répertorier, rechercher, filtrer et afficher les tickets | Créer des tickets, ajouter des commentaires, mettre à jour le statut/la priorité/le destinataire |
+
+<Warning>
+  Les actions de l'appareil (verrouillage, effacement) sont puissantes et irréversibles. Utilisez le mode écriture avec prudence.
+</Warning>
+
+---
+
+## Dépannage
+
+**"404 Not Found" lors de l'ouverture de l'URL dans un navigateur**
+
+C'est normal. Le serveur MCP n'est pas une page Web : c'est un point de terminaison de protocole conçu pour être utilisé par les assistants IA. Ajoutez-le en tant que serveur MCP dans votre client préféré.
+
+**Erreur d'authentification**
+
+Assurez-vous de terminer le processus de connexion OAuth lorsque vous y êtes invité. Vous avez besoin d'un compte Primo actif avec accès à l'entreprise que vous souhaitez interroger.
+
+**Données provenant de la mauvaise entreprise**
+
+Si vous gérez plusieurs sociétés, spécifiez la société cible à l'aide du paramètre `x-company-id` (voir Prise en charge multi-sociétés ci-dessus).
+
+---
+
+## Besoin d'aide ?
+
+Contactez votre équipe d'assistance Primo ou via le chat intégré à l'application si vous avez besoin d'aide pour configurer MCP.
+
+Pour la documentation API, visitez : [api.getprimo.com/apidoc](https://api.getprimo.com/apidoc)
