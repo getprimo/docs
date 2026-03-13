@@ -9,1035 +9,197 @@
   },
   "favicon": "/images/icon_webclipPrimo@2x2.png",
   "navigation": {
-    "languages": [
+    "tabs": [
       {
-        "language": "en",
-        "href": "/",
-        "tabs": [
+        "tab": "Help Center",
+        "icon": "notebook",
+        "groups": [
           {
-            "tab": "Help Center",
-            "icon": "notebook",
-            "groups": [
-              {
-                "group": "Getting Started",
-                "icon": "compass",
-                "pages": [
-                  "index",
-                  "get-started/grant-admin-access",
-                  "get-started/quality-onboarding"
-                ]
-              },
-              {
-                "group": "Employee Lifecycle",
-                "icon": "people",
-                "pages": [
-                  "employees/connect-hris",
-                  "employees/import-via-csv",
-                  "employees/automate-onboardings"
-                ]
-              },
-              {
-                "group": "Device Management",
-                "icon": "computer-classic",
-                "pages": [
-                  {
-                    "group": "Initial Setup",
-                    "pages": [
-                      "mdm/get-started/introduction-to-mdm",
-                      "mdm/get-started/supported-platforms",
-                      "mdm/get-started/set-up-apn-certificate",
-                      "mdm/scripts/fleetdm-guide",
-                      "mdm/get-started/set-up-okta"
-                    ]
-                  },
-                  {
-                    "group": "Enrollments & Migrations",
-                    "pages": [
-                      "mdm/rollout/invite-employees",
-                      "mdm/rollout/device-assignment",
-                      "mdm/get-started/migrate-from-another-mdm",
-                      "mdm/guides/resolve-enrollment-issues",
-                      "mdm/zero-touch/zero-touch-macs",
-                      "mdm/zero-touch/zero-touch-windows"
-                    ]
-                  },
-                  {
-                    "group": "Controls & Policies",
-                    "pages": [
-                      "mdm/policies/password-policy",
-                      "mdm/policies/disk-encryption",
-                      "mdm/policies/remote-management",
-                      "mdm/policies/manage-admin-accounts"
-                    ]
-                  },
-                  {
-                    "group": "Software Management",
-                    "pages": [
-                      "mdm/policies/manage-apps-laptop",
-                      "mdm/policies/manage-apps-smartphone",
-                      "mdm/policies/deploy-vpp-applications"
-                    ]
-                  },
-                  {
-                    "group": "User Management",
-                    "pages": [
-                      "mdm/policies/change-local-password",
-                      "mdm/get-started/secure-token",
-                      "mdm/guides/resolve-login-issue"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Endpoint Protection",
-                "icon": "shield-check",
-                "pages": [
-                  "mdm/endpoint-protection/sentinelone",
-                  "mdm/endpoint-protection/crowdstrike-falcon",
-                  "mdm/endpoint-protection/threatdown"
-                ]
-              },
-              {
-                "group": "Identity & SaaS Management",
-                "icon": "key",
-                "pages": [
-                  "saas/introduction",
-                  "saas/connect-apps",
-                  "saas/connected-saas-properties",
-                  "saas/enable-saas-mapping",
-                  "saas/manage-tracked-apps",
-                  "saas/ai-based-connector",
-                  "saas/configure-sso",
-                  "saas/licence-provisioning"
-                ]
-              },
-              {
-                "group": "Global Purchasing & Inventory",
-                "icon": "globe",
-                "pages": [
-                  "get-started/import-your-equipment",
-                  {
-                    "group": "Global Purchasing",
-                    "pages": [
-                      "procurement/why-buy-with-primo",
-                      "procurement/shipping-countries",
-                      "get-started/billing/paying-with-sepa",
-                      "mdm/zero-touch/device-orders-zero-touch",
-                      "procurement/returns-warranties",
-                      "procurement/applecare-enterprise",
-                      "procurement/add-products-catalog"
-                    ]
-                  },
-                  {
-                    "group": "Shipments",
-                    "pages": [
-                      "procurement/manage-shipments"
-                    ]
-                  },
-                  {
-                    "group": "Partners",
-                    "pages": [
-                      "procurement/local-partners-repair",
-                      "procurement/local-partners-resell"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Guides & Resources",
-                "icon": "briefcase",
-                "pages": [
-                  "mdm/rollout/mdm-rollout-resources",
-                  "mdm/rollout/employee-mdm-installation",
-                  "mdm/rollout/faq",
-                  "mdm/zero-touch/understand-zero-touch",
-                  "mdm/scripts/useful-scripts",
-                  "mdm/guides/os-updates-employee-experience",
-                  "mdm/guides/remove-mdm-manually",
-                  "mdm/guides/upgrade-windows-11",
-                  "mdm/policies/manage-windows-home",
-                  "mdm/guides/activation-lock-bypass",
-                  "mdm/scripts/custom-windows-policies",
-                  "mdm/scripts/cis-benchmarks"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "Changelog",
-            "icon": "megaphone",
+            "group": "Getting Started",
+            "icon": "compass",
             "pages": [
-              "changelog/index"
+              "index",
+              "get-started/grant-admin-access",
+              "get-started/quality-onboarding"
             ]
           },
           {
-            "tab": "Developers",
-            "icon": "code",
-            "groups": [
+            "group": "Employee Lifecycle",
+            "icon": "people",
+            "pages": [
+              "employees/connect-hris",
+              "employees/import-via-csv",
+              "employees/automate-onboardings"
+            ]
+          },
+          {
+            "group": "Device Management",
+            "icon": "computer-classic",
+            "pages": [
               {
-                "group": "Getting Started",
-                "icon": "compass",
+                "group": "Initial Setup",
                 "pages": [
-                  "api/create-primo-api-key",
-                  "api/create-fleet-api-key",
-                  "get-started/primo-mcp-server"
+                  "mdm/get-started/introduction-to-mdm",
+                  "mdm/get-started/supported-platforms",
+                  "mdm/get-started/set-up-apn-certificate",
+                  "mdm/scripts/fleetdm-guide",
+                  "mdm/get-started/set-up-okta"
                 ]
               },
               {
-                "group": "API Reference",
-                "icon": "code-simple",
-                "openapi": "https://api.getprimo.com/openapi.json"
+                "group": "Enrollments & Migrations",
+                "pages": [
+                  "mdm/rollout/invite-employees",
+                  "mdm/rollout/device-assignment",
+                  "mdm/get-started/migrate-from-another-mdm",
+                  "mdm/guides/resolve-enrollment-issues",
+                  "mdm/zero-touch/zero-touch-macs",
+                  "mdm/zero-touch/zero-touch-windows"
+                ]
+              },
+              {
+                "group": "Controls & Policies",
+                "pages": [
+                  "mdm/policies/password-policy",
+                  "mdm/policies/disk-encryption",
+                  "mdm/policies/remote-management",
+                  "mdm/policies/manage-admin-accounts"
+                ]
+              },
+              {
+                "group": "Software Management",
+                "pages": [
+                  "mdm/policies/manage-apps-laptop",
+                  "mdm/policies/manage-apps-smartphone",
+                  "mdm/policies/deploy-vpp-applications"
+                ]
+              },
+              {
+                "group": "User Management",
+                "pages": [
+                  "mdm/policies/change-local-password",
+                  "mdm/get-started/secure-token",
+                  "mdm/guides/resolve-login-issue"
+                ]
               }
             ]
+          },
+          {
+            "group": "Endpoint Protection",
+            "icon": "shield-check",
+            "pages": [
+              "mdm/endpoint-protection/sentinelone",
+              "mdm/endpoint-protection/crowdstrike-falcon",
+              "mdm/endpoint-protection/threatdown"
+            ]
+          },
+          {
+            "group": "Identity & SaaS Management",
+            "icon": "key",
+            "pages": [
+              "saas/introduction",
+              "saas/connect-apps",
+              "saas/connected-saas-properties",
+              "saas/enable-saas-mapping",
+              "saas/manage-tracked-apps",
+              "saas/ai-based-connector",
+              "saas/configure-sso",
+              "saas/licence-provisioning"
+            ]
+          },
+          {
+            "group": "Global Purchasing & Inventory",
+            "icon": "globe",
+            "pages": [
+              "get-started/import-your-equipment",
+              {
+                "group": "Global Purchasing",
+                "pages": [
+                  "procurement/why-buy-with-primo",
+                  "procurement/shipping-countries",
+                  "get-started/billing/paying-with-sepa",
+                  "mdm/zero-touch/device-orders-zero-touch",
+                  "procurement/returns-warranties",
+                  "procurement/applecare-enterprise",
+                  "procurement/add-products-catalog"
+                ]
+              },
+              {
+                "group": "Shipments",
+                "pages": [
+                  "procurement/manage-shipments"
+                ]
+              },
+              {
+                "group": "Partners",
+                "pages": [
+                  "procurement/local-partners-repair",
+                  "procurement/local-partners-resell"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Guides & Resources",
+            "icon": "briefcase",
+            "pages": [
+              "mdm/rollout/mdm-rollout-resources",
+              "mdm/rollout/employee-mdm-installation",
+              "mdm/rollout/faq",
+              "mdm/zero-touch/understand-zero-touch",
+              "mdm/scripts/useful-scripts",
+              "mdm/guides/os-updates-employee-experience",
+              "mdm/guides/remove-mdm-manually",
+              "mdm/guides/upgrade-windows-11",
+              "mdm/policies/manage-windows-home",
+              "mdm/guides/activation-lock-bypass",
+              "mdm/scripts/custom-windows-policies",
+              "mdm/scripts/cis-benchmarks"
+            ]
           }
-        ],
-        "navbar": {
-          "links": [
-            {
-              "label": "Talk to Sales",
-              "href": "https://www.getprimo.com/request-a-demo"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "Dashboard",
-            "href": "https://app.getprimo.com"
-          }
-        },
-        "footer": {
-          "socials": {
-            "x": "https://x.com/getprimo",
-            "linkedin": "https://linkedin.com/company/getprimo"
-          }
-        },
-        "banner": {
-          "content": "🤖 Try out our new MCP! Head to our Developer documentation.",
-          "dismissible": true
-        },
-        "default": true,
-        "hidden": true
+        ]
       },
       {
-        "language": "fr",
-        "href": "/fr",
-        "tabs": [
-          {
-            "tab": "Centre d'aide",
-            "icon": "notebook",
-            "groups": [
-              {
-                "group": "Bien démarrer",
-                "icon": "compass",
-                "pages": [
-                  "fr/index",
-                  "fr/get-started/grant-admin-access",
-                  "fr/get-started/quality-onboarding"
-                ]
-              },
-              {
-                "group": "Cycle de vie des employés",
-                "icon": "people",
-                "pages": [
-                  "fr/employees/connect-hris",
-                  "fr/employees/import-via-csv",
-                  "fr/employees/automate-onboardings"
-                ]
-              },
-              {
-                "group": "Gestion des appareils",
-                "icon": "computer-classic",
-                "pages": [
-                  {
-                    "group": "Configuration initiale",
-                    "pages": [
-                      "fr/mdm/get-started/introduction-to-mdm",
-                      "fr/mdm/get-started/supported-platforms",
-                      "fr/mdm/get-started/set-up-apn-certificate",
-                      "fr/mdm/scripts/fleetdm-guide",
-                      "fr/mdm/get-started/set-up-okta"
-                    ]
-                  },
-                  {
-                    "group": "Déploiement et migrations",
-                    "pages": [
-                      "fr/mdm/rollout/invite-employees",
-                      "fr/mdm/rollout/device-assignment",
-                      "fr/mdm/get-started/migrate-from-another-mdm",
-                      "fr/mdm/guides/resolve-enrollment-issues",
-                      "fr/mdm/zero-touch/zero-touch-macs",
-                      "fr/mdm/zero-touch/zero-touch-windows"
-                    ]
-                  },
-                  {
-                    "group": "Contrôles et politiques",
-                    "pages": [
-                      "fr/mdm/policies/password-policy",
-                      "fr/mdm/policies/disk-encryption",
-                      "fr/mdm/policies/remote-management",
-                      "fr/mdm/policies/manage-admin-accounts"
-                    ]
-                  },
-                  {
-                    "group": "Gestion des logiciels",
-                    "pages": [
-                      "fr/mdm/policies/manage-apps-laptop",
-                      "fr/mdm/policies/manage-apps-smartphone",
-                      "fr/mdm/policies/deploy-vpp-applications"
-                    ]
-                  },
-                  {
-                    "group": "Gestion des utilisateurs",
-                    "pages": [
-                      "fr/mdm/policies/change-local-password",
-                      "fr/mdm/get-started/secure-token",
-                      "fr/mdm/guides/resolve-login-issue"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Protection des terminaux",
-                "icon": "shield-check",
-                "pages": [
-                  "fr/mdm/endpoint-protection/sentinelone",
-                  "fr/mdm/endpoint-protection/crowdstrike-falcon",
-                  "fr/mdm/endpoint-protection/threatdown"
-                ]
-              },
-              {
-                "group": "Identité et gestion SaaS",
-                "icon": "key",
-                "pages": [
-                  "fr/saas/introduction",
-                  "fr/saas/connect-apps",
-                  "fr/saas/connected-saas-properties",
-                  "fr/saas/enable-saas-mapping",
-                  "fr/saas/manage-tracked-apps",
-                  "fr/saas/ai-based-connector",
-                  "fr/saas/configure-sso",
-                  "fr/saas/licence-provisioning"
-                ]
-              },
-              {
-                "group": "Achats internationaux et inventaire",
-                "icon": "globe",
-                "pages": [
-                  "fr/get-started/import-your-equipment",
-                  {
-                    "group": "Achats internationaux",
-                    "pages": [
-                      "fr/procurement/why-buy-with-primo",
-                      "fr/procurement/shipping-countries",
-                      "fr/get-started/billing/paying-with-sepa",
-                      "fr/mdm/zero-touch/device-orders-zero-touch",
-                      "fr/procurement/returns-warranties",
-                      "fr/procurement/applecare-enterprise",
-                      "fr/procurement/add-products-catalog"
-                    ]
-                  },
-                  {
-                    "group": "Expéditions",
-                    "pages": [
-                      "fr/procurement/manage-shipments"
-                    ]
-                  },
-                  {
-                    "group": "Partenaires",
-                    "pages": [
-                      "fr/procurement/local-partners-repair",
-                      "fr/procurement/local-partners-resell"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Guides et ressources",
-                "icon": "briefcase",
-                "pages": [
-                  "fr/mdm/rollout/mdm-rollout-resources",
-                  "fr/mdm/rollout/employee-mdm-installation",
-                  "fr/mdm/rollout/faq",
-                  "fr/mdm/zero-touch/understand-zero-touch",
-                  "fr/mdm/scripts/useful-scripts",
-                  "fr/mdm/guides/os-updates-employee-experience",
-                  "fr/mdm/guides/remove-mdm-manually",
-                  "fr/mdm/guides/upgrade-windows-11",
-                  "fr/mdm/policies/manage-windows-home",
-                  "fr/mdm/guides/activation-lock-bypass",
-                  "fr/mdm/scripts/custom-windows-policies",
-                  "fr/mdm/scripts/cis-benchmarks"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "Journal des modifications",
-            "icon": "megaphone",
-            "pages": [
-              "fr/changelog/index"
-            ]
-          },
-          {
-            "tab": "Développeurs",
-            "icon": "code",
-            "groups": [
-              {
-                "group": "Bien démarrer",
-                "icon": "compass",
-                "pages": [
-                  "fr/api/create-primo-api-key",
-                  "fr/api/create-fleet-api-key",
-                  "fr/get-started/primo-mcp-server"
-                ]
-              },
-              {
-                "group": "Référence API",
-                "icon": "code-simple",
-                "openapi": "https://api.getprimo.com/openapi.json"
-              }
-            ]
-          }
-        ],
-        "navbar": {
-          "links": [
-            {
-              "label": "Contacter l'équipe commerciale",
-              "href": "https://www.getprimo.com/request-a-demo"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "Tableau de bord",
-            "href": "https://app.getprimo.com"
-          }
-        },
-        "footer": {
-          "socials": {
-            "x": "https://x.com/getprimo",
-            "linkedin": "https://linkedin.com/company/getprimo"
-          }
-        },
-        "banner": {
-          "content": "Essayez notre nouveau MCP. Rendez-vous dans la documentation développeur.",
-          "dismissible": true
-        }
+        "tab": "Changelog",
+        "icon": "megaphone",
+        "pages": [
+          "changelog/index"
+        ]
       },
       {
-        "language": "de",
-        "href": "/de",
-        "tabs": [
+        "tab": "Developers",
+        "icon": "code",
+        "groups": [
           {
-            "tab": "Hilfe-Center",
-            "icon": "notebook",
-            "groups": [
-              {
-                "group": "Erste Schritte",
-                "icon": "compass",
-                "pages": [
-                  "de/index",
-                  "de/get-started/grant-admin-access",
-                  "de/get-started/quality-onboarding"
-                ]
-              },
-              {
-                "group": "Mitarbeiterlebenszyklus",
-                "icon": "people",
-                "pages": [
-                  "de/employees/connect-hris",
-                  "de/employees/import-via-csv",
-                  "de/employees/automate-onboardings"
-                ]
-              },
-              {
-                "group": "Geräteverwaltung",
-                "icon": "computer-classic",
-                "pages": [
-                  {
-                    "group": "Ersteinrichtung",
-                    "pages": [
-                      "de/mdm/get-started/introduction-to-mdm",
-                      "de/mdm/get-started/supported-platforms",
-                      "de/mdm/get-started/set-up-apn-certificate",
-                      "de/mdm/scripts/fleetdm-guide",
-                      "de/mdm/get-started/set-up-okta"
-                    ]
-                  },
-                  {
-                    "group": "Bereitstellung und Migrationen",
-                    "pages": [
-                      "de/mdm/rollout/invite-employees",
-                      "de/mdm/rollout/device-assignment",
-                      "de/mdm/get-started/migrate-from-another-mdm",
-                      "de/mdm/guides/resolve-enrollment-issues",
-                      "de/mdm/zero-touch/zero-touch-macs",
-                      "de/mdm/zero-touch/zero-touch-windows"
-                    ]
-                  },
-                  {
-                    "group": "Kontrollen und Richtlinien",
-                    "pages": [
-                      "de/mdm/policies/password-policy",
-                      "de/mdm/policies/disk-encryption",
-                      "de/mdm/policies/remote-management",
-                      "de/mdm/policies/manage-admin-accounts"
-                    ]
-                  },
-                  {
-                    "group": "Softwareverwaltung",
-                    "pages": [
-                      "de/mdm/policies/manage-apps-laptop",
-                      "de/mdm/policies/manage-apps-smartphone",
-                      "de/mdm/policies/deploy-vpp-applications"
-                    ]
-                  },
-                  {
-                    "group": "Benutzerverwaltung",
-                    "pages": [
-                      "de/mdm/policies/change-local-password",
-                      "de/mdm/get-started/secure-token",
-                      "de/mdm/guides/resolve-login-issue"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Endpunktschutz",
-                "icon": "shield-check",
-                "pages": [
-                  "de/mdm/endpoint-protection/sentinelone",
-                  "de/mdm/endpoint-protection/crowdstrike-falcon",
-                  "de/mdm/endpoint-protection/threatdown"
-                ]
-              },
-              {
-                "group": "Identitäts- und SaaS-Verwaltung",
-                "icon": "key",
-                "pages": [
-                  "de/saas/introduction",
-                  "de/saas/connect-apps",
-                  "de/saas/connected-saas-properties",
-                  "de/saas/enable-saas-mapping",
-                  "de/saas/manage-tracked-apps",
-                  "de/saas/ai-based-connector",
-                  "de/saas/configure-sso",
-                  "de/saas/licence-provisioning"
-                ]
-              },
-              {
-                "group": "Globaler Einkauf und Inventar",
-                "icon": "globe",
-                "pages": [
-                  "de/get-started/import-your-equipment",
-                  {
-                    "group": "Globaler Einkauf",
-                    "pages": [
-                      "de/procurement/why-buy-with-primo",
-                      "de/procurement/shipping-countries",
-                      "de/get-started/billing/paying-with-sepa",
-                      "de/mdm/zero-touch/device-orders-zero-touch",
-                      "de/procurement/returns-warranties",
-                      "de/procurement/applecare-enterprise",
-                      "de/procurement/add-products-catalog"
-                    ]
-                  },
-                  {
-                    "group": "Sendungen",
-                    "pages": [
-                      "de/procurement/manage-shipments"
-                    ]
-                  },
-                  {
-                    "group": "Partner",
-                    "pages": [
-                      "de/procurement/local-partners-repair",
-                      "de/procurement/local-partners-resell"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Anleitungen und Ressourcen",
-                "icon": "briefcase",
-                "pages": [
-                  "de/mdm/rollout/mdm-rollout-resources",
-                  "de/mdm/rollout/employee-mdm-installation",
-                  "de/mdm/rollout/faq",
-                  "de/mdm/zero-touch/understand-zero-touch",
-                  "de/mdm/scripts/useful-scripts",
-                  "de/mdm/guides/os-updates-employee-experience",
-                  "de/mdm/guides/remove-mdm-manually",
-                  "de/mdm/guides/upgrade-windows-11",
-                  "de/mdm/policies/manage-windows-home",
-                  "de/mdm/guides/activation-lock-bypass",
-                  "de/mdm/scripts/custom-windows-policies",
-                  "de/mdm/scripts/cis-benchmarks"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "Änderungsprotokoll",
-            "icon": "megaphone",
+            "group": "Getting Started",
+            "icon": "compass",
             "pages": [
-              "de/changelog/index"
+              "api/create-primo-api-key",
+              "api/create-fleet-api-key",
+              "get-started/primo-mcp-server"
             ]
           },
           {
-            "tab": "Entwickler",
-            "icon": "code",
-            "groups": [
-              {
-                "group": "Erste Schritte",
-                "icon": "compass",
-                "pages": [
-                  "de/api/create-primo-api-key",
-                  "de/api/create-fleet-api-key",
-                  "de/get-started/primo-mcp-server"
-                ]
-              },
-              {
-                "group": "API-Referenz",
-                "icon": "code-simple",
-                "openapi": "https://api.getprimo.com/openapi.json"
-              }
-            ]
+            "group": "API Reference",
+            "icon": "code-simple",
+            "openapi": "https://api.getprimo.com/openapi.json"
           }
-        ],
-        "navbar": {
-          "links": [
-            {
-              "label": "Vertrieb kontaktieren",
-              "href": "https://www.getprimo.com/request-a-demo"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "Dashboard",
-            "href": "https://app.getprimo.com"
-          }
-        },
-        "footer": {
-          "socials": {
-            "x": "https://x.com/getprimo",
-            "linkedin": "https://linkedin.com/company/getprimo"
-          }
-        },
-        "banner": {
-          "content": "Probieren Sie unser neues MCP aus. Wechseln Sie in unsere Entwicklerdokumentation.",
-          "dismissible": true
-        }
-      },
-      {
-        "language": "es",
-        "href": "/es",
-        "tabs": [
-          {
-            "tab": "Centro de ayuda",
-            "icon": "notebook",
-            "groups": [
-              {
-                "group": "Primeros pasos",
-                "icon": "compass",
-                "pages": [
-                  "es/index",
-                  "es/get-started/grant-admin-access",
-                  "es/get-started/quality-onboarding"
-                ]
-              },
-              {
-                "group": "Ciclo de vida de empleados",
-                "icon": "people",
-                "pages": [
-                  "es/employees/connect-hris",
-                  "es/employees/import-via-csv",
-                  "es/employees/automate-onboardings"
-                ]
-              },
-              {
-                "group": "Gestión de dispositivos",
-                "icon": "computer-classic",
-                "pages": [
-                  {
-                    "group": "Configuración inicial",
-                    "pages": [
-                      "es/mdm/get-started/introduction-to-mdm",
-                      "es/mdm/get-started/supported-platforms",
-                      "es/mdm/get-started/set-up-apn-certificate",
-                      "es/mdm/scripts/fleetdm-guide",
-                      "es/mdm/get-started/set-up-okta"
-                    ]
-                  },
-                  {
-                    "group": "Implementaciones y migraciones",
-                    "pages": [
-                      "es/mdm/rollout/invite-employees",
-                      "es/mdm/rollout/device-assignment",
-                      "es/mdm/get-started/migrate-from-another-mdm",
-                      "es/mdm/guides/resolve-enrollment-issues",
-                      "es/mdm/zero-touch/zero-touch-macs",
-                      "es/mdm/zero-touch/zero-touch-windows"
-                    ]
-                  },
-                  {
-                    "group": "Controles y políticas",
-                    "pages": [
-                      "es/mdm/policies/password-policy",
-                      "es/mdm/policies/disk-encryption",
-                      "es/mdm/policies/remote-management",
-                      "es/mdm/policies/manage-admin-accounts"
-                    ]
-                  },
-                  {
-                    "group": "Gestión de software",
-                    "pages": [
-                      "es/mdm/policies/manage-apps-laptop",
-                      "es/mdm/policies/manage-apps-smartphone",
-                      "es/mdm/policies/deploy-vpp-applications"
-                    ]
-                  },
-                  {
-                    "group": "Gestión de usuarios",
-                    "pages": [
-                      "es/mdm/policies/change-local-password",
-                      "es/mdm/get-started/secure-token",
-                      "es/mdm/guides/resolve-login-issue"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Protección de endpoints",
-                "icon": "shield-check",
-                "pages": [
-                  "es/mdm/endpoint-protection/sentinelone",
-                  "es/mdm/endpoint-protection/crowdstrike-falcon",
-                  "es/mdm/endpoint-protection/threatdown"
-                ]
-              },
-              {
-                "group": "Identidad y gestión de SaaS",
-                "icon": "key",
-                "pages": [
-                  "es/saas/introduction",
-                  "es/saas/connect-apps",
-                  "es/saas/connected-saas-properties",
-                  "es/saas/enable-saas-mapping",
-                  "es/saas/manage-tracked-apps",
-                  "es/saas/ai-based-connector",
-                  "es/saas/configure-sso",
-                  "es/saas/licence-provisioning"
-                ]
-              },
-              {
-                "group": "Compras globales e inventario",
-                "icon": "globe",
-                "pages": [
-                  "es/get-started/import-your-equipment",
-                  {
-                    "group": "Compras globales",
-                    "pages": [
-                      "es/procurement/why-buy-with-primo",
-                      "es/procurement/shipping-countries",
-                      "es/get-started/billing/paying-with-sepa",
-                      "es/mdm/zero-touch/device-orders-zero-touch",
-                      "es/procurement/returns-warranties",
-                      "es/procurement/applecare-enterprise",
-                      "es/procurement/add-products-catalog"
-                    ]
-                  },
-                  {
-                    "group": "Envíos",
-                    "pages": [
-                      "es/procurement/manage-shipments"
-                    ]
-                  },
-                  {
-                    "group": "Partners",
-                    "pages": [
-                      "es/procurement/local-partners-repair",
-                      "es/procurement/local-partners-resell"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Guías y recursos",
-                "icon": "briefcase",
-                "pages": [
-                  "es/mdm/rollout/mdm-rollout-resources",
-                  "es/mdm/rollout/employee-mdm-installation",
-                  "es/mdm/rollout/faq",
-                  "es/mdm/zero-touch/understand-zero-touch",
-                  "es/mdm/scripts/useful-scripts",
-                  "es/mdm/guides/os-updates-employee-experience",
-                  "es/mdm/guides/remove-mdm-manually",
-                  "es/mdm/guides/upgrade-windows-11",
-                  "es/mdm/policies/manage-windows-home",
-                  "es/mdm/guides/activation-lock-bypass",
-                  "es/mdm/scripts/custom-windows-policies",
-                  "es/mdm/scripts/cis-benchmarks"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "Registro de cambios",
-            "icon": "megaphone",
-            "pages": [
-              "es/changelog/index"
-            ]
-          },
-          {
-            "tab": "Desarrolladores",
-            "icon": "code",
-            "groups": [
-              {
-                "group": "Primeros pasos",
-                "icon": "compass",
-                "pages": [
-                  "es/api/create-primo-api-key",
-                  "es/api/create-fleet-api-key",
-                  "es/get-started/primo-mcp-server"
-                ]
-              },
-              {
-                "group": "Referencia de API",
-                "icon": "code-simple",
-                "openapi": "https://api.getprimo.com/openapi.json"
-              }
-            ]
-          }
-        ],
-        "navbar": {
-          "links": [
-            {
-              "label": "Contactar con ventas",
-              "href": "https://www.getprimo.com/request-a-demo"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "Panel",
-            "href": "https://app.getprimo.com"
-          }
-        },
-        "footer": {
-          "socials": {
-            "x": "https://x.com/getprimo",
-            "linkedin": "https://linkedin.com/company/getprimo"
-          }
-        },
-        "banner": {
-          "content": "Prueba nuestro nuevo MCP. Ve a la documentación para desarrolladores.",
-          "dismissible": true
-        }
-      },
-      {
-        "language": "it",
-        "href": "/it",
-        "tabs": [
-          {
-            "tab": "Centro assistenza",
-            "icon": "notebook",
-            "groups": [
-              {
-                "group": "Per iniziare",
-                "icon": "compass",
-                "pages": [
-                  "it/index",
-                  "it/get-started/grant-admin-access",
-                  "it/get-started/quality-onboarding"
-                ]
-              },
-              {
-                "group": "Ciclo di vita dei dipendenti",
-                "icon": "people",
-                "pages": [
-                  "it/employees/connect-hris",
-                  "it/employees/import-via-csv",
-                  "it/employees/automate-onboardings"
-                ]
-              },
-              {
-                "group": "Gestione dei dispositivi",
-                "icon": "computer-classic",
-                "pages": [
-                  {
-                    "group": "Configurazione iniziale",
-                    "pages": [
-                      "it/mdm/get-started/introduction-to-mdm",
-                      "it/mdm/get-started/supported-platforms",
-                      "it/mdm/get-started/set-up-apn-certificate",
-                      "it/mdm/scripts/fleetdm-guide",
-                      "it/mdm/get-started/set-up-okta"
-                    ]
-                  },
-                  {
-                    "group": "Distribuzione e migrazioni",
-                    "pages": [
-                      "it/mdm/rollout/invite-employees",
-                      "it/mdm/rollout/device-assignment",
-                      "it/mdm/get-started/migrate-from-another-mdm",
-                      "it/mdm/guides/resolve-enrollment-issues",
-                      "it/mdm/zero-touch/zero-touch-macs",
-                      "it/mdm/zero-touch/zero-touch-windows"
-                    ]
-                  },
-                  {
-                    "group": "Controlli e criteri",
-                    "pages": [
-                      "it/mdm/policies/password-policy",
-                      "it/mdm/policies/disk-encryption",
-                      "it/mdm/policies/remote-management",
-                      "it/mdm/policies/manage-admin-accounts"
-                    ]
-                  },
-                  {
-                    "group": "Gestione del software",
-                    "pages": [
-                      "it/mdm/policies/manage-apps-laptop",
-                      "it/mdm/policies/manage-apps-smartphone",
-                      "it/mdm/policies/deploy-vpp-applications"
-                    ]
-                  },
-                  {
-                    "group": "Gestione utenti",
-                    "pages": [
-                      "it/mdm/policies/change-local-password",
-                      "it/mdm/get-started/secure-token",
-                      "it/mdm/guides/resolve-login-issue"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Protezione endpoint",
-                "icon": "shield-check",
-                "pages": [
-                  "it/mdm/endpoint-protection/sentinelone",
-                  "it/mdm/endpoint-protection/crowdstrike-falcon",
-                  "it/mdm/endpoint-protection/threatdown"
-                ]
-              },
-              {
-                "group": "Identità e gestione SaaS",
-                "icon": "key",
-                "pages": [
-                  "it/saas/introduction",
-                  "it/saas/connect-apps",
-                  "it/saas/connected-saas-properties",
-                  "it/saas/enable-saas-mapping",
-                  "it/saas/manage-tracked-apps",
-                  "it/saas/ai-based-connector",
-                  "it/saas/configure-sso",
-                  "it/saas/licence-provisioning"
-                ]
-              },
-              {
-                "group": "Acquisti globali e inventario",
-                "icon": "globe",
-                "pages": [
-                  "it/get-started/import-your-equipment",
-                  {
-                    "group": "Acquisti globali",
-                    "pages": [
-                      "it/procurement/why-buy-with-primo",
-                      "it/procurement/shipping-countries",
-                      "it/get-started/billing/paying-with-sepa",
-                      "it/mdm/zero-touch/device-orders-zero-touch",
-                      "it/procurement/returns-warranties",
-                      "it/procurement/applecare-enterprise",
-                      "it/procurement/add-products-catalog"
-                    ]
-                  },
-                  {
-                    "group": "Spedizioni",
-                    "pages": [
-                      "it/procurement/manage-shipments"
-                    ]
-                  },
-                  {
-                    "group": "Partner",
-                    "pages": [
-                      "it/procurement/local-partners-repair",
-                      "it/procurement/local-partners-resell"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Guide e risorse",
-                "icon": "briefcase",
-                "pages": [
-                  "it/mdm/rollout/mdm-rollout-resources",
-                  "it/mdm/rollout/employee-mdm-installation",
-                  "it/mdm/rollout/faq",
-                  "it/mdm/zero-touch/understand-zero-touch",
-                  "it/mdm/scripts/useful-scripts",
-                  "it/mdm/guides/os-updates-employee-experience",
-                  "it/mdm/guides/remove-mdm-manually",
-                  "it/mdm/guides/upgrade-windows-11",
-                  "it/mdm/policies/manage-windows-home",
-                  "it/mdm/guides/activation-lock-bypass",
-                  "it/mdm/scripts/custom-windows-policies",
-                  "it/mdm/scripts/cis-benchmarks"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "Registro delle modifiche",
-            "icon": "megaphone",
-            "pages": [
-              "it/changelog/index"
-            ]
-          },
-          {
-            "tab": "Sviluppatori",
-            "icon": "code",
-            "groups": [
-              {
-                "group": "Per iniziare",
-                "icon": "compass",
-                "pages": [
-                  "it/api/create-primo-api-key",
-                  "it/api/create-fleet-api-key",
-                  "it/get-started/primo-mcp-server"
-                ]
-              },
-              {
-                "group": "Riferimento API",
-                "icon": "code-simple",
-                "openapi": "https://api.getprimo.com/openapi.json"
-              }
-            ]
-          }
-        ],
-        "navbar": {
-          "links": [
-            {
-              "label": "Contatta il team commerciale",
-              "href": "https://www.getprimo.com/request-a-demo"
-            }
-          ],
-          "primary": {
-            "type": "button",
-            "label": "Dashboard",
-            "href": "https://app.getprimo.com"
-          }
-        },
-        "footer": {
-          "socials": {
-            "x": "https://x.com/getprimo",
-            "linkedin": "https://linkedin.com/company/getprimo"
-          }
-        },
-        "banner": {
-          "content": "Prova il nostro nuovo MCP. Vai alla documentazione per sviluppatori.",
-          "dismissible": true
-        }
+        ]
       }
     ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Talk to Sales",
+        "href": "https://www.getprimo.com/request-a-demo"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://app.getprimo.com"
+    }
   },
   "contextual": {
     "options": [
@@ -1047,11 +209,21 @@
       "claude"
     ]
   },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/getprimo",
+      "linkedin": "https://linkedin.com/company/getprimo"
+    }
+  },
   "api": {
     "playground": {
       "proxy": false,
       "display": "interactive"
     }
+  },
+  "banner": {
+    "content": "🤖 Try out our new MCP! Head to our Developer documentation.",
+    "dismissible": true
   },
   "fonts": {
     "family": "Oracle",
