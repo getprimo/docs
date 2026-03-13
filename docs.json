@@ -227,7 +227,7 @@
   },
   "fonts": {
     "family": "Oracle",
-    "weight": 300,
+    "weight": 400,
     "source": "https://cdn.prod.website-files.com/6410a18d09fd5347adff42aa/6410c8db766e96df6861fa52_ABCOracleVariable.woff",
     "format": "woff",
     "heading": {
@@ -236,7 +236,7 @@
     },
     "body": {
       "family": "Oracle",
-      "weight": 300
+      "weight": 400
     }
   },
   "background": {
