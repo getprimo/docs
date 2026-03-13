@@ -15,7 +15,7 @@ Cet article couvre la configuration complète : de l'enregistrement du domaine 
 
 La licence minimale couvrant les deux fonctionnalités est **Enterprise Mobility + Security E3** ([comparer les forfaits](https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing)).
 
-![Capture d'écran : Quels sont les prérequis ?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-024__block-0011__1b243d9f.png)
+![Capture d'écran : Quels sont les prérequis ?](/images/notion-import/zero-touch-enrollment-for-windows__img-024__block-0011__1b243d9f.png)
 
 
 ## Expérience employé lors du premier démarrage
@@ -24,13 +24,13 @@ La licence minimale couvrant les deux fonctionnalités est **Enterprise Mobility
 2. Sélectionnez le pays et la langue, configurez la disposition du clavier
 3. Connectez-vous à Internet
 4. Acceptez les termes et conditions de FleetDM
-    ![Capture d'écran : Que se passe-t-il lorsqu'un employé arrive avec un poste de travail configuré avec Autopilot ?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-025__block-0018__1b243d9f.png)
+    ![Capture d'écran : Que se passe-t-il lorsqu'un employé arrive avec un poste de travail configuré avec Autopilot ?](/images/notion-import/zero-touch-enrollment-for-windows__img-025__block-0018__1b243d9f.png)
 
 5. Connectez-vous avec les informations d'identification Microsoft (+ 2FA si activé)
-    ![Capture d'écran : Que se passe-t-il lorsqu'un employé arrive avec un poste de travail configuré avec Autopilot ?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-026__block-0020__1b243d9f.png)
+    ![Capture d'écran : Que se passe-t-il lorsqu'un employé arrive avec un poste de travail configuré avec Autopilot ?](/images/notion-import/zero-touch-enrollment-for-windows__img-026__block-0020__1b243d9f.png)
 
 6. Configurer un code PIN et une empreinte digitale (si pris en charge)
-    ![Capture d'écran : Que se passe-t-il lorsqu'un employé arrive avec un poste de travail configuré avec Autopilot ?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-027__block-0022__1b243d9f.png)
+    ![Capture d'écran : Que se passe-t-il lorsqu'un employé arrive avec un poste de travail configuré avec Autopilot ?](/images/notion-import/zero-touch-enrollment-for-windows__img-027__block-0022__1b243d9f.png)
 
 7. Le poste de travail est prêt : les applications et les politiques définies dans le cockpit Primo sont appliquées automatiquement
 
@@ -81,14 +81,14 @@ Vous effectuerez trois opérations dans la console Microsoft Azure avec les droi
 - Cliquez sur l'application **Fleet** puis sur **Paramètres personnalisés de l'application MDM**
 - Cliquez sur le lien ci-dessous **Application ID URI** puis cliquez sur **Modifier**
 - Enter your **Fleet** instance address (`https://{company}.mdm.getprimo.com`) and click **Save**
-    ![Capture d'écran : 2. Création de l'application FleetDM](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-028__block-0065__27743d9f.png)
+    ![Capture d'écran : 2. Création de l'application FleetDM](/images/notion-import/zero-touch-enrollment-for-windows__img-028__block-0065__27743d9f.png)
 
 - Choisissez **Autorisations API** puis **Ajouter une autorisation**
 - Cliquez sur **Microsoft Graph** puis sur **Autorisations déléguées**, puis sélectionnez :
   - **Groupe > Groupe.Read.All**
   - **Groupe > Groupe.ReadWrite.All**
   - et cliquez sur **Ajouter des autorisations**
-      ![Capture d'écran : 2. Création de l'application FleetDM](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-029__block-0079__27743d9f.png)
+      ![Capture d'écran : 2. Création de l'application FleetDM](/images/notion-import/zero-touch-enrollment-for-windows__img-029__block-0079__27743d9f.png)
 
 - Revenez ensuite aux **Autorisations API** et **Ajouter une autorisation**, puis choisissez à nouveau **Microsoft Graph**.
 - Cette fois, cliquez sur **Autorisations d'application** et ajoutez les autorisations suivantes :

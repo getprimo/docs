@@ -227,18 +227,18 @@ def protect_snippet(text: str, locale: str, glossary: Dict[str, Dict[str, str]])
         return token
 
     safe = text
+    safe = re.sub(r"`[^`]+`", lambda match: stash(match.group(0)), safe)
+    safe = re.sub(r"https?://[^\s)>\"]+", lambda match: stash(match.group(0)), safe)
+    safe = re.sub(r"mailto:[^\s)>\"]+", lambda match: stash(match.group(0)), safe)
+    safe = re.sub(r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b", lambda match: stash(match.group(0)), safe)
+    safe = re.sub(r"(?<!\w)/(?:[A-Za-z0-9._~!$&'()*+,;=:@%/-]+)", lambda match: stash(match.group(0)), safe)
+    safe = re.sub(r"[A-Za-z]:\\[A-Za-z0-9._\\-]+(?:\\[A-Za-z0-9._\\-]+)+", lambda match: stash(match.group(0)), safe)
 
     for source, translated in sorted(glossary.get(locale, {}).items(), key=lambda pair: len(pair[0]), reverse=True):
         pattern = re.escape(source)
         if source.isalnum():
             pattern = rf"\b{pattern}\b"
         safe = re.sub(pattern, lambda _match, value=translated: stash(value), safe)
-
-    safe = re.sub(r"`[^`]+`", lambda match: stash(match.group(0)), safe)
-    safe = re.sub(r"https?://[^\s)>\"]+", lambda match: stash(match.group(0)), safe)
-    safe = re.sub(r"mailto:[^\s)>\"]+", lambda match: stash(match.group(0)), safe)
-    safe = re.sub(r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b", lambda match: stash(match.group(0)), safe)
-    safe = re.sub(r"(?<!\w)/(?:[A-Za-z0-9._~!$&'()*+,;=:@%/-]+)", lambda match: stash(match.group(0)), safe)
 
     return safe, restore
 

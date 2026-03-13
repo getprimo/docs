@@ -15,7 +15,7 @@ Questo articolo illustra la configurazione completa: dalla registrazione del dom
 
 La licenza minima che copre entrambe le funzionalità è **Enterprise Mobility + Security E3** ([confronta i piani](https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing)).
 
-![Screenshot: Quali sono i prerequisiti?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-024__block-0011__1b243d9f.png)
+![Screenshot: Quali sono i prerequisiti?](/images/notion-import/zero-touch-enrollment-for-windows__img-024__block-0011__1b243d9f.png)
 
 
 ## Esperienza dei dipendenti al primo avvio
@@ -24,13 +24,13 @@ La licenza minima che copre entrambe le funzionalità è **Enterprise Mobility +
 2. Seleziona paese e lingua, configura il layout della tastiera
 3. Connettersi a Internet
 4. Accetta i termini e le condizioni di FleetDM
-    ![Screenshot: Cosa succede quando un dipendente arriva con una workstation configurata con Autopilot?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-025__block-0018__1b243d9f.png)
+    ![Screenshot: Cosa succede quando un dipendente arriva con una workstation configurata con Autopilot?](/images/notion-import/zero-touch-enrollment-for-windows__img-025__block-0018__1b243d9f.png)
 
 5. Accedi con credenziali Microsoft (+ 2FA se abilitato)
-    ![Screenshot: Cosa succede quando un dipendente arriva con una workstation configurata con Autopilot?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-026__block-0020__1b243d9f.png)
+    ![Screenshot: Cosa succede quando un dipendente arriva con una workstation configurata con Autopilot?](/images/notion-import/zero-touch-enrollment-for-windows__img-026__block-0020__1b243d9f.png)
 
 6. Configura un codice PIN e un'impronta digitale (se supportati)
-    ![Screenshot: Cosa succede quando un dipendente arriva con una workstation configurata con Autopilot?](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-027__block-0022__1b243d9f.png)
+    ![Screenshot: Cosa succede quando un dipendente arriva con una workstation configurata con Autopilot?](/images/notion-import/zero-touch-enrollment-for-windows__img-027__block-0022__1b243d9f.png)
 
 7. La workstation è pronta: le app e le policy definite nel Cockpit Primo vengono applicate automaticamente
 
@@ -81,14 +81,14 @@ Eseguirai tre operazioni nella console di Microsoft Azure con diritti di amminis
 - Fare clic sull'applicazione **Fleet** quindi su **Impostazioni personalizzate dell'applicazione MDM**
 - Fai clic sul collegamento sottostante **URI ID applicazione**, quindi fai clic su **Modifica**
 - Enter your **Fleet** instance address (`https://{company}.mdm.getprimo.com`) and click **Save**
-    ![Screenshot: 2. Creazione dell'applicazione FleetDM](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-028__block-0065__27743d9f.png)
+    ![Screenshot: 2. Creazione dell'applicazione FleetDM](/images/notion-import/zero-touch-enrollment-for-windows__img-028__block-0065__27743d9f.png)
 
 - Scegli **Autorizzazioni API** quindi **Aggiungi un'autorizzazione**
 - Fare clic su **Microsoft Graph** quindi su **Autorizzazioni delegate**, quindi selezionare:
   - **Gruppo > Raggruppa.Leggi.Tutto**
   - **Gruppo > Gruppo.ReadWrite.All**
   - e fai clic su **Aggiungi autorizzazioni**
-      ![Screenshot: 2. Creazione dell'applicazione FleetDM](/images/notion-import/ZXPROTECT0ZX-enrollment-for-windows__img-029__block-0079__27743d9f.png)
+      ![Screenshot: 2. Creazione dell'applicazione FleetDM](/images/notion-import/zero-touch-enrollment-for-windows__img-029__block-0079__27743d9f.png)
 
 - Quindi torna alle **Autorizzazioni API** e **Aggiungi un'autorizzazione**, quindi scegli nuovamente **Microsoft Graph**
 - Questa volta, fai clic su **Autorizzazioni applicazione** e aggiungi le seguenti autorizzazioni:

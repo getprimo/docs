@@ -12,7 +12,6 @@
     "languages": [
       {
         "language": "en",
-        "href": "/",
         "tabs": [
           {
             "tab": "Help Center",
@@ -219,7 +218,6 @@
       },
       {
         "language": "fr",
-        "href": "/fr",
         "tabs": [
           {
             "tab": "Centre d'aide",
@@ -424,7 +422,6 @@
       },
       {
         "language": "de",
-        "href": "/de",
         "tabs": [
           {
             "tab": "Hilfe-Center",
@@ -629,7 +626,6 @@
       },
       {
         "language": "es",
-        "href": "/es",
         "tabs": [
           {
             "tab": "Centro de ayuda",
@@ -834,7 +830,6 @@
       },
       {
         "language": "it",
-        "href": "/it",
         "tabs": [
           {
             "tab": "Centro assistenza",
