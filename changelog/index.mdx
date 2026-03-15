@@ -4,6 +4,74 @@ description: "The latest product updates from Primo"
 mode: "center"
 ---
 
+<Update label="March 15, 2026" tags={["API", "MDM", "SaaS", "Procurement"]}>
+  ## Public API, custom packages, and per-country procurement
+
+  A lot shipped over the past few weeks. Here is a summary of the most impactful changes.
+
+  ### Public API expansion
+
+  The Primo API now covers significantly more of the platform. You can programmatically manage [software](/api/create-primo-api-key), MDM Controls, Device Groups, tickets, and SaaS applications. If you build automations or integrations on top of Primo, these new endpoints let you do much more without touching the dashboard.
+
+  ### Custom software packages
+
+  You can now upload and deploy your own software packages directly in Primo. This is in addition to the existing Fleet Maintained Apps and App Store (VPP) support. Upload a package, configure targeting, and roll it out to your fleet — all from the [Software section](/mdm/policies/manage-apps-laptop).
+
+  ### Per-country catalog and procurement
+
+  Procurement in Primo is now organized by country. You can manage product catalogs, suppliers, and shipping settings per country, making it easier to handle international purchasing from a single place. Head to [Shipping countries](/procurement/shipping-countries) to learn more.
+
+  ### ThreatDown endpoint protection
+
+  Primo now supports [ThreatDown](/mdm/endpoint-protection/threatdown) as an endpoint protection option alongside SentinelOne and CrowdStrike. Deploy ThreatDown agents to your fleet automatically through MDM.
+
+  ### SentinelOne on Linux and ARM64
+
+  SentinelOne deployment now supports Linux devices and ARM64 Windows machines. If you manage a mixed fleet, you can deploy endpoint protection more broadly without manual installs.
+
+  ### Windows PIN policy
+
+  A new MDM Control lets you enforce PIN policies on Windows devices, giving you more granular control over authentication requirements across your fleet.
+
+  ### iPadOS as a distinct platform
+
+  iPadOS devices are now recognized and managed as a separate platform from iOS, allowing for more precise targeting when applying Controls or deploying software.
+
+  ### Asset ID field on devices
+
+  You can now assign and track an asset ID (asset tag) on each device. This helps teams that use internal asset numbering systems keep everything aligned in Primo.
+
+  ### Device code and password history
+
+  Admins can now view code history and password history for device users, making it easier to troubleshoot access issues or audit credential changes over time.
+
+  ### Contractor flag on employees
+
+  You can now mark employees as contractors, making it simpler to distinguish between employee types and apply different workflows or policies.
+
+  ### EDR visibility on devices
+
+  Device records now display endpoint protection (EDR) status directly. You can quickly see which devices have active protection and which need attention, with [EDR columns](/mdm/endpoint-protection/sentinelone) visible in device lists.
+
+  ### Financial tracking
+
+  The financial tracking section has been improved and moved out of beta, with a cleaner interface for monitoring device and SaaS costs across your organization.
+
+  ### Collapsible navigation
+
+  The main navigation panel in the dashboard is now collapsible, giving you more screen space when working in tables or detail views.
+
+  ### Bug fixes and improvements
+
+  - Fixed Chrome extension force-install behavior on Windows to prevent unintended removals
+  - Resolved iPadOS enrollment and platform validation issues
+  - Fixed OS update status detection on Windows devices
+  - Improved recovery key sync for MDM-managed devices
+  - Fixed SaaS task grouping for provisioning and deprovisioning workflows
+  - Resolved various onboarding automation date and scheduling issues
+  - Improved error handling for software deployment across platforms
+</Update>
+
 <Update label="February 18, 2026" tags={["Procurement"]}>
   ## Accessories improvements
 
