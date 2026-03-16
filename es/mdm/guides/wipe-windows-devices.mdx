@@ -1,9 +1,11 @@
 ---
 title: "Borrar dispositivos Windows"
-description: "Comprenda cómo funciona el borrado remoto en Windows, qué le sucede al dispositivo y cuándo utilizarlo."
+description: "Comprenda cómo funcionan el borrado estándar y el borrado completo en Windows, qué le sucede al dispositivo y cuándo utilizar cada opción."
 ---
 
 El borrado remoto le permite eliminar todos los datos de un dispositivo Windows gestionado a través de Primo. Esto es fundamental cuando un dispositivo se pierde, es robado o se reasigna a otro empleado.
+
+Primo ofrece dos modos de borrado para Windows: **Standard wipe** y **Hard wipe**. Cada uno corresponde a un comando MDM de Microsoft diferente y tiene un comportamiento distinto.
 
 ## Compatibilidad del sistema operativo
 
@@ -11,37 +13,47 @@ El borrado remoto le permite eliminar todos los datos de un dispositivo Windows 
 |-------|-------------|-------------|--------------|-------|--------------|---------|
 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
 
-## Cómo funciona el borrado en Windows
+## Standard wipe vs. hard wipe
 
-Primo utiliza las capacidades MDM de Fleet para enviar el comando [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) de Microsoft al dispositivo.
+|  | **Standard wipe** | **Hard wipe** |
+|--|-------------------|---------------|
+| **Comando Microsoft** | [`doWipe`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipe) | [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) |
+| **Qué hace** | Realiza un restablecimiento de fábrica equivalente a **Restablecer este PC** > **Quitar todo** | Limpia completamente el disco interno y sigue reintentando hasta completar el restablecimiento |
+| **Puede interrumpirse** | Sí — apagar y encender el dispositivo puede detener el proceso | No — el borrado se reanuda automáticamente después de cualquier interrupción |
+| **Si se interrumpe** | El dispositivo intenta volver a su estado anterior al restablecimiento. Si la reversión falla, el dispositivo puede quedar inutilizable | El borrado se reintenta en el siguiente arranque hasta completarse |
+| **Riesgo de dispositivo sin arranque** | Bajo — se intenta una reversión en caso de fallo | Mayor — [Microsoft indica](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) que este comando puede dejar el dispositivo sin capacidad de arranque en algunas configuraciones |
+| **Ideal para** | Reasignación de dispositivos, renovación rutinaria | Dispositivos perdidos o robados, incidentes de seguridad confirmados |
 
-A diferencia de un borrado estándar (`doWipe`), que puede interrumpirse simplemente apagando y encendiendo el dispositivo, `doWipeProtected` **sigue reintentando el restablecimiento hasta completarlo**. Esto lo convierte en la opción correcta para dispositivos perdidos o robados donde no se puede garantizar el acceso físico.
+### Standard wipe (`doWipe`)
 
-### Qué hace `doWipeProtected`
+El standard wipe envía el comando Microsoft `doWipe`. Es equivalente a ejecutar **Restablecer este PC** > **Quitar todo** desde la configuración de Windows. Todos los datos de usuario, aplicaciones y configuraciones locales se eliminan.
 
-1. **Limpia completamente el disco interno** — todos los datos de usuario, aplicaciones y configuraciones locales se eliminan permanentemente.
-2. **Persiste ante interrupciones** — si el borrado se interrumpe (corte de energía, apagado forzado), se reanuda automáticamente en el siguiente arranque.
-3. **No conserva datos de aprovisionamiento** — el dispositivo vuelve a un estado vacío. Será necesario reinstalar Windows.
+Si el borrado se interrumpe (corte de energía, apagado forzado), Windows intenta volver al estado anterior al restablecimiento. Si la reversión falla, el dispositivo puede quedar inutilizable y será necesario reinstalar Windows.
+
+### Hard wipe (`doWipeProtected`)
+
+El hard wipe envía el comando Microsoft `doWipeProtected`. A diferencia del standard wipe, **sigue reintentando el restablecimiento hasta completarlo** — no puede eludirse apagando y encendiendo el dispositivo.
 
 <Warning>
-  Según la [documentación de Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), en algunas configuraciones de dispositivos el comando `doWipeProtected` **puede dejar el dispositivo sin capacidad de arranque**. Esto significa que el dispositivo podría requerir una reinstalación manual del sistema operativo usando una unidad USB de recuperación.
+  Según la [documentación de Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), en algunas configuraciones de dispositivos el comando `doWipeProtected` **puede dejar el dispositivo sin capacidad de arranque**. El dispositivo podría requerir una reinstalación manual del sistema operativo usando una unidad USB de recuperación. Use el hard wipe solo cuando no pueda garantizar el acceso físico al dispositivo.
 </Warning>
 
-## Cuándo borrar un dispositivo Windows
+## Cuándo usar cada modo de borrado
 
-| Escenario | Acción recomendada |
-|-----------|--------------------|
-| Dispositivo perdido o robado | Borrar inmediatamente para proteger los datos de la empresa |
-| Offboarding con reasignación del dispositivo | Borrar antes de asignar al nuevo empleado |
-| Dispositivo comprometido por malware | Borrar y reinstalar un sistema operativo limpio |
-| Renovación rutinaria de dispositivos | El borrado es opcional — depende de su política de seguridad |
+| Escenario | Modo recomendado |
+|-----------|------------------|
+| Dispositivo perdido o robado | **Hard wipe** — asegura que los datos se borren incluso si alguien interrumpe el proceso |
+| Offboarding con reasignación del dispositivo | **Standard wipe** — suficiente cuando tiene acceso físico al dispositivo |
+| Dispositivo comprometido por malware | **Hard wipe** — garantiza una limpieza completa incluso si el malware interfiere |
+| Renovación rutinaria de dispositivos | **Standard wipe** — menor riesgo, recuperación más fácil si algo sale mal |
 
 ## Borrar un dispositivo Windows
 
 1. Vaya a **Dispositivos** y localice el dispositivo que desea borrar.
 2. Abra la página de detalles del dispositivo.
 3. Haga clic en **Acciones** > **Borrar**.
-4. Confirme la acción en el cuadro de diálogo de confirmación.
+4. Elija **Standard wipe** o **Hard wipe**.
+5. Confirme la acción en el cuadro de diálogo de confirmación.
 
 El dispositivo recibe el estado **Borrado pendiente**. Una vez que el dispositivo confirma el comando, el estado se actualiza a **Borrado**.
 
@@ -49,7 +61,7 @@ El dispositivo recibe el estado **Borrado pendiente**. Una vez que el dispositiv
 
 Una vez que un dispositivo ha sido borrado, siga estos pasos antes de volver a inscribirlo:
 
-1. **Reinstalar Windows** — dado que `doWipeProtected` limpia completamente el disco, es posible que necesite reinstalar el sistema operativo usando una unidad USB de recuperación o arranque por red (PXE).
+1. **Reinstalar Windows si es necesario** — un hard wipe limpia completamente el disco, por lo que probablemente necesitará reinstalar el sistema operativo usando una unidad USB de recuperación o arranque por red (PXE). Un standard wipe puede dejar Windows en un estado de restablecimiento utilizable.
 2. **Eliminar el host de Fleet** — antes de volver a inscribir el dispositivo, elimine su registro de Fleet. Esto garantiza que las claves de cifrado del disco se depositen correctamente en la nueva inscripción.
 3. **Volver a inscribir el dispositivo** — siga su proceso de inscripción estándar para volver a poner el dispositivo bajo gestión.
 
@@ -60,6 +72,7 @@ Una vez que un dispositivo ha sido borrado, siga estos pasos antes de volver a i
 ## Limitaciones
 
 - **Windows Home no es compatible** — el borrado remoto requiere Windows Pro, Enterprise o Education. Consulte [gestionar dispositivos Windows Home](/es/mdm/policies/manage-windows-home) para alternativas.
-- **El dispositivo puede no arrancar después del borrado** — en algunas configuraciones de hardware, `doWipeProtected` puede dejar el dispositivo sin capacidad de arranque. Tenga una unidad USB de recuperación preparada.
+- **El hard wipe puede dejar el dispositivo sin arranque** — en algunas configuraciones de hardware, `doWipeProtected` puede impedir que el dispositivo arranque. Tenga una unidad USB de recuperación preparada.
+- **El standard wipe puede fallar en la reversión** — si se interrumpe, el dispositivo puede quedar inutilizable requiriendo una reinstalación manual del sistema operativo.
 - **El borrado es irreversible** — una vez iniciado y confirmado por el dispositivo, el borrado no puede cancelarse. Todos los datos se eliminarán permanentemente.
 - **Clave de recuperación de BitLocker** — si BitLocker estaba activado, asegúrese de que la clave de recuperación esté respaldada antes del borrado. Después del borrado, la clave anterior ya no es válida.

@@ -1,9 +1,11 @@
 ---
 title: "Effacer les appareils Windows"
-description: "Comprendre le fonctionnement de l'effacement à distance sur Windows, ce qui arrive à l'appareil, et quand l'utiliser."
+description: "Comprendre le fonctionnement de l'effacement standard et de l'effacement complet sur Windows, ce qui arrive à l'appareil, et quand utiliser chaque option."
 ---
 
 L'effacement à distance vous permet de supprimer toutes les données d'un appareil Windows géré par Primo. C'est essentiel lorsqu'un appareil est perdu, volé ou réattribué à un autre employé.
+
+Primo propose deux modes d'effacement pour Windows : **Standard wipe** et **Hard wipe**. Chacun correspond à une commande MDM Microsoft différente et a un comportement distinct.
 
 ## Prise en charge du système d'exploitation
 
@@ -11,37 +13,47 @@ L'effacement à distance vous permet de supprimer toutes les données d'un appar
 |-------|-------------|-------------|--------------|-------|--------------|---------|
 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
 
-## Fonctionnement de l'effacement sur Windows
+## Standard wipe vs. hard wipe
 
-Primo utilise les capacités MDM de Fleet pour envoyer la commande Microsoft [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) à l'appareil.
+|  | **Standard wipe** | **Hard wipe** |
+|--|-------------------|---------------|
+| **Commande Microsoft** | [`doWipe`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipe) | [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) |
+| **Ce que ça fait** | Effectue une réinitialisation d'usine équivalente à **Réinitialiser ce PC** > **Tout supprimer** | Nettoie intégralement le disque interne et réessaie jusqu'à ce que la réinitialisation soit terminée |
+| **Peut être interrompu** | Oui — éteindre et rallumer l'appareil peut arrêter le processus | Non — l'effacement reprend automatiquement après toute interruption |
+| **Si interrompu** | L'appareil tente de revenir à son état d'avant la réinitialisation. Si le retour échoue, l'appareil peut être laissé dans un état inutilisable | L'effacement reprend au prochain démarrage jusqu'à achèvement |
+| **Risque d'appareil non démarrable** | Faible — un retour en arrière est tenté en cas d'échec | Plus élevé — [Microsoft indique](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) que cette commande peut rendre l'appareil incapable de démarrer dans certaines configurations |
+| **Idéal pour** | Réattribution d'appareil, renouvellement de routine | Appareils perdus ou volés, incidents de sécurité confirmés |
 
-Contrairement à un effacement standard (`doWipe`), qui peut être interrompu en éteignant et rallumant l'appareil, `doWipeProtected` **continue de tenter la réinitialisation jusqu'à son achèvement**. C'est le bon choix pour les appareils perdus ou volés où vous ne pouvez pas garantir un accès physique.
+### Standard wipe (`doWipe`)
 
-### Ce que fait `doWipeProtected`
+Le standard wipe envoie la commande Microsoft `doWipe`. C'est l'équivalent de **Réinitialiser ce PC** > **Tout supprimer** dans les Paramètres Windows. Toutes les données utilisateur, applications et paramètres locaux sont effacés.
 
-1. **Nettoie intégralement le disque interne** — toutes les données utilisateur, applications et paramètres locaux sont définitivement effacés.
-2. **Persiste malgré les interruptions** — si l'effacement est interrompu (coupure de courant, arrêt forcé), il reprend automatiquement au prochain démarrage.
-3. **Ne conserve pas les données de provisionnement** — l'appareil est remis à l'état vierge. Windows devra être réinstallé.
+Si l'effacement est interrompu (coupure de courant, arrêt forcé), Windows tente de revenir à l'état précédant la réinitialisation. Si le retour échoue, l'appareil peut se retrouver dans un état inutilisable et Windows devra être réinstallé.
+
+### Hard wipe (`doWipeProtected`)
+
+Le hard wipe envoie la commande Microsoft `doWipeProtected`. Contrairement au standard wipe, il **continue de tenter la réinitialisation jusqu'à son achèvement** — il ne peut pas être contourné en éteignant et rallumant l'appareil.
 
 <Warning>
-  Selon la [documentation de Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), dans certaines configurations matérielles, la commande `doWipeProtected` **peut rendre l'appareil incapable de démarrer**. L'appareil pourrait alors nécessiter une réinstallation manuelle du système d'exploitation via une clé USB de récupération.
+  Selon la [documentation de Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), dans certaines configurations matérielles, la commande `doWipeProtected` **peut rendre l'appareil incapable de démarrer**. L'appareil pourrait alors nécessiter une réinstallation manuelle du système d'exploitation via une clé USB de récupération. N'utilisez le hard wipe que lorsque vous ne pouvez pas garantir un accès physique à l'appareil.
 </Warning>
 
-## Quand effacer un appareil Windows
+## Quand utiliser chaque mode d'effacement
 
-| Scénario | Action recommandée |
-|----------|--------------------|
-| Appareil perdu ou volé | Effacer immédiatement pour protéger les données de l'entreprise |
-| Offboarding avec réattribution de l'appareil | Effacer avant d'attribuer au nouvel employé |
-| Appareil compromis par un malware | Effacer et réinstaller un système propre |
-| Renouvellement d'appareil | L'effacement est optionnel — dépend de votre politique de sécurité |
+| Scénario | Mode recommandé |
+|----------|-----------------|
+| Appareil perdu ou volé | **Hard wipe** — garantit l'effacement des données même si quelqu'un interrompt le processus |
+| Offboarding avec réattribution de l'appareil | **Standard wipe** — suffisant lorsque vous avez un accès physique à l'appareil |
+| Appareil compromis par un malware | **Hard wipe** — garantit un nettoyage complet même si le malware interfère |
+| Renouvellement d'appareil de routine | **Standard wipe** — risque moindre, récupération plus facile en cas de problème |
 
 ## Effacer un appareil Windows
 
 1. Allez dans **Appareils** et localisez l'appareil à effacer.
 2. Ouvrez la page de détails de l'appareil.
 3. Cliquez sur **Actions** > **Effacer**.
-4. Confirmez l'action dans la boîte de dialogue de confirmation.
+4. Choisissez **Standard wipe** ou **Hard wipe**.
+5. Confirmez l'action dans la boîte de dialogue de confirmation.
 
 L'appareil reçoit le statut **Effacement en attente**. Une fois que l'appareil confirme la commande, le statut passe à **Effacé**.
 
@@ -49,7 +61,7 @@ L'appareil reçoit le statut **Effacement en attente**. Une fois que l'appareil 
 
 Une fois l'appareil effacé, suivez ces étapes avant de le réinscrire :
 
-1. **Réinstaller Windows** — puisque `doWipeProtected` nettoie intégralement le disque, vous devrez peut-être réinstaller le système d'exploitation via une clé USB de récupération ou un démarrage réseau (PXE).
+1. **Réinstaller Windows si nécessaire** — un hard wipe nettoie intégralement le disque, vous devrez donc probablement réinstaller le système d'exploitation via une clé USB de récupération ou un démarrage réseau (PXE). Un standard wipe peut laisser Windows dans un état de réinitialisation utilisable.
 2. **Supprimer l'hôte de Fleet** — avant de réinscrire l'appareil, supprimez son enregistrement de Fleet. Cela garantit que les clés de chiffrement du disque sont correctement déposées lors de la nouvelle inscription.
 3. **Réinscrire l'appareil** — suivez votre processus d'inscription standard pour remettre l'appareil sous gestion.
 
@@ -60,6 +72,7 @@ Une fois l'appareil effacé, suivez ces étapes avant de le réinscrire :
 ## Limitations
 
 - **Windows Home n'est pas pris en charge** — l'effacement à distance nécessite Windows Pro, Enterprise ou Education. Consultez [gérer les appareils Windows Home](/fr/mdm/policies/manage-windows-home) pour les alternatives.
-- **L'appareil peut ne plus démarrer après l'effacement** — dans certaines configurations matérielles, `doWipeProtected` peut rendre l'appareil non démarrable. Gardez une clé USB de récupération à portée.
+- **Le hard wipe peut rendre l'appareil non démarrable** — dans certaines configurations matérielles, `doWipeProtected` peut empêcher l'appareil de démarrer. Gardez une clé USB de récupération à portée.
+- **Le standard wipe peut échouer à revenir en arrière** — si interrompu, l'appareil peut se retrouver dans un état inutilisable nécessitant une réinstallation manuelle du système d'exploitation.
 - **L'effacement est irréversible** — une fois initié et confirmé par l'appareil, l'effacement ne peut pas être annulé. Toutes les données seront définitivement supprimées.
 - **Clé de récupération BitLocker** — si BitLocker était activé, assurez-vous que la clé de récupération est sauvegardée avant l'effacement. Après l'effacement, la clé précédente n'est plus valide.

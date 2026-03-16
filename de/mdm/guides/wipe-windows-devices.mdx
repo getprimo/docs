@@ -1,9 +1,11 @@
 ---
 title: "Windows-Geräte löschen"
-description: "Erfahren Sie, wie die Fernlöschung unter Windows funktioniert, was mit dem Gerät passiert und wann sie eingesetzt werden sollte."
+description: "Erfahren Sie, wie Standard-Löschung und vollständige Löschung unter Windows funktionieren, was mit dem Gerät passiert und wann welche Option eingesetzt werden sollte."
 ---
 
 Mit der Fernlöschung können Sie alle Daten von einem über Primo verwalteten Windows-Gerät entfernen. Dies ist entscheidend, wenn ein Gerät verloren geht, gestohlen wird oder einem anderen Mitarbeiter zugewiesen werden soll.
+
+Primo bietet zwei Löschmodi für Windows: **Standard wipe** und **Hard wipe**. Jeder Modus entspricht einem anderen Microsoft-MDM-Befehl und hat unterschiedliches Verhalten.
 
 ## Betriebssystem-Unterstützung
 
@@ -11,37 +13,47 @@ Mit der Fernlöschung können Sie alle Daten von einem über Primo verwalteten W
 |-------|-------------|-------------|--------------|-------|--------------|---------|
 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
 
-## So funktioniert die Löschung unter Windows
+## Standard wipe vs. hard wipe
 
-Primo nutzt die MDM-Funktionen von Fleet, um den Microsoft-Befehl [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) an das Gerät zu senden.
+|  | **Standard wipe** | **Hard wipe** |
+|--|-------------------|---------------|
+| **Microsoft-Befehl** | [`doWipe`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipe) | [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) |
+| **Was es bewirkt** | Führt einen Werksreset durch, gleichwertig mit **Diesen PC zurücksetzen** > **Alles entfernen** | Bereinigt die interne Festplatte vollständig und versucht es erneut, bis die Zurücksetzung abgeschlossen ist |
+| **Kann unterbrochen werden** | Ja — Aus- und Einschalten des Geräts kann den Vorgang stoppen | Nein — die Löschung wird nach jeder Unterbrechung automatisch fortgesetzt |
+| **Bei Unterbrechung** | Das Gerät versucht, zum Zustand vor der Zurücksetzung zurückzukehren. Wenn der Rollback fehlschlägt, kann das Gerät in einem unbrauchbaren Zustand verbleiben | Die Löschung wird beim nächsten Start bis zum Abschluss erneut versucht |
+| **Risiko eines nicht startfähigen Geräts** | Gering — bei Fehler wird ein Rollback versucht | Höher — [Microsoft gibt an](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), dass dieser Befehl in einigen Konfigurationen dazu führen kann, dass das Gerät nicht mehr startet |
+| **Am besten geeignet für** | Geräte-Neuzuweisung, routinemäßige Aktualisierung | Verlorene oder gestohlene Geräte, bestätigte Sicherheitsvorfälle |
 
-Im Gegensatz zu einer Standard-Löschung (`doWipe`), die durch einfaches Aus- und Einschalten des Geräts umgangen werden kann, **versucht `doWipeProtected` die Zurücksetzung so lange, bis sie abgeschlossen ist**. Dies macht es zur richtigen Wahl bei verlorenen oder gestohlenen Geräten, bei denen kein physischer Zugriff garantiert werden kann.
+### Standard wipe (`doWipe`)
 
-### Was `doWipeProtected` bewirkt
+Der Standard wipe sendet den Microsoft-Befehl `doWipe`. Dies entspricht dem Ausführen von **Diesen PC zurücksetzen** > **Alles entfernen** in den Windows-Einstellungen. Alle Benutzerdaten, Anwendungen und lokalen Einstellungen werden gelöscht.
 
-1. **Bereinigt die interne Festplatte vollständig** — alle Benutzerdaten, Anwendungen und lokalen Einstellungen werden dauerhaft gelöscht.
-2. **Übersteht Unterbrechungen** — wird die Löschung unterbrochen (Stromausfall, erzwungenes Herunterfahren), wird sie beim nächsten Start automatisch fortgesetzt.
-3. **Bewahrt keine Bereitstellungsdaten** — das Gerät wird in einen leeren Zustand versetzt. Windows muss neu installiert werden.
+Wird die Löschung unterbrochen (Stromausfall, erzwungenes Herunterfahren), versucht Windows, zum Zustand vor der Zurücksetzung zurückzukehren. Wenn der Rollback fehlschlägt, kann das Gerät in einem unbrauchbaren Zustand verbleiben und Windows muss neu installiert werden.
+
+### Hard wipe (`doWipeProtected`)
+
+Der Hard wipe sendet den Microsoft-Befehl `doWipeProtected`. Im Gegensatz zum Standard wipe **versucht er die Zurücksetzung so lange, bis sie abgeschlossen ist** — er kann nicht durch Aus- und Einschalten des Geräts umgangen werden.
 
 <Warning>
-  Laut [Microsofts Dokumentation](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) kann der Befehl `doWipeProtected` in einigen Gerätekonfigurationen **dazu führen, dass das Gerät nicht mehr starten kann**. Das Gerät könnte dann eine manuelle Neuinstallation des Betriebssystems über einen USB-Wiederherstellungsdatenträger erfordern.
+  Laut [Microsofts Dokumentation](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) kann der Befehl `doWipeProtected` in einigen Gerätekonfigurationen **dazu führen, dass das Gerät nicht mehr starten kann**. Das Gerät könnte dann eine manuelle Neuinstallation des Betriebssystems über einen USB-Wiederherstellungsdatenträger erfordern. Verwenden Sie den Hard wipe nur, wenn Sie keinen physischen Zugriff auf das Gerät garantieren können.
 </Warning>
 
-## Wann ein Windows-Gerät gelöscht werden sollte
+## Wann welchen Löschmodus verwenden
 
-| Szenario | Empfohlene Maßnahme |
-|----------|---------------------|
-| Gerät verloren oder gestohlen | Sofort löschen, um Unternehmensdaten zu schützen |
-| Offboarding mit Geräte-Neuzuweisung | Vor der Zuweisung an den neuen Mitarbeiter löschen |
-| Gerät durch Malware kompromittiert | Löschen und sauberes Betriebssystem neu installieren |
-| Routinemäßige Geräteaktualisierung | Löschung optional — abhängig von Ihrer Sicherheitsrichtlinie |
+| Szenario | Empfohlener Modus |
+|----------|-------------------|
+| Gerät verloren oder gestohlen | **Hard wipe** — stellt sicher, dass Daten gelöscht werden, selbst wenn jemand den Vorgang unterbricht |
+| Offboarding mit Geräte-Neuzuweisung | **Standard wipe** — ausreichend, wenn Sie physischen Zugriff auf das Gerät haben |
+| Gerät durch Malware kompromittiert | **Hard wipe** — garantiert eine vollständige Bereinigung, selbst wenn Malware interferiert |
+| Routinemäßige Geräteaktualisierung | **Standard wipe** — geringeres Risiko, einfachere Wiederherstellung bei Problemen |
 
 ## Ein Windows-Gerät löschen
 
 1. Gehen Sie zu **Geräte** und suchen Sie das zu löschende Gerät.
 2. Öffnen Sie die Geräte-Detailseite.
 3. Klicken Sie auf **Aktionen** > **Löschen**.
-4. Bestätigen Sie die Aktion im Bestätigungsdialog.
+4. Wählen Sie **Standard wipe** oder **Hard wipe**.
+5. Bestätigen Sie die Aktion im Bestätigungsdialog.
 
 Das Gerät erhält den Status **Löschung ausstehend**. Sobald das Gerät den Befehl bestätigt, wird der Status auf **Gelöscht** aktualisiert.
 
@@ -49,7 +61,7 @@ Das Gerät erhält den Status **Löschung ausstehend**. Sobald das Gerät den Be
 
 Sobald ein Gerät gelöscht wurde, führen Sie folgende Schritte durch, bevor Sie es erneut registrieren:
 
-1. **Windows neu installieren** — da `doWipeProtected` die Festplatte vollständig bereinigt, müssen Sie möglicherweise das Betriebssystem über einen USB-Wiederherstellungsdatenträger oder Netzwerkstart (PXE) neu installieren.
+1. **Windows bei Bedarf neu installieren** — ein Hard wipe bereinigt die Festplatte vollständig, sodass Sie wahrscheinlich das Betriebssystem über einen USB-Wiederherstellungsdatenträger oder Netzwerkstart (PXE) neu installieren müssen. Ein Standard wipe kann Windows in einem nutzbaren Zurücksetzungszustand belassen.
 2. **Den Host aus Fleet löschen** — löschen Sie vor der erneuten Registrierung den Gerätedatensatz aus Fleet. Dies stellt sicher, dass die Festplattenverschlüsselungsschlüssel bei der neuen Registrierung korrekt hinterlegt werden.
 3. **Das Gerät erneut registrieren** — folgen Sie Ihrem Standard-Registrierungsprozess, um das Gerät wieder unter Verwaltung zu bringen.
 
@@ -60,6 +72,7 @@ Sobald ein Gerät gelöscht wurde, führen Sie folgende Schritte durch, bevor Si
 ## Einschränkungen
 
 - **Windows Home wird nicht unterstützt** — die Fernlöschung erfordert Windows Pro, Enterprise oder Education. Siehe [Windows Home-Geräte verwalten](/de/mdm/policies/manage-windows-home) für Alternativen.
-- **Das Gerät startet möglicherweise nicht mehr nach der Löschung** — in einigen Hardwarekonfigurationen kann `doWipeProtected` dazu führen, dass das Gerät nicht mehr bootbar ist. Halten Sie einen USB-Wiederherstellungsdatenträger bereit.
+- **Hard wipe kann das Gerät nicht startfähig machen** — in einigen Hardwarekonfigurationen kann `doWipeProtected` das Starten des Geräts verhindern. Halten Sie einen USB-Wiederherstellungsdatenträger bereit.
+- **Standard wipe kann beim Rollback fehlschlagen** — bei Unterbrechung kann das Gerät in einem unbrauchbaren Zustand verbleiben, der eine manuelle Neuinstallation des Betriebssystems erfordert.
 - **Die Löschung ist unwiderruflich** — sobald sie initiiert und vom Gerät bestätigt wurde, kann die Löschung nicht abgebrochen werden. Alle Daten werden dauerhaft gelöscht.
 - **BitLocker-Wiederherstellungsschlüssel** — wenn BitLocker aktiviert war, stellen Sie sicher, dass der Wiederherstellungsschlüssel vor der Löschung gesichert ist. Nach der Löschung ist der vorherige Schlüssel nicht mehr gültig.
