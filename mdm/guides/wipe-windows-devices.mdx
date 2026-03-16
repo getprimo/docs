@@ -1,0 +1,65 @@
+---
+title: "Wipe Windows devices"
+description: "Understand how remote wipe works on Windows, what happens to the device, and when to use it."
+---
+
+Remote wipe lets you erase all data from a Windows device managed through Primo. This is critical when a device is lost, stolen, or being reassigned to another employee.
+
+## OS support
+
+| macOS | Windows Pro | Windows ARM | Windows Home | Linux | iOS / iPadOS | Android |
+|-------|-------------|-------------|--------------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+
+## How wipe works on Windows
+
+Primo uses Fleet's MDM capabilities to send the Microsoft [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) command to the device.
+
+Unlike a standard wipe (`doWipe`), which can be interrupted by simply power-cycling the device, `doWipeProtected` **keeps retrying the reset until it completes**. This makes it the right choice for lost or stolen devices where you cannot guarantee physical access.
+
+### What `doWipeProtected` does
+
+1. **Fully cleans the internal drive** — all user data, applications, and local settings are permanently erased.
+2. **Persists through interruptions** — if the wipe is interrupted (power loss, forced shutdown), it resumes automatically on the next boot.
+3. **Does not preserve provisioning data** — the device is returned to a blank state. Windows will need to be reinstalled.
+
+<Warning>
+  According to [Microsoft's documentation](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), in some device configurations the `doWipeProtected` command **may leave the device unable to boot**. This means the device could require a manual OS reinstallation using a USB recovery drive.
+</Warning>
+
+## When to wipe a Windows device
+
+| Scenario | Recommended action |
+|----------|--------------------|
+| Device lost or stolen | Wipe immediately to protect company data |
+| Employee offboarding with device reassignment | Wipe before assigning to the new employee |
+| Device compromised by malware | Wipe and reinstall a clean OS |
+| Routine device refresh | Wipe is optional — depends on your security policy |
+
+## Wipe a Windows device
+
+1. Go to **Devices** and locate the device you want to wipe.
+2. Open the device details page.
+3. Click **Actions** > **Wipe**.
+4. Confirm the action in the confirmation dialog.
+
+The device receives a **Wipe pending** status. Once the device acknowledges the command, the status updates to **Wiped**.
+
+## After the wipe
+
+Once a device has been wiped, follow these steps before re-enrolling it:
+
+1. **Reinstall Windows** — since `doWipeProtected` fully cleans the drive, you may need to reinstall the OS using a USB recovery drive or network boot (PXE).
+2. **Delete the host from Fleet** — before re-enrolling the device, delete its record from Fleet. This ensures disk encryption keys are properly escrowed on the new enrollment.
+3. **Re-enroll the device** — follow your standard enrollment process to bring the device back under management.
+
+<Note>
+  If the device was enrolled via Windows Autopilot and is still registered in your Azure/Entra tenant, it will automatically re-enter the Autopilot flow on the next setup. See [zero-touch Windows enrollment](/mdm/zero-touch/zero-touch-windows) for details.
+</Note>
+
+## Limitations
+
+- **Windows Home is not supported** — remote wipe requires Windows Pro, Enterprise, or Education. See [manage Windows Home devices](/mdm/policies/manage-windows-home) for alternatives.
+- **Device may not boot after wipe** — in some hardware configurations, `doWipeProtected` can leave the device unbootable. Keep a USB recovery drive ready.
+- **Wipe is irreversible** — once initiated and acknowledged by the device, the wipe cannot be cancelled. All data will be permanently erased.
+- **BitLocker recovery key** — if BitLocker was enabled, ensure the recovery key is backed up before wiping. After the wipe, the previous key is no longer valid.

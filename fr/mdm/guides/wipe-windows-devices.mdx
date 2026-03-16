@@ -1,0 +1,65 @@
+---
+title: "Effacer les appareils Windows"
+description: "Comprendre le fonctionnement de l'effacement à distance sur Windows, ce qui arrive à l'appareil, et quand l'utiliser."
+---
+
+L'effacement à distance vous permet de supprimer toutes les données d'un appareil Windows géré par Primo. C'est essentiel lorsqu'un appareil est perdu, volé ou réattribué à un autre employé.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows Pro | Windows ARM | Windows Home | Linux | iOS / iPadOS | Android |
+|-------|-------------|-------------|--------------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+
+## Fonctionnement de l'effacement sur Windows
+
+Primo utilise les capacités MDM de Fleet pour envoyer la commande Microsoft [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) à l'appareil.
+
+Contrairement à un effacement standard (`doWipe`), qui peut être interrompu en éteignant et rallumant l'appareil, `doWipeProtected` **continue de tenter la réinitialisation jusqu'à son achèvement**. C'est le bon choix pour les appareils perdus ou volés où vous ne pouvez pas garantir un accès physique.
+
+### Ce que fait `doWipeProtected`
+
+1. **Nettoie intégralement le disque interne** — toutes les données utilisateur, applications et paramètres locaux sont définitivement effacés.
+2. **Persiste malgré les interruptions** — si l'effacement est interrompu (coupure de courant, arrêt forcé), il reprend automatiquement au prochain démarrage.
+3. **Ne conserve pas les données de provisionnement** — l'appareil est remis à l'état vierge. Windows devra être réinstallé.
+
+<Warning>
+  Selon la [documentation de Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), dans certaines configurations matérielles, la commande `doWipeProtected` **peut rendre l'appareil incapable de démarrer**. L'appareil pourrait alors nécessiter une réinstallation manuelle du système d'exploitation via une clé USB de récupération.
+</Warning>
+
+## Quand effacer un appareil Windows
+
+| Scénario | Action recommandée |
+|----------|--------------------|
+| Appareil perdu ou volé | Effacer immédiatement pour protéger les données de l'entreprise |
+| Offboarding avec réattribution de l'appareil | Effacer avant d'attribuer au nouvel employé |
+| Appareil compromis par un malware | Effacer et réinstaller un système propre |
+| Renouvellement d'appareil | L'effacement est optionnel — dépend de votre politique de sécurité |
+
+## Effacer un appareil Windows
+
+1. Allez dans **Appareils** et localisez l'appareil à effacer.
+2. Ouvrez la page de détails de l'appareil.
+3. Cliquez sur **Actions** > **Effacer**.
+4. Confirmez l'action dans la boîte de dialogue de confirmation.
+
+L'appareil reçoit le statut **Effacement en attente**. Une fois que l'appareil confirme la commande, le statut passe à **Effacé**.
+
+## Après l'effacement
+
+Une fois l'appareil effacé, suivez ces étapes avant de le réinscrire :
+
+1. **Réinstaller Windows** — puisque `doWipeProtected` nettoie intégralement le disque, vous devrez peut-être réinstaller le système d'exploitation via une clé USB de récupération ou un démarrage réseau (PXE).
+2. **Supprimer l'hôte de Fleet** — avant de réinscrire l'appareil, supprimez son enregistrement de Fleet. Cela garantit que les clés de chiffrement du disque sont correctement déposées lors de la nouvelle inscription.
+3. **Réinscrire l'appareil** — suivez votre processus d'inscription standard pour remettre l'appareil sous gestion.
+
+<Note>
+  Si l'appareil était inscrit via Windows Autopilot et est toujours enregistré dans votre tenant Azure/Entra, il entrera automatiquement dans le flux Autopilot lors de la prochaine configuration. Consultez [zero-touch Windows](/fr/mdm/zero-touch/zero-touch-windows) pour plus de détails.
+</Note>
+
+## Limitations
+
+- **Windows Home n'est pas pris en charge** — l'effacement à distance nécessite Windows Pro, Enterprise ou Education. Consultez [gérer les appareils Windows Home](/fr/mdm/policies/manage-windows-home) pour les alternatives.
+- **L'appareil peut ne plus démarrer après l'effacement** — dans certaines configurations matérielles, `doWipeProtected` peut rendre l'appareil non démarrable. Gardez une clé USB de récupération à portée.
+- **L'effacement est irréversible** — une fois initié et confirmé par l'appareil, l'effacement ne peut pas être annulé. Toutes les données seront définitivement supprimées.
+- **Clé de récupération BitLocker** — si BitLocker était activé, assurez-vous que la clé de récupération est sauvegardée avant l'effacement. Après l'effacement, la clé précédente n'est plus valide.

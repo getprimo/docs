@@ -156,6 +156,7 @@
                   "mdm/guides/upgrade-windows-11",
                   "mdm/policies/manage-windows-home",
                   "mdm/guides/activation-lock-bypass",
+                  "mdm/guides/wipe-windows-devices",
                   "mdm/scripts/custom-windows-policies",
                   "mdm/scripts/cis-benchmarks"
                 ]
@@ -362,6 +363,7 @@
                   "fr/mdm/guides/upgrade-windows-11",
                   "fr/mdm/policies/manage-windows-home",
                   "fr/mdm/guides/activation-lock-bypass",
+                  "fr/mdm/guides/wipe-windows-devices",
                   "fr/mdm/scripts/custom-windows-policies",
                   "fr/mdm/scripts/cis-benchmarks"
                 ]
@@ -566,6 +568,7 @@
                   "de/mdm/guides/upgrade-windows-11",
                   "de/mdm/policies/manage-windows-home",
                   "de/mdm/guides/activation-lock-bypass",
+                  "de/mdm/guides/wipe-windows-devices",
                   "de/mdm/scripts/custom-windows-policies",
                   "de/mdm/scripts/cis-benchmarks"
                 ]
@@ -770,6 +773,7 @@
                   "es/mdm/guides/upgrade-windows-11",
                   "es/mdm/policies/manage-windows-home",
                   "es/mdm/guides/activation-lock-bypass",
+                  "es/mdm/guides/wipe-windows-devices",
                   "es/mdm/scripts/custom-windows-policies",
                   "es/mdm/scripts/cis-benchmarks"
                 ]
@@ -974,6 +978,7 @@
                   "it/mdm/guides/upgrade-windows-11",
                   "it/mdm/policies/manage-windows-home",
                   "it/mdm/guides/activation-lock-bypass",
+                  "it/mdm/guides/wipe-windows-devices",
                   "it/mdm/scripts/custom-windows-policies",
                   "it/mdm/scripts/cis-benchmarks"
                 ]

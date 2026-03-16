@@ -1,0 +1,65 @@
+---
+title: "Windows-Geräte löschen"
+description: "Erfahren Sie, wie die Fernlöschung unter Windows funktioniert, was mit dem Gerät passiert und wann sie eingesetzt werden sollte."
+---
+
+Mit der Fernlöschung können Sie alle Daten von einem über Primo verwalteten Windows-Gerät entfernen. Dies ist entscheidend, wenn ein Gerät verloren geht, gestohlen wird oder einem anderen Mitarbeiter zugewiesen werden soll.
+
+## Betriebssystem-Unterstützung
+
+| macOS | Windows Pro | Windows ARM | Windows Home | Linux | iOS / iPadOS | Android |
+|-------|-------------|-------------|--------------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+
+## So funktioniert die Löschung unter Windows
+
+Primo nutzt die MDM-Funktionen von Fleet, um den Microsoft-Befehl [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) an das Gerät zu senden.
+
+Im Gegensatz zu einer Standard-Löschung (`doWipe`), die durch einfaches Aus- und Einschalten des Geräts umgangen werden kann, **versucht `doWipeProtected` die Zurücksetzung so lange, bis sie abgeschlossen ist**. Dies macht es zur richtigen Wahl bei verlorenen oder gestohlenen Geräten, bei denen kein physischer Zugriff garantiert werden kann.
+
+### Was `doWipeProtected` bewirkt
+
+1. **Bereinigt die interne Festplatte vollständig** — alle Benutzerdaten, Anwendungen und lokalen Einstellungen werden dauerhaft gelöscht.
+2. **Übersteht Unterbrechungen** — wird die Löschung unterbrochen (Stromausfall, erzwungenes Herunterfahren), wird sie beim nächsten Start automatisch fortgesetzt.
+3. **Bewahrt keine Bereitstellungsdaten** — das Gerät wird in einen leeren Zustand versetzt. Windows muss neu installiert werden.
+
+<Warning>
+  Laut [Microsofts Dokumentation](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) kann der Befehl `doWipeProtected` in einigen Gerätekonfigurationen **dazu führen, dass das Gerät nicht mehr starten kann**. Das Gerät könnte dann eine manuelle Neuinstallation des Betriebssystems über einen USB-Wiederherstellungsdatenträger erfordern.
+</Warning>
+
+## Wann ein Windows-Gerät gelöscht werden sollte
+
+| Szenario | Empfohlene Maßnahme |
+|----------|---------------------|
+| Gerät verloren oder gestohlen | Sofort löschen, um Unternehmensdaten zu schützen |
+| Offboarding mit Geräte-Neuzuweisung | Vor der Zuweisung an den neuen Mitarbeiter löschen |
+| Gerät durch Malware kompromittiert | Löschen und sauberes Betriebssystem neu installieren |
+| Routinemäßige Geräteaktualisierung | Löschung optional — abhängig von Ihrer Sicherheitsrichtlinie |
+
+## Ein Windows-Gerät löschen
+
+1. Gehen Sie zu **Geräte** und suchen Sie das zu löschende Gerät.
+2. Öffnen Sie die Geräte-Detailseite.
+3. Klicken Sie auf **Aktionen** > **Löschen**.
+4. Bestätigen Sie die Aktion im Bestätigungsdialog.
+
+Das Gerät erhält den Status **Löschung ausstehend**. Sobald das Gerät den Befehl bestätigt, wird der Status auf **Gelöscht** aktualisiert.
+
+## Nach der Löschung
+
+Sobald ein Gerät gelöscht wurde, führen Sie folgende Schritte durch, bevor Sie es erneut registrieren:
+
+1. **Windows neu installieren** — da `doWipeProtected` die Festplatte vollständig bereinigt, müssen Sie möglicherweise das Betriebssystem über einen USB-Wiederherstellungsdatenträger oder Netzwerkstart (PXE) neu installieren.
+2. **Den Host aus Fleet löschen** — löschen Sie vor der erneuten Registrierung den Gerätedatensatz aus Fleet. Dies stellt sicher, dass die Festplattenverschlüsselungsschlüssel bei der neuen Registrierung korrekt hinterlegt werden.
+3. **Das Gerät erneut registrieren** — folgen Sie Ihrem Standard-Registrierungsprozess, um das Gerät wieder unter Verwaltung zu bringen.
+
+<Note>
+  Wenn das Gerät über Windows Autopilot registriert war und noch in Ihrem Azure/Entra-Tenant registriert ist, wird es bei der nächsten Einrichtung automatisch den Autopilot-Ablauf durchlaufen. Weitere Informationen finden Sie unter [zero-touch Windows-Registrierung](/de/mdm/zero-touch/zero-touch-windows).
+</Note>
+
+## Einschränkungen
+
+- **Windows Home wird nicht unterstützt** — die Fernlöschung erfordert Windows Pro, Enterprise oder Education. Siehe [Windows Home-Geräte verwalten](/de/mdm/policies/manage-windows-home) für Alternativen.
+- **Das Gerät startet möglicherweise nicht mehr nach der Löschung** — in einigen Hardwarekonfigurationen kann `doWipeProtected` dazu führen, dass das Gerät nicht mehr bootbar ist. Halten Sie einen USB-Wiederherstellungsdatenträger bereit.
+- **Die Löschung ist unwiderruflich** — sobald sie initiiert und vom Gerät bestätigt wurde, kann die Löschung nicht abgebrochen werden. Alle Daten werden dauerhaft gelöscht.
+- **BitLocker-Wiederherstellungsschlüssel** — wenn BitLocker aktiviert war, stellen Sie sicher, dass der Wiederherstellungsschlüssel vor der Löschung gesichert ist. Nach der Löschung ist der vorherige Schlüssel nicht mehr gültig.

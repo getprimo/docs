@@ -1,0 +1,65 @@
+---
+title: "Cancellare i dispositivi Windows"
+description: "Comprendere come funziona la cancellazione remota su Windows, cosa succede al dispositivo e quando utilizzarla."
+---
+
+La cancellazione remota consente di eliminare tutti i dati da un dispositivo Windows gestito tramite Primo. Questo è fondamentale quando un dispositivo viene perso, rubato o riassegnato a un altro dipendente.
+
+## Supporto del sistema operativo
+
+| macOS | Windows Pro | Windows ARM | Windows Home | Linux | iOS / iPadOS | Android |
+|-------|-------------|-------------|--------------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+
+## Come funziona la cancellazione su Windows
+
+Primo utilizza le funzionalità MDM di Fleet per inviare il comando Microsoft [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) al dispositivo.
+
+A differenza di una cancellazione standard (`doWipe`), che può essere aggirata semplicemente spegnendo e riaccendendo il dispositivo, `doWipeProtected` **continua a tentare il ripristino fino al completamento**. Questo lo rende la scelta giusta per dispositivi persi o rubati dove non è possibile garantire l'accesso fisico.
+
+### Cosa fa `doWipeProtected`
+
+1. **Pulisce completamente il disco interno** — tutti i dati utente, le applicazioni e le impostazioni locali vengono eliminati permanentemente.
+2. **Persiste nonostante le interruzioni** — se la cancellazione viene interrotta (interruzione di corrente, spegnimento forzato), riprende automaticamente al successivo avvio.
+3. **Non conserva i dati di provisioning** — il dispositivo viene riportato a uno stato vuoto. Sarà necessario reinstallare Windows.
+
+<Warning>
+  Secondo la [documentazione di Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), in alcune configurazioni del dispositivo il comando `doWipeProtected` **può rendere il dispositivo incapace di avviarsi**. Il dispositivo potrebbe richiedere una reinstallazione manuale del sistema operativo tramite un'unità USB di ripristino.
+</Warning>
+
+## Quando cancellare un dispositivo Windows
+
+| Scenario | Azione consigliata |
+|----------|--------------------|
+| Dispositivo perso o rubato | Cancellare immediatamente per proteggere i dati aziendali |
+| Offboarding con riassegnazione del dispositivo | Cancellare prima di assegnare al nuovo dipendente |
+| Dispositivo compromesso da malware | Cancellare e reinstallare un sistema operativo pulito |
+| Aggiornamento routinario dei dispositivi | La cancellazione è facoltativa — dipende dalla vostra politica di sicurezza |
+
+## Cancellare un dispositivo Windows
+
+1. Andate su **Dispositivi** e individuate il dispositivo da cancellare.
+2. Aprite la pagina dei dettagli del dispositivo.
+3. Fate clic su **Azioni** > **Cancella**.
+4. Confermate l'azione nella finestra di conferma.
+
+Il dispositivo riceve lo stato **Cancellazione in sospeso**. Una volta che il dispositivo conferma il comando, lo stato si aggiorna a **Cancellato**.
+
+## Dopo la cancellazione
+
+Una volta cancellato un dispositivo, seguite questi passaggi prima di registrarlo nuovamente:
+
+1. **Reinstallare Windows** — poiché `doWipeProtected` pulisce completamente il disco, potrebbe essere necessario reinstallare il sistema operativo tramite un'unità USB di ripristino o avvio da rete (PXE).
+2. **Eliminare l'host da Fleet** — prima di registrare nuovamente il dispositivo, eliminate il suo record da Fleet. Questo garantisce che le chiavi di crittografia del disco vengano correttamente depositate durante la nuova registrazione.
+3. **Registrare nuovamente il dispositivo** — seguite il vostro processo di registrazione standard per riportare il dispositivo sotto gestione.
+
+<Note>
+  Se il dispositivo era registrato tramite Windows Autopilot ed è ancora registrato nel vostro tenant Azure/Entra, entrerà automaticamente nel flusso Autopilot alla prossima configurazione. Consultate [registrazione zero-touch Windows](/it/mdm/zero-touch/zero-touch-windows) per i dettagli.
+</Note>
+
+## Limitazioni
+
+- **Windows Home non è supportato** — la cancellazione remota richiede Windows Pro, Enterprise o Education. Consultate [gestire i dispositivi Windows Home](/it/mdm/policies/manage-windows-home) per le alternative.
+- **Il dispositivo potrebbe non avviarsi dopo la cancellazione** — in alcune configurazioni hardware, `doWipeProtected` può rendere il dispositivo non avviabile. Tenete pronta un'unità USB di ripristino.
+- **La cancellazione è irreversibile** — una volta avviata e confermata dal dispositivo, la cancellazione non può essere annullata. Tutti i dati verranno eliminati permanentemente.
+- **Chiave di ripristino BitLocker** — se BitLocker era attivato, assicuratevi che la chiave di ripristino sia salvata prima della cancellazione. Dopo la cancellazione, la chiave precedente non è più valida.
