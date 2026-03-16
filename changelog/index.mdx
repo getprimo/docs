@@ -4,6 +4,106 @@ description: "The latest product updates from Primo"
 mode: "center"
 ---
 
+<Update label="March 16, 2026" tags={["Software", "MDM"]}>
+  ## Custom software packages
+
+  You can now upload your own software packages directly in Primo. This means you're no longer limited to Fleet Maintained Apps — if you have a custom or internal tool, you can package it and deploy it just like any other app.
+
+  Upload a package, configure targeting (device groups, specific devices, or all devices), and roll it out. Primo handles the rest.
+
+  We also added **auto-update policies** for software, so you can define how and when updates are applied automatically across your fleet.
+
+  Learn more in the [software management guide](/mdm/policies/manage-apps-laptop).
+</Update>
+
+<Update label="March 14, 2026" tags={["Software", "MDM"]}>
+  ## App Store and VPP apps for iOS, iPadOS, and Android
+
+  You can now browse and deploy apps from the Apple App Store (via VPP) and the Google Play Store directly in Primo. This extends software management beyond macOS and Windows to cover your mobile fleet too.
+
+  Assign apps to devices or device groups, control self-service availability, and track what's installed — all from one place.
+
+  See [Deploy apps (iOS & Android)](/mdm/policies/manage-apps-smartphone) for details.
+</Update>
+
+<Update label="March 12, 2026" tags={["Developers"]}>
+  ## Public API expansion
+
+  The Primo API now covers significantly more of the platform. New endpoints are available for:
+
+  - **Software** — list installed software and manage auto-install and auto-update flags
+  - **MDM Controls** — list and retrieve Controls applied across your fleet
+  - **Device Groups** — list and retrieve Device Groups via API
+  - **Tickets** — create, list, and manage tickets programmatically
+  - **SaaS apps** — query your SaaS directory via API
+
+  If you're building integrations or automating IT workflows, check out the [API reference](/api/create-primo-api-key).
+</Update>
+
+<Update label="March 10, 2026" tags={["MDM"]}>
+  ## iPadOS support and device improvements
+
+  Primo now recognizes **iPadOS as a separate platform**, giving you cleaner filtering and more accurate reporting for your iPad fleet.
+
+  We also shipped several device management improvements:
+
+  - **Asset tag field** — you can now set a custom asset ID on any device for easier inventory tracking
+  - **Device code history** — view the full history of passcodes generated for a device, right from the device page
+  - **Device name source of truth** — Primo now uses a consistent, reliable source for device names across the dashboard
+  - **Windows device update status** — see real-time OS update status for Windows devices alongside macOS
+</Update>
+
+<Update label="March 6, 2026" tags={["MDM"]}>
+  ## Windows PIN policy and more Controls
+
+  A new **Windows PIN policy** Control is now available. You can enforce PIN complexity, length, and expiration requirements on Windows devices.
+
+  We also added:
+
+  - **iPhone and iPad encryption** — a new Control to verify and enforce encryption on iOS and iPadOS devices
+  - **SentinelOne ARM64 support** — SentinelOne can now be deployed on Windows ARM64 devices
+
+  These are available in the Controls section of your dashboard.
+</Update>
+
+<Update label="March 4, 2026" tags={["Feature"]}>
+  ## Custom admin roles
+
+  You can now create **custom roles** for your team in Primo. Define exactly what each admin can see and do — from device management to procurement — and assign roles to team members.
+
+  Create, edit, duplicate, and delete roles from **Settings > Admins**. This gives you much finer control over who has access to what, especially as your team grows.
+</Update>
+
+<Update label="March 2, 2026" tags={["Procurement"]}>
+  ## Shipping countries management
+
+  Primo now lets you configure and manage **shipping countries** directly from the dashboard. You can activate or deactivate countries, set up local suppliers, and see zero-touch deployment availability per country.
+
+  This makes it much easier to scale procurement across regions and keep your shipping configuration up to date as you expand.
+
+  See [Shipping countries](/procurement/shipping-countries) for more details.
+</Update>
+
+<Update label="February 26, 2026" tags={["SaaS"]}>
+  ## SaaS financial tracking
+
+  You can now track **costs and license pricing** for your SaaS apps directly in Primo. Add financial details per app to get a clearer picture of your SaaS spend across the company.
+
+  A new cost column is available in the SaaS directory, and you can configure financial settings from the app detail page.
+</Update>
+
+<Update label="February 23, 2026" tags={["Developers"]}>
+  ## Primo MCP server
+
+  Primo now supports the **Model Context Protocol (MCP)**, so you can connect AI assistants like ChatGPT, Claude, or Cursor directly to your Primo account.
+
+  Ask questions in natural language — list devices, look up employees, manage accessories, create tickets — and your AI assistant handles it through Primo's API.
+
+  Authentication is handled via OAuth, so there's no API key to manage. Just add the MCP server URL to your preferred client and sign in.
+
+  Learn more in the [MCP setup guide](/get-started/primo-mcp-server).
+</Update>
+
 <Update label="February 18, 2026" tags={["Procurement"]}>
   ## Accessories improvements
 
