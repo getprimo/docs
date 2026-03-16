@@ -1,0 +1,78 @@
+---
+title: "Wipe Windows devices"
+description: "Understand how standard wipe and hard wipe work on Windows, what happens to the device, and when to use each option."
+---
+
+Remote wipe lets you erase all data from a Windows device managed through Primo. This is critical when a device is lost, stolen, or being reassigned to another employee.
+
+Primo offers two wipe modes for Windows: **Standard wipe** and **Hard wipe**. Each maps to a different Microsoft MDM command and has different behavior.
+
+## OS support
+
+| macOS | Windows Pro | Windows ARM | Windows Home | Linux | iOS / iPadOS | Android |
+|-------|-------------|-------------|--------------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
+
+## Standard wipe vs. hard wipe
+
+|  | **Standard wipe** | **Hard wipe** |
+|--|-------------------|---------------|
+| **Microsoft command** | [`doWipe`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipe) | [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) |
+| **What it does** | Performs a factory reset equivalent to **Reset this PC** > **Remove everything** | Fully cleans the internal drive and keeps retrying until the reset completes |
+| **Can be interrupted** | Yes — power-cycling the device can stop the process | No — the wipe resumes automatically after any interruption |
+| **If interrupted** | The device attempts to roll back to its pre-reset state. If roll-back fails the device may be left in an unusable state | The wipe retries on next boot until complete |
+| **Risk of unbootable device** | Low — roll-back is attempted on failure | Higher — [Microsoft states](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) this command may leave the device unable to boot in some configurations |
+| **Best for** | Device reassignment, routine refresh | Lost or stolen devices, confirmed security incidents |
+
+### Standard wipe (`doWipe`)
+
+The standard wipe sends the Microsoft `doWipe` command. This is equivalent to running **Reset this PC** > **Remove everything** from the Windows Settings app. All user data, applications, and local settings are erased.
+
+If the wipe is interrupted (power loss, forced shutdown), Windows attempts to roll back to the pre-reset state. If the roll-back fails, the device may end up in an unusable state and Windows will need to be reinstalled.
+
+### Hard wipe (`doWipeProtected`)
+
+The hard wipe sends the Microsoft `doWipeProtected` command. Unlike a standard wipe, it **keeps retrying the reset until it completes** — it cannot be circumvented by power-cycling the device.
+
+<Warning>
+  According to [Microsoft's documentation](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), in some device configurations the `doWipeProtected` command **may leave the device unable to boot**. This means the device could require a manual OS reinstallation using a USB recovery drive. Use hard wipe only when you cannot guarantee physical access to the device.
+</Warning>
+
+## When to use each wipe mode
+
+| Scenario | Recommended mode |
+|----------|------------------|
+| Device lost or stolen | **Hard wipe** — ensures data is erased even if someone interrupts the process |
+| Employee offboarding with device reassignment | **Standard wipe** — sufficient when you have physical access to the device |
+| Device compromised by malware | **Hard wipe** — guarantees a full clean even if malware interferes |
+| Routine device refresh | **Standard wipe** — lower risk, easier recovery if something goes wrong |
+
+## Wipe a Windows device
+
+1. Go to **Devices** and locate the device you want to wipe.
+2. Open the device details page.
+3. Click **Actions** > **Wipe**.
+4. Choose **Standard wipe** or **Hard wipe**.
+5. Confirm the action in the confirmation dialog.
+
+The device receives a **Wipe pending** status. Once the device acknowledges the command, the status updates to **Wiped**.
+
+## After the wipe
+
+Once a device has been wiped, follow these steps before re-enrolling it:
+
+1. **Reinstall Windows if needed** — a hard wipe fully cleans the drive, so you will likely need to reinstall the OS using a USB recovery drive or network boot (PXE). A standard wipe may leave Windows in a usable reset state.
+2. **Delete the host from Fleet** — before re-enrolling the device, delete its record from Fleet. This ensures disk encryption keys are properly escrowed on the new enrollment.
+3. **Re-enroll the device** — follow your standard enrollment process to bring the device back under management.
+
+<Note>
+  If the device was enrolled via Windows Autopilot and is still registered in your Azure/Entra tenant, it will automatically re-enter the Autopilot flow on the next setup. See [zero-touch Windows enrollment](/mdm/zero-touch/zero-touch-windows) for details.
+</Note>
+
+## Limitations
+
+- **Windows Home is not supported** — remote wipe requires Windows Pro, Enterprise, or Education. See [manage Windows Home devices](/mdm/policies/manage-windows-home) for alternatives.
+- **Hard wipe may leave the device unbootable** — in some hardware configurations, `doWipeProtected` can prevent the device from booting. Keep a USB recovery drive ready.
+- **Standard wipe can fail to roll back** — if interrupted, the device may be left in an unusable state requiring a manual OS reinstallation.
+- **Wipe is irreversible** — once initiated and acknowledged by the device, the wipe cannot be cancelled. All data will be permanently erased.
+- **BitLocker recovery key** — if BitLocker was enabled, ensure the recovery key is backed up before wiping. After the wipe, the previous key is no longer valid.
