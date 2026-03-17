@@ -1,0 +1,59 @@
+---
+title: "Google Chrome"
+description: "Implemente configuraciones administradas de Google Chrome, aplique extensiones y establezca una página de inicio predeterminada en los dispositivos macOS y Windows."
+---
+
+Administre Google Chrome en toda su flota impulsando la configuración del navegador, aplicando las extensiones requeridas y configurando una página de inicio predeterminada, todo sin la intervención del usuario. Este control utiliza el soporte de configuración administrada nativa de Chrome para aplicar políticas empresariales directamente al navegador.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña de su sistema operativo de destino y elija **Google Chrome**.
+3. Configure las opciones que desea aplicar:
+   - **Página de inicio**: establece la URL de la página de inicio predeterminada.
+   - **Extensiones**: agregue ID de extensión para instalar automáticamente o bloquear extensiones específicas.
+   - **Políticas adicionales**: configure otras políticas empresariales de Chrome según sea necesario.
+4. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+## Configuraciones disponibles
+
+### Página de inicio
+
+Establezca una página de inicio obligatoria que los usuarios no puedan cambiar. Ingrese la URL completa (por ejemplo, `https://intranet.yourcompany.com`).
+
+### Extensiones
+
+| Opción | Descripción |
+|--------|-------------|
+| Extensiones de instalación forzada | Las extensiones se instalan de forma silenciosa y los usuarios no pueden eliminarlas |
+| Permitir extensiones | Las extensiones están permitidas pero no requeridas. |
+| Extensiones de bloque | Se impide la instalación de extensiones específicas |
+
+Para especificar una extensión, utilice su ID de Chrome Web Store (una cadena de 32 caracteres que se encuentra en la URL de la extensión).
+
+### Políticas adicionales
+
+Para las configuraciones que no están cubiertas por las opciones integradas, puede proporcionar JSON de política de Chrome sin formato. Consulte la [lista de políticas de Chrome Enterprise](https://chromeenterprise.google/policies/) para conocer todas las claves disponibles.
+
+## como funciona
+
+Primo impulsa las políticas de Chrome como un perfil de configuración administrado (en macOS) o mediante claves de registro (en Windows). Chrome detecta estas políticas al inicio y las aplica automáticamente. Los usuarios no pueden anular la configuración administrada.
+
+Aparece un aviso **Administrado por su organización** en Chrome cuando las políticas empresariales están activas; este es el comportamiento esperado.
+
+## Solución de problemas
+
+**Las políticas de Chrome no se aplican**
+- Se debe reiniciar Chrome después de implementar una nueva política para que los cambios surtan efecto.
+- En macOS, verifique que el perfil aparezca en **Configuración del sistema > Privacidad y seguridad > Perfiles**.
+- Confirme que Chrome no se esté ejecutando como un perfil no administrado (por ejemplo, un perfil personal que haya iniciado sesión en una cuenta de Google de consumidor).
+
+**Una extensión no se instala automáticamente**
+- Verifique que el ID de la extensión sea correcto (32 caracteres, solo letras minúsculas).
+- Algunas extensiones requieren que Chrome esté conectado a Internet en el momento de la implementación para poder descargarlas desde Web Store.

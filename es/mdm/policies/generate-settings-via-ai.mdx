@@ -1,0 +1,45 @@
+---
+title: "Generar configuraciones a través de IA"
+description: "Utilice el motor de inteligencia artificial de Primo para crear perfiles de configuración MDM personalizados para dispositivos Apple en segundos describiendo las configuraciones que necesita en un lenguaje sencillo."
+---
+
+En lugar de crear perfiles de configuración manualmente, describa lo que desea configurar y deje que el motor de inteligencia artificial de Primo genere un perfil de configuración de Apple listo para implementar. Esto es útil para aplicar configuraciones avanzadas o menos comunes rápidamente, sin necesidad de conocer la estructura de carga útil exacta del MDM.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## como usarlo
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña **macOS** y elija **Generar configuración vía AI**.
+3. Describe la configuración que deseas en lenguaje sencillo. Por ejemplo:
+   - *"Desactivar Bluetooth en todos los dispositivos"*
+   - *"Configura los servidores DNS en 1.1.1.1 y 8.8.8.8"*
+   - *"Habilitar bloqueo de pantalla automático después de 2 minutos de inactividad"*
+4. Revise el perfil generado: Primo le mostrará la configuración resultante antes de la implementación.
+5. Ajuste cualquier configuración si es necesario, luego guarde y aplique el control al grupo de dispositivos correspondiente.
+
+<Warning>
+Revise siempre el perfil generado antes de implementarlo. Las configuraciones generadas por IA pueden requerir ajustes según su entorno específico. Pruebe en un pequeño grupo de dispositivos antes de implementarlo de forma generalizada.
+</Warning>
+
+## lo que genera
+
+El motor de IA produce un perfil estándar de Apple `.mobileconfig` basado en su descripción. El perfil generado:
+
+- Utiliza cargas útiles nativas de Apple MDM.
+- Se puede revisar y editar antes de la implementación.
+- Se implementa en dispositivos de la misma manera que cualquier otro control Primo.
+
+## Consejos para mejores resultados
+
+- Sea específico sobre la configuración y el valor deseado.
+- Mencione el contexto si es relevante (por ejemplo, "para dispositivos compartidos" o "para el equipo de ventas").
+- Si el primer resultado no es exactamente correcto, refine su descripción y vuelva a generarla.
+
+<Tip>
+Si ya tiene un archivo `.mobileconfig` existente que desea implementar, utilice el control **Archivo personalizado** en su lugar.
+</Tip>

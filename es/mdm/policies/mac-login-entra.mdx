@@ -1,0 +1,61 @@
+---
+title: "Iniciar sesión en Mac con Entra"
+description: "Reemplace los inicios de sesión locales de macOS con el inicio de sesión único de Microsoft Entra ID (anteriormente Azure AD) para que los empleados utilicen sus credenciales corporativas para desbloquear su Mac."
+---
+
+Permita que los empleados inicien sesión en su Mac usando sus credenciales de ID de Microsoft Entra (anteriormente Azure Active Directory) en lugar de una contraseña local separada. Esto simplifica la experiencia de inicio de sesión, elimina la proliferación de contraseñas y le permite administrar el acceso a macOS directamente desde su inquilino de Entra.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Requisitos previos
+
+- Un inquilino activo de ID de Microsoft Entra (anteriormente Azure AD).
+- Primo MDM implementado en los dispositivos Mac de destino.
+- macOS 13 (Ventura) o posterior.
+
+## Conecte su inquilino de Entra
+
+Antes de implementar el control, conecte Primo a su inquilino de Entra:
+
+1. En Primo, vaya a **Configuración > MDM > Integraciones**.
+2. Seleccione **Microsoft Entra ID** y siga el flujo de autorización.
+3. Otorgue los permisos necesarios para permitir que Primo administre las credenciales vinculadas al dispositivo.
+
+## Implementar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña **macOS** y elija **Iniciar sesión en Mac con Entra**.
+3. Habilite el control.
+4. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+Una vez implementados, los dispositivos macOS utilizarán Platform SSO para vincular la pantalla de inicio de sesión a Entra ID. Los empleados se autentican con sus credenciales de Entra (correo electrónico y contraseña, o clave de acceso si está configurada) en la ventana de inicio de sesión.
+
+## como funciona
+
+Primo utiliza el inicio de sesión único de la plataforma macOS (Plataforma SSO), introducido en macOS 13, para integrar la ventana de inicio de sesión con Entra ID. Cuando un usuario inicia sesión:
+
+1. macOS se comunica con Entra ID para validar las credenciales.
+2. En caso de éxito, se crea o desbloquea la sesión local del usuario.
+3. El token Entra ID se almacena de forma segura en el llavero macOS para el inicio de sesión único posterior en el inicio de sesión del navegador y la aplicación.
+
+Se admite el inicio de sesión sin conexión: si el dispositivo no puede acceder a Entra ID, macOS recurre a las credenciales almacenadas en caché local.
+
+<Note>
+El primer inicio de sesión después de habilitar este control requiere una conexión a Internet activa para establecer el enlace Entra ID en el dispositivo.
+</Note>
+
+## Solución de problemas
+
+**Los usuarios no pueden iniciar sesión después de implementar el control**
+- Asegúrese de que el dispositivo tenga acceso a Internet para llegar a los puntos finales Entra ID durante el primer inicio de sesión.
+- Verifique que la cuenta Entra del usuario esté activa y no bloqueada.
+- Verifique que la integración de Entra esté configurada correctamente en **Configuración > MDM > Integraciones**.
+
+**El mensaje de inicio de sesión de Entra no aparece en la ventana de inicio de sesión**
+- Confirme que el perfil MDM se entregó correctamente (verifique el panel del dispositivo en Primo).
+- En macOS, el SSO de plataforma requiere macOS 13 o posterior. Verifique la versión del sistema operativo del dispositivo.
+- Vuelva a registrar el dispositivo si la entrega del perfil muestra un error.

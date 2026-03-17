@@ -1,0 +1,50 @@
+---
+title: "Blocage d'applications"
+description: "Définissez une liste d'applications à bloquer ou à autoriser explicitement sur les appareils macOS, empêchant les utilisateurs d'exécuter des logiciels non autorisés."
+---
+
+Contrôlez quelles applications peuvent s'exécuter sur vos appareils macOS en maintenant une liste d'autorisation ou une liste de blocage. Le blocage d'applications vous permet de restreindre l'accès à des logiciels spécifiques, tels que des jeux, des outils de partage de fichiers ou des applications présentant des risques de sécurité connus, sans nécessiter une intervention manuelle sur chaque appareil.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configurer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet **macOS** et choisissez **Blocage d'application**.
+3. Choisissez votre mode d'application :
+   - **Blocklist** : toutes les applications sont autorisées à l'exception de celles explicitement répertoriées.
+   - **Liste autorisée** : seules les applications que vous répertoriez sont autorisées à s'exécuter.
+4. Ajoutez des applications par leur **identifiant de bundle** (par exemple `com.spotify.client`) ou leur **nom d'exécutable**.
+5. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+<Tip>
+Pour trouver l'identifiant du bundle d'une application sur macOS, exécutez la commande suivante dans Terminal :
+
+`osascript -e 'id of app "AppName"'`
+</Tip>
+
+## Comment ça marche
+
+Une fois déployé, macOS évalue les applications en cours d'exécution par rapport à la stratégie. Les applications bloquées sont fermées et les utilisateurs voient une notification système expliquant que l'application n'est pas autorisée.
+
+La politique est appliquée en permanence : si un utilisateur installe une application bloquée après l'application du contrôle, son exécution ne sera pas possible la prochaine fois qu'il tentera de l'ouvrir.
+
+## Meilleures pratiques
+
+- Préférez une **liste de blocage** lorsque vous n'avez besoin de restreindre que quelques applications spécifiques.
+- Utilisez une **liste verte** dans les environnements de haute sécurité où vous avez besoin d'un contrôle strict sur les logiciels autorisés.
+- Combinez le blocage des applications avec la gestion des logiciels pour déployer de manière proactive les applications approuvées avant d'activer une liste verte.
+
+## Dépannage
+
+**Une application autorisée est bloquée**
+- Vérifiez à nouveau l'identifiant du bundle pour les fautes de frappe - les identifiants sont sensibles à la casse.
+- Confirmez que le contrôle cible le bon groupe de périphériques.
+- Revérifiez le mode d'application : si vous utilisez une liste verte, assurez-vous que l'application est explicitement répertoriée.
+
+**Une application bloquée est toujours en cours d'exécution**
+- La stratégie est appliquée au moment du lancement. Si l'application était déjà ouverte lorsque la stratégie a été déployée, redémarrez l'appareil ou demandez à l'utilisateur de quitter et de rouvrir l'application.

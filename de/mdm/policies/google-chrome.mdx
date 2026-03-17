@@ -1,0 +1,59 @@
+---
+title: "Google Chrome"
+description: "Stellen Sie verwaltete Google Chrome-Einstellungen bereit, erzwingen Sie Erweiterungen und legen Sie eine Standard-Startseite für alle macOS- und Windows-Geräte fest."
+---
+
+Verwalten Sie Google Chrome in Ihrer gesamten Flotte, indem Sie Browsereinstellungen übertragen, erforderliche Erweiterungen erzwingen und eine Standard-Startseite konfigurieren – alles ohne Benutzereingriff. Dieses Steuerelement nutzt die native verwaltete Konfigurationsunterstützung von Chrome, um Unternehmensrichtlinien direkt auf den Browser anzuwenden.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte Ihres Zielbetriebssystems und dann **Google Chrome** aus.
+3. Konfigurieren Sie die Optionen, die Sie erzwingen möchten:
+   - **Homepage**: Legen Sie die Standard-Homepage-URL fest.
+   - **Erweiterungen**: Fügen Sie Erweiterungs-IDs hinzu, um sie automatisch zu installieren oder bestimmte Erweiterungen zu blockieren.
+   - **Zusätzliche Richtlinien**: Konfigurieren Sie nach Bedarf weitere Chrome-Unternehmensrichtlinien.
+4. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+## Verfügbare Einstellungen
+
+### Homepage
+
+Legen Sie eine obligatorische Startseite fest, die Benutzer nicht ändern können. Geben Sie die vollständige URL ein (z. B. `https://intranet.yourcompany.com`).
+
+### Erweiterungen
+
+| Option | Beschreibung |
+|--------|-------------|
+| Erzwingen Sie die Installation von Erweiterungen | Erweiterungen werden stillschweigend installiert und können von Benutzern nicht entfernt werden |
+| Erweiterungen zulassen | Erweiterungen sind zulässig, aber nicht erforderlich |
+| Erweiterungen blockieren | Die Installation bestimmter Erweiterungen wird verhindert |
+
+Um eine Erweiterung anzugeben, verwenden Sie deren Chrome Web Store-ID (eine 32-stellige Zeichenfolge in der URL der Erweiterung).
+
+### Zusätzliche Richtlinien
+
+Für Einstellungen, die nicht von den integrierten Optionen abgedeckt werden, können Sie rohes Chrome-Richtlinien-JSON bereitstellen. Alle verfügbaren Schlüssel finden Sie in der [Chrome Enterprise-Richtlinienliste](https://chromeenterprise.google/policies/).
+
+## Wie es funktioniert
+
+Primo überträgt Chrome-Richtlinien als verwaltetes Konfigurationsprofil (auf macOS) oder über Registrierungsschlüssel (auf Windows). Chrome erkennt diese Richtlinien beim Start und wendet sie automatisch an. Benutzer können verwaltete Einstellungen nicht überschreiben.
+
+Wenn Unternehmensrichtlinien aktiv sind, wird in Chrome der Hinweis „Von Ihrer Organisation verwaltet“ angezeigt. Dies ist das erwartete Verhalten.
+
+## Fehlerbehebung
+
+**Chrome-Richtlinien gelten nicht**
+- Chrome muss nach der Bereitstellung einer neuen Richtlinie neu gestartet werden, damit die Änderungen wirksam werden.
+- Überprüfen Sie auf macOS, ob das Profil unter **Systemeinstellungen > Datenschutz und Sicherheit > Profile** angezeigt wird.
+- Stellen Sie sicher, dass Chrome nicht als nicht verwaltetes Profil ausgeführt wird (z. B. als persönliches Profil, das in einem Google-Nutzerkonto angemeldet ist).
+
+**Eine Erweiterung wird nicht automatisch installiert**
+- Stellen Sie sicher, dass die Erweiterungs-ID korrekt ist (32 Zeichen, nur Kleinbuchstaben).
+- Für einige Erweiterungen muss Chrome zum Zeitpunkt der Bereitstellung mit dem Internet verbunden sein, damit sie aus dem Web Store heruntergeladen werden können.

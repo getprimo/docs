@@ -1,0 +1,46 @@
+---
+title: "protección de recoveryOS"
+description: "Configure los ajustes de recoveryOS en dispositivos macOS para evitar el acceso no autorizado a las herramientas de recuperación y proteger contra ataques fuera de línea."
+---
+
+macOS recoveryOS proporciona herramientas poderosas, incluida la capacidad de reinstalar macOS, restablecer contraseñas y desactivar la protección de integridad del sistema, que pueden explotarse si se obtiene acceso físico a un dispositivo. Este control le permite restringir lo que los usuarios pueden hacer en recoveryOS, lo que reduce el riesgo de ataques fuera de línea no autorizados.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña **macOS** y elija **protección de recoveryOS**.
+3. Configure las opciones que desea aplicar:
+   - **Requerir autenticación para acceder a recoveryOS**: los usuarios deben ingresar una contraseña de administrador para iniciar en modo de recuperación.
+   - **Desactivar arranque externo**: evita que el dispositivo arranque desde unidades externas o dispositivos USB.
+4. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+## como funciona
+
+Primo ofrece una carga útil de configuración de seguridad macOS a través de MDM que aplica restricciones al entorno de recoveryOS. Estas configuraciones se aplican a nivel de firmware en Apple Silicon Macs y a nivel de política de seguridad en Intel Macs.
+
+<Note>
+En Apple Silicon Macs, las restricciones de recoveryOS están estrechamente integradas con Secure Enclave. La aplicación total requiere que el dispositivo esté registrado en MDM y que MDM tenga el nivel de supervisión adecuado.
+</Note>
+
+## Recomendaciones
+
+- Habilite la autenticación para recoveryOS como punto de referencia en todos los dispositivos administrados, especialmente en las computadoras portátiles que pueden salir de la oficina.
+- Combínelo con **Cifrado de disco** (FileVault) para garantizar que los datos estén protegidos incluso si se omiten las restricciones del sistema operativo de recuperación en las Mac Intel.
+- Para obtener la máxima seguridad, utilice dispositivos Apple Silicon: proporcionan políticas de seguridad aplicadas por hardware que son mucho más difíciles de eludir.
+
+## Solución de problemas
+
+**Un usuario no puede acceder a recoveryOS y TI necesita acceso**
+- Los administradores de TI pueden desbloquear el acceso a recoveryOS desde el panel del dispositivo en Primo eliminando temporalmente la restricción.
+- En Apple Silicon, un administrador con la clave de recuperación del dispositivo y las credenciales MDM puede recuperar el acceso.
+
+**La restricción no se aplica después de la implementación**
+- Confirme que el dispositivo esté registrado en MDM y que el control esté activo.
+- En Mac Intel, es posible que sea necesario reiniciar el dispositivo para que la configuración a nivel de firmware surta efecto.
+- Verifique el panel del dispositivo para ver si hay errores de comando MDM.

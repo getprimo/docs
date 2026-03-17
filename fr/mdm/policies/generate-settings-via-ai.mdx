@@ -1,0 +1,45 @@
+---
+title: "Générer des paramètres via l'IA"
+description: "Utilisez le moteur d'IA de Primo pour créer des profils de configuration MDM sur mesure pour les appareils Apple en quelques secondes en décrivant les paramètres dont vous avez besoin dans un langage simple."
+---
+
+Au lieu de créer manuellement des profils de configuration, décrivez ce que vous souhaitez configurer et laissez le moteur d'IA de Primo générer un profil de configuration Apple prêt à déployer. Ceci est utile pour appliquer rapidement des paramètres avancés ou moins courants, sans avoir besoin de connaître la structure exacte de la charge utile MDM.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Comment l'utiliser
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet **macOS** et choisissez **Générer les paramètres via AI**.
+3. Décrivez la configuration souhaitée en langage simple. Par exemple:
+   - *"Désactiver Bluetooth sur tous les appareils"*
+   - *"Définissez les serveurs DNS sur 1.1.1.1 et 8.8.8.8"*
+   - *"Activer le verrouillage automatique de l'écran après 2 minutes d'inactivité"*
+4. Examinez le profil généré — Primo vous montrera la configuration résultante avant le déploiement.
+5. Ajustez les paramètres si nécessaire, puis enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+<Warning>
+Vérifiez toujours le profil généré avant le déploiement. Les configurations générées par l'IA peuvent nécessiter des ajustements en fonction de votre environnement spécifique. Testez sur un petit groupe d’appareils avant de déployer à grande échelle.
+</Warning>
+
+## Ce qu'il génère
+
+Le moteur AI produit un profil Apple `.mobileconfig` standard basé sur votre description. Le profil généré :
+
+- Utilise les charges utiles natives Apple MDM.
+- Peut être révisé et modifié avant le déploiement.
+- Est déployé sur les appareils de la même manière que tout autre contrôle Primo.
+
+## Conseils pour de meilleurs résultats
+
+- Soyez précis sur le réglage et la valeur souhaitée.
+- Mentionnez le contexte si pertinent (par exemple « pour les appareils partagés » ou « pour l'équipe commerciale »).
+- Si le premier résultat n’est pas tout à fait correct, affinez votre description et régénérez-la.
+
+<Tip>
+Si vous disposez déjà d'un fichier `.mobileconfig` que vous souhaitez déployer, utilisez plutôt le contrôle **Fichier personnalisé**.
+</Tip>

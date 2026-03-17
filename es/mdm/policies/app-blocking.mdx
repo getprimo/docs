@@ -1,0 +1,50 @@
+---
+title: "Bloqueo de aplicaciones"
+description: "Defina una lista de aplicaciones para bloquear o permitir explícitamente en dispositivos macOS, evitando que los usuarios ejecuten software no autorizado."
+---
+
+Controle qué aplicaciones se pueden ejecutar en sus dispositivos macOS manteniendo una lista de permitidos o bloqueados. El bloqueo de aplicaciones le permite restringir el acceso a software específico, como juegos, herramientas para compartir archivos o aplicaciones con riesgos de seguridad conocidos, sin necesidad de intervención manual en cada dispositivo.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña **macOS** y elija **Bloqueo de aplicaciones**.
+3. Elija su modo de cumplimiento:
+   - **Lista de bloqueo**: todas las aplicaciones están permitidas excepto aquellas enumeradas explícitamente.
+   - **Lista de permitidos**: solo se permite ejecutar las aplicaciones que usted enumera.
+4. Agregue aplicaciones por su **identificador de paquete** (por ejemplo, `com.spotify.client`) o **nombre del ejecutable**.
+5. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+<Tip>
+Para encontrar el identificador del paquete de una aplicación en macOS, ejecute el siguiente comando en la Terminal:
+
+`osascript -e 'id of app "AppName"'`
+</Tip>
+
+## como funciona
+
+Una vez implementado, macOS evalúa las aplicaciones en ejecución según la política. Las aplicaciones bloqueadas se cierran y los usuarios ven una notificación del sistema que explica que la aplicación no está permitida.
+
+La política se aplica continuamente: si un usuario instala una aplicación bloqueada después de aplicar el control, se impedirá que se ejecute la próxima vez que intente abrirla.
+
+## Mejores prácticas
+
+- Prefiere una **lista de bloqueo** cuando solo necesites restringir algunas aplicaciones específicas.
+- Utilice una **lista de permitidos** en entornos de alta seguridad donde necesite un control estricto sobre el software permitido.
+- Combine el bloqueo de aplicaciones con la administración de software para implementar de manera proactiva aplicaciones aprobadas antes de habilitar una lista de permitidos.
+
+## Solución de problemas
+
+**Se está bloqueando una aplicación permitida**
+- Vuelva a verificar el identificador del paquete para detectar errores tipográficos; los identificadores distinguen entre mayúsculas y minúsculas.
+- Confirme que el control esté dirigido al grupo de dispositivos correcto.
+- Vuelva a verificar el modo de cumplimiento: si usa una lista de permitidos, asegúrese de que la aplicación esté lista explícitamente.
+
+**Una aplicación bloqueada todavía se está ejecutando**
+- La política se aplica en el momento del lanzamiento. Si la aplicación ya estaba abierta cuando se implementó la política, reinicie el dispositivo o solicite al usuario que cierre y vuelva a abrir la aplicación.

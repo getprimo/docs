@@ -1,0 +1,41 @@
+---
+title: "Bereich „MDM-Profile“ sperren"
+description: "Verhindern Sie, dass Benutzer MDM-Profile im Abschnitt „Profile“ in den macOS-Systemeinstellungen anzeigen oder entfernen."
+---
+
+Blockieren Sie den Zugriff auf den Abschnitt **Profile** in den macOS-Systemeinstellungen, um zu verhindern, dass Benutzer auf ihrem Gerät installierte MDM-Profile anzeigen, ändern oder entfernen. Dadurch wird sichergestellt, dass Ihre Verwaltungskontrollen auch dann bestehen bleiben, wenn ein Benutzer versucht, sie zu entfernen.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte **macOS** und dann den Bereich **MDM-Profile sperren** aus.
+3. Aktivieren Sie die Steuerung.
+4. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+Es ist keine zusätzliche Konfiguration erforderlich. Sobald der Einstellungsbereich „Profile“ aktiviert ist, wird er für Benutzer ausgeblendet.
+
+## Wie es funktioniert
+
+Primo verschiebt eine MDM-Einschränkung, die den **Profiles**-Eintrag aus den Systemeinstellungen entfernt (zuvor Systemeinstellungen auf macOS 12 und früher). Benutzer können nicht mehr zu diesem Abschnitt navigieren, installierte Profile anzeigen oder versuchen, sie zu entfernen.
+
+<Note>
+Dieses Steuerelement schränkt nur die Benutzeroberfläche ein. IT-Administratoren können weiterhin Profile über das Dashboard und das Gerätepanel von Primo anzeigen und verwalten.
+</Note>
+
+## Empfehlungen
+
+- Aktivieren Sie diese Kontrolle auf allen verwalteten Mitarbeitergeräten als grundlegende Sicherheitsmaßnahme.
+- Kombinieren Sie es mit anderen Kontrollen wie **Festplattenverschlüsselung** und **Firewall**, um eine umfassende Gerätesicherheit aufzubauen.
+
+## Fehlerbehebung
+
+**Der Bereich „Profile“ ist nach der Anwendung des Steuerelements weiterhin sichtbar**
+- Warten Sie einige Minuten, bis der Befehl MDM übermittelt und verarbeitet wird.
+- Auf macOS 13 und höher befindet sich der Abschnitt „Profile“ unter **Systemeinstellungen > Datenschutz und Sicherheit > Profile**. Bestätigen Sie, dass dieser Pfad verborgen ist.
+- Wenn der Bereich weiterhin zugänglich ist, überprüfen Sie, ob die Steuerung aktiv ist und das Gerät bei MDM registriert ist.

@@ -1,0 +1,65 @@
+---
+title: "Accesso Mac con Okta"
+description: "Sostituisci gli accessi macOS locali con il Single Sign-On Okta in modo che i dipendenti utilizzino le credenziali aziendali Okta per sbloccare il proprio Mac."
+---
+
+Consenti ai dipendenti di accedere al proprio Mac utilizzando le credenziali Okta invece di una password locale separata. Ciò centralizza la gestione delle identità in Okta, semplifica l'esperienza di accesso dei dipendenti e offre all'IT piena visibilità e controllo sull'accesso al Mac tramite il provider di identità esistente.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Prerequisiti
+
+- Un'organizzazione Okta attiva (Okta Workforce Identity Cloud).
+- Primo MDM distribuito sui dispositivi Mac di destinazione.
+- macOS 13 (Ventura) o successivo.
+
+## Connetti la tua organizzazione Okta
+
+Prima di distribuire il controllo, connetti Primo alla tua organizzazione Okta:
+
+1. In Primo, vai su **Impostazioni > MDM > Integrazioni**.
+2. Seleziona **Okta** e segui il flusso di autorizzazione.
+3. Concedere le autorizzazioni necessarie per consentire a Primo di gestire le credenziali associate al dispositivo.
+
+<Tip>
+Se utilizzi già Okta per SCIM o SAML all'interno di Primo, potresti essere in grado di riutilizzare la connessione esistente. Controlla le impostazioni di integrazione attuali prima di crearne una nuova.
+</Tip>
+
+## Distribuire il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda **macOS** e scegli **Accesso Mac con Okta**.
+3. Abilita il controllo.
+4. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+Una volta distribuiti, i dispositivi macOS utilizzeranno l'SSO della piattaforma per associare la schermata di accesso a Okta. I dipendenti si autenticano con le proprie credenziali Okta nella finestra di accesso.
+
+## Come funziona
+
+Primo utilizza il Single Sign-On della piattaforma macOS (piattaforma SSO), introdotto in macOS 13, per integrare la finestra di accesso con Okta. Quando un utente accede:
+
+1. macOS contatta Okta per convalidare le credenziali.
+2. In caso di successo, la sessione locale dell'utente viene creata o sbloccata.
+3. Il token Okta viene archiviato in modo sicuro nel portachiavi macOS per i successivi accessi SSO al browser e alle app.
+
+È supportato l'accesso offline: se il dispositivo non riesce a raggiungere Okta, macOS ricorre alle credenziali memorizzate nella cache locale.
+
+<Note>
+Il primo accesso dopo aver abilitato questo controllo richiede una connessione Internet attiva per stabilire l'associazione Okta sul dispositivo.
+</Note>
+
+## Risoluzione dei problemi
+
+**Gli utenti non possono accedere dopo la distribuzione del controllo**
+- Assicurarsi che il dispositivo abbia accesso a Internet per raggiungere Okta durante il primo accesso.
+- Verifica che l'account Okta dell'utente sia attivo, non bloccato e non soggetto a criteri MFA che bloccano l'accesso al dispositivo.
+- Verifica che l'integrazione Okta sia configurata correttamente in **Impostazioni > MDM > Integrazioni**.
+
+**La richiesta di accesso Okta non viene visualizzata nella finestra di accesso**
+- Confermare che il profilo MDM è stato consegnato correttamente (controllare il pannello del dispositivo in Primo).
+- Su macOS, il servizio SSO della piattaforma richiede macOS 13 o versione successiva. Verificare la versione del sistema operativo del dispositivo.
+- Registra nuovamente il dispositivo se la consegna del profilo mostra un errore.

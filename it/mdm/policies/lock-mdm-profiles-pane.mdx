@@ -1,0 +1,41 @@
+---
+title: "Blocca il riquadro dei profili MDM"
+description: "Impedisci agli utenti di visualizzare o rimuovere i profili MDM dalla sezione Profili nelle Impostazioni di sistema macOS."
+---
+
+Blocca l'accesso alla sezione **Profili** nelle Impostazioni di sistema macOS per impedire agli utenti di visualizzare, modificare o rimuovere i profili MDM installati sul proprio dispositivo. Ciò garantisce che i controlli di gestione rimangano attivi anche se un utente tenta di rimuoverli.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configura il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda **macOS** e scegli **Blocca riquadro profili MDM**.
+3. Abilita il controllo.
+4. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+Non è richiesta alcuna configurazione aggiuntiva. Una volta attivo, il pannello delle preferenze Profili è nascosto agli utenti.
+
+## Come funziona
+
+Primo applica una restrizione MDM che rimuove la voce **Profili** dalle Impostazioni di sistema (in precedenza Preferenze di Sistema su macOS 12 e versioni precedenti). Gli utenti non possono più accedere a quella sezione, visualizzare i profili installati o tentare di rimuoverli.
+
+<Note>
+Questo controllo limita solo l'interfaccia rivolta all'utente. Gli amministratori IT possono comunque visualizzare e gestire i profili dalla dashboard di Primo e dal pannello del dispositivo.
+</Note>
+
+## Raccomandazioni
+
+- Abilita questo controllo su tutti i dispositivi gestiti dei dipendenti come misura di sicurezza di base.
+- Combinalo con altri controlli come **Crittografia disco** e **Firewall** per creare un approccio completo alla sicurezza del dispositivo.
+
+## Risoluzione dei problemi
+
+**Il riquadro Profili è ancora visibile dopo aver applicato il controllo**
+- Attendere alcuni minuti affinché il comando MDM venga consegnato ed elaborato.
+- Su macOS 13 e versioni successive, la sezione Profili si trova in **Impostazioni di sistema > Privacy e sicurezza > Profili**. Conferma che questo percorso è ciò che è nascosto.
+- Se il riquadro rimane accessibile, verificare che il controllo sia attivo e che il dispositivo sia registrato in MDM.

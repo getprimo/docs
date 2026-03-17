@@ -1,0 +1,53 @@
+---
+title: "Firewall"
+description: "Aktivieren und konfigurieren Sie die integrierte Betriebssystem-Firewall auf macOS- und Windows-Geräten, um nicht autorisierte eingehende Netzwerkverbindungen zu blockieren."
+---
+
+Aktivieren Sie die integrierte Firewall des Betriebssystems auf Ihren verwalteten Geräten, um nicht autorisierte eingehende Verbindungen zu blockieren. Dies fügt eine Schutzebene auf Netzwerkebene hinzu, was besonders wertvoll für Laptops ist, die in nicht vertrauenswürdigen Netzwerken wie öffentlichen WLANs verwendet werden.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte Ihres Zielbetriebssystems und wählen Sie **Firewall**.
+3. Aktivieren Sie die Firewall.
+4. Konfigurieren Sie nach Bedarf zusätzliche Optionen (siehe plattformspezifische Einstellungen unten).
+5. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+## Auf macOS
+
+Primo aktiviert die macOS Application Firewall über MDM. Zu den verfügbaren Optionen gehören:
+
+- **Firewall aktivieren**: Aktiviert die macOS-Anwendungsfirewall.
+- **Alle eingehenden Verbindungen blockieren**: Lässt nur Verbindungen zu, die für grundlegende Internetdienste (wie DHCP und Bonjour) erforderlich sind. Seien Sie vorsichtig, da dies die Dateifreigabe und den Fernzugriff beeinträchtigen kann.
+- **Stealth-Modus aktivieren**: Verhindert, dass das Gerät auf Prüfanfragen wie ICMP-Ping reagiert, wodurch es schwieriger wird, es in einem Netzwerk zu erkennen.
+
+<Note>
+Die macOS Application Firewall steuert eingehende Verbindungen auf Anwendungsebene. Ausgehende Verbindungen werden nicht gefiltert.
+</Note>
+
+## Auf Windows
+
+Primo aktiviert die Windows Defender Firewall über die MDM-Richtlinie. Die Firewall ist für alle Netzwerkprofile aktiviert:
+
+- **Domänennetzwerk**: Gilt, wenn das Gerät einer Domäne beigetreten ist.
+- **Privates Netzwerk**: gilt für vertrauenswürdige Heim- oder Arbeitsnetzwerke.
+- **Öffentliches Netzwerk**: gilt für nicht vertrauenswürdige öffentliche Netzwerke.
+
+Standardmäßig blockiert die Windows Defender Firewall unerwünschte eingehende Verbindungen in allen Profilen und lässt ausgehende Verbindungen zu.
+
+## Fehlerbehebung
+
+**Eine erforderliche Anwendung funktionierte nicht mehr, nachdem die Firewall aktiviert wurde**
+- Öffnen Sie auf macOS **Systemeinstellungen > Netzwerk > Firewall > Optionen**, um eine Ausnahme für die Anwendung hinzuzufügen.
+- Öffnen Sie auf Windows **Windows-Sicherheit > Firewall und Netzwerkschutz > Eine App durch die Firewall zulassen**, um die Anwendung hinzuzufügen.
+- Wenn die Verwaltung von Ausnahmen über MDM erforderlich ist, verwenden Sie ein Steuerelement **Benutzerdefinierte Datei**, um eine Firewall-Ausnahmeregel bereitzustellen.
+
+**Der Firewall-Status wird auf dem Gerät als deaktiviert angezeigt**
+- Bestätigen Sie, dass die MDM-Steuerung aktiv und der richtigen Gerätegruppe zugewiesen ist.
+- Stellen Sie auf Windows sicher, dass das Windows Security Center keinen Konflikt mit einem Sicherheitsprodukt eines Drittanbieters meldet.

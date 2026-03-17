@@ -1,0 +1,52 @@
+---
+title: "Blocco dell'archivio USB"
+description: "Impedisci a chiavi USB, schede SD e altri dispositivi di archiviazione rimovibili di connettersi ai dispositivi Windows e Linux per proteggerti dall'esfiltrazione di dati e da malware."
+---
+
+Impedisci che i dispositivi di archiviazione rimovibili, tra cui unità flash USB, schede SD e dischi rigidi esterni, vengano montati sui dispositivi gestiti. Ciò riduce il rischio di esfiltrazione dei dati e impedisce l'introduzione di malware tramite supporti fisici.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | |
+
+## Configura il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda del sistema operativo di destinazione e scegli **Blocco dell'archivio USB**.
+3. Abilita il controllo.
+4. Facoltativamente, configura le eccezioni per specifici dispositivi attendibili (vedi sotto).
+5. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+## Eccezioni
+
+Se specifici dispositivi di archiviazione USB devono rimanere accessibili (ad esempio una chiave di sicurezza hardware utilizzata per l'autenticazione), puoi aggiungere eccezioni basate su:
+
+- **Vendor ID (VID)**: l'identificativo del produttore.
+- **ID Prodotto (PID)**: identificatore del modello specifico del dispositivo.
+
+<Tip>
+Il blocco dell'archiviazione USB prende di mira i dispositivi di archiviazione di massa (unità, schede SD, ecc.). Per impostazione predefinita, non blocca altri tipi di dispositivi USB come tastiere, mouse o chiavi di sicurezza hardware.
+</Tip>
+
+## Su Windows
+
+Primo distribuisce una policy Windows MDM che blocca l'installazione e l'utilizzo di dispositivi di archiviazione rimovibili. Il blocco viene applicato a livello di classe di dispositivo, impedendo al sistema operativo di montare qualsiasi dispositivo classificato come archivio rimovibile.
+
+I dispositivi bloccati sono visibili in Gestione dispositivi come bloccati e gli utenti visualizzano una notifica che informa che il dispositivo non può essere utilizzato.
+
+## Su Linux
+
+Primo applica una configurazione che impedisce al sistema operativo di montare automaticamente i dispositivi di archiviazione rimovibili. La policy viene applicata a livello di sistema e si applica indipendentemente dall'utente che ha effettuato l'accesso.
+
+## Risoluzione dei problemi
+
+**Un dispositivo USB è ancora accessibile dopo aver applicato il controllo**
+- Il dispositivo potrebbe essere stato connesso prima dell'applicazione del criterio. Scollega e ricollega il dispositivo per attivare l'applicazione.
+- Conferma che il controllo sia attivo e abbia come target il gruppo di dispositivi corretto.
+- Alcuni dispositivi USB che si presentano come una classe di dispositivi specifica (ad esempio un telefono in modalità PTP) potrebbero non essere classificati come archivi rimovibili e pertanto non vengono bloccati.
+
+**Un dispositivo di archiviazione USB richiesto è stato bloccato**
+- Aggiungi un'eccezione utilizzando l'ID fornitore e l'ID prodotto del dispositivo.
+- Per trovare questi valori su Windows, apri **Gestione dispositivi**, individua il dispositivo e controlla i suoi ID hardware in **Proprietà > Dettagli**.

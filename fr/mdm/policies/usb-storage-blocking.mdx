@@ -1,0 +1,52 @@
+---
+title: "Blocage du stockage USB"
+description: "Empêchez les clés USB, les cartes SD et autres périphériques de stockage amovibles de se connecter aux appareils Windows et Linux pour vous protéger contre l'exfiltration de données et les logiciels malveillants."
+---
+
+Empêchez les périphériques de stockage amovibles, notamment les clés USB, les cartes SD et les disques durs externes, d'être montés sur les appareils gérés. Cela réduit le risque d’exfiltration de données et empêche l’introduction de logiciels malveillants via des supports physiques.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | |
+
+## Configurer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet de votre système d'exploitation cible et choisissez **Blocage du stockage USB**.
+3. Activez le contrôle.
+4. Configurez éventuellement des exceptions pour des appareils de confiance spécifiques (voir ci-dessous).
+5. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+## Exceptions
+
+Si des périphériques de stockage USB spécifiques doivent rester accessibles (par exemple, une clé de sécurité matérielle utilisée pour l'authentification), vous pouvez ajouter des exceptions basées sur :
+
+- **Vendor ID (VID)** : l'identifiant du fabricant.
+- **ID de produit (PID)** : l'identifiant spécifique du modèle d'appareil.
+
+<Tip>
+Le blocage du stockage USB cible les périphériques de stockage de masse (lecteurs, cartes SD, etc.). Il ne bloque pas par défaut les autres types de périphériques USB tels que les claviers, les souris ou les clés de sécurité matérielles.
+</Tip>
+
+## Sur Windows
+
+Primo déploie une stratégie Windows MDM qui bloque l'installation et l'utilisation de périphériques de stockage amovibles. Le blocage est appliqué au niveau de la classe de périphérique, empêchant le système d'exploitation de monter tout périphérique classé comme stockage amovible.
+
+Les appareils bloqués sont visibles dans le Gestionnaire de périphériques comme étant bloqués et les utilisateurs voient une notification indiquant que l'appareil ne peut pas être utilisé.
+
+## Sur Linux
+
+Primo applique une configuration qui empêche le système d'exploitation de monter automatiquement des périphériques de stockage amovibles. La stratégie est appliquée à l’échelle du système et s’applique quel que soit l’utilisateur connecté.
+
+## Dépannage
+
+**Un périphérique USB est toujours accessible après avoir appliqué le contrôle**
+- L'appareil a peut-être été connecté avant l'application de la stratégie. Déconnectez et reconnectez l'appareil pour déclencher l'application.
+- Confirmez que le contrôle est actif et cible le bon groupe de périphériques.
+- Certains périphériques USB présentés comme une classe de périphérique spécifique (par exemple un téléphone en mode PTP) peuvent ne pas être classés comme stockage amovible et ne sont donc pas bloqués.
+
+**Un périphérique de stockage USB requis est bloqué**
+- Ajoutez une exception à l’aide de l’ID de fournisseur et de l’ID de produit de l’appareil.
+- Pour trouver ces valeurs sur Windows, ouvrez le **Gestionnaire de périphériques**, localisez le périphérique et vérifiez ses ID matériels sous **Propriétés > Détails**.

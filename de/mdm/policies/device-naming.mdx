@@ -1,0 +1,54 @@
+---
+title: "Gerätebenennung"
+description: "Verwenden Sie KI, um basierend auf Mitarbeiter- und Geräteattributen automatisch konsistente, aktuelle Gerätenamen in Ihrer macOS-, Windows- und Linux-Flotte zu generieren und durchzusetzen."
+---
+
+Erzwingen Sie eine einheitliche Benennungskonvention in Ihrer gesamten Flotte, ohne jedes Gerät manuell umbenennen zu müssen. Primo nutzt KI, um Gerätenamen basierend auf Attributen wie dem Namen des zugewiesenen Mitarbeiters, der Abteilung oder der Seriennummer des Geräts zu generieren, und hält die Namen automatisch auf dem neuesten Stand, wenn sich diese Attribute ändern.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | | |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte Ihres Zielbetriebssystems und wählen Sie **Gerätebenennung**.
+3. Definieren Sie Ihre Benennungsvorlage mithilfe verfügbarer Variablen, zum Beispiel:
+   - `{firstName}-{lastName}-{serialNumber}`
+   - `{department}-{deviceType}-{serialNumber}`
+4. Vorschau der generierten Namen mit Beispieldaten.
+5. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+<Tip>
+Halten Sie Namen unter 15 Zeichen, wenn Sie Kompatibilität mit älteren Netzwerksystemen benötigen, die NetBIOS-Namenslängenbeschränkungen erzwingen – dies ist besonders relevant für Windows-Geräte.
+</Tip>
+
+## Verfügbare Variablen
+
+| Variabel | Beschreibung |
+|----------|-------------|
+| `{firstName}` | Employee's first name |
+| `{lastName}` | Employee's last name |
+| `{email}` | Employee's email address |
+| `{department}` | Employee's department |
+| `{serialNumber}` | Device serial number |
+| `{deviceType}` | Device type (e.g. MacBook, Surface) |
+
+## Wie es funktioniert
+
+Wenn ein Gerät registriert wird oder sich der zugewiesene Mitarbeiter ändert, wertet Primo die Benennungsvorlage aus und überträgt den neuen Hostnamen über MDM an das Gerät. Der Gerätename wird stillschweigend im Hintergrund aktualisiert – es ist keine Benutzerinteraktion oder ein Neustart erforderlich.
+
+Namen werden automatisch neu bewertet, wenn sich die zugrunde liegenden Attribute ändern. So wird sichergestellt, dass Ihr Inventar immer den aktuellen Stand widerspiegelt.
+
+## Fehlerbehebung
+
+**Der Gerätename wurde nach einem Mitarbeiterwechsel nicht aktualisiert**
+- Warten Sie einige Minuten, bis der Befehl MDM das Gerät erreicht.
+- Bestätigen Sie, dass das Gerät online und registriert ist.
+- Überprüfen Sie, ob die Mitarbeiterzuordnung im Gerätepanel korrekt eingestellt ist.
+
+**Der Name enthält unerwartete Zeichen**
+- Einige Zeichen (Leerzeichen, Akzente, Sonderzeichen) sind in Hostnamen ungültig und werden automatisch entfernt oder ersetzt.
+- Überprüfen Sie die generierte Vorschau, bevor Sie das Steuerelement speichern, um unerwartete Ausgaben zu erkennen.

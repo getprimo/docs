@@ -1,0 +1,62 @@
+---
+title: "Archivo personalizado"
+description: "Importe un perfil de configuración personalizado para aplicar configuraciones no cubiertas por los controles integrados de Primo, con soporte para formatos de perfil nativos en macOS, Windows y Android."
+---
+
+Cuando los controles integrados de Primo no cubren una configuración específica que necesita, puede cargar un archivo de configuración personalizado directamente. El archivo se entrega a los dispositivos a través de MDM de la misma manera que cualquier otro control, lo que le brinda total flexibilidad para aplicar cualquier configuración compatible.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | ✅ |
+
+## Formatos de archivo admitidos
+
+Cada plataforma acepta su formato de configuración nativo:
+
+| Plataforma | Formato | Descripción |
+|----------|--------|-------------|
+| macOS | `.mobileconfig` | Perfil de configuración de Apple (basado en XML) |
+| Windows | `.xml` | Política personalizada Windows MDM (formato SyncML) |
+| Android | `.json` | Configuración administrada empresarial Android |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña de su sistema operativo de destino y elija **Archivo personalizado**.
+3. Cargue su archivo de configuración.
+4. Asigne al control un nombre descriptivo para que sea fácil de identificar más adelante.
+5. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+<Warning>
+Primo no valida el contenido de archivos personalizados. Asegúrese de que su configuración sea correcta antes de la implementación: un perfil no válido o conflictivo puede provocar un comportamiento inesperado del dispositivo.
+</Warning>
+
+## En macOS
+
+Los perfiles de configuración macOS (`.mobileconfig`) son archivos XML firmados o sin firmar. Primo los entrega como cargas útiles de MDM. Puedes crear perfiles usando:
+- **Apple Configurator 2** (gratis, desde Mac App Store)
+- Cualquier editor de texto, siguiendo la [Referencia del perfil de configuración de Apple](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys)
+
+Los casos de uso comunes incluyen cargas útiles de certificados personalizados, perfiles de VPN y configuraciones de VPN por aplicación.
+
+## En Windows
+
+Los archivos personalizados Windows utilizan el formato SyncML, que se asigna a los CSP (proveedores de servicios de configuración) Windows MDM. Esto le permite configurar cualquier política expuesta por la pila Windows MDM que no esté cubierta por los controles integrados de Primo.
+
+## En Android
+
+Los archivos personalizados Android utilizan JSON para ofrecer configuraciones administradas a dispositivos Android Enterprise. Normalmente se utiliza para configurar aplicaciones empresariales que admitan la configuración de aplicaciones administradas.
+
+## Solución de problemas
+
+**El perfil se implementó pero la configuración no se aplica**
+- En macOS, verifique que el perfil aparezca en **Configuración del sistema > Privacidad y seguridad > Perfiles**.
+- Compruebe si hay conflictos con otros controles activos que tengan como objetivo la misma configuración.
+- Revise los registros MDM del dispositivo para detectar errores de implementación.
+
+**La carga del archivo falla**
+- Confirme que el archivo coincida con el formato esperado para el sistema operativo seleccionado.
+- Compruebe que el archivo no esté dañado o vacío.
+- Los perfiles macOS deben utilizar XML válido: valide el archivo con `plutil -lint profile.mobileconfig`.

@@ -1,0 +1,59 @@
+---
+title: "Google Chrome"
+description: "Déployez les paramètres Google Chrome gérés, appliquez les extensions et définissez une page d'accueil par défaut sur les appareils macOS et Windows."
+---
+
+Gérez Google Chrome sur l'ensemble de votre flotte en poussant les paramètres du navigateur, en appliquant les extensions requises et en configurant une page d'accueil par défaut, le tout sans intervention de l'utilisateur. Ce contrôle utilise la prise en charge native de la configuration gérée de Chrome pour appliquer les politiques d'entreprise directement au navigateur.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configurer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet de votre système d'exploitation cible et choisissez **Google Chrome**.
+3. Configurez les options que vous souhaitez appliquer :
+   - **Page d'accueil** : définissez l'URL de la page d'accueil par défaut.
+   - **Extensions** : ajoutez des ID d'extension pour les installer automatiquement ou bloquer des extensions spécifiques.
+   - **Règles supplémentaires** : configurez d'autres règles d'entreprise Chrome selon vos besoins.
+4. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+## Paramètres disponibles
+
+### Page d'accueil
+
+Définissez une page d'accueil obligatoire que les utilisateurs ne peuvent pas modifier. Saisissez l'URL complète (par exemple `https://intranet.yourcompany.com`).
+
+### Rallonges
+
+| Option | Description |
+|--------|-------------|
+| Forcer l'installation des extensions | Les extensions sont installées silencieusement et ne peuvent pas être supprimées par les utilisateurs |
+| Autoriser les extensions | Les extensions sont autorisées mais pas obligatoires |
+| Bloquer les extensions | Des extensions spécifiques ne peuvent pas être installées |
+
+Pour spécifier une extension, utilisez son identifiant Chrome Web Store (une chaîne de 32 caractères trouvée dans l'URL de l'extension).
+
+### Politiques supplémentaires
+
+Pour les paramètres non couverts par les options intégrées, vous pouvez fournir le JSON brut de la stratégie Chrome. Consultez la [Liste des stratégies Chrome Enterprise](https://chromeenterprise.google/policies/) pour connaître toutes les clés disponibles.
+
+## Comment ça marche
+
+Primo applique les politiques Chrome en tant que profil de configuration géré (sur macOS) ou via des clés de registre (sur Windows). Chrome détecte ces politiques au démarrage et les applique automatiquement. Les utilisateurs ne peuvent pas remplacer les paramètres gérés.
+
+Un avis **Géré par votre organisation** s'affiche dans Chrome lorsque les règles d'entreprise sont actives. Il s'agit d'un comportement attendu.
+
+## Dépannage
+
+**Les règles Chrome ne s'appliquent pas**
+- Chrome doit être redémarré après le déploiement d'une nouvelle stratégie pour que les modifications prennent effet.
+- Sur macOS, vérifiez que le profil apparaît sous **Paramètres système > Confidentialité et sécurité > Profils**.
+- Vérifiez que Chrome ne fonctionne pas en tant que profil non géré (par exemple, un profil personnel connecté à un compte Google grand public).
+
+**Une extension ne s'installe pas automatiquement**
+- Vérifiez que l'ID de l'extension est correct (32 caractères, lettres minuscules uniquement).
+- Certaines extensions nécessitent que Chrome soit connecté à Internet au moment du déploiement pour pouvoir être téléchargées depuis le Web Store.

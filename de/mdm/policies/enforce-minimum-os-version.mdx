@@ -1,0 +1,57 @@
+---
+title: "Erzwingen Sie die Mindestversion des Betriebssystems"
+description: "Erfordern Sie, dass auf Geräten eine Mindestbetriebssystemversion ausgeführt wird, um sicherzustellen, dass Sicherheitspatches und App-Kompatibilität in Ihrer gesamten Flotte gewährleistet sind."
+---
+
+Geräte auf einer unterstützten Betriebssystemversion zu belassen, ist eine der effektivsten Möglichkeiten, sich vor bekannten Schwachstellen zu schützen. Mit diesem Steuerelement können Sie eine erforderliche Mindestversion für macOS- und Windows-Geräte definieren und Benutzer automatisch zum Aktualisieren anregen, wenn ihr Gerät unter den Schwellenwert fällt.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte Ihres Zielbetriebssystems und wählen Sie **Mindestversion des Betriebssystems erzwingen**.
+3. Legen Sie die **mindestens erforderliche Version** fest (z. B. `14.4` für macOS, `22H2` für Windows 11).
+4. Konfigurieren Sie die **Schonfrist** – die Anzahl der Tage, die Benutzer aktualisieren müssen, bevor strengere Durchsetzungsmaßnahmen gelten.
+5. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+## Wie es funktioniert
+
+Primo prüft die aktuelle Betriebssystemversion jedes Geräts anhand der konfigurierten Mindestversion. Wenn ein Gerät nicht konform ist:
+
+1. Der Benutzer erhält eine Benachrichtigung, die ihn zur Aktualisierung auffordert.
+2. Während der Kulanzfrist kann der Benutzer das Update verschieben.
+3. Nach Ablauf der Kulanzfrist wird das Update möglicherweise beim nächsten Neustart erzwungen.
+
+Geräte, die bereits konform sind, sind nicht betroffen.
+
+## Auf macOS
+
+- Die Mindestversionsprüfung verwendet die macOS-Build-Version.
+- Primo liefert einen Software-Update-Befehl über MDM. Wenn ein neueres Betriebssystem verfügbar ist, lädt macOS es herunter und installiert es.
+- Benutzer können ihre aktuelle macOS-Version unter **Systemeinstellungen > Allgemein > Software-Update** anzeigen.
+
+## Auf Windows
+
+- Die Mindestversion wird anhand der Windows-Build-Nummer überprüft (z. B. `22621` für Windows 11 22H2).
+- Primo löst das Windows-Update über die MDM-Richtlinie aus, um erforderliche Updates zu installieren.
+- Benutzer werden über die Windows-Update-Schnittstelle benachrichtigt.
+
+<Note>
+Die Bereitstellung des Windows-Updates hängt von den Netzwerkbedingungen und der Verfügbarkeit des Windows-Updatedienstes auf dem Gerät ab. Das Herunterladen und Installieren großer Updates kann einige Zeit in Anspruch nehmen.
+</Note>
+
+## Fehlerbehebung
+
+**Geräte werden nach der Aktualisierung als nicht konform angezeigt**
+- Es kann bis zu 15 Minuten dauern, bis das Gerät nach einem Update seine neue Betriebssystemversion an Primo zurückmeldet.
+- Erzwingen Sie einen MDM-Check-in über das Gerätefenster, wenn der Status nicht aktualisiert wird.
+
+**Benutzer sehen keine Aktualisierungsaufforderungen**
+- Bestätigen Sie, dass das Gerät registriert ist und die Steuerung aktiv ist.
+- Stellen Sie auf macOS sicher, dass das Software-Update nicht durch eine andere MDM-Richtlinie blockiert wird.
+- Überprüfen Sie auf Windows, dass das Windows-Update nicht durch eine andere Gruppenrichtlinie oder MDM-Einstellung angehalten oder deaktiviert wird.

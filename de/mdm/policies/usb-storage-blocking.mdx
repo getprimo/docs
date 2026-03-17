@@ -1,0 +1,52 @@
+---
+title: "Blockierung des USB-Speichers"
+description: "Verhindern Sie, dass USB-Sticks, SD-Karten und andere Wechselspeichergeräte eine Verbindung zu Windows- und Linux-Geräten herstellen, um sich vor Datenexfiltration und Malware zu schützen."
+---
+
+Blockieren Sie die Bereitstellung von Wechselspeichergeräten – einschließlich USB-Flash-Laufwerken, SD-Karten und externen Festplatten – auf verwalteten Geräten. Dies verringert das Risiko der Datenexfiltration und verhindert die Einschleusung von Malware über physische Medien.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte Ihres Zielbetriebssystems und wählen Sie **USB-Speicherblockierung**.
+3. Aktivieren Sie die Steuerung.
+4. Konfigurieren Sie optional Ausnahmen für bestimmte vertrauenswürdige Geräte (siehe unten).
+5. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+## Ausnahmen
+
+Wenn auf bestimmte USB-Speichergeräte zugegriffen werden muss (z. B. ein Hardware-Sicherheitsschlüssel zur Authentifizierung), können Sie Ausnahmen hinzufügen, basierend auf:
+
+- **Vendor ID (VID)**: die Herstellerkennung.
+- **Produkt-ID (PID)**: die spezifische Gerätemodell-ID.
+
+<Tip>
+Die Blockierung von USB-Speichern richtet sich gegen Geräte der Massenspeicherklasse (Laufwerke, SD-Karten usw.). Andere USB-Gerätetypen wie Tastaturen, Mäuse oder Hardware-Sicherheitsschlüssel werden standardmäßig nicht blockiert.
+</Tip>
+
+## Auf Windows
+
+Primo stellt eine Windows MDM-Richtlinie bereit, die die Installation und Verwendung von Wechselspeichergeräten blockiert. Der Block wird auf Geräteklassenebene angewendet und verhindert, dass das Betriebssystem Geräte bereitstellt, die als Wechselspeicher klassifiziert sind.
+
+Blockierte Geräte werden im Geräte-Manager als blockiert angezeigt und Benutzer sehen eine Benachrichtigung, dass das Gerät nicht verwendet werden kann.
+
+## Auf Linux
+
+Primo wendet eine Konfiguration an, die verhindert, dass das Betriebssystem Wechselspeichergeräte automatisch bereitstellt. Die Richtlinie wird systemweit durchgesetzt und gilt unabhängig davon, welcher Benutzer angemeldet ist.
+
+## Fehlerbehebung
+
+**Auf ein USB-Gerät kann nach Anwendung der Steuerung weiterhin zugegriffen werden**
+- Das Gerät wurde möglicherweise vor der Anwendung der Richtlinie verbunden. Trennen Sie das Gerät und schließen Sie es wieder an, um die Durchsetzung auszulösen.
+- Bestätigen Sie, dass die Steuerung aktiv ist und auf die richtige Gerätegruppe abzielt.
+- Einige USB-Geräte, die einer bestimmten Geräteklasse zugeordnet sind (z. B. ein Telefon im PTP-Modus), werden möglicherweise nicht als Wechselspeicher klassifiziert und daher nicht blockiert.
+
+**Ein erforderliches USB-Speichergerät wird blockiert**
+- Fügen Sie eine Ausnahme hinzu, indem Sie die Hersteller-ID und die Produkt-ID des Geräts verwenden.
+- Um diese Werte auf Windows zu finden, öffnen Sie den **Geräte-Manager**, suchen Sie das Gerät und überprüfen Sie seine Hardware-IDs unter **Eigenschaften > Details**.

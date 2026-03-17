@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-13T11:30:29.662788+00:00",
+  "generatedAt": "2026-03-17T10:25:19.706337+00:00",
   "sourceLocale": "en",
   "locales": [
     "fr",
@@ -1705,6 +1705,356 @@
           "path": "it/style-guide.mdx",
           "sourceHash": "01a10c5ba686a7c1bc7077950b611738855608f352ed89ef43d86e470cb7f7e1",
           "syncedAt": "2026-03-13T09:56:39.110534+00:00"
+        }
+      }
+    },
+    "mdm/policies/admin-password-rotation.mdx": {
+      "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/admin-password-rotation.mdx",
+          "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
+          "syncedAt": "2026-03-17T10:23:04.236530+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/admin-password-rotation.mdx",
+          "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
+          "syncedAt": "2026-03-17T10:23:06.415102+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/admin-password-rotation.mdx",
+          "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
+          "syncedAt": "2026-03-17T10:23:09.110222+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/admin-password-rotation.mdx",
+          "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
+          "syncedAt": "2026-03-17T10:23:11.698922+00:00"
+        }
+      }
+    },
+    "mdm/policies/app-blocking.mdx": {
+      "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/app-blocking.mdx",
+          "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
+          "syncedAt": "2026-03-17T10:23:16.990584+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/app-blocking.mdx",
+          "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
+          "syncedAt": "2026-03-17T10:23:19.135963+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/app-blocking.mdx",
+          "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
+          "syncedAt": "2026-03-17T10:23:21.003136+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/app-blocking.mdx",
+          "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
+          "syncedAt": "2026-03-17T10:23:25.810072+00:00"
+        }
+      }
+    },
+    "mdm/policies/custom-file.mdx": {
+      "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/custom-file.mdx",
+          "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
+          "syncedAt": "2026-03-17T10:23:29.682667+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/custom-file.mdx",
+          "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
+          "syncedAt": "2026-03-17T10:23:32.284392+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/custom-file.mdx",
+          "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
+          "syncedAt": "2026-03-17T10:23:34.285257+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/custom-file.mdx",
+          "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
+          "syncedAt": "2026-03-17T10:23:36.782254+00:00"
+        }
+      }
+    },
+    "mdm/policies/device-naming.mdx": {
+      "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/device-naming.mdx",
+          "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
+          "syncedAt": "2026-03-17T10:23:39.041216+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/device-naming.mdx",
+          "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
+          "syncedAt": "2026-03-17T10:23:40.482734+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/device-naming.mdx",
+          "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
+          "syncedAt": "2026-03-17T10:23:41.654222+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/device-naming.mdx",
+          "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
+          "syncedAt": "2026-03-17T10:23:42.908740+00:00"
+        }
+      }
+    },
+    "mdm/policies/enforce-minimum-os-version.mdx": {
+      "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/enforce-minimum-os-version.mdx",
+          "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
+          "syncedAt": "2026-03-17T10:23:48.521151+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/enforce-minimum-os-version.mdx",
+          "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
+          "syncedAt": "2026-03-17T10:23:51.273454+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/enforce-minimum-os-version.mdx",
+          "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
+          "syncedAt": "2026-03-17T10:23:53.519239+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/enforce-minimum-os-version.mdx",
+          "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
+          "syncedAt": "2026-03-17T10:23:55.753936+00:00"
+        }
+      }
+    },
+    "mdm/policies/firewall.mdx": {
+      "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/firewall.mdx",
+          "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
+          "syncedAt": "2026-03-17T10:23:59.372880+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/firewall.mdx",
+          "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
+          "syncedAt": "2026-03-17T10:24:02.049375+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/firewall.mdx",
+          "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
+          "syncedAt": "2026-03-17T10:24:03.931549+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/firewall.mdx",
+          "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
+          "syncedAt": "2026-03-17T10:24:06.373194+00:00"
+        }
+      }
+    },
+    "mdm/policies/generate-settings-via-ai.mdx": {
+      "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/generate-settings-via-ai.mdx",
+          "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
+          "syncedAt": "2026-03-17T10:24:10.532146+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/generate-settings-via-ai.mdx",
+          "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
+          "syncedAt": "2026-03-17T10:24:12.105934+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/generate-settings-via-ai.mdx",
+          "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
+          "syncedAt": "2026-03-17T10:24:14.069426+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/generate-settings-via-ai.mdx",
+          "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
+          "syncedAt": "2026-03-17T10:24:16.319288+00:00"
+        }
+      }
+    },
+    "mdm/policies/google-chrome.mdx": {
+      "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/google-chrome.mdx",
+          "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
+          "syncedAt": "2026-03-17T10:24:20.883079+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/google-chrome.mdx",
+          "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
+          "syncedAt": "2026-03-17T10:24:23.231907+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/google-chrome.mdx",
+          "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
+          "syncedAt": "2026-03-17T10:24:24.661505+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/google-chrome.mdx",
+          "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
+          "syncedAt": "2026-03-17T10:24:27.112681+00:00"
+        }
+      }
+    },
+    "mdm/policies/lock-mdm-profiles-pane.mdx": {
+      "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/lock-mdm-profiles-pane.mdx",
+          "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
+          "syncedAt": "2026-03-17T10:24:29.391108+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/lock-mdm-profiles-pane.mdx",
+          "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
+          "syncedAt": "2026-03-17T10:24:30.762228+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/lock-mdm-profiles-pane.mdx",
+          "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
+          "syncedAt": "2026-03-17T10:24:32.132911+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/lock-mdm-profiles-pane.mdx",
+          "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
+          "syncedAt": "2026-03-17T10:24:33.442185+00:00"
+        }
+      }
+    },
+    "mdm/policies/mac-login-entra.mdx": {
+      "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/mac-login-entra.mdx",
+          "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
+          "syncedAt": "2026-03-17T10:24:37.773118+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/mac-login-entra.mdx",
+          "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
+          "syncedAt": "2026-03-17T10:24:40.578999+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/mac-login-entra.mdx",
+          "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
+          "syncedAt": "2026-03-17T10:24:42.638666+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/mac-login-entra.mdx",
+          "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
+          "syncedAt": "2026-03-17T10:24:45.676113+00:00"
+        }
+      }
+    },
+    "mdm/policies/mac-login-okta.mdx": {
+      "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/mac-login-okta.mdx",
+          "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
+          "syncedAt": "2026-03-17T10:24:48.218939+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/mac-login-okta.mdx",
+          "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
+          "syncedAt": "2026-03-17T10:24:49.542556+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/mac-login-okta.mdx",
+          "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
+          "syncedAt": "2026-03-17T10:24:50.638162+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/mac-login-okta.mdx",
+          "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
+          "syncedAt": "2026-03-17T10:24:51.950347+00:00"
+        }
+      }
+    },
+    "mdm/policies/recoveros-protection.mdx": {
+      "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/recoveros-protection.mdx",
+          "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
+          "syncedAt": "2026-03-17T10:24:54.546588+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/recoveros-protection.mdx",
+          "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
+          "syncedAt": "2026-03-17T10:24:55.985813+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/recoveros-protection.mdx",
+          "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
+          "syncedAt": "2026-03-17T10:24:56.716474+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/recoveros-protection.mdx",
+          "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
+          "syncedAt": "2026-03-17T10:24:58.097186+00:00"
+        }
+      }
+    },
+    "mdm/policies/usb-storage-blocking.mdx": {
+      "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/usb-storage-blocking.mdx",
+          "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
+          "syncedAt": "2026-03-17T10:25:01.107951+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/usb-storage-blocking.mdx",
+          "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
+          "syncedAt": "2026-03-17T10:25:03.759995+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/usb-storage-blocking.mdx",
+          "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
+          "syncedAt": "2026-03-17T10:25:05.297115+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/usb-storage-blocking.mdx",
+          "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
+          "syncedAt": "2026-03-17T10:25:07.938425+00:00"
+        }
+      }
+    },
+    "mdm/policies/wifi.mdx": {
+      "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/policies/wifi.mdx",
+          "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
+          "syncedAt": "2026-03-17T10:25:12.564213+00:00"
+        },
+        "de": {
+          "path": "de/mdm/policies/wifi.mdx",
+          "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
+          "syncedAt": "2026-03-17T10:25:15.443164+00:00"
+        },
+        "es": {
+          "path": "es/mdm/policies/wifi.mdx",
+          "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
+          "syncedAt": "2026-03-17T10:25:17.063050+00:00"
+        },
+        "it": {
+          "path": "it/mdm/policies/wifi.mdx",
+          "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
+          "syncedAt": "2026-03-17T10:25:19.705669+00:00"
         }
       }
     }

@@ -1,0 +1,41 @@
+---
+title: "Bloquear panel de perfiles MDM"
+description: "Evite que los usuarios vean o eliminen perfiles de MDM desde la sección Perfiles en Configuración del sistema macOS."
+---
+
+Bloquee el acceso a la sección **Perfiles** en la configuración del sistema macOS para evitar que los usuarios vean, modifiquen o eliminen los perfiles de MDM instalados en su dispositivo. Esto garantiza que sus controles de gestión permanezcan vigentes incluso si un usuario intenta eliminarlos.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña **macOS** y elija **Bloquear panel de perfiles MDM**.
+3. Habilite el control.
+4. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+No se requiere configuración adicional. Una vez activo, el panel de preferencias de Perfiles está oculto para los usuarios.
+
+## como funciona
+
+Primo impone una restricción de MDM que elimina la entrada **Perfiles** de Configuración del sistema (anteriormente Preferencias del sistema en macOS 12 y versiones anteriores). Los usuarios ya no pueden navegar a esa sección, ver los perfiles instalados ni intentar eliminarlos.
+
+<Note>
+Este control restringe únicamente la interfaz orientada al usuario. Los administradores de TI aún pueden ver y administrar perfiles desde el panel de control de Primo y el panel del dispositivo.
+</Note>
+
+## Recomendaciones
+
+- Habilite este control en todos los dispositivos administrados de los empleados como medida de seguridad básica.
+- Combínelo con otros controles como **Cifrado de disco** y **Firewall** para crear una postura integral de seguridad del dispositivo.
+
+## Solución de problemas
+
+**El panel Perfiles sigue visible después de aplicar el control**
+- Espere unos minutos para que se entregue y procese el comando MDM.
+- En macOS 13 y posteriores, la sección Perfiles se encuentra en **Configuración del sistema > Privacidad y seguridad > Perfiles**. Confirma que este camino es lo que está oculto.
+- Si el panel permanece accesible, verifique que el control esté activo y que el dispositivo esté registrado en MDM.

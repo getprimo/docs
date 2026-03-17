@@ -1,0 +1,63 @@
+---
+title: "Wi-Fi"
+description: "Transférez les paramètres du réseau WiFi d'entreprise aux appareils Windows, Linux et Android afin que les employés se connectent automatiquement sans avoir besoin de saisir manuellement leurs informations d'identification."
+---
+
+Configurez automatiquement les paramètres Wi-Fi sur les appareils gérés afin que les employés se connectent à votre réseau d'entreprise sans aucune configuration manuelle. Ceci est particulièrement utile lors du provisionnement des appareils, lors de l’intégration de nouveaux employés ou lorsque vos informations d’identification réseau changent.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | ✅ |
+
+## Configurer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet de votre système d'exploitation cible et choisissez **WiFi**.
+3. Remplissez les détails du réseau :
+   - **SSID** : le nom du réseau WiFi.
+   - **Type de sécurité** : WPA2-Personal, WPA2-Enterprise, WPA3 ou réseau ouvert.
+   - **Mot de passe** (pour WPA2-Personal / WPA3-Personal) : le mot de passe du réseau.
+   - **Paramètres Entreprise** (pour WPA2-Enterprise) : méthode d'authentification, identité et certificat.
+4. Configurez des options supplémentaires :
+   - **Rejoindre automatiquement** : connectez-vous automatiquement lorsque vous êtes à portée.
+   - **Réseau caché** : activer si le SSID n'est pas diffusé.
+5. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+## Types de sécurité
+
+| Type de sécurité | Cas d'utilisation |
+|---------------|----------|
+| WPA2-Personnel | Réseau de bureau ou domestique standard avec mot de passe partagé |
+| WPA3-Personnel | Norme plus récente avec cryptage amélioré |
+| WPA2-Entreprise | Réseaux d'entreprise utilisant l'authentification RADIUS / 802.1X |
+| Ouvrir | Réseaux non sécurisés (non recommandés) |
+
+<Note>
+Pour les réseaux WPA2-Enterprise, vous devrez peut-être déployer un certificat avec le profil WiFi. Utilisez un contrôle **Fichier personnalisé** pour fournir l'autorité de certification racine ou le certificat client requis.
+</Note>
+
+## Sur Windows
+
+Primo pousse le profil WiFi en tant que charge utile MDM. Windows se connecte automatiquement en fonction de la priorité configurée. Le réseau apparaît dans la liste WiFi et est marqué comme géré.
+
+## Sur Linux
+
+Primo configure le réseau via le gestionnaire de réseau du système. Le profil est appliqué à l’ensemble du système et prend effet lors de la prochaine analyse du réseau.
+
+## Sur Android
+
+Primo pousse le profil WiFi dans le cadre de la configuration gérée Android Enterprise. L'appareil se connecte automatiquement lorsqu'il est à portée. Sur les appareils à profil professionnel, la configuration s'applique à la fois aux profils professionnel et personnel si la stratégie d'entreprise Android l'autorise.
+
+## Dépannage
+
+**Les appareils ne se connectent pas automatiquement au réseau**
+- Confirmez exactement les correspondances SSID, y compris les majuscules.
+- Vérifiez que le mot de passe est correct : le profil ne peut pas être testé directement ; toute faute de frappe nécessite de redéployer le contrôle avec le mot de passe corrigé.
+- Sur Windows, vérifiez que l'adaptateur WiFi de l'appareil n'est pas désactivé par une autre stratégie MDM.
+
+**L'authentification d'entreprise échoue**
+- Confirmez que les détails du serveur RADIUS sont corrects.
+- Assurez-vous que le certificat requis est installé sur l'appareil avant d'appliquer le profil WiFi.
+- Vérifiez que le compte de l'utilisateur dispose des autorisations requises sur le serveur RADIUS.

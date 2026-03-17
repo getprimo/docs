@@ -1,0 +1,53 @@
+---
+title: "Pare-feu"
+description: "Activez et configurez le pare-feu intégré du système d'exploitation sur les appareils macOS et Windows pour bloquer les connexions réseau entrantes non autorisées."
+---
+
+Activez le pare-feu intégré du système d'exploitation sur vos appareils gérés pour bloquer les connexions entrantes non autorisées. Cela ajoute une couche de protection au niveau du réseau, particulièrement précieuse pour les ordinateurs portables utilisés sur des réseaux non fiables tels que le Wi-Fi public.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configurer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet de votre système d'exploitation cible et choisissez **Pare-feu**.
+3. Activez le pare-feu.
+4. Configurez des options supplémentaires si nécessaire (voir les paramètres spécifiques à la plate-forme ci-dessous).
+5. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+## Sur macOS
+
+Primo active le pare-feu d'application macOS via MDM. Les options disponibles incluent :
+
+- **Activer le pare-feu** : active le pare-feu de l'application macOS.
+- **Bloquer toutes les connexions entrantes** : autorise uniquement les connexions requises par les services Internet de base (tels que DHCP et Bonjour). Utilisez-le avec prudence car cela peut perturber le partage de fichiers et l'accès à distance.
+- **Activer le mode furtif** : empêche l'appareil de répondre aux demandes de sondage telles que le ping ICMP, ce qui rend plus difficile la découverte sur un réseau.
+
+<Note>
+Le pare-feu d'application macOS contrôle les connexions entrantes au niveau de l'application. Il ne filtre pas les connexions sortantes.
+</Note>
+
+## Sur Windows
+
+Primo active le pare-feu Windows Defender via la stratégie MDM. Le pare-feu est activé pour tous les profils réseau :
+
+- **Réseau de domaine** : s'applique lorsque l'appareil est joint à un domaine.
+- **Réseau privé** : s'applique aux réseaux domestiques ou professionnels de confiance.
+- **Réseau public** : s'applique aux réseaux publics non fiables.
+
+Par défaut, le pare-feu Windows Defender bloque les connexions entrantes non sollicitées sur tous les profils tout en autorisant les connexions sortantes.
+
+## Dépannage
+
+**Une application requise a cessé de fonctionner après avoir activé le pare-feu**
+- Sur macOS, ouvrez **Paramètres système > Réseau > Pare-feu > Options** pour ajouter une exception pour l'application.
+- Sur Windows, ouvrez **Windows Security > Pare-feu et protection réseau > Autoriser une application via le pare-feu** pour ajouter l'application.
+- Si la gestion des exceptions via MDM est requise, utilisez un contrôle **Fichier personnalisé** pour déployer une règle d'exception de pare-feu.
+
+**L'état du pare-feu apparaît comme désactivé sur l'appareil**
+- Confirmez que le contrôle MDM est actif et attribué au bon groupe de périphériques.
+- Sur Windows, vérifiez que Windows Security Center ne signale pas de conflit avec un produit de sécurité tiers.

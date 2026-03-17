@@ -1,0 +1,54 @@
+---
+title: "Dénomination de l'appareil"
+description: "Utilisez l'IA pour générer et appliquer automatiquement des noms d'appareils cohérents et à jour dans votre flotte macOS, Windows et Linux en fonction des attributs des employés et des appareils."
+---
+
+Appliquez une convention de dénomination cohérente dans l’ensemble de votre flotte sans renommer manuellement chaque appareil. Primo utilise l'IA pour générer des noms d'appareils en fonction d'attributs tels que le nom de l'employé attribué, le service ou le numéro de série de l'appareil, et maintient automatiquement les noms à jour lorsque ces attributs changent.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | | |
+
+## Configurer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet de votre système d'exploitation cible et choisissez **Nom de l'appareil**.
+3. Définissez votre modèle de dénomination à l'aide des variables disponibles, par exemple :
+   - `{firstName}-{lastName}-{serialNumber}`
+   - `{department}-{deviceType}-{serialNumber}`
+4. Prévisualisez les noms générés avec des exemples de données.
+5. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+<Tip>
+Conservez les noms de moins de 15 caractères si vous avez besoin d'une compatibilité avec des systèmes réseau plus anciens qui appliquent les limites de longueur de nom NetBIOS — ceci est particulièrement pertinent pour les appareils Windows.
+</Tip>
+
+## Variables disponibles
+
+| Variable | Description |
+|----------|-------------|
+| `{firstName}` | Employee's first name |
+| `{lastName}` | Employee's last name |
+| `{email}` | Employee's email address |
+| `{department}` | Employee's department |
+| `{serialNumber}` | Device serial number |
+| `{deviceType}` | Device type (e.g. MacBook, Surface) |
+
+## Comment ça marche
+
+Lorsqu'un appareil est inscrit ou que l'employé affecté change, Primo évalue le modèle de dénomination et transmet le nouveau nom d'hôte à l'appareil via MDM. Le nom de l'appareil est mis à jour silencieusement en arrière-plan : aucune interaction de l'utilisateur ni aucun redémarrage n'est requis.
+
+Les noms sont réévalués automatiquement chaque fois que les attributs sous-jacents changent, garantissant que votre inventaire reflète toujours l'état actuel.
+
+## Dépannage
+
+**Le nom de l'appareil n'a pas été mis à jour après un changement d'employé**
+- Attendez quelques minutes pour que la commande MDM atteigne l'appareil.
+- Confirmez que l'appareil est en ligne et inscrit.
+- Vérifiez que l'affectation des employés est correctement définie dans le panneau de l'appareil.
+
+**Le nom contient des caractères inattendus**
+- Certains caractères (espaces, accents, symboles spéciaux) ne sont pas valides dans les noms d'hôtes et sont supprimés ou remplacés automatiquement.
+- Examinez l’aperçu généré avant d’enregistrer le contrôle pour détecter toute sortie inattendue.

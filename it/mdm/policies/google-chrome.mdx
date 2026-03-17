@@ -1,0 +1,59 @@
+---
+title: "Google Cromo"
+description: "Distribuisci le impostazioni gestite di Google Chrome, applica le estensioni e imposta una home page predefinita sui dispositivi macOS e Windows."
+---
+
+Gestisci Google Chrome nel tuo parco dispositivi impostando le impostazioni del browser, applicando le estensioni richieste e configurando una home page predefinita, il tutto senza l'intervento dell'utente. Questo controllo utilizza il supporto della configurazione gestita nativa di Chrome per applicare i criteri aziendali direttamente al browser.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configura il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda del sistema operativo di destinazione e scegli **Google Chrome**.
+3. Configura le opzioni che desideri applicare:
+   - **Home page**: imposta l'URL della home page predefinita.
+   - **Estensioni**: aggiungi ID estensione da installare automaticamente o blocca estensioni specifiche.
+   - **Criteri aggiuntivi**: configura altri criteri aziendali di Chrome in base alle esigenze.
+4. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+## Impostazioni disponibili
+
+### Home page
+
+Imposta una home page obbligatoria che gli utenti non possono modificare. Inserisci l'URL completo (ad esempio `https://intranet.yourcompany.com`).
+
+### Estensioni
+
+| Opzione | Descrizione |
+|--------|-------------|
+| Estensioni a installazione forzata | Le estensioni vengono installate automaticamente e non possono essere rimosse dagli utenti |
+| Consenti estensioni | Le estensioni sono consentite ma non obbligatorie |
+| Blocca estensioni | Viene impedita l'installazione di estensioni specifiche |
+
+Per specificare un'estensione, utilizza il relativo ID Chrome Web Store (una stringa di 32 caratteri trovata nell'URL dell'estensione).
+
+### Politiche aggiuntive
+
+Per le impostazioni non coperte dalle opzioni integrate, puoi fornire il criterio JSON di Chrome non elaborato. Consulta l'[elenco dei criteri di Chrome Enterprise](https://chromeenterprise.google/policies/) per tutte le chiavi disponibili.
+
+## Come funziona
+
+Primo invia i criteri di Chrome come profilo di configurazione gestita (su macOS) o tramite chiavi di registro (su Windows). Chrome rileva questi criteri all'avvio e li applica automaticamente. Gli utenti non possono sovrascrivere le impostazioni gestite.
+
+Quando i criteri aziendali sono attivi, in Chrome viene visualizzato un avviso **Gestito dalla tua organizzazione**: si tratta di un comportamento previsto.
+
+## Risoluzione dei problemi
+
+**Le norme di Chrome non vengono applicate**
+- Affinché le modifiche abbiano effetto, è necessario riavviare Chrome dopo l'implementazione di un nuovo criterio.
+- Su macOS, verifica che il profilo venga visualizzato in **Impostazioni di sistema > Privacy e sicurezza > Profili**.
+- Verifica che Chrome non sia in esecuzione come profilo non gestito (ad esempio un profilo personale connesso a un Account Google consumer).
+
+**Un'estensione non viene installata automaticamente**
+- Verificare che l'ID dell'interno sia corretto (32 caratteri, solo lettere minuscole).
+- Alcune estensioni richiedono che Chrome sia connesso a Internet al momento della distribuzione per eseguire il download dal Web Store.

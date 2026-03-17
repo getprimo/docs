@@ -1,0 +1,53 @@
+---
+title: "Firewall"
+description: "Abilita e configura il firewall del sistema operativo integrato sui dispositivi macOS e Windows per bloccare le connessioni di rete in entrata non autorizzate."
+---
+
+Abilita il firewall integrato del sistema operativo sui tuoi dispositivi gestiti per bloccare le connessioni in entrata non autorizzate. Ciò aggiunge un livello di protezione a livello di rete, particolarmente utile per i laptop utilizzati su reti non affidabili come il Wi-Fi pubblico.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configura il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda del sistema operativo di destinazione e scegli **Firewall**.
+3. Abilita il firewall.
+4. Configura opzioni aggiuntive secondo necessità (vedi le impostazioni specifiche della piattaforma di seguito).
+5. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+## Su macOS
+
+Primo abilita il firewall dell'applicazione macOS tramite MDM. Le opzioni disponibili includono:
+
+- **Abilita firewall**: attiva il firewall dell'applicazione macOS.
+- **Blocca tutte le connessioni in entrata**: consente solo le connessioni richieste dai servizi Internet di base (come DHCP e Bonjour). Utilizzare con cautela poiché ciò può interrompere la condivisione dei file e l'accesso remoto.
+- **Abilita modalità invisibile**: impedisce al dispositivo di rispondere a richieste di sondaggio come il ping ICMP, rendendone più difficile il rilevamento su una rete.
+
+<Note>
+Il firewall dell'applicazione macOS controlla le connessioni in entrata a livello di applicazione. Non filtra le connessioni in uscita.
+</Note>
+
+## Su Windows
+
+Primo abilita il firewall Defender Windows tramite la policy MDM. Il firewall è abilitato per tutti i profili di rete:
+
+- **Rete di dominio**: si applica quando il dispositivo fa parte di un dominio.
+- **Rete privata**: si applica alle reti domestiche o aziendali attendibili.
+- **Rete pubblica**: si applica alle reti pubbliche non attendibili.
+
+Per impostazione predefinita, Windows Defender Firewall blocca le connessioni in entrata non richieste su tutti i profili consentendo le connessioni in uscita.
+
+## Risoluzione dei problemi
+
+**Un'applicazione richiesta ha smesso di funzionare dopo aver abilitato il firewall**
+- Su macOS, apri **Impostazioni di sistema > Rete > Firewall > Opzioni** per aggiungere un'eccezione per l'applicazione.
+- Su Windows, apri **Windows Sicurezza > Protezione firewall e rete > Consenti un'app attraverso il firewall** per aggiungere l'applicazione.
+- Se è necessaria la gestione delle eccezioni tramite MDM, utilizzare un controllo **file personalizzato** per distribuire una regola di eccezione del firewall.
+
+**Lo stato del firewall viene visualizzato come disabilitato sul dispositivo**
+- Confermare che il controllo MDM sia attivo e assegnato al gruppo di dispositivi corretto.
+- Su Windows, verificare che Windows Security Center non segnali un conflitto con un prodotto di sicurezza di terze parti.

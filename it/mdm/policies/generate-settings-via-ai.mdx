@@ -1,0 +1,45 @@
+---
+title: "Genera impostazioni tramite AI"
+description: "Utilizza il motore AI di Primo per creare profili di configurazione MDM personalizzati per i dispositivi Apple in pochi secondi descrivendo le impostazioni necessarie in un linguaggio semplice."
+---
+
+Invece di creare manualmente i profili di configurazione, descrivi cosa desideri configurare e lascia che il motore AI di Primo generi un profilo di configurazione Apple pronto per la distribuzione. Ciò è utile per applicare rapidamente impostazioni avanzate o meno comuni, senza dover conoscere l'esatta struttura del carico utile MDM.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Come usarlo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda **macOS** e scegli **Genera impostazioni tramite AI**.
+3. Descrivi la configurazione che desideri in un linguaggio semplice. Ad esempio:
+   - *"Disabilita Bluetooth su tutti i dispositivi"*
+   - *"Imposta i server DNS su 1.1.1.1 e 8.8.8.8"*
+   - *"Attiva il blocco automatico dello schermo dopo 2 minuti di inattività"*
+4. Esamina il profilo generato: Primo ti mostrerà la configurazione risultante prima della distribuzione.
+5. Se necessario, regola le impostazioni, quindi salva e applica il controllo al gruppo di dispositivi pertinente.
+
+<Warning>
+Esaminare sempre il profilo generato prima della distribuzione. Le configurazioni generate dall'intelligenza artificiale potrebbero richiedere modifiche a seconda dell'ambiente specifico. Testalo su un piccolo gruppo di dispositivi prima di distribuirlo su larga scala.
+</Warning>
+
+## Cosa genera
+
+Il motore AI produce un profilo Apple `.mobileconfig` standard in base alla tua descrizione. Il profilo generato:
+
+- Utilizza i payload Apple MDM nativi.
+- Può essere rivisto e modificato prima della distribuzione.
+- Viene distribuito ai dispositivi allo stesso modo di qualsiasi altro controllo Primo.
+
+## Suggerimenti per risultati migliori
+
+- Sii specifico riguardo all'impostazione e al valore desiderato.
+- Se pertinente, menziona il contesto (ad esempio "per dispositivi condivisi" o "per il team di vendita").
+- Se il primo risultato non è esattamente corretto, affina la descrizione e rigenera.
+
+<Tip>
+Se disponi già di un file `.mobileconfig` che desideri distribuire, utilizza invece il controllo **File personalizzato**.
+</Tip>

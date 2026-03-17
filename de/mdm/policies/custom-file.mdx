@@ -1,0 +1,62 @@
+---
+title: "Benutzerdefinierte Datei"
+description: "Importieren Sie ein benutzerdefiniertes Konfigurationsprofil, um Einstellungen anzuwenden, die nicht von den integrierten Steuerelementen von Primo abgedeckt werden, mit Unterstützung für native Profilformate auf macOS, Windows und Android."
+---
+
+Wenn die integrierten Steuerelemente von Primo eine bestimmte von Ihnen benötigte Konfiguration nicht abdecken, können Sie direkt eine benutzerdefinierte Konfigurationsdatei hochladen. Die Datei wird über MDM auf die gleiche Weise wie jede andere Steuerung an Geräte übermittelt, sodass Sie die volle Flexibilität haben, alle unterstützten Einstellungen anzuwenden.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | ✅ |
+
+## Unterstützte Dateiformate
+
+Jede Plattform akzeptiert ihr natives Konfigurationsformat:
+
+| Plattform | Formatieren | Beschreibung |
+|----------|--------|-------------|
+| macOS | `.mobileconfig` | Apple-Konfigurationsprofil (XML-basiert) |
+| Windows | `.xml` | Benutzerdefinierte Windows MDM-Richtlinie (SyncML-Format) |
+| Android | `.json` | Android Von Unternehmen verwaltete Konfiguration |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte Ihres Zielbetriebssystems und wählen Sie **Benutzerdefinierte Datei**.
+3. Laden Sie Ihre Konfigurationsdatei hoch.
+4. Geben Sie dem Steuerelement einen aussagekräftigen Namen, damit es später leicht identifiziert werden kann.
+5. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+<Warning>
+Primo validiert den Inhalt benutzerdefinierter Dateien nicht. Stellen Sie vor der Bereitstellung sicher, dass Ihre Konfiguration korrekt ist – ein ungültiges oder widersprüchliches Profil kann zu unerwartetem Geräteverhalten führen.
+</Warning>
+
+## Auf macOS
+
+macOS-Konfigurationsprofile (`.mobileconfig`) sind signierte oder nicht signierte XML-Dateien. Primo liefert sie als MDM-Nutzlasten. Sie können Profile erstellen mit:
+- **Apple Configurator 2** (kostenlos, im Mac App Store)
+- Beliebiger Texteditor gemäß [Apples Konfigurationsprofil-Referenz](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys)
+
+Zu den häufigsten Anwendungsfällen gehören benutzerdefinierte Zertifikatnutzlasten, VPN-Profile und VPN-Konfigurationen pro App.
+
+## Auf Windows
+
+Benutzerdefinierte Windows-Dateien verwenden das SyncML-Format, das Windows MDM CSPs (Configuration Service Providers) zugeordnet ist. Auf diese Weise können Sie jede vom Windows MDM-Stack verfügbar gemachte Richtlinie konfigurieren, die nicht von den integrierten Kontrollen von Primo abgedeckt wird.
+
+## Auf Android
+
+Benutzerdefinierte Android-Dateien verwenden JSON, um verwaltete Konfigurationen an Android Enterprise-Geräte bereitzustellen. Dies wird normalerweise zum Konfigurieren von Unternehmensanwendungen verwendet, die die Konfiguration verwalteter Apps unterstützen.
+
+## Fehlerbehebung
+
+**Das Profil wurde bereitgestellt, aber die Einstellungen werden nicht angewendet**
+- Überprüfen Sie auf macOS, ob das Profil unter **Systemeinstellungen > Datenschutz und Sicherheit > Profile** aufgeführt ist.
+- Suchen Sie nach Konflikten mit anderen aktiven Steuerelementen, die auf dieselben Einstellungen abzielen.
+- Überprüfen Sie die MDM-Protokolle des Geräts auf Bereitstellungsfehler.
+
+**Der Datei-Upload schlägt fehl**
+- Bestätigen Sie, dass die Datei dem erwarteten Format für das ausgewählte Betriebssystem entspricht.
+- Stellen Sie sicher, dass die Datei nicht beschädigt oder leer ist.
+- macOS-Profile müssen gültiges XML verwenden – validieren Sie die Datei mit `plutil -lint profile.mobileconfig`.
