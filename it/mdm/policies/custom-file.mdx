@@ -1,0 +1,62 @@
+---
+title: "File personalizzato"
+description: "Importa un profilo di configurazione personalizzato per applicare le impostazioni non coperte dai controlli integrati di Primo, con supporto per formati di profilo nativi su macOS, Windows e Android."
+---
+
+Quando i controlli integrati di Primo non coprono una configurazione specifica di cui hai bisogno, puoi caricare direttamente un file di configurazione personalizzato. Il file viene inviato ai dispositivi tramite MDM allo stesso modo di qualsiasi altro controllo, offrendoti la massima flessibilità per applicare qualsiasi impostazione supportata.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | ✅ |
+
+## Formati di file supportati
+
+Ciascuna piattaforma accetta il proprio formato di configurazione nativo:
+
+| Piattaforma | Formato | Descrizione |
+|----------|--------|-------------|
+| macOS | `.mobileconfig` | Profilo di configurazione Apple (basato su XML) |
+| Windows | `.xml` | Windows MDM policy personalizzata (formato SyncML) |
+| Android | `.json` | Android Configurazione gestita aziendale |
+
+## Configura il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda del sistema operativo di destinazione e scegli **File personalizzato**.
+3. Carica il tuo file di configurazione.
+4. Assegnare al controllo un nome descrittivo in modo che sia facile identificarlo in seguito.
+5. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+<Warning>
+Primo non convalida il contenuto dei file personalizzati. Assicurati che la configurazione sia corretta prima della distribuzione: un profilo non valido o in conflitto potrebbe causare un comportamento imprevisto del dispositivo.
+</Warning>
+
+## Su macOS
+
+I profili di configurazione macOS (`.mobileconfig`) sono file XML firmati o non firmati. Primo li fornisce come carichi utili MDM. Puoi creare profili utilizzando:
+- **Apple Configurator 2** (gratuito, dal Mac App Store)
+- Qualsiasi editor di testo, seguendo il [riferimento del profilo di configurazione di Apple](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys)
+
+I casi d'uso comuni includono payload di certificati personalizzati, profili VPN e configurazioni VPN per app.
+
+## Su Windows
+
+I file personalizzati Windows utilizzano il formato SyncML, che viene mappato ai CSP Windows MDM (fornitori di servizi di configurazione). Ciò consente di configurare qualsiasi policy esposta dallo stack Windows MDM che non è coperta dai controlli integrati di Primo.
+
+## Su Android
+
+I file personalizzati Android utilizzano JSON per fornire configurazioni gestite ai dispositivi Android Enterprise. Viene in genere utilizzato per configurare le applicazioni aziendali che supportano la configurazione delle app gestite.
+
+## Risoluzione dei problemi
+
+**Il profilo è stato distribuito ma le impostazioni non sono applicate**
+- Su macOS, verifica che il profilo sia elencato in **Impostazioni di sistema > Privacy e sicurezza > Profili**.
+- Verifica la presenza di conflitti con altri controlli attivi destinati alle stesse impostazioni.
+- Esaminare i registri MDM del dispositivo per individuare eventuali errori di distribuzione.
+
+**Il caricamento del file non riesce**
+- Conferma che il file corrisponda al formato previsto per il sistema operativo selezionato.
+- Controlla che il file non sia danneggiato o vuoto.
+- I profili macOS devono utilizzare XML valido: convalidare il file con `plutil -lint profile.mobileconfig`.

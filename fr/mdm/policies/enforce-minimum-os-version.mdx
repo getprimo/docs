@@ -1,0 +1,57 @@
+---
+title: "Appliquer la version minimale du système d'exploitation"
+description: "Exigez que les appareils exécutent une version minimale du système d'exploitation pour garantir le maintien des correctifs de sécurité et de la compatibilité des applications dans l'ensemble de votre flotte."
+---
+
+Garder les appareils sur une version de système d’exploitation prise en charge est l’un des moyens les plus efficaces de se protéger contre les vulnérabilités connues. Ce contrôle vous permet de définir une version minimale requise pour les appareils macOS et Windows, et incite automatiquement les utilisateurs à mettre à jour si leur appareil tombe en dessous du seuil.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configurer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet de votre système d'exploitation cible et choisissez **Appliquer la version minimale du système d'exploitation**.
+3. Définissez la **version minimale requise** (par exemple, `14.4` pour macOS, `22H2` pour Windows 11).
+4. Configurez le **délai de grâce** : le nombre de jours dont les utilisateurs disposent pour mettre à jour avant qu'une application plus stricte ne s'applique.
+5. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+## Comment ça marche
+
+Primo vérifie la version actuelle du système d'exploitation de chaque appareil par rapport au minimum configuré. Si un appareil n'est pas conforme :
+
+1. L'utilisateur reçoit une notification l'invitant à effectuer la mise à jour.
+2. Pendant le délai de grâce, l'utilisateur peut différer la mise à jour.
+3. Une fois le délai de grâce expiré, la mise à jour pourra être appliquée au prochain redémarrage.
+
+Les appareils déjà conformes ne sont pas concernés.
+
+## Sur macOS
+
+- La vérification de la version minimale utilise la version de build macOS.
+- Primo fournit une commande de mise à jour logicielle via MDM. Si un système d'exploitation plus récent est disponible, macOS le téléchargera et l'installera.
+- Les utilisateurs peuvent afficher leur version actuelle de macOS dans **Paramètres système > Général > Mise à jour du logiciel**.
+
+## Sur Windows
+
+- La version minimale est vérifiée par rapport au numéro de build Windows (par exemple `22621` pour Windows 11 22H2).
+- Primo déclenche la mise à jour Windows via la stratégie MDM pour installer les mises à jour requises.
+- Les utilisateurs sont avertis via l'interface de mise à jour Windows.
+
+<Note>
+La livraison de la mise à jour Windows dépend des conditions du réseau et de la disponibilité du service de mise à jour Windows sur l'appareil. Le téléchargement et l'installation des mises à jour volumineuses peuvent prendre du temps.
+</Note>
+
+## Dépannage
+
+**Les appareils s'affichent comme non conformes après la mise à jour**
+- Attendez jusqu'à 15 minutes pour que l'appareil signale sa nouvelle version du système d'exploitation à Primo après une mise à jour.
+- Forcez un enregistrement MDM à partir du panneau de l'appareil si l'état n'est pas mis à jour.
+
+**Les utilisateurs ne voient pas les invites de mise à jour**
+- Confirmez que l'appareil est inscrit et que le contrôle est actif.
+- Sur macOS, vérifiez que la mise à jour logicielle n'est pas bloquée par une autre stratégie MDM.
+- Sur Windows, vérifiez que la mise à jour Windows n'est pas suspendue ou désactivée par une autre stratégie de groupe ou un autre paramètre MDM.

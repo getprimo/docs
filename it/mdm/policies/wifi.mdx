@@ -1,0 +1,63 @@
+---
+title: "Wi-Fi"
+description: "Invia le impostazioni della rete WiFi aziendale ai dispositivi Windows, Linux e Android in modo che i dipendenti si connettano automaticamente senza dover inserire manualmente le credenziali."
+---
+
+Configura automaticamente le impostazioni WiFi sui dispositivi gestiti in modo che i dipendenti si connettano alla rete aziendale senza alcuna configurazione manuale. Ciò è particolarmente utile durante il provisioning dei dispositivi, quando si assumono nuovi dipendenti o quando cambiano le credenziali di rete.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | ✅ |
+
+## Configura il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda del sistema operativo di destinazione e scegli **WiFi**.
+3. Inserisci i dettagli della rete:
+   - **SSID**: il nome della rete WiFi.
+   - **Tipo di sicurezza**: WPA2-Personal, WPA2-Enterprise, WPA3 o rete aperta.
+   - **Password** (per WPA2-Personal / WPA3-Personal): la password di rete.
+   - **Impostazioni Enterprise** (per WPA2-Enterprise): metodo di autenticazione, identità e certificato.
+4. Configura opzioni aggiuntive:
+   - **Accesso automatico**: connettiti automaticamente quando sei nel raggio d'azione.
+   - **Rete nascosta**: abilita se l'SSID non viene trasmesso.
+5. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+## Tipi di sicurezza
+
+| Tipo di sicurezza | Caso d'uso |
+|---------------|----------|
+| WPA2-Personale | Rete aziendale o domestica standard con password condivisa |
+| WPA3-Personale | Standard più recente con crittografia migliorata |
+| WPA2-Enterprise | Reti aziendali che utilizzano l'autenticazione RADIUS/802.1X |
+| Aperto | Reti non protette (non consigliate) |
+
+<Note>
+Per le reti WPA2-Enterprise, potrebbe essere necessario distribuire un certificato insieme al profilo WiFi. Utilizza un controllo **File personalizzato** per fornire la CA radice o il certificato client richiesto.
+</Note>
+
+## Su Windows
+
+Primo invia il profilo WiFi come payload MDM. Windows si connette automaticamente in base alla priorità configurata. La rete viene visualizzata nell'elenco WiFi ed è contrassegnata come gestita.
+
+## Su Linux
+
+Primo configura la rete tramite il gestore di rete del sistema. Il profilo viene applicato a livello di sistema e diventa effettivo alla successiva scansione della rete.
+
+## Su Android
+
+Primo invia il profilo WiFi come parte della configurazione gestita di Android Enterprise. Il dispositivo si connette automaticamente quando si trova nel raggio d'azione. Sui dispositivi con profilo di lavoro, la configurazione si applica sia al profilo di lavoro che a quello personale se consentito dalla policy Android Enterprise.
+
+## Risoluzione dei problemi
+
+**I dispositivi non si connettono automaticamente alla rete**
+- Conferma che l'SSID corrisponda esattamente, comprese le maiuscole.
+- Verifica che la password sia corretta: il profilo non può essere testato direttamente; qualsiasi errore di battitura richiede la ridistribuzione del controllo con la password corretta.
+- Su Windows, controlla che l'adattatore WiFi del dispositivo non sia disabilitato da un altro criterio MDM.
+
+**L'autenticazione aziendale non riesce**
+- Conferma che i dettagli del server RADIUS siano corretti.
+- Assicurarsi che il certificato richiesto sia installato sul dispositivo prima di applicare il profilo WiFi.
+- Verificare che l'account dell'utente disponga delle autorizzazioni richieste sul server RADIUS.

@@ -1,0 +1,50 @@
+---
+title: "Blocco dell'app"
+description: "Definire un elenco di applicazioni da bloccare o consentire esplicitamente sui dispositivi macOS, impedendo agli utenti di eseguire software non autorizzato."
+---
+
+Controlla quali applicazioni possono essere eseguite sui tuoi dispositivi macOS mantenendo una lista consentita o una lista bloccata. Il blocco delle app ti consente di limitare l'accesso a software specifici, come giochi, strumenti di condivisione file o applicazioni con rischi noti per la sicurezza, senza richiedere l'intervento manuale su ciascun dispositivo.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configura il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda **macOS** e scegli **Blocco app**.
+3. Scegli la modalità di applicazione:
+   - **Lista bloccata**: sono consentite tutte le applicazioni tranne quelle esplicitamente elencate.
+   - **Lista consentita**: solo le applicazioni elencate possono essere eseguite.
+4. Aggiungi applicazioni tramite il loro **identificatore del pacchetto** (ad esempio `com.spotify.client`) o il **nome dell'eseguibile**.
+5. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+<Tip>
+Per trovare l'identificatore del bundle di un'applicazione su macOS, esegui il comando seguente nel Terminale:
+
+`osascript -e 'id of app "AppName"'`
+</Tip>
+
+## Come funziona
+
+Una volta distribuito, macOS valuta le applicazioni in esecuzione rispetto alla policy. Le applicazioni bloccate vengono terminate e gli utenti visualizzano una notifica di sistema che spiega che l'applicazione non è consentita.
+
+La policy viene applicata continuamente: se un utente installa un'applicazione bloccata dopo l'applicazione del controllo, ne verrà impedita l'esecuzione la prossima volta che tenterà di aprirla.
+
+## Migliori pratiche
+
+- Preferisci una **lista bloccata** quando devi limitare solo alcune applicazioni specifiche.
+- Utilizza una **lista consentita** in ambienti ad alta sicurezza in cui è necessario un controllo rigoroso sul software consentito.
+- Combina il blocco delle app con la gestione del software per distribuire in modo proattivo le applicazioni approvate prima di abilitare una lista consentita.
+
+## Risoluzione dei problemi
+
+**Un'applicazione consentita è stata bloccata**
+- Ricontrolla l'identificatore del bundle per eventuali errori di battitura: gli identificatori fanno distinzione tra maiuscole e minuscole.
+- Confermare che il controllo abbia come target il gruppo di dispositivi corretto.
+- Ricontrolla la modalità di applicazione: se utilizzi una lista consentita, assicurati che l'applicazione sia elencata esplicitamente.
+
+**Un'applicazione bloccata è ancora in esecuzione**
+- La policy viene applicata al momento del lancio. Se l'applicazione era già aperta al momento della distribuzione del criterio, riavviare il dispositivo o chiedere all'utente di chiudere e riaprire l'applicazione.

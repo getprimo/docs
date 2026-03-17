@@ -1,0 +1,45 @@
+---
+title: "Generieren Sie Einstellungen per KI"
+description: "Verwenden Sie die KI-Engine von Primo, um in Sekundenschnelle maßgeschneiderte MDM-Konfigurationsprofile für Apple-Geräte zu erstellen, indem Sie die benötigten Einstellungen im Klartext beschreiben."
+---
+
+Anstatt Konfigurationsprofile manuell zu erstellen, beschreiben Sie, was Sie konfigurieren möchten, und lassen Sie die KI-Engine von Primo ein einsatzbereites Apple-Konfigurationsprofil generieren. Dies ist nützlich, um erweiterte oder weniger häufige Einstellungen schnell anzuwenden, ohne die genaue MDM-Nutzlaststruktur kennen zu müssen.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Wie man es benutzt
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte **macOS** und wählen Sie **Einstellungen über KI generieren**.
+3. Beschreiben Sie die gewünschte Konfiguration im Klartext. Zum Beispiel:
+   - *„Bluetooth auf allen Geräten deaktivieren“*
+   - *"Stellen Sie die DNS-Server auf 1.1.1.1 und 8.8.8.8 ein"*
+   - *„Automatische Bildschirmsperre nach 2 Minuten Inaktivität aktivieren“*
+4. Überprüfen Sie das generierte Profil – Primo zeigt Ihnen die resultierende Konfiguration vor der Bereitstellung.
+5. Passen Sie bei Bedarf alle Einstellungen an, speichern Sie dann die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+<Warning>
+Überprüfen Sie immer das generierte Profil, bevor Sie es bereitstellen. KI-generierte Konfigurationen erfordern möglicherweise Anpassungen je nach Ihrer spezifischen Umgebung. Testen Sie es auf einer kleinen Gerätegruppe, bevor Sie es auf breiter Front einführen.
+</Warning>
+
+## Was es erzeugt
+
+Die KI-Engine erstellt basierend auf Ihrer Beschreibung ein standardmäßiges Apple `.mobileconfig`-Profil. Das generierte Profil:
+
+- Verwendet native Apple MDM-Nutzlasten.
+- Kann vor der Bereitstellung überprüft und bearbeitet werden.
+- Wird auf die gleiche Weise wie jedes andere Primo-Steuerelement auf Geräten bereitgestellt.
+
+## Tipps für bessere Ergebnisse
+
+- Geben Sie die Einstellung und den gewünschten Wert genau an.
+- Erwähnen Sie gegebenenfalls den Kontext (z. B. „für gemeinsam genutzte Geräte“ oder „für das Vertriebsteam“).
+- Wenn das erste Ergebnis nicht genau stimmt, verfeinern Sie Ihre Beschreibung und erstellen Sie sie erneut.
+
+<Tip>
+Wenn Sie bereits über eine vorhandene `.mobileconfig`-Datei verfügen, die Sie bereitstellen möchten, verwenden Sie stattdessen das Steuerelement **Benutzerdefinierte Datei**.
+</Tip>

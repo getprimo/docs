@@ -1,0 +1,57 @@
+---
+title: "Aplicar la versión mínima del sistema operativo"
+description: "Exija que los dispositivos ejecuten una versión mínima del sistema operativo para garantizar que se mantengan los parches de seguridad y la compatibilidad de las aplicaciones en toda su flota."
+---
+
+Mantener los dispositivos con una versión del sistema operativo compatible es una de las formas más efectivas de protegerse contra vulnerabilidades conocidas. Este control le permite definir una versión mínima requerida para los dispositivos macOS y Windows, y automáticamente empuja a los usuarios a actualizar si su dispositivo cae por debajo del umbral.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña de su sistema operativo de destino y elija **Aplicar versión mínima del sistema operativo**.
+3. Configure la **versión mínima requerida** (por ejemplo, `14.4` para macOS, `22H2` para Windows 11).
+4. Configure el **período de gracia**: la cantidad de días que los usuarios tienen para actualizar antes de que se aplique una aplicación más estricta.
+5. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+## como funciona
+
+Primo compara la versión actual del sistema operativo de cada dispositivo con el mínimo configurado. Si un dispositivo no cumple:
+
+1. El usuario recibe una notificación solicitándole que actualice.
+2. Durante el período de gracia, el usuario puede diferir la actualización.
+3. Una vez que expire el período de gracia, es posible que la actualización se aplique en el próximo reinicio.
+
+Los dispositivos que ya son compatibles no se ven afectados.
+
+## En macOS
+
+- La verificación de versión mínima utiliza la versión de compilación macOS.
+- Primo entrega un comando de actualización de software a través de MDM. Si hay disponible un sistema operativo más nuevo, macOS lo descargará e instalará.
+- Los usuarios pueden ver su versión actual de macOS en **Configuración del sistema > General > Actualización de software**.
+
+## En Windows
+
+- La versión mínima se compara con el número de compilación Windows (por ejemplo, `22621` para Windows 11 22H2).
+- Primo activa la actualización Windows a través de la política MDM para instalar las actualizaciones necesarias.
+- Los usuarios reciben notificaciones a través de la interfaz de actualización Windows.
+
+<Note>
+La entrega de la actualización Windows depende de las condiciones de la red y de la disponibilidad del servicio de actualización Windows en el dispositivo. Las actualizaciones grandes pueden tardar en descargarse e instalarse.
+</Note>
+
+## Solución de problemas
+
+**Los dispositivos se muestran como no compatibles después de la actualización**
+- Espere hasta 15 minutos para que el dispositivo informe su nueva versión del sistema operativo a Primo después de una actualización.
+- Fuerce un registro de MDM desde el panel del dispositivo si el estado no se actualiza.
+
+**Los usuarios no ven mensajes de actualización**
+- Confirme que el dispositivo esté registrado y que el control esté activo.
+- En macOS, verifique que la Actualización de software no esté bloqueada por otra política de MDM.
+- En Windows, verifique que la actualización de Windows no esté pausada ni deshabilitada por otra política de grupo o configuración de MDM.

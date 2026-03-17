@@ -1,0 +1,61 @@
+---
+title: "Connexion Mac avec Entra"
+description: "Remplacez les connexions locales macOS par l'authentification unique Microsoft Entra ID (anciennement Azure AD) afin que les employés utilisent leurs informations d'identification d'entreprise pour déverrouiller leur Mac."
+---
+
+Permettez aux employés de se connecter à leur Mac à l’aide de leurs informations d’identification Microsoft Entra ID (anciennement Azure Active Directory) au lieu d’un mot de passe local distinct. Cela simplifie l'expérience de connexion, élimine la prolifération des mots de passe et vous permet de gérer l'accès à macOS directement depuis votre locataire Entra.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Conditions préalables
+
+- Un locataire actif Microsoft Entra ID (anciennement Azure AD).
+- Primo MDM déployé sur les appareils Mac cibles.
+- macOS 13 (Ventura) ou version ultérieure.
+
+## Connectez votre locataire Entra
+
+Avant de déployer le contrôle, connectez Primo à votre locataire Entra :
+
+1. Dans Primo, accédez à **Paramètres > MDM > Intégrations**.
+2. Sélectionnez **Microsoft Entra ID** et suivez le flux d'autorisation.
+3. Accordez les autorisations requises pour permettre à Primo de gérer les informations d'identification liées au périphérique.
+
+## Déployer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet **macOS** et choisissez **Connexion Mac avec Entra**.
+3. Activez le contrôle.
+4. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+Une fois déployés, les appareils macOS utiliseront Platform SSO pour lier l'écran de connexion à Entra ID. Les employés s'authentifient avec leurs informations d'identification Entra (e-mail et mot de passe, ou mot de passe si configuré) dans la fenêtre de connexion.
+
+## Comment ça marche
+
+Primo utilise l'authentification unique de la plateforme macOS (Platform SSO), introduite dans macOS 13, pour intégrer la fenêtre de connexion à Entra ID. Lorsqu'un utilisateur se connecte :
+
+1. macOS contacte Entra ID pour valider les informations d'identification.
+2. En cas de succès, la session locale de l'utilisateur est créée ou déverrouillée.
+3. Le jeton Entra ID est stocké en toute sécurité dans le trousseau macOS pour les connexions SSO ultérieures au navigateur et aux applications.
+
+La connexion hors ligne est prise en charge : si l'appareil ne peut pas atteindre Entra ID, macOS revient aux informations d'identification mises en cache localement.
+
+<Note>
+La première connexion après l'activation de ce contrôle nécessite une connexion Internet active pour établir la liaison Entra ID sur l'appareil.
+</Note>
+
+## Dépannage
+
+**Les utilisateurs ne peuvent pas se connecter une fois le contrôle déployé**
+- Assurez-vous que l'appareil dispose d'un accès Internet pour atteindre les points de terminaison Entra ID lors de la première connexion.
+- Vérifiez que le compte Entra de l'utilisateur est actif et non verrouillé.
+- Vérifiez que l'intégration Entra est correctement configurée dans **Paramètres > MDM > Intégrations**.
+
+**L'invite de connexion Entra n'apparaît pas dans la fenêtre de connexion**
+- Confirmez que le profil MDM a été livré avec succès (vérifiez le panneau de périphérique dans Primo).
+- Sur macOS, Platform SSO nécessite macOS 13 ou version ultérieure. Vérifiez la version du système d'exploitation de l'appareil.
+- Réinscrivez l'appareil si la livraison du profil affiche une erreur.

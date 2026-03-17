@@ -1,0 +1,53 @@
+---
+title: "Cortafuegos"
+description: "Habilite y configure el firewall integrado del sistema operativo en los dispositivos macOS y Windows para bloquear conexiones de red entrantes no autorizadas."
+---
+
+Habilite el firewall integrado del sistema operativo en sus dispositivos administrados para bloquear conexiones entrantes no autorizadas. Esto agrega una capa de protección a nivel de red, particularmente valiosa para las computadoras portátiles utilizadas en redes no confiables, como Wi-Fi público.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña de su sistema operativo de destino y elija **Firewall**.
+3. Habilite el firewall.
+4. Configure opciones adicionales según sea necesario (consulte las configuraciones específicas de la plataforma a continuación).
+5. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+## En macOS
+
+Primo habilita el firewall de aplicaciones macOS a través de MDM. Las opciones disponibles incluyen:
+
+- **Habilitar firewall**: activa el firewall de la aplicación macOS.
+- **Bloquear todas las conexiones entrantes**: permite solo las conexiones requeridas por los servicios básicos de Internet (como DHCP y Bonjour). Úselo con precaución ya que esto puede interrumpir el intercambio de archivos y el acceso remoto.
+- **Habilitar modo oculto**: evita que el dispositivo responda a solicitudes de sondeo como el ping ICMP, lo que dificulta el descubrimiento en una red.
+
+<Note>
+El firewall de aplicaciones macOS controla las conexiones entrantes a nivel de aplicación. No filtra las conexiones salientes.
+</Note>
+
+## En Windows
+
+Primo habilita el firewall Windows Defender a través de la política MDM. El firewall está habilitado para todos los perfiles de red:
+
+- **Red de dominio**: aplica cuando el dispositivo está unido a un dominio.
+- **Red privada**: aplica en redes confiables del hogar o del trabajo.
+- **Red pública**: aplica en redes públicas que no son de confianza.
+
+De forma predeterminada, Windows Defender Firewall bloquea conexiones entrantes no solicitadas en todos los perfiles y permite conexiones salientes.
+
+## Solución de problemas
+
+**Una aplicación requerida dejó de funcionar después de habilitar el firewall**
+- En macOS, abra **Configuración del sistema > Red > Firewall > Opciones** para agregar una excepción para la aplicación.
+- En Windows, abra **Windows Seguridad > Firewall y protección de red > Permitir que una aplicación atraviese el firewall** para agregar la aplicación.
+- Si es necesario administrar excepciones a través de MDM, use un control **Archivo personalizado** para implementar una regla de excepción de firewall.
+
+**El estado del firewall se muestra como deshabilitado en el dispositivo**
+- Confirme que el control MDM esté activo y asignado al grupo de dispositivos correcto.
+- En Windows, verifique que Windows Security Center no informe un conflicto con un producto de seguridad de terceros.

@@ -1,0 +1,54 @@
+---
+title: "Denominazione del dispositivo"
+description: "Utilizza l'intelligenza artificiale per generare e applicare automaticamente nomi di dispositivi coerenti e aggiornati nella tua flotta macOS, Windows e Linux in base agli attributi dei dipendenti e dei dispositivi."
+---
+
+Applica una convenzione di denominazione coerente a tutta la tua flotta senza rinominare manualmente ciascun dispositivo. Primo utilizza l'intelligenza artificiale per generare nomi di dispositivi in ​​base ad attributi quali il nome del dipendente assegnato, il dipartimento o il numero di serie del dispositivo e mantiene i nomi aggiornati automaticamente quando tali attributi cambiano.
+
+## Supporto del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | | |
+
+## Configura il controllo
+
+1. In Primo, vai su **MDM > Controlli > Aggiungi nuovo controllo**.
+2. Seleziona la scheda del sistema operativo di destinazione e scegli **Nominazione dispositivo**.
+3. Definisci il modello di denominazione utilizzando le variabili disponibili, ad esempio:
+   - `{firstName}-{lastName}-{serialNumber}`
+   - `{department}-{deviceType}-{serialNumber}`
+4. Visualizza l'anteprima dei nomi generati con dati di esempio.
+5. Salvare e applicare il controllo al gruppo di dispositivi rilevante.
+
+<Tip>
+Mantieni i nomi sotto i 15 caratteri se hai bisogno di compatibilità con sistemi di rete meno recenti che impongono limiti di lunghezza dei nomi NetBIOS: questo è particolarmente rilevante per i dispositivi Windows.
+</Tip>
+
+## Variabili disponibili
+
+| Variabile | Descrizione |
+|----------|-------------|
+| `{firstName}` | Employee's first name |
+| `{lastName}` | Employee's last name |
+| `{email}` | Employee's email address |
+| `{department}` | Employee's department |
+| `{serialNumber}` | Device serial number |
+| `{deviceType}` | Device type (e.g. MacBook, Surface) |
+
+## Come funziona
+
+Quando un dispositivo viene registrato o il dipendente assegnato cambia, Primo valuta il modello di denominazione e invia il nuovo nome host al dispositivo tramite MDM. Il nome del dispositivo viene aggiornato silenziosamente in background: non è richiesta alcuna interazione da parte dell'utente o riavvio.
+
+I nomi vengono rivalutati automaticamente ogni volta che cambiano gli attributi sottostanti, garantendo che il tuo inventario rifletta sempre lo stato corrente.
+
+## Risoluzione dei problemi
+
+**Il nome del dispositivo non è stato aggiornato dopo un cambio di dipendente**
+- Attendere alcuni minuti affinché il comando MDM raggiunga il dispositivo.
+- Conferma che il dispositivo è online e registrato.
+- Verificare che l'assegnazione del dipendente sia impostata correttamente nel pannello del dispositivo.
+
+**Il nome contiene caratteri non previsti**
+- Alcuni caratteri (spazi, accenti, simboli speciali) non sono validi nei nomi host e vengono rimossi o sostituiti automaticamente.
+- Esaminare l'anteprima generata prima di salvare il controllo per rilevare eventuali output imprevisti.

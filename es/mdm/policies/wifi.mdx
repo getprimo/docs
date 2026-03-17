@@ -1,0 +1,63 @@
+---
+title: "Wi-Fi"
+description: "Inserte la configuración de la red WiFi corporativa en los dispositivos Windows, Linux y Android para que los empleados se conecten automáticamente sin necesidad de ingresar las credenciales manualmente."
+---
+
+Configure automáticamente los ajustes de WiFi en dispositivos administrados para que los empleados se conecten a su red corporativa sin ninguna configuración manual. Esto es especialmente útil durante el aprovisionamiento de dispositivos, al incorporar nuevos empleados o cuando cambian las credenciales de su red.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | ✅ |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña de su sistema operativo de destino y elija **WiFi**.
+3. Complete los detalles de la red:
+   - **SSID**: el nombre de la red WiFi.
+   - **Tipo de seguridad**: WPA2-Personal, WPA2-Enterprise, WPA3 o red abierta.
+   - **Contraseña** (para WPA2-Personal / WPA3-Personal): la contraseña de la red.
+   - **Configuración empresarial** (para WPA2-Enterprise): método de autenticación, identidad y certificado.
+4. Configurar opciones adicionales:
+   - **Unirse automáticamente**: conectarse automáticamente cuando esté dentro del alcance.
+   - **Red oculta**: habilítela si el SSID no se transmite.
+5. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+## Tipos de seguridad
+
+| Tipo de seguridad | Caso de uso |
+|---------------|----------|
+| WPA2-Personal | Red estándar de oficina o hogar con contraseña compartida |
+| WPA3-Personal | Estándar más nuevo con cifrado mejorado |
+| WPA2-Empresarial | Redes corporativas que utilizan autenticación RADIUS/802.1X |
+| Abierto | Redes no seguras (no recomendadas) |
+
+<Note>
+Para redes WPA2-Enterprise, es posible que deba implementar un certificado junto con el perfil WiFi. Utilice un control **Archivo personalizado** para entregar la CA raíz requerida o el certificado de cliente.
+</Note>
+
+## En Windows
+
+Primo incluye el perfil WiFi como carga útil de MDM. Windows se conecta automáticamente según la prioridad configurada. La red aparece en la lista de WiFi y está marcada como administrada.
+
+## En Linux
+
+Primo configura la red a través del administrador de red del sistema. El perfil se aplica en todo el sistema y entra en vigor en el siguiente análisis de red.
+
+## En Android
+
+Primo incluye el perfil WiFi como parte de la configuración administrada por Android Enterprise. El dispositivo se conecta automáticamente cuando está dentro del alcance. En los dispositivos con perfil de trabajo, la configuración se aplica tanto al perfil de trabajo como al personal si lo permite la política empresarial Android.
+
+## Solución de problemas
+
+**Los dispositivos no se conectan a la red automáticamente**
+- Confirme que el SSID coincida exactamente, incluidas las mayúsculas.
+- Verifique que la contraseña sea correcta; el perfil no se puede probar directamente; cualquier error tipográfico requiere volver a implementar el control con la contraseña corregida.
+- En Windows, verifique que el adaptador WiFi del dispositivo no esté deshabilitado por otra política de MDM.
+
+**La autenticación empresarial está fallando**
+- Confirme que los detalles del servidor RADIUS sean correctos.
+- Asegúrese de que el certificado requerido esté instalado en el dispositivo antes de aplicar el perfil WiFi.
+- Verifique que la cuenta del usuario tenga los permisos requeridos en el servidor RADIUS.

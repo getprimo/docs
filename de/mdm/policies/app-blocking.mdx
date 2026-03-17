@@ -1,0 +1,50 @@
+---
+title: "App-Blockierung"
+description: "Definieren Sie eine Liste von Anwendungen, die auf macOS-Geräten blockiert oder explizit zugelassen werden sollen, um zu verhindern, dass Benutzer nicht autorisierte Software ausführen."
+---
+
+Steuern Sie, welche Anwendungen auf Ihren macOS-Geräten ausgeführt werden können, indem Sie eine Zulassungsliste oder Sperrliste verwalten. Mit der App-Blockierung können Sie den Zugriff auf bestimmte Software – wie Spiele, Filesharing-Tools oder Anwendungen mit bekannten Sicherheitsrisiken – einschränken, ohne dass ein manueller Eingriff auf jedem Gerät erforderlich ist.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte **macOS** und wählen Sie **App-Blockierung**.
+3. Wählen Sie Ihren Durchsetzungsmodus:
+   - **Blocklist**: Alle Anwendungen sind zulässig, außer den explizit aufgeführten.
+   - **Zulassungsliste**: Nur die von Ihnen aufgelisteten Anwendungen dürfen ausgeführt werden.
+4. Fügen Sie Anwendungen anhand ihrer **Bundle-ID** (z. B. `com.spotify.client`) oder **Name der ausführbaren Datei** hinzu.
+5. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+<Tip>
+Um die Bundle-ID einer Anwendung auf macOS zu finden, führen Sie den folgenden Befehl im Terminal aus:
+
+`osascript -e 'id of app "AppName"'`
+</Tip>
+
+## Wie es funktioniert
+
+Nach der Bereitstellung bewertet macOS laufende Anwendungen anhand der Richtlinie. Blockierte Anwendungen werden beendet und Benutzern wird eine Systembenachrichtigung mit der Erklärung angezeigt, dass die Anwendung nicht zulässig ist.
+
+Die Richtlinie wird kontinuierlich durchgesetzt – wenn ein Benutzer eine blockierte Anwendung installiert, nachdem die Kontrolle angewendet wurde, wird die Ausführung beim nächsten Versuch, sie zu öffnen, verhindert.
+
+## Best Practices
+
+- Bevorzugen Sie eine **Blocklist**, wenn Sie nur einige bestimmte Anwendungen einschränken müssen.
+- Verwenden Sie eine **Zulassungsliste** in Hochsicherheitsumgebungen, in denen Sie eine strenge Kontrolle über zugelassene Software benötigen.
+- Kombinieren Sie App-Blockierung mit Software-Management, um genehmigte Anwendungen proaktiv bereitzustellen, bevor Sie eine Zulassungsliste aktivieren.
+
+## Fehlerbehebung
+
+**Eine zugelassene Anwendung wird blockiert**
+- Überprüfen Sie die Bundle-ID noch einmal auf Tippfehler – bei IDs muss die Groß-/Kleinschreibung beachtet werden.
+- Bestätigen Sie, dass die Steuerung auf die richtige Gerätegruppe abzielt.
+- Überprüfen Sie den Durchsetzungsmodus erneut: Stellen Sie bei Verwendung einer Zulassungsliste sicher, dass die Anwendung explizit aufgeführt ist.
+
+**Eine blockierte Anwendung wird noch ausgeführt**
+- Die Richtlinie wird zum Startzeitpunkt angewendet. Wenn die Anwendung zum Zeitpunkt der Bereitstellung der Richtlinie bereits geöffnet war, starten Sie das Gerät neu oder bitten Sie den Benutzer, die Anwendung zu beenden und erneut zu öffnen.

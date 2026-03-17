@@ -1,0 +1,52 @@
+---
+title: "Bloqueo de almacenamiento USB"
+description: "Evite que las llaves USB, las tarjetas SD y otros dispositivos de almacenamiento extraíbles se conecten a los dispositivos Windows y Linux para protegerlos contra la filtración de datos y el malware."
+---
+
+Bloquee dispositivos de almacenamiento extraíbles, incluidas unidades flash USB, tarjetas SD y discos duros externos, para que no se monten en dispositivos administrados. Esto reduce el riesgo de filtración de datos y evita que se introduzca malware a través de medios físicos.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña de su sistema operativo de destino y elija **Bloqueo de almacenamiento USB**.
+3. Habilite el control.
+4. Opcionalmente, configure excepciones para dispositivos confiables específicos (ver más abajo).
+5. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+## Excepciones
+
+Si es necesario seguir accesibles dispositivos de almacenamiento USB específicos (por ejemplo, una clave de seguridad de hardware utilizada para la autenticación), puede agregar excepciones basadas en:
+
+- **Vendor ID (VID)**: el identificador del fabricante.
+- **ID de producto (PID)**: el identificador del modelo de dispositivo específico.
+
+<Tip>
+El bloqueo de almacenamiento USB se dirige a dispositivos de almacenamiento masivo (unidades, tarjetas SD, etc.). De forma predeterminada, no bloquea otros tipos de dispositivos USB, como teclados, ratones o llaves de seguridad de hardware.
+</Tip>
+
+## En Windows
+
+Primo implementa una política Windows MDM que bloquea la instalación y el uso de dispositivos de almacenamiento extraíbles. El bloqueo se aplica a nivel de clase de dispositivo, lo que impide que el sistema operativo monte cualquier dispositivo clasificado como almacenamiento extraíble.
+
+Los dispositivos bloqueados son visibles en el Administrador de dispositivos como bloqueados y los usuarios ven una notificación que indica que el dispositivo no se puede utilizar.
+
+## En Linux
+
+Primo aplica una configuración que evita que el sistema operativo monte automáticamente dispositivos de almacenamiento extraíbles. La política se aplica en todo el sistema y se aplica independientemente del usuario que haya iniciado sesión.
+
+## Solución de problemas
+
+**Aún se puede acceder a un dispositivo USB después de aplicar el control**
+- Es posible que el dispositivo se haya conectado antes de que se aplicara la política. Desconecte y vuelva a conectar el dispositivo para activar la aplicación de la ley.
+- Confirme que el control esté activo y dirigido al grupo de dispositivos correcto.
+- Algunos dispositivos USB que se presentan como una clase de dispositivo específica (por ejemplo, un teléfono en modo PTP) pueden no clasificarse como almacenamiento extraíble y, por lo tanto, no están bloqueados.
+
+**Se está bloqueando un dispositivo de almacenamiento USB requerido**
+- Agregue una excepción utilizando el ID de proveedor y el ID de producto del dispositivo.
+- Para encontrar estos valores en Windows, abra **Administrador de dispositivos**, ubique el dispositivo y verifique sus ID de hardware en **Propiedades > Detalles**.

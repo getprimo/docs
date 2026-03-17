@@ -1,0 +1,63 @@
+---
+title: "WLAN"
+description: "Übertragen Sie die WLAN-Netzwerkeinstellungen des Unternehmens auf Windows-, Linux- und Android-Geräte, damit sich Mitarbeiter automatisch verbinden, ohne ihre Anmeldeinformationen manuell eingeben zu müssen."
+---
+
+Konfigurieren Sie die WLAN-Einstellungen auf verwalteten Geräten automatisch, sodass Mitarbeiter ohne manuelle Einrichtung eine Verbindung zu Ihrem Unternehmensnetzwerk herstellen können. Dies ist besonders nützlich bei der Gerätebereitstellung, beim Onboarding neuer Mitarbeiter oder wenn sich Ihre Netzwerkanmeldeinformationen ändern.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| | ✅ | ✅ | | ✅ |
+
+## Konfigurieren Sie die Steuerung
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte Ihres Zielbetriebssystems und wählen Sie **WiFi**.
+3. Geben Sie die Netzwerkdetails ein:
+   - **SSID**: der Name des WLAN-Netzwerks.
+   - **Sicherheitstyp**: WPA2-Personal, WPA2-Enterprise, WPA3 oder offenes Netzwerk.
+   - **Passwort** (für WPA2-Personal / WPA3-Personal): das Netzwerkpasswort.
+   - **Unternehmenseinstellungen** (für WPA2-Enterprise): Authentifizierungsmethode, Identität und Zertifikat.
+4. Konfigurieren Sie zusätzliche Optionen:
+   - **Auto-Join**: Automatische Verbindung, wenn in Reichweite.
+   - **Verstecktes Netzwerk**: Aktivieren Sie diese Option, wenn die SSID nicht gesendet wird.
+5. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+## Sicherheitstypen
+
+| Sicherheitstyp | Anwendungsfall |
+|---------------|----------|
+| WPA2-Personal | Standard-Büro- oder Heimnetzwerk mit gemeinsamem Passwort |
+| WPA3-Personal | Neuerer Standard mit verbesserter Verschlüsselung |
+| WPA2-Enterprise | Unternehmensnetzwerke mit RADIUS/802.1X-Authentifizierung |
+| Offen | Ungesicherte Netzwerke (nicht empfohlen) |
+
+<Note>
+Für WPA2-Enterprise-Netzwerke müssen Sie möglicherweise neben dem WLAN-Profil ein Zertifikat bereitstellen. Verwenden Sie ein Steuerelement **Benutzerdefinierte Datei**, um die erforderliche Stammzertifizierungsstelle oder das Client-Zertifikat bereitzustellen.
+</Note>
+
+## Auf Windows
+
+Primo überträgt das WLAN-Profil als MDM-Nutzlast. Windows verbindet sich automatisch basierend auf der konfigurierten Priorität. Das Netzwerk erscheint in der WLAN-Liste und ist als verwaltet markiert.
+
+## Auf Linux
+
+Primo konfiguriert das Netzwerk über den Netzwerkmanager des Systems. Das Profil wird systemweit angewendet und tritt beim nächsten Netzwerkscan in Kraft.
+
+## Auf Android
+
+Primo überträgt das WLAN-Profil als Teil der von Android Enterprise verwalteten Konfiguration. Das Gerät verbindet sich automatisch, wenn es in Reichweite ist. Auf Arbeitsprofilgeräten gilt die Konfiguration sowohl für das Arbeitsprofil als auch für das persönliche Profil, sofern die Android Enterprise-Richtlinie dies zulässt.
+
+## Fehlerbehebung
+
+**Geräte verbinden sich nicht automatisch mit dem Netzwerk**
+- Bestätigen Sie, dass die SSID genau übereinstimmt, einschließlich der Groß- und Kleinschreibung.
+- Überprüfen Sie, ob das Passwort korrekt ist. Das Profil kann nicht direkt getestet werden. Jeder Tippfehler erfordert eine erneute Bereitstellung des Steuerelements mit dem korrigierten Kennwort.
+- Überprüfen Sie auf Windows, ob der WLAN-Adapter des Geräts nicht durch eine andere MDM-Richtlinie deaktiviert ist.
+
+**Die Unternehmensauthentifizierung schlägt fehl**
+- Bestätigen Sie, dass die RADIUS-Serverdetails korrekt sind.
+- Stellen Sie sicher, dass das erforderliche Zertifikat auf dem Gerät installiert ist, bevor das WLAN-Profil angewendet wird.
+- Überprüfen Sie, ob das Benutzerkonto über die erforderlichen Berechtigungen auf dem RADIUS-Server verfügt.

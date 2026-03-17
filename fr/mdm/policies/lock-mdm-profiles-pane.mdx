@@ -1,0 +1,41 @@
+---
+title: "Verrouiller le volet des profils MDM"
+description: "Empêchez les utilisateurs d'afficher ou de supprimer les profils MDM de la section Profils dans les paramètres système macOS."
+---
+
+Bloquez l'accès à la section **Profils** dans les paramètres système macOS pour empêcher les utilisateurs d'afficher, de modifier ou de supprimer les profils MDM installés sur leur appareil. Cela garantit que vos contrôles de gestion restent en place même si un utilisateur tente de les supprimer.
+
+## Prise en charge du système d'exploitation
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Configurer le contrôle
+
+1. Dans Primo, accédez à **MDM > Contrôles > Ajouter un nouveau contrôle**.
+2. Sélectionnez l'onglet **macOS** et choisissez **Verrouiller le volet des profils MDM**.
+3. Activez le contrôle.
+4. Enregistrez et appliquez le contrôle au groupe de périphériques concerné.
+
+Aucune configuration supplémentaire n'est requise. Une fois actif, le volet de préférences Profils est masqué aux utilisateurs.
+
+## Comment ça marche
+
+Primo applique une restriction MDM qui supprime l'entrée **Profils** des paramètres système (anciennement Préférences système sur macOS 12 et versions antérieures). Les utilisateurs ne peuvent plus accéder à cette section, afficher les profils installés ou tenter de les supprimer.
+
+<Note>
+Ce contrôle restreint uniquement l’interface utilisateur. Les administrateurs informatiques peuvent toujours afficher et gérer les profils à partir du tableau de bord de Primo et du panneau des appareils.
+</Note>
+
+## Recommandations
+
+- Activez ce contrôle sur tous les appareils gérés des employés comme mesure de sécurité de base.
+- Combinez-le avec d'autres contrôles tels que le **Chiffrement de disque** et le **Pare-feu** pour créer une posture complète de sécurité des appareils.
+
+## Dépannage
+
+**Le volet Profils est toujours visible après l'application du contrôle**
+- Attendez quelques minutes pour que la commande MDM soit transmise et traitée.
+- Sur macOS 13 et versions ultérieures, la section Profils se trouve sous **Paramètres système > Confidentialité et sécurité > Profils**. Confirmez que ce chemin est ce qui est caché.
+- Si le volet reste accessible, vérifiez que le contrôle est actif et que l'appareil est inscrit dans MDM.

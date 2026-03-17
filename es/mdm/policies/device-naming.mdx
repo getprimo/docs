@@ -1,0 +1,54 @@
+---
+title: "Nomenclatura de dispositivos"
+description: "Utilice IA para generar y aplicar automáticamente nombres de dispositivos coherentes y actualizados en toda su flota macOS, Windows y Linux en función de los atributos de los empleados y los dispositivos."
+---
+
+Aplique una convención de nomenclatura coherente en toda su flota sin cambiar manualmente el nombre de cada dispositivo. Primo utiliza IA para generar nombres de dispositivos basados ​​en atributos como el nombre del empleado asignado, el departamento o el número de serie del dispositivo, y mantiene los nombres actualizados automáticamente cuando esos atributos cambian.
+
+## soporte del sistema operativo
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | ✅ | | |
+
+## Configurar el control
+
+1. En Primo, vaya a **MDM > Controles > Agregar nuevo control**.
+2. Seleccione la pestaña de su sistema operativo de destino y elija **Nombre del dispositivo**.
+3. Defina su plantilla de nomenclatura utilizando las variables disponibles, por ejemplo:
+   - `{firstName}-{lastName}-{serialNumber}`
+   - `{department}-{deviceType}-{serialNumber}`
+4. Obtenga una vista previa de los nombres generados con datos de muestra.
+5. Guarde y aplique el control al grupo de dispositivos correspondiente.
+
+<Tip>
+Mantenga los nombres con menos de 15 caracteres si necesita compatibilidad con sistemas de red más antiguos que imponen límites de longitud de nombres NetBIOS; esto es especialmente relevante para los dispositivos Windows.
+</Tip>
+
+## Variables disponibles
+
+| variable | Descripción |
+|----------|-------------|
+| `{firstName}` | Employee's first name |
+| `{lastName}` | Employee's last name |
+| `{email}` | Employee's email address |
+| `{department}` | Employee's department |
+| `{serialNumber}` | Device serial number |
+| `{deviceType}` | Device type (e.g. MacBook, Surface) |
+
+## como funciona
+
+Cuando se inscribe un dispositivo o el empleado asignado cambia, Primo evalúa la plantilla de nomenclatura y envía el nuevo nombre de host al dispositivo a través de MDM. El nombre del dispositivo se actualiza silenciosamente en segundo plano; no es necesario que el usuario interactúe ni reinicie.
+
+Los nombres se reevalúan automáticamente cada vez que cambian los atributos subyacentes, lo que garantiza que su inventario siempre refleje el estado actual.
+
+## Solución de problemas
+
+**El nombre del dispositivo no se actualizó después de un cambio de empleado**
+- Espere unos minutos para que el comando MDM llegue al dispositivo.
+- Confirme que el dispositivo esté en línea y registrado.
+- Verifique que la asignación del empleado esté configurada correctamente en el panel del dispositivo.
+
+**El nombre contiene caracteres inesperados**
+- Algunos caracteres (espacios, acentos, símbolos especiales) no son válidos en los nombres de host y se eliminan o reemplazan automáticamente.
+- Revise la vista previa generada antes de guardar el control para detectar cualquier resultado inesperado.

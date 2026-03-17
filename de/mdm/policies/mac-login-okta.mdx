@@ -1,0 +1,65 @@
+---
+title: "Mac-Anmeldung mit Okta"
+description: "Ersetzen Sie lokale macOS-Anmeldungen durch Okta Single Sign-On, damit Mitarbeiter ihre geschäftlichen Okta-Anmeldeinformationen verwenden, um ihren Mac zu entsperren."
+---
+
+Ermöglichen Sie es Mitarbeitern, sich mit ihren Okta-Anmeldeinformationen an ihrem Mac anzumelden, anstatt mit einem separaten lokalen Passwort. Dadurch wird das Identitätsmanagement in Okta zentralisiert, die Anmeldung der Mitarbeiter vereinfacht und der IT-Abteilung vollständige Transparenz und Kontrolle über den Mac-Zugriff über Ihren vorhandenen Identitätsanbieter gewährt.
+
+## Betriebssystemunterstützung
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Voraussetzungen
+
+- Eine aktive Okta-Organisation (Okta Workforce Identity Cloud).
+- Primo MDM wird auf den Ziel-Mac-Geräten bereitgestellt.
+- macOS 13 (Ventura) oder höher.
+
+## Verbinden Sie Ihre Okta-Organisation
+
+Bevor Sie die Steuerung bereitstellen, verbinden Sie Primo mit Ihrer Okta-Organisation:
+
+1. Gehen Sie in Primo zu **Einstellungen > MDM > Integrationen**.
+2. Wählen Sie **Okta** und folgen Sie dem Autorisierungsablauf.
+3. Erteilen Sie die erforderlichen Berechtigungen, damit Primo gerätegebundene Anmeldeinformationen verwalten kann.
+
+<Tip>
+Wenn Sie Okta bereits für SCIM oder SAML innerhalb von Primo verwenden, können Sie möglicherweise die vorhandene Verbindung wiederverwenden. Überprüfen Sie Ihre aktuellen Integrationseinstellungen, bevor Sie eine neue erstellen.
+</Tip>
+
+## Stellen Sie das Steuerelement bereit
+
+1. Gehen Sie in Primo zu **MDM > Steuerelemente > Neues Steuerelement hinzufügen**.
+2. Wählen Sie die Registerkarte **macOS** und wählen Sie **Mac-Anmeldung mit Okta**.
+3. Aktivieren Sie die Steuerung.
+4. Speichern Sie die Steuerung und wenden Sie sie auf die entsprechende Gerätegruppe an.
+
+Nach der Bereitstellung verwenden macOS-Geräte Plattform-SSO, um den Anmeldebildschirm an Okta zu binden. Mitarbeiter authentifizieren sich im Anmeldefenster mit ihren Okta-Zugangsdaten.
+
+## Wie es funktioniert
+
+Primo verwendet macOS Platform Single Sign-On (Platform SSO), eingeführt in macOS 13, um das Anmeldefenster in Okta zu integrieren. Wenn sich ein Benutzer anmeldet:
+
+1. macOS kontaktiert Okta, um die Anmeldeinformationen zu validieren.
+2. Bei Erfolg wird die lokale Sitzung des Benutzers erstellt oder entsperrt.
+3. Das Okta-Token wird sicher im macOS-Schlüsselbund für spätere SSO-Anmeldungen bei Browser- und App-Anmeldungen gespeichert.
+
+Offline-Anmeldung wird unterstützt – wenn das Gerät Okta nicht erreichen kann, greift macOS auf die lokal zwischengespeicherten Anmeldeinformationen zurück.
+
+<Note>
+Für die erste Anmeldung nach der Aktivierung dieser Steuerung ist eine aktive Internetverbindung erforderlich, um die Okta-Bindung auf dem Gerät einzurichten.
+</Note>
+
+## Fehlerbehebung
+
+**Benutzer können sich nach der Bereitstellung des Steuerelements nicht mehr anmelden**
+- Stellen Sie sicher, dass das Gerät bei der ersten Anmeldung über einen Internetzugang verfügt, um Okta zu erreichen.
+- Stellen Sie sicher, dass das Okta-Konto des Benutzers aktiv und nicht gesperrt ist und keiner MFA-Richtlinie unterliegt, die die Geräteanmeldung blockiert.
+- Überprüfen Sie, ob die Okta-Integration unter **Einstellungen > MDM > Integrationen** korrekt konfiguriert ist.
+
+**Die Okta-Anmeldeaufforderung erscheint nicht im Anmeldefenster**
+- Bestätigen Sie, dass das MDM-Profil erfolgreich übermittelt wurde (überprüfen Sie das Gerätefenster in Primo).
+- Auf macOS erfordert Plattform-SSO macOS 13 oder höher. Überprüfen Sie die Betriebssystemversion des Geräts.
+- Registrieren Sie das Gerät erneut, wenn bei der Profilübermittlung ein Fehler auftritt.
