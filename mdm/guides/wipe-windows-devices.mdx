@@ -5,7 +5,7 @@ description: "Understand how standard wipe and hard wipe work on Windows, what h
 
 Remote wipe lets you erase all data from a Windows device managed through Primo. This is critical when a device is lost, stolen, or being reassigned to another employee.
 
-Primo offers two wipe modes for Windows: **Standard wipe** and **Hard wipe**. Each maps to a different Microsoft MDM command and has different behavior.
+Primo offers two wipe modes for Windows: **Standard wipe** and **Hard wipe**. Each maps to a different Microsoft mobile device management (MDM) command and has different behavior.
 
 ## OS support
 
@@ -20,7 +20,7 @@ Primo offers two wipe modes for Windows: **Standard wipe** and **Hard wipe**. Ea
 | **Microsoft command** | [`doWipe`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipe) | [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) |
 | **What it does** | Performs a factory reset equivalent to **Reset this PC** > **Remove everything** | Fully cleans the internal drive and keeps retrying until the reset completes |
 | **Can be interrupted** | Yes — power-cycling the device can stop the process | No — the wipe resumes automatically after any interruption |
-| **If interrupted** | The device attempts to roll back to its pre-reset state. If roll-back fails the device may be left in an unusable state | The wipe retries on next boot until complete |
+| **If interrupted** | The device attempts to roll back to its pre-reset state. If roll-back fails, the device may be left in an unusable state | The wipe retries on next boot until complete |
 | **Risk of unbootable device** | Low — roll-back is attempted on failure | Higher — [Microsoft states](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) this command may leave the device unable to boot in some configurations |
 | **Best for** | Device reassignment, routine refresh | Lost or stolen devices, confirmed security incidents |
 
