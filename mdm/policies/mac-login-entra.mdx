@@ -1,0 +1,61 @@
+---
+title: "Mac login with Entra"
+description: "Replace local macOS logins with Microsoft Entra ID (formerly Azure AD) single sign-on so employees use their corporate credentials to unlock their Mac."
+---
+
+Let employees sign in to their Mac using their Microsoft Entra ID (formerly Azure Active Directory) credentials instead of a separate local password. This simplifies the login experience, eliminates password sprawl, and lets you manage macOS access directly from your Entra tenant.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | | | | |
+
+## Prerequisites
+
+- An active Microsoft Entra ID (formerly Azure AD) tenant.
+- Primo MDM deployed on the target Mac devices.
+- macOS 13 (Ventura) or later.
+
+## Connect your Entra tenant
+
+Before deploying the control, connect Primo to your Entra tenant:
+
+1. In Primo, go to **Settings > MDM > Integrations**.
+2. Select **Microsoft Entra ID** and follow the authorization flow.
+3. Grant the required permissions to allow Primo to manage device-bound credentials.
+
+## Deploy the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select the **macOS** tab and choose **Mac login with Entra**.
+3. Enable the control.
+4. Save and apply the control to the relevant device group.
+
+Once deployed, macOS devices will use Platform SSO to bind the login screen to Entra ID. Employees authenticate with their Entra credentials (email and password, or passkey if configured) at the login window.
+
+## How it works
+
+Primo uses macOS Platform Single Sign-On (Platform SSO), introduced in macOS 13, to integrate the login window with Entra ID. When a user logs in:
+
+1. macOS contacts Entra ID to validate the credentials.
+2. On success, the user's local session is created or unlocked.
+3. The Entra ID token is stored securely in the macOS Keychain for subsequent SSO to browser and app sign-ins.
+
+Offline login is supported — if the device cannot reach Entra ID, macOS falls back to the locally cached credentials.
+
+<Note>
+The first login after enabling this control requires an active internet connection to establish the Entra ID binding on the device.
+</Note>
+
+## Troubleshooting
+
+**Users cannot log in after the control is deployed**
+- Ensure the device has internet access to reach Entra ID endpoints during the first login.
+- Verify the user's Entra account is active and not locked.
+- Check that the Entra integration is correctly configured in **Settings > MDM > Integrations**.
+
+**The Entra login prompt does not appear at the login window**
+- Confirm the MDM profile was successfully delivered (check the device panel in Primo).
+- On macOS, Platform SSO requires macOS 13 or later. Verify the device OS version.
+- Re-enroll the device if the profile delivery shows an error.

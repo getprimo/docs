@@ -1,0 +1,59 @@
+---
+title: "Google Chrome"
+description: "Deploy managed Google Chrome settings, enforce extensions, and set a default homepage across macOS and Windows devices."
+---
+
+Manage Google Chrome across your fleet by pushing browser settings, enforcing required extensions, and configuring a default homepage — all without user intervention. This control uses Chrome's native managed configuration support to apply enterprise policies directly to the browser.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select your target OS tab and choose **Google Chrome**.
+3. Configure the options you want to enforce:
+   - **Homepage**: set the default homepage URL.
+   - **Extensions**: add extension IDs to install automatically or block specific extensions.
+   - **Additional policies**: configure other Chrome enterprise policies as needed.
+4. Save and apply the control to the relevant device group.
+
+## Available settings
+
+### Homepage
+
+Set a mandatory homepage that users cannot change. Enter the full URL (e.g. `https://intranet.yourcompany.com`).
+
+### Extensions
+
+| Option | Description |
+|--------|-------------|
+| Force-install extensions | Extensions are silently installed and cannot be removed by users |
+| Allow extensions | Extensions are permitted but not required |
+| Block extensions | Specific extensions are prevented from being installed |
+
+To specify an extension, use its Chrome Web Store ID (a 32-character string found in the extension's URL).
+
+### Additional policies
+
+For settings not covered by the built-in options, you can provide raw Chrome policy JSON. See the [Chrome Enterprise policy list](https://chromeenterprise.google/policies/) for all available keys.
+
+## How it works
+
+Primo pushes Chrome policies as a managed configuration profile (on macOS) or via registry keys (on Windows). Chrome detects these policies at startup and applies them automatically. Users cannot override managed settings.
+
+A **Managed by your organization** notice appears in Chrome when enterprise policies are active — this is expected behavior.
+
+## Troubleshooting
+
+**Chrome policies are not applying**
+- Chrome must be restarted after a new policy is deployed for changes to take effect.
+- On macOS, verify the profile appears under **System Settings > Privacy & Security > Profiles**.
+- Confirm Chrome is not running as a non-managed profile (e.g. a personal profile signed into a consumer Google account).
+
+**An extension is not installing automatically**
+- Verify the extension ID is correct (32 characters, lowercase letters only).
+- Some extensions require Chrome to be connected to the internet at the time of deployment to download from the Web Store.

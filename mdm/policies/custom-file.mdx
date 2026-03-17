@@ -1,0 +1,62 @@
+---
+title: "Custom file"
+description: "Import a custom configuration profile to apply settings not covered by Primo's built-in controls, with support for native profile formats on macOS, Windows, and Android."
+---
+
+When Primo's built-in controls do not cover a specific configuration you need, you can upload a custom configuration file directly. The file is delivered to devices via MDM in the same way as any other control, giving you full flexibility to apply any supported setting.
+
+## OS support
+
+| macOS | Windows | Linux | iOS / iPadOS | Android |
+|-------|---------|-------|--------------|---------|
+| ✅ | ✅ | | | ✅ |
+
+## Supported file formats
+
+Each platform accepts its native configuration format:
+
+| Platform | Format | Description |
+|----------|--------|-------------|
+| macOS | `.mobileconfig` | Apple Configuration Profile (XML-based) |
+| Windows | `.xml` | Windows MDM custom policy (SyncML format) |
+| Android | `.json` | Android Enterprise managed configuration |
+
+## Configure the control
+
+1. In Primo, go to **MDM > Controls > Add new control**.
+2. Select your target OS tab and choose **Custom file**.
+3. Upload your configuration file.
+4. Give the control a descriptive name so it is easy to identify later.
+5. Save and apply the control to the relevant device group.
+
+<Warning>
+Primo does not validate the contents of custom files. Ensure your configuration is correct before deploying — an invalid or conflicting profile may cause unexpected device behavior.
+</Warning>
+
+## On macOS
+
+macOS configuration profiles (`.mobileconfig`) are XML files signed or unsigned. Primo delivers them as MDM payloads. You can create profiles using:
+- **Apple Configurator 2** (free, from the Mac App Store)
+- Any text editor, following [Apple's Configuration Profile Reference](https://developer.apple.com/documentation/devicemanagement/profile-specific_payload_keys)
+
+Common use cases include custom certificate payloads, VPN profiles, and per-app VPN configurations.
+
+## On Windows
+
+Windows custom files use the SyncML format, which maps to Windows MDM CSPs (Configuration Service Providers). This allows you to configure any policy exposed by the Windows MDM stack that is not covered by Primo's built-in controls.
+
+## On Android
+
+Android custom files use JSON to deliver managed configurations to Android Enterprise devices. This is typically used to configure enterprise applications that support managed app configuration.
+
+## Troubleshooting
+
+**The profile was deployed but settings are not applied**
+- On macOS, verify the profile is listed under **System Settings > Privacy & Security > Profiles**.
+- Check for conflicts with other active controls targeting the same settings.
+- Review the device's MDM logs for deployment errors.
+
+**The file upload fails**
+- Confirm the file matches the expected format for the selected OS.
+- Check that the file is not corrupted or empty.
+- macOS profiles must use valid XML — validate the file with `plutil -lint profile.mobileconfig`.
