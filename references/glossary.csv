@@ -1,0 +1,176 @@
+en-US,fr-FR,de-DE,it-IT,pt-PT,es-ES,ca-ES
+SentinelOne,SentinelOne,SentinelOne,SentinelOne,SentinelOne,SentinelOne,SentinelOne
+recoveryOS,recoveryOS,recoveryOS,recoveryOS,recoveryOS,recoveryOS,recoveryOS
+Workflow,Flux de travail,Workflow,Flusso di lavoro,Fluxo de trabalho,Flujo de trabajo,Flux de treball
+Work hours,Heures de travail,Arbeitszeit,Ore di lavoro,Horas de trabalho,Horas de trabajo,Hores de treball
+Work details,Informations professionnelles,Arbeitsdetails,Informazioni lavorative,Informações laborais,Detalles laborales,Detalls laborals
+Widget,Module,Widget,Widget,Widget,Widget,Giny
+View,Voir,Anzeigen,Vedi,Ver,Ver,Veure
+Variables,Variables,Variablen,Variabili,Variáveis,Variables,Variables
+Upload,Importer,Hochladen,Carica,Carregar,Subir,Penjar
+Turnover rate,Taux de rotation,Mitarbeiterfluktuation,Tasso di turnover,Taxa de turnover,Tasa de rotación,Índex de fidelitat
+Trigger,Déclencheur,Auslöser,Trigger,Gatilho,Activador,Activador
+Toggle,Activer/désactiver,Aktivieren/Deaktivieren,Toggle,Botão de alternância,Interruptor,Opció
+Tenure date,Date d’ancienneté,Ersteintrittsdatum,Data di incarico,Data de antiguidade,Fecha de antigüedad,Data d’antiguitat
+Teamwork,Travail en équipe,Teamwork,Lavoro di squadra,Trabalho em equipa,Trabajo en equipo,Treball en equip
+State,Région/Département,Bundesland,Stato,Estado,Estado,Província
+Sign up,S’inscrire,Registrieren,Registrati,Registar-se,Registrarme,Registrar-se
+Sign in,Se connecter,Anmelden,Entra,Iniciar sessão,Iniciar sesión,Iniciar sessió
+Settings,Paramètres,Einstellungen,Impostazioni,Configuração,Configuraciones,Configuració
+Save as draft,Enregistrer comme brouillon,Als Entwurf speichern,Salva come bozza,Guardar como rascunho,Guardar como borrador,Desar com a esborrany
+Save,Enregistrer,Speichern,Salva,Guardar,Guardar,Desar
+Role,Rôle,Stelle,Ruolo,Função,Rol,Càrrec
+Retention rate,Taux de rétention,Mitarbeiterbindung,Tasso di retenzione,Taxa de retenção,Tasa de retención,Índex de retenció
+Request,Demande,Anfrage,Richiesta,Pedido,Solicitud,Sol·licitud
+Reports,Rapports,Berichte,Report,Relatórios,Informes,Informes
+Preferences,Préférences,Benutzereinstellungen,Preferenze,Preferências,Preferencias,Preferències
+Policy,Politique,Richtlinie,Politica,Política,Política,Política
+Pipeline,Processus,Prozess,Pipeline,Pipeline,Pipeline,Procés
+Permission,Autorisation,Berechtigung,Autorizzazione,Permissão,Permiso,Permís
+Payslip,Fiche de paie,Gehaltsabrechnung,Busta paga,Holerite,Nóminas,Nòmina
+Parent company,Société mère,Mutterunternehmen,Società madre,Empresa-mãe,"Empresa matriz, dominante",Empresa afiliada
+Overview,Aperçu,Übersicht,Panoramica,Visão geral,Resumen,Vista general
+Onboarding,Intégration,Onboarding,Onboarding,Onboarding,Onboarding,Incorporació
+Offboarding,Départ,Offboarding,Offboarding,Offboarding,Offboarding,Sortida
+New,Nouveau,Neu,Nuovo,Novo,Nuevo,Nou
+MFA,MFA,MFA,MFA,AMF (Autenticação multifator),AMF,AMF
+Mandatory field,Champ obligatoire,Pflichtfeld,Campo obbligatorio,Campo obrigatório,Campo obligatorio,Camp obligatori
+Manager,Manager,Vorgesetzter,Manager,Gestor,Manager,Mànager
+Logout,Se déconnecter,Ausloggen,Esci,Terminar sessão,Cerrar sesión,Tancar sessió
+Log in,Se connecter,Einloggen,Accedi,Iniciar sessão,Iniciar sesión,Iniciar sessió
+Link,Associer/Attribuer,Link,Link,Ligar,Enlace,Vincular
+Leavers,Départs,Austritte,Ex dipendenti,Saídas,Bajas,Baixes
+Learn more,En savoir plus,Mehr erfahren,Scopri di più,Saiba mais,Más información,Més informació
+Joiners,Nouvelles embauches,Neueinstellungen,Assunti,Entradas,Incorporaciones,Altes
+Internal company documents,Documents internes de l’entreprise,Interne Unternehmensdokumente,Documenti aziendali interni,Documentos internos da empresa,Documentos internos de la empresa,Documents interns de l’empresa
+Insights,Vue d’ensemble,Insights,Insights,Insights,Insights,Anàlisis
+Hub,Hub,Hub,Hub,Hub,Hub,Hub
+HR,RH,HR,HR,RH,RH,RH
+Headcount,Effectif,Personalbestand,Organico,Total de colaboradores,Plantilla de empleados,Plantilla
+Go to,Aller à,Zu … gehen,Vai a,Ir para,Ir a,Anar a
+GDPR,RGPD,DSGVO,GDPR,RGPD,RGDP,RGPD
+Fillable PDF,PDF à remplir,Ausfüllbare PDF-Datei,PDF compilabile,PDF preenchível,PDF rellenable,PDF emplenable
+File,Fichier,Datei,File,Ficheiro,Archivo,Arxiu
+Event,Événement,Veranstaltung,Evento,Eventos,Evento,Esdeveniment
+Employment data,Données sur l’emploi,Beschäftigungsdaten,Dati lavorativi,Dados laborais,Datos laborales,Dades laborals
+Employer,Employeur,Arbeitgeber,Datore di lavoro,Empregador,Empleador,Empresari
+Employee documents,Documents du collaborateur,Mitarbeiterdokumente,Documenti del dipendente,Documentos do colaborador,Documentos del empleado,Documents del treballador
+Email,E-mail,E-Mail-Adresse,Email,Email,Correo electrónico,Adreça electrònica
+Document,Document,Dokument,Documento,Documento,Documento,Document
+Direct report,Collaborateur direct,(Direkt) Unterstellter Mitarbeiter,Membro a carico,Subordinados diretos,Persona a cargo,Persona a càrrec
+Developer,Développeur,Entwickler,Sviluppatore,Desenvolvedor,Desarrollador,Desenvolupador
+Details,Détails/Informations,Details,Dettagli,Detalhes,Detalles,Detalls
+Data retention,Conservation des données,Datenspeicherung,Conservazione dei dati,Retenção de dados,Retención de datos,Conservació de dades
+Data privacy,Confidentialité des données,Datenschutz,Privacy dei dati,Privacidade de dados,Privacidad de datos,Privacitat de dades
+Dashboard,Accueil,Dashboard,Dashboard,Painel,Panel de inicio,Tauler de control
+CX,Expérience client,CX,CX,CX,CX,Atenció al client
+Cost,Coût,Kosten,Costo,Custo,Costo,Cost/Preu
+Condition,Condition,Bedingung,Condizione,Condição,Condición,Condició
+Compliance,Conformité,Konformität,Conformità,Compliance,Cumplimiento,Compliment
+Company communications,Communications de l'entreprise,Unternehmensmitteilungen,Comunicazioni aziendali,Comunicações da empresa,Comunicaciones de la empresa,Comunicats de l’empresa
+Colleague,Collègue,Teammitglied,Collega,Colega,Colega,Company
+Celebration,Célébration,Feierlichkeiten,Festeggiamento,Celebração,Celebración,Celebració
+Bundle,Pack,Paket,Pacchetto,Pacote,Bundle,Paquet
+Bulk import,Importation groupée,Massenimport,Importazione in blocco,Importação em massa,Importación en masa,Importació en massa
+Basic info,Informations générales,Grundlegende Info,Informazioni di base,Informações básicas,Información básica,Informació bàsica
+Automation,Automatisation,Automatisierung,Automazione,Automatização,Automatización,Automatització
+Autofill,Remplir automatiquement,Automatisch ausfüllen,Riempimento automatico,Preenchimento automático,Relleno automático,Autoemplenar
+Audit log,Journal d'audit,Audit-Log,Audit log,Registo de auditoria,Registro de auditoria,Registre d’auditoria
+Approval flow,Flux d’approbation,Genehmigungsablauf,Flusso di approvazione,Fluxo de aprovação,Flujo de aprobación,Flux d’aprovació
+API key,Clé API,API-Schlüssel,Chiave API,Chave API,Clave API,Clau API
+API,API,API,API,API,API,API
+Announcement,Actualité,Ankündigung,Annuncio,Anúncio,Anuncio,Comunicat
+Analytics,Analyse,Analytics,Analytics,Análises,Analíticas,Anàlisis
+Advanced reports,Rapports avancés,Erweiterte Berichte,Report avanzati,Relatórios avançados,Informes avanzados,Informes avançats
+Action,Action,Aktion,Azione,Ação,Acción,Acció
+Account manager,Gestionnaire de compte,Account Manager,Account manager,Gestor da conta,Account manager,Mànager del compte
+2FA,2FA,2FA,2FA,2FA,A2F,A2F
+Device,Appareil,Gerät,Dispositivo,Dispositivo,dispositivo,Dispositiu
+Primo,Primo,Primo,Primo,Primo,Primo,Primo
+Provisioning,Provisionnement,Bereitstellung,Provisioning,Aprovisionamento,aprovisionamiento,Aprovisionament
+Enroll,Enrôler,Anmelden,Iscrivere,Inscrever,Inscribirse,Inscriure's
+Enrollment,Enrôlement,Anmeldung,Iscrizione,Inscrição,Inscripción,inscripció
+Security,Sécurité,Sicherheit,Sicurezza,Segurança,Seguridad,seguretat
+Synchronization,Synchronisation,Synchronisierung,Sincronizzazione,Sincronização,Sincronización,sincronització
+SAML,SAML,SAML,SAML,SAML,SAML,SAML
+Authentication,Authentification,Authentifizierung,Autenticazione,Autenticação,Autenticación,autenticació
+Provision,Provisionner,Bereitstellung,Fornire,Provisão,Provisionar,Aprovisionar
+Manage,Gérer,Verwalten,Gestire,Gerir,Gestionar,gestionar
+Policy enforcement,Application des politiques,Richtliniendurchsetzung,Applicazione delle politiche,Aplicação de políticas,Aplicación de políticas,aplicació de polítiques
+Integration,Intégration,Integration,Integrazione,Integração,Integración,integració
+Directory,Répertoire,Verzeichnis,Directory,Diretório,Directorio,directori
+Autopilot,Autopilot,Autopilot,Autopilot,Autopilot,Autopilot,Autopilot
+Provisioner,Service de provisionnement,Provisioner,Fornitore,Provisionador,Proveedor,proveïdor
+Identity,Identité,Identität,Identità,Identidade,Identidad,identitat
+System,Système,System,Sistema,Sistema,Sistema,sistema
+Portal,Portail,Portal,Portale,Portal,Portal,portal
+Agent,Agent,Agent,Agente,Agente,Agente,agent
+Software,Logiciel,Software,Applicazione desktop,Aplicação de desktop,Programa,programa
+Activation,Activation,Aktivierung,Attivazione,Ativação,Activación,activació
+Token,Token,Token,Token,Token,Token,testimoni
+Certificate,Certificat,Zertifikat,Certificato,Certificado,Certificado,certificat
+Import,Importer,Import,Importare,Importar,Importar,importar
+Deployment,Déploiement,Bereitstellung,Distribuzione,Implementação,Despliegue,desplegament
+Encryption,Chiffrement,Verschlüsselung,Crittografia,Encriptação,Cifrado,xifratge
+Serialize,Sérialiser,Serialisieren,Serializzare,Serializar,Serializar,serialitzar
+Cloud,Cloud,Cloud,Cloud,Nuvem,Nube,núvol
+Restore,Restaurer,Wiederherstellen,Ripristinare,Restaurar,Restaurar,restaurar
+Installation,Installation,Installation,Installazione,Instalação,Instalación,instal·lació
+Company,Entreprise,Unternehmen,Azienda,Empresa,Empresa,empresa
+authenticate,S'authentifier,Authentifizieren,autenticarsi,Autenticar,Autenticar,autenticar
+Profiling,Profilage,Profilerstellung,Profilazione,Análise de perfil,Perfilado,Perfilatge
+Console,Console,Konsole,Console,Consola,Consola,Consola
+Admin,Admin,Administrator,Admin,Admin,Administrador,Administrador
+Primo,Primo,Primo,Primo,Primo,Primo,Primo
+MDM,MDM,MDM,MDM,MDM,MDM,MDM
+SCIM,SCIM,SCIM,SCIM,SCIM,SCIM,SCIM
+SaaS,SaaS,SaaS,SaaS,SaaS,SaaS,SaaS
+SSO,SSO,SSO,SSO,SSO,SSO,SSO
+Zero Trust,Zero Trust,Zero Trust,Zero Trust,Zero Trust,Zero Trust,Zero Trust
+Fleet,Fleet,Fleet,Fleet,Fleet,Fleet,Fleet
+HRIS,SIRH,HR-System,Sistema HR,HRIS,SIRH,SIRH
+Entity,Entité,Einheit,Entità legale,Entidade,Entidad,Entitat
+Identity Management,Gestion des identités,Identitätsmanagement,Gestione delle identità,Gestão de identidade,Gestión de identidades,Gestió d'identitats
+Platform,Plateforme,Plattform,Piattaforma,Plataforma,Plataforma,Plataforma
+Device Management,Gestion des appareils,Geräteverwaltung,Gestione dei dispositivi,Gestão de dispositivos,Gestión de dispositivos,Gestió de dispositius
+Lifecycle Management,Gestion du cycle de vie,Lebenszyklus-Management,Gestione del ciclo di vita,Gestão do ciclo de vida,Gestión del ciclo de vida,Gestió del cicle de vida
+Access Management,Gestion des accès,Zugriffsmanagement,Gestione degli accessi,Gestão de acesso,Gestión de acceso,Gestió d'accés
+Security,Sécurité,Sicherheit,Sicurezza,Segurança,Seguridad,Seguretat
+User Management,Gestion des utilisateurs,Benutzerverwaltung,Gestione utenti,Gestão de Utilizadores,Gestión de usuarios,Gestió d'usuaris
+App Access,Accès aux applications,App-Zugriff,Accesso all'app,Acesso à app,Acceso a la aplicación,Accés a l'aplicació
+Configuration,Configuration,Konfiguration,Configurazione,Configuração,Configuración,Configuració
+Provisioned,Provisionné,Bereitgestellt,Configurato,Provisionado,Provisionado,Aprovisionat
+MDM Control,Politique MDM,MDM-Steuerung,Politica MDM,Controlo MDM,Control MDM,Control MDM
+Directory Service,Répertoire,Verzeichnis,Directory,Diretório,Directorio,directori
+Single Sign-On,Single Sign-On,Single Sign-On,Single Sign-On,Início de sessão único,Inicio de sesión único,Inici de sessió únic
+Data Tracking,Suivi de données,Datenverfolgung,Tracciamento dei dati,Acompanhamento de dados,Seguimiento de datos,Seguiment de dades
+Device Tracking,Suivi des appareils,Geräteverfolgung,Tracciamento dei dispositivi,Acompanhamento de dispositivos,Seguimiento de dispositivos,Seguiment de dispositius
+User Authentication,Authentification de l'utilisateur,Benutzerauthentifizierung,Autenticazione Utente,Autenticação de utilizador,Autenticación de usuario,Autenticació d'usuari
+Access Control,Contrôle des accès,Zugriffskontrolle,Controllo degli accessi,Controlo de acesso,Control de acceso,Control d'accés
+Compliance Reporting,Rapports de conformité,Konformitätsberichte,Report di conformità,Relatórios de conformidade,Informes de cumplimiento,Informes de compliment
+Built-in Automation,Automatisation native,Integrierte Automatisierung,Automazione integrata,Automação integrada,Automatización incorporada,Automatització incorporada
+Device Orchestration,Orchestration des appareils,Geräte-Orchestrierung,Orchestrazione dei dispositivi,Orquestração de Dispositivos,Orquestación de dispositivos,Orquestració de dispositius
+Identity Tracking,Suivi des identités,Identitätsverfolgung,Monitoraggio dell'identità,Acompanhamento de identidade,Seguimiento de identidad,Seguiment d'identitat
+SaaS Orchestration,Orchestration des SaaS,SaaS-Orchestrierung,Orchestrazione SaaS,Orquestração de SaaS,Orquestación SaaS,Orquestració SaaS
+Zero-Touch Deployment,Déploiement Zero-Touch,Zero-Touch-Bereitstellung,Deployment Zero-Touch,Implementação sem intervenção,Despliegue sin intervención,Desplegament sense intervenció
+Identity & Access Management,Gestion des identités et des accès,Identitäts- und Zugriffsmanagement,Gestione delle identità e degli accessi,Gestão de identidade e acesso,Gestión de identidad y acceso,Gestió d'identitat i accés
+Identity Provider ,Fournisseur d'identité,Identity Provider,Provider di identità,Fornecedor de identidade,Proveedor de identidad,Proveïdor d'identitat
+Role Based Access Control,Gestion des accès par rôle,Rollenbasierte Zugriffskontrolle,Controllo degli Accessi Basato su Ruoli,Controlo de Acesso Baseado em Funções,Control de acceso basado en roles,Control d'accés basat en rols
+Least privilege,Moindre privilège,Minimaler Zugriff,Privilegio minimo,Privilégio mínimo,Mínimos privilegios,Privilegi mínim
+Multi-factor authentication,Authentification multi-facteurs,Mehrfaktor-Authentifizierung,Autenticazione a più fattori,Autenticação multifator (MFA),Autenticación multifactor,Autenticació multifactor
+Licence,Licence,Lizenz,Licenza,Licença,Licencia,Llicència
+Seat,Licence utilisateur,Benutzerlizenz,Licenza utente,Licença atribuída,Licencia de usuario,Llicència d'usuari
+Subscription,Abonnement,Abonnement,Abbonamento,Subscrição,Suscripción,Subscripció
+SaaS Stack,Parc applicatif,SaaS-Stack,Stack SaaS,Apps SaaS,Pila SaaS,Pila SaaS
+Shadow IT,Applications non autorisées,Schatten-IT,Sistemi non autorizzati,Ferramentas não autorizadas,Aplicaciones no autorizadas,Aplicacions no autoritzades
+Cost optimization,Optimisation des coûts,Kostenoptimierung,Ottimizzazione dei costi,Otimização de custos,Optimización de costes,Optimització de costos
+Policies,Politiques d’accès,Richtlinien,Politiche,Políticas,Políticas,Polítiques
+Endpoint,Endpoint,Endpunkt,Endpoint,Endpoint,Endpoint,Endpoint
+Attributes,Caractéristiques,Attribute,Attributi,Atributos,Atributos,Atributs
+Playbook,Playbook,Playbook,Playbook,Modelo de procedimento,Playbook,Playbook
+EDR,EDR,EDR,EDR,EDR,EDR,EDR
+Remote Control,Gestion des accès à distance,Fernsteuerung,Controllo remoto,Controlo remoto,Control remoto,Control remot
+Bypass code,Code iCloud,Wiederherstellungscode,Codice bypass,Código de recuperação,Código de omisión,Codi de recuperació
+SecureToken,SecureToken,SecureToken,SecureToken,Token seguro,SecureToken,SecureToken
+OS,OS,OS,OS,OS,OS,OS
+Unenroll,Retirer du MDM,Abmelden,Annulla l'iscrizione,Desinscrever,Cancelar inscripción,Cancel·lar la inscripció
