@@ -1,6 +1,6 @@
 ---
 title: "Guiones útiles"
-description: "La página proporciona scripts útiles para modificar nombres de host en macOS y eliminar el bloqueo de USB en Windows, enfatizando la importancia de verificar sus resultados antes de la implementación, ya que no hay soporte disponible para estos scripts."
+description: "La página proporciona secuencias de comandos útiles para modificar los nombres de host en macOS y eliminar el bloqueo de USB en Windows, enfatizando la importancia de verificar sus resultados antes de la implementación, ya que no hay soporte disponible para estas secuencias de comandos."
 hidden: true
 ---
 
@@ -8,7 +8,7 @@ hidden: true
   Todos los scripts a continuación se proporcionan tal cual. Verifique su salida y efectos antes de implementarlos. No estamos disponibles para ayudar a nuestros clientes con estos scripts.
 </Note>
 
-## macos
+## macOS
 
 ### Modificar todos los nombres de host
 
@@ -95,7 +95,7 @@ echo "Ownership updated. Please retry launching Slack."
 SELECT 1 FROM file WHERE path LIKE '/Applications/Slack.app/%%' and uid != 0;
 ```
 
-## ventanas
+## Windows
 
 ### Eliminar el bloqueo de USB
 

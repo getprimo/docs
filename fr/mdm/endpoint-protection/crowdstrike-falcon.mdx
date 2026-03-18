@@ -6,10 +6,10 @@ description: "Découvrez comment déployer efficacement l'agent CrowdStrike Falc
 <Warning>
 **Type de déploiement : manuel**
 
-Contrairement à SentinelOne, CrowdStrike Falcon nécessite une **configuration manuelle** avant le déploiement. Vous devez télécharger les packages d'installation depuis la console CrowdStrike, les télécharger sur FleetDM et configurer les scripts d'installation avec votre CustomerID. Il n’y a pas d’intégration automatique – suivez attentivement les étapes ci-dessous.
+Contrairement à SentinelOne, CrowdStrike Falcon nécessite une **configuration manuelle** avant le déploiement. Vous devez télécharger les packages d'installation depuis la console CrowdStrike, les télécharger sur FleetDM et configurer les scripts d'installation avec votre ID client. Il n’y a pas d’intégration automatique – suivez attentivement les étapes ci-dessous.
 </Warning>
 
-Cet article explique comment déployer l'agent CrowdStrike Falcon sur les appareils macOS et Windows à l'aide de FleetDM et Primo MDM. Vous apprendrez à télécharger les packages d'installation depuis la console d'administration CrowdStrike, à récupérer votre ID client, à importer les packages dans FleetDM, à configurer les scripts d'installation et à créer des politiques de conformité pour les deux systèmes d'exploitation.
+Cet article explique comment déployer l'agent CrowdStrike Falcon sur les appareils macOS et Windows à l'aide de FleetDM et Primo MDM. Vous apprendrez comment télécharger les packages d'installation à partir de la console d'administration CrowdStrike, récupérer votre ID client, importer les packages dans FleetDM, configurer les scripts d'installation et créer des politiques de conformité pour les deux systèmes d'exploitation.
 
 ## Conditions préalables
 
@@ -25,7 +25,7 @@ Cet article explique comment déployer l'agent CrowdStrike Falcon sur les appare
 2. Accédez à **Configuration et gestion de l'hôte > Déployer > Téléchargements de capteurs**.
 3. Téléchargez les fichiers suivants :
    - macOS : programme d'installation .pkg
-   - Windows : programme d'installation .exe
+   - Windows : programme d’installation .exe
 4. Copiez votre **CustomerID** (également appelé CID), qui sera nécessaire pour activer l'agent après l'installation.
 
 ### Étape 2 : Importez les fichiers d'installation dans FleetDM
@@ -44,7 +44,7 @@ Cet article explique comment déployer l'agent CrowdStrike Falcon sur les appare
 
 ### Étape 3 : Ajoutez les commandes d'installation avec le CustomerID
 
-**Script d'installation macOS 3.1**
+**3.1 Script d'installation de macOS**
 
 1. Dans la configuration du package macOS .pkg, localisez le champ Script d'installation (afficher les options avancées)
 2. Ajoutez la ligne suivante à la fin du script (remplacez CustomerID par votre CID actuel) :
@@ -53,7 +53,7 @@ Cet article explique comment déployer l'agent CrowdStrike Falcon sur les appare
    ```
 3. Cliquez sur **Enregistrer les modifications**.
 
-**3.2 Script d'installation Windows**
+**3.2 Script d'installation de Windows**
 
 1. Dans la configuration du package Windows .exe, localisez le champ du script d'installation (afficher les options avancées)
 2. Copiez/collez ceci dans le script d'installation (remplacez CustomerID par votre CID actuel) :
@@ -189,7 +189,7 @@ Exit $exitCode
 
 Créez deux stratégies distinctes pour confirmer que l'agent CrowdStrike est installé sur les appareils macOS et Windows.
 
-**Politique macOS 4.1**
+**4.1 Politique macOS**
 
 1. Dans FleetDM, accédez à **Politiques > Ajouter une stratégie**.
 2. Utilisez la requête suivante :

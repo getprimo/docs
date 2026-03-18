@@ -1,6 +1,6 @@
 ---
 title: "Distribuisci CrowdStrike Falcon"
-description: "Scopri come distribuire in modo efficiente l'agente CrowdStrike Falcon su dispositivi macOS e Windows seguendo i passaggi per scaricare i file di installazione, importarli in FleetDM, configurare gli script di installazione e creare policy di conformità."
+description: "Scopri come distribuire in modo efficiente l'agente CrowdStrike Falcon sui dispositivi macOS e Windows seguendo i passaggi per scaricare i file di installazione, importarli in FleetDM, configurare gli script di installazione e creare policy di conformità."
 ---
 
 <Warning>
@@ -9,7 +9,7 @@ description: "Scopri come distribuire in modo efficiente l'agente CrowdStrike Fa
 A differenza di SentinelOne, CrowdStrike Falcon richiede la **configurazione manuale** prima della distribuzione. Devi scaricare i pacchetti di installazione dalla console CrowdStrike, caricarli su FleetDM e configurare gli script di installazione con il tuo CustomerID. Non esiste un'integrazione automatica: segui attentamente i passaggi seguenti.
 </Warning>
 
-Questo articolo spiega come distribuire l'agente CrowdStrike Falcon su dispositivi macOS e Windows utilizzando FleetDM e Primo MDM. Imparerai come scaricare i pacchetti di installazione dalla console di amministrazione CrowdStrike, recuperare il tuo CustomerID, importare i pacchetti in FleetDM, configurare gli script di installazione e creare policy di conformità per entrambi i sistemi operativi.
+Questo articolo spiega come distribuire l'agente CrowdStrike Falcon sui dispositivi macOS e Windows utilizzando FleetDM e Primo MDM. Imparerai come scaricare i pacchetti di installazione dalla console di amministrazione CrowdStrike, recuperare il tuo CustomerID, importare i pacchetti in FleetDM, configurare gli script di installazione e creare policy di conformità per entrambi i sistemi operativi.
 
 ## Prerequisiti
 
@@ -36,7 +36,7 @@ Questo articolo spiega come distribuire l'agente CrowdStrike Falcon su dispositi
 2. Fai clic su **Carica pacchetto** e seleziona il file .pkg precedentemente scaricato.
 3. Fare clic su **Salva**.
 
-**2.2 Importa il pacchetto Windows**
+**2.2 Importare il pacchetto Windows**
 
 1. In FleetDM, vai su **Software > Aggiungi software > Pacchetto personalizzato**.
 2. Fai clic su **Carica pacchetto** e seleziona il file .exe scaricato in precedenza.
@@ -44,7 +44,7 @@ Questo articolo spiega come distribuire l'agente CrowdStrike Falcon su dispositi
 
 ### Passaggio 3: aggiungi i comandi di installazione con CustomerID
 
-**Script di installazione macOS 3.1**
+**Script di installazione 3.1 macOS**
 
 1. Nella configurazione del pacchetto macOS .pkg, individua il campo Installa script (mostra opzioni avanzate)
 2. Aggiungi la seguente riga alla fine dello script (sostituisci CustomerID con il tuo CID effettivo):
@@ -53,7 +53,7 @@ Questo articolo spiega come distribuire l'agente CrowdStrike Falcon su dispositi
    ```
 3. Fai clic su **Salva modifiche**.
 
-**3.2 Script di installazione di Windows**
+**3.2 Script di installazione Windows**
 
 1. Nella configurazione del pacchetto Windows .exe, individua il campo dello script di installazione (mostra opzioni avanzate)
 2. Copia/incolla questo nello script di installazione (sostituisci CustomerID con il tuo CID effettivo):
@@ -185,9 +185,9 @@ Exit $exitCode
 
 4. Fai clic su **Salva modifiche**.
 
-### Passaggio 4: crea policy di conformità in FleetDM
+### Passaggio 4: crea criteri di conformità in FleetDM
 
-Crea due policy separate per confermare che l'agente CrowdStrike è installato sia sui dispositivi macOS che su quelli Windows.
+Crea due policy separate per confermare che l'agente CrowdStrike è installato su entrambi i dispositivi macOS e Windows.
 
 **Politica 4.1 macOS**
 
@@ -199,7 +199,7 @@ Crea due policy separate per confermare che l'agente CrowdStrike è installato s
 3. Assegna un nome alla policy: **CrowdStrike installato (macOS)**
 4. **Salva** la polizza.
 
-**4.2 Criteri di Windows**
+**Politica 4.2 Windows**
 
 1. In FleetDM, vai su **Politiche > Aggiungi politica**.
 2. Utilizza la seguente query:
@@ -211,7 +211,7 @@ Crea due policy separate per confermare che l'agente CrowdStrike è installato s
 
 ### Passaggio 5: assegnare l'applicazione ai criteri di conformità
 
-1. In FleetDM, vai su **Politiche**.
+1. In FleetDM, vai a **Politiche**.
 2. Clicca su **Gestisci automazioni > Software**.
 3. Seleziona le policy appena create e assegnale al Software corrispondente
 

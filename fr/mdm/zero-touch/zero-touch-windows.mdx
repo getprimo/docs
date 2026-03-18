@@ -1,13 +1,13 @@
 ---
-title: "Déploiement Zero-Touch pour Windows (pilote automatique)"
+title: "Déploiement sans contact pour Windows (pilote automatique)"
 description: "Configurez Windows Autopilot avec Primo : configurez l'application FleetDM sur Azure, créez des profils de déploiement et activez l'inscription automatique des appareils pour les nouveaux appareils Windows."
 ---
 
 <Warning>
-  Le déploiement Zero-Touch pour les appareils Windows est actuellement indisponible. Nous finalisons les tests restants avec nos partenaires avant de réactiver cette fonctionnalité.
+  Le déploiement Zero-Touch pour les appareils Windows n'est actuellement pas disponible. Nous effectuons les tests restants avec nos partenaires avant de réactiver cette fonctionnalité.
 </Warning>
 
-Windows Autopilot offre aux nouveaux appareils Windows une expérience de configuration prête à l'emploi. Lorsqu'un employé allume un appareil pour la première fois, il se connecte avec ses informations d'identification Microsoft et toutes les applications, paramètres et politiques de sécurité de l'entreprise sont appliqués automatiquement — aucune intervention informatique n'est requise.
+Le pilote automatique Windows offre aux nouveaux appareils Windows une expérience de configuration prête à l'emploi. Lorsqu'un employé allume un appareil pour la première fois, il se connecte avec ses informations d'identification Microsoft et toutes les applications, paramètres et politiques de sécurité de l'entreprise sont appliqués automatiquement — aucune intervention informatique n'est requise.
 
 Cet article couvre la configuration complète : de l'enregistrement du domaine FleetDM sur Azure à la création de profils de déploiement et au test de l'expérience Autopilot.
 
@@ -15,7 +15,7 @@ Cet article couvre la configuration complète : de l'enregistrement du domaine 
 
 - Un compte Microsoft avec accès administrateur
 - Un « locataire » Entra
-- Une licence qui inclut **Microsoft Entra ID Plan 1** (ou **Plan 2**) et **Windows Autopilot**
+- Une licence qui comprend **Microsoft Entra ID Plan 1** (ou **Plan 2**) et **Windows Autopilot**
 
 La licence minimale couvrant les deux fonctionnalités est **Enterprise Mobility + Security E3** ([comparer les forfaits](https://www.microsoft.com/fr-fr/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing)).
 
@@ -57,7 +57,7 @@ Cette étape nécessite une coordination avec le support Primo. Lorsque vous enr
 </Note>
 
 Vous effectuerez trois opérations dans la console Microsoft Azure avec les droits d'administrateur :
-1. Déclarer le domaine FleetDM comme légitime avec Azure
+1. Déclarez le domaine FleetDM comme légitime avec Azure
 2. Créez l'application Fleet et accordez-lui les autorisations MDM
 3. Définir FleetDM comme MDM par défaut pour les nouveaux appareils (en remplaçant Intune le cas échéant)
 
@@ -122,7 +122,7 @@ L'application Fleet est désormais déclarée comme MDM légitime auprès du por
 
 L'application Fleet est désormais déclarée comme MDM qui gérera les nouveaux appareils avec le portail Azure.
 
-**Remarque** : Si vous avez commencé à inscrire des appareils sur Primo/FleetDM avant d'effectuer ces opérations, veuillez nous en informer afin que nous puissions forcer le passage de MDM d'Intune à FleetDM en exécutant un script (sans lequel la machine est dans un état incohérent pouvant affecter l'expérience Primo).
+**Remarque** : Si vous avez commencé à inscrire des appareils sur Primo/FleetDM avant d'effectuer ces opérations, veuillez nous en informer afin que nous puissions forcer le changement de MDM de Intune à FleetDM en exécutant un script (sans lequel la machine est dans un état incohérent pouvant affecter l'expérience Primo).
 
 ## Étape 2 — Créer des profils de déploiement Autopilot
 
@@ -147,7 +147,7 @@ Par exemple : `ACME-%RAND:5%` générera les noms suivants :
 
 Pour créer un profil de déploiement, suivez ces instructions :
 
-- Accédez à : [Centre d’administration Microsoft Intune](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/AutopilotDeploymentProfiles.ReactView)
+- Accédez à : [Centre d'administration Microsoft Intune](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/AutopilotDeploymentProfiles.ReactView)
   - ou connectez-vous à [https://intune.microsoft.com/](https://intune.microsoft.com/) et accédez à **Appareils** > **Inscription** > **Profils de déploiement**.
 - Cliquez sur **+ Créer un profil**
 - La première étape permet de nommer le profil
@@ -158,14 +158,14 @@ Créez un groupe dynamique pour cibler tous les appareils ZTD :
 
 - Accédez à : [portal.azure.com](https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/Overview)
 - Cliquez sur **+ Créer un groupe**
-- Nommez-le « Appareils Windows Autopilot », par exemple
+- Nommez-le "Dispositifs de pilote automatique Windows", par exemple
 - Comme cible, sélectionnez **"périphériques dynamiques"**
 - Pour la règle dynamique, utilisez **(device.devicePhysicalIds -any (_ -startsWith "[ZTDid]"))**
 - Cliquez sur **Créer**
 
 Enfin, créez une configuration de page de statut d'inscription :
 
-- Accédez à : [Centre d’administration Microsoft Intune](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/EnrollmentStatusPageProfileList.ReactView)
+- Accédez à : [Centre d'administration Microsoft Intune](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/EnrollmentStatusPageProfileList.ReactView)
   - ou connectez-vous à [https://intune.microsoft.com/](https://intune.microsoft.com/) et accédez à **Appareils > Inscription > Page d'état de l'inscription**
 - Cliquez sur **+ Créer**
 - La première étape vous permet de nommer le profil (c'est-à-dire Primo)

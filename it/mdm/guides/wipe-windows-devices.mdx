@@ -1,78 +1,78 @@
 ---
-title: "Cancellare i dispositivi Windows"
-description: "Comprendere come funzionano la cancellazione standard e la cancellazione completa su Windows, cosa succede al dispositivo e quando utilizzare ciascuna opzione."
+title: "Cancella i dispositivi Windows"
+description: "Scopri come funzionano la cancellazione standard e la cancellazione forzata su Windows, cosa succede al dispositivo e quando utilizzare ciascuna opzione."
 ---
 
-La cancellazione remota consente di eliminare tutti i dati da un dispositivo Windows gestito tramite Primo. Questo è fondamentale quando un dispositivo viene perso, rubato o riassegnato a un altro dipendente.
+La cancellazione remota consente di cancellare tutti i dati da un dispositivo Windows gestito tramite Primo. Ciò è fondamentale quando un dispositivo viene smarrito, rubato o viene riassegnato a un altro dipendente.
 
-Primo offre due modalità di cancellazione per Windows: **Standard wipe** e **Hard wipe**. Ciascuna corrisponde a un diverso comando MDM Microsoft e ha un comportamento differente.
+Primo offre due modalità di pulizia per Windows: **Cancellazione standard** e **Cancellazione forte**. Ognuno di essi è associato a un diverso comando di gestione dei dispositivi mobili Microsoft (MDM) e ha un comportamento diverso.
 
 ## Supporto del sistema operativo
 
-| macOS | Windows Pro | Windows ARM | Windows Home | Linux | iOS / iPadOS | Android |
+| macOS | Windows Pro | Windows BRACCIO | Windows Casa | Linux | iOS / iPadOS | Android |
 |-------|-------------|-------------|--------------|-------|--------------|---------|
 | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ❌ |
 
-## Standard wipe vs. hard wipe
+## Pulitura standard e pulizia rigida
 
-|  | **Standard wipe** | **Hard wipe** |
+|  | **Cancellazione standard** | **Cancellazione dura** |
 |--|-------------------|---------------|
 | **Comando Microsoft** | [`doWipe`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipe) | [`doWipeProtected`](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) |
-| **Cosa fa** | Esegue un ripristino di fabbrica equivalente a **Reimposta il PC** > **Rimuovi tutto** | Pulisce completamente il disco interno e continua a riprovare fino al completamento del ripristino |
-| **Può essere interrotto** | Sì — spegnere e riaccendere il dispositivo può interrompere il processo | No — la cancellazione riprende automaticamente dopo qualsiasi interruzione |
-| **Se interrotto** | Il dispositivo tenta di tornare allo stato precedente al ripristino. Se il rollback fallisce, il dispositivo può rimanere in uno stato inutilizzabile | La cancellazione riprova al successivo avvio fino al completamento |
-| **Rischio di dispositivo non avviabile** | Basso — in caso di errore viene tentato un rollback | Più alto — [Microsoft indica](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) che questo comando può rendere il dispositivo incapace di avviarsi in alcune configurazioni |
-| **Ideale per** | Riassegnazione del dispositivo, aggiornamento di routine | Dispositivi persi o rubati, incidenti di sicurezza confermati |
+| **Cosa fa** | Esegue un ripristino delle impostazioni di fabbrica equivalente a **Ripristina questo PC** > **Rimuovi tutto** | Pulisce completamente l'unità interna e continua a riprovare fino al completamento del ripristino |
+| **Può essere interrotto** | Sì: spegnere e riaccendere il dispositivo può interrompere il processo | No: la pulizia riprende automaticamente dopo qualsiasi interruzione |
+| **Se interrotto** | Il dispositivo tenta di tornare allo stato pre-reimpostato. Se il rollback fallisce, il dispositivo potrebbe rimanere in uno stato inutilizzabile | La cancellazione riprova all'avvio successivo fino al completamento |
+| **Rischio di dispositivo non avviabile** | Basso: viene tentato il rollback in caso di errore | Superiore: [Stati Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected) questo comando potrebbe impedire l'avvio del dispositivo in alcune configurazioni |
+| **Ideale per** | Riassegnazione del dispositivo, aggiornamento di routine | Dispositivi smarriti o rubati, incidenti di sicurezza confermati |
 
-### Standard wipe (`doWipe`)
+### Pulizia standard (`doWipe`)
 
-Lo standard wipe invia il comando Microsoft `doWipe`. È equivalente a eseguire **Reimposta il PC** > **Rimuovi tutto** dalle Impostazioni di Windows. Tutti i dati utente, le applicazioni e le impostazioni locali vengono eliminati.
+La cancellazione standard invia il comando Microsoft `doWipe`. Ciò equivale a eseguire **Ripristina questo PC** > **Rimuovi tutto** dall'app Impostazioni Windows. Tutti i dati utente, le applicazioni e le impostazioni locali vengono cancellati.
 
-Se la cancellazione viene interrotta (interruzione di corrente, spegnimento forzato), Windows tenta di tornare allo stato precedente al ripristino. Se il rollback fallisce, il dispositivo può rimanere in uno stato inutilizzabile e sarà necessario reinstallare Windows.
+Se la cancellazione viene interrotta (interruzione di corrente, spegnimento forzato), Windows tenta di tornare allo stato di pre-reimpostazione. Se il rollback fallisce, il dispositivo potrebbe diventare inutilizzabile e Windows dovrà essere reinstallato.
 
-### Hard wipe (`doWipeProtected`)
+### Cancellazione forzata (`doWipeProtected`)
 
-L'hard wipe invia il comando Microsoft `doWipeProtected`. A differenza dello standard wipe, **continua a tentare il ripristino fino al completamento** — non può essere aggirato spegnendo e riaccendendo il dispositivo.
+La cancellazione forzata invia il comando Microsoft `doWipeProtected`. A differenza della cancellazione standard, **continua a ripetere il ripristino finché non viene completata** e non può essere aggirata spegnendo e riaccendendo il dispositivo.
 
 <Warning>
-  Secondo la [documentazione di Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), in alcune configurazioni del dispositivo il comando `doWipeProtected` **può rendere il dispositivo incapace di avviarsi**. Il dispositivo potrebbe richiedere una reinstallazione manuale del sistema operativo tramite un'unità USB di ripristino. Utilizzate l'hard wipe solo quando non potete garantire l'accesso fisico al dispositivo.
+  Secondo la [documentazione Microsoft](https://learn.microsoft.com/en-us/windows/client-management/mdm/remotewipe-csp#dowipeprotected), in alcune configurazioni del dispositivo il comando `doWipeProtected` **potrebbe impedire l'avvio del dispositivo**. Ciò significa che il dispositivo potrebbe richiedere una reinstallazione manuale del sistema operativo utilizzando un'unità di ripristino USB. Utilizza la cancellazione forzata solo quando non puoi garantire l'accesso fisico al dispositivo.
 </Warning>
 
-## Quando usare ciascuna modalità di cancellazione
+## Quando utilizzare ciascuna modalità di pulizia
 
 | Scenario | Modalità consigliata |
-|----------|----------------------|
-| Dispositivo perso o rubato | **Hard wipe** — garantisce la cancellazione dei dati anche se qualcuno interrompe il processo |
-| Offboarding con riassegnazione del dispositivo | **Standard wipe** — sufficiente quando avete accesso fisico al dispositivo |
-| Dispositivo compromesso da malware | **Hard wipe** — garantisce una pulizia completa anche se il malware interferisce |
-| Aggiornamento routinario dei dispositivi | **Standard wipe** — rischio minore, recupero più facile in caso di problemi |
+|----------|------------------|
+| Dispositivo smarrito o rubato | **Cancellazione definitiva**: garantisce che i dati vengano cancellati anche se qualcuno interrompe il processo |
+| Trasferimento dei dipendenti con riassegnazione dei dispositivi | **Cancellazione standard**: sufficiente quando si ha accesso fisico al dispositivo |
+| Dispositivo compromesso da malware | **Hard wipe**: garantisce una pulizia completa anche in caso di interferenza di malware |
+| Aggiornamento di routine del dispositivo | **Cancellazione standard**: rischio inferiore, ripristino più semplice se qualcosa va storto |
 
-## Cancellare un dispositivo Windows
+## Cancella un dispositivo Windows
 
-1. Andate su **Dispositivi** e individuate il dispositivo da cancellare.
-2. Aprite la pagina dei dettagli del dispositivo.
-3. Fate clic su **Azioni** > **Cancella**.
-4. Scegliete **Standard wipe** o **Hard wipe**.
-5. Confermate l'azione nella finestra di conferma.
+1. Vai su **Dispositivi** e individua il dispositivo che desideri cancellare.
+2. Apri la pagina dei dettagli del dispositivo.
+3. Fai clic su **Azioni** > **Cancella**.
+4. Scegli **Cancellazione standard** o **Cancellazione definitiva**.
+5. Conferma l'azione nella finestra di dialogo di conferma.
 
-Il dispositivo riceve lo stato **Cancellazione in sospeso**. Una volta che il dispositivo conferma il comando, lo stato si aggiorna a **Cancellato**.
+Il dispositivo riceve lo stato **Cancellazione in sospeso**. Una volta che il dispositivo riconosce il comando, lo stato viene aggiornato a **Wiped**.
 
-## Dopo la cancellazione
+## Dopo la pulizia
 
-Una volta cancellato un dispositivo, seguite questi passaggi prima di registrarlo nuovamente:
+Una volta cancellati i dati del dispositivo, segui questi passaggi prima di registrarlo nuovamente:
 
-1. **Reinstallare Windows se necessario** — un hard wipe pulisce completamente il disco, quindi probabilmente dovrete reinstallare il sistema operativo tramite un'unità USB di ripristino o avvio da rete (PXE). Uno standard wipe può lasciare Windows in uno stato di ripristino utilizzabile.
-2. **Eliminare l'host da Fleet** — prima di registrare nuovamente il dispositivo, eliminate il suo record da Fleet. Questo garantisce che le chiavi di crittografia del disco vengano correttamente depositate durante la nuova registrazione.
-3. **Registrare nuovamente il dispositivo** — seguite il vostro processo di registrazione standard per riportare il dispositivo sotto gestione.
+1. **Reinstalla Windows se necessario**: una pulizia completa pulisce completamente l'unità, quindi probabilmente dovrai reinstallare il sistema operativo utilizzando un'unità di ripristino USB o un avvio di rete (PXE). Una pulizia standard potrebbe lasciare Windows in uno stato di ripristino utilizzabile.
+2. **Elimina l'host da Fleet**: prima di registrare nuovamente il dispositivo, elimina il relativo record da Fleet. Ciò garantisce che le chiavi di crittografia del disco siano correttamente depositate presso la nuova registrazione.
+3. **Registra nuovamente il dispositivo**: segui la procedura di registrazione standard per riportare il dispositivo in gestione.
 
 <Note>
-  Se il dispositivo era registrato tramite Windows Autopilot ed è ancora registrato nel vostro tenant Azure/Entra, entrerà automaticamente nel flusso Autopilot alla prossima configurazione. Consultate [registrazione zero-touch Windows](/it/mdm/zero-touch/zero-touch-windows) per i dettagli.
+  Se il dispositivo è stato registrato tramite Windows Autopilot ed è ancora registrato nel tuo tenant Azure/Entra, rientrerà automaticamente nel flusso Autopilot alla configurazione successiva. Vedere [Registrazione zero-touch Windows](/it/mdm/zero-touch/zero-touch-windows) per i dettagli.
 </Note>
 
 ## Limitazioni
 
-- **Windows Home non è supportato** — la cancellazione remota richiede Windows Pro, Enterprise o Education. Consultate [gestire i dispositivi Windows Home](/it/mdm/policies/manage-windows-home) per le alternative.
-- **L'hard wipe può rendere il dispositivo non avviabile** — in alcune configurazioni hardware, `doWipeProtected` può impedire l'avvio del dispositivo. Tenete pronta un'unità USB di ripristino.
-- **Lo standard wipe può fallire nel rollback** — se interrotto, il dispositivo può rimanere in uno stato inutilizzabile che richiede una reinstallazione manuale del sistema operativo.
-- **La cancellazione è irreversibile** — una volta avviata e confermata dal dispositivo, la cancellazione non può essere annullata. Tutti i dati verranno eliminati permanentemente.
-- **Chiave di ripristino BitLocker** — se BitLocker era attivato, assicuratevi che la chiave di ripristino sia salvata prima della cancellazione. Dopo la cancellazione, la chiave precedente non è più valida.
+- **Windows Home non è supportato**: la cancellazione remota richiede Windows Pro, Enterprise o Education. Vedi [gestire i dispositivi Windows Home](/it/mdm/policies/manage-windows-home) per le alternative.
+- **La cancellazione forzata potrebbe lasciare il dispositivo non avviabile**: in alcune configurazioni hardware, `doWipeProtected` può impedire l'avvio del dispositivo. Tieni pronta un'unità di ripristino USB.
+- **La cancellazione standard potrebbe non riuscire a eseguire il rollback**: se interrotta, il dispositivo potrebbe rimanere in uno stato inutilizzabile richiedendo una reinstallazione manuale del sistema operativo.
+- **La cancellazione è irreversibile**: una volta avviata e confermata dal dispositivo, la cancellazione non può essere annullata. Tutti i dati verranno cancellati definitivamente.
+- **Chiave di ripristino BitLocker**: se BitLocker è stato abilitato, assicurati che venga eseguito il backup della chiave di ripristino prima di cancellare. Dopo la cancellazione, la chiave precedente non è più valida.

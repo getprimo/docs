@@ -1,13 +1,13 @@
 ---
 title: "Références CEI"
-description: "CIS Benchmarks sont des guides de configuration sécurisés développés par la communauté qui aident à renforcer les systèmes et les réseaux, fournissant deux niveaux de profils pour équilibrer sécurité et convivialité tout en offrant un script détaillé pour la mise en œuvre des politiques via FleetDM."
+description: "CIS Benchmarks sont des guides de configuration sécurisés développés par la communauté qui aident à renforcer les systèmes et les réseaux, en fournissant deux niveaux de profils pour équilibrer sécurité et convivialité tout en offrant un script détaillé pour la mise en œuvre des politiques via FleetDM."
 ---
 
 Les benchmarks CIS sont des guides de configuration sécurisés basés sur un consensus, utilisés pour renforcer les systèmes, les logiciels et les réseaux – une référence reconnue par l'industrie pour réduire la surface d'attaque. Utilisez-les avec Primo et FleetDM pour évaluer la conformité et appliquer les paramètres dans votre flotte macOS et Windows.
 
 ## Prise en charge du système d'exploitation
 
-| macOS | Fenêtres | Linux | iOS/iPadOS | Androïde |
+| macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
 | ✅ macOS 13+ | ✅ Windows 10+ Entreprise | | | |
 
@@ -60,7 +60,7 @@ do
 done
 ```
 
-Téléchargez ensuite les politiques sur votre instance FleetDM :
+Téléchargez ensuite les stratégies sur votre instance FleetDM :
 
 ```bash
 fleetctl apply --policies-team "Workstations" -f cis-policy-queries.yml
@@ -166,13 +166,13 @@ Se cacher d'ICMP et des sondes similaires rend les périphériques plus difficil
 
 6. Enfin, **confirmez.**
 
-## Sous Windows
+## Sur Windows
 
 ### Chiffrement du disque
 
 *Cette politique est calquée sur Primo et fonctionne pour les appareils macOS et Windows.*
 
-Suivez les mêmes étapes que la section Chiffrement de disque macOS ci-dessus : la carte de chiffrement dans les profils s'applique aux deux plates-formes.
+Suivez les mêmes étapes que la section macOS Disk Encryption ci-dessus : la carte de chiffrement dans les profils s'applique aux deux plates-formes.
 
 ### Politique de mot de passe et verrouillage automatique de l'écran
 

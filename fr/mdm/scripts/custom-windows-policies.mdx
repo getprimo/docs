@@ -7,14 +7,14 @@ description: "Découvrez comment appliquer des stratégies Windows personnalisé
 
 ## Prise en charge du système d'exploitation
 
-| macOS | Fenêtres | Linux | iOS/iPadOS | Androïde |
+| macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
 | | ✅ | | | |
 
-## Sous Windows
+## Sur Windows
 
 <Note>
-Lors de l'écriture d'un XML pour appliquer une stratégie CSP à un périphérique, omettez les premières (et dernières) lignes du fichier XML et commencez (et terminez) par `<Replace>` ou `<Add>` (respectivement `</Replace>` et `</Add>`)
+Lors de l'écriture d'un XML pour appliquer une stratégie CSP à un périphérique, omettez les premières (et dernières) lignes du fichier XML et commencez (et terminez) par `<Replace>@@I18N_SEG_10@@<Add>@@I18N_SEG_11@@</Replace>@@I18N_SEG_12@@</Add>`)
 </Note>
 
 ### Autoriser le CSP de personnalisation sur Windows Pro
@@ -39,7 +39,7 @@ Lors de l'écriture d'un XML pour appliquer une stratégie CSP à un périphéri
 ### Définir l'image d'arrière-plan et l'écran de verrouillage
 
 <Note>
-Le CSP de personnalisation est pris en charge dans les éditions Windows Enterprise et Education. Il fonctionne dans Windows Professionnel uniquement lorsque SetEduPolicies dans SharedPC CSP est défini. Voir « Autoriser le CSP de personnalisation sur Windows Pro ».
+Le CSP de personnalisation est pris en charge dans les éditions Windows Enterprise et Education. Il fonctionne dans Windows Professional uniquement lorsque SetEduPolicies dans SharedPC CSP est défini. Voir « Autoriser le CSP de personnalisation sur Windows Pro ».
 </Note>
 
 ```xml

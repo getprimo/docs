@@ -1,6 +1,6 @@
 ---
 title: "CIS-Benchmarks"
-description: "CIS-Benchmarks sind von der Community entwickelte sichere Konfigurationsleitfäden, die dabei helfen, Systeme und Netzwerke zu härten. Sie bieten zwei Profilebenen, um Sicherheit und Benutzerfreundlichkeit in Einklang zu bringen, und bieten gleichzeitig ein detailliertes Skript für die Implementierung von Richtlinien über FleetDM."
+description: "CIS-Benchmarks sind von der Community entwickelte sichere Konfigurationsleitfäden, die zur Absicherung von Systemen und Netzwerken beitragen. Sie bieten zwei Profilebenen, um Sicherheit und Benutzerfreundlichkeit in Einklang zu bringen, und bieten gleichzeitig ein detailliertes Skript für die Implementierung von Richtlinien über FleetDM."
 ---
 
 CIS-Benchmarks sind konsensbasierte sichere Konfigurationsleitfäden, die zur Absicherung von Systemen, Software und Netzwerken verwendet werden – eine branchenweit anerkannte Grundlage zur Reduzierung der Angriffsfläche. Verwenden Sie sie mit Primo und FleetDM, um die Compliance zu bewerten und Einstellungen in Ihrer gesamten macOS- und Windows-Flotte durchzusetzen.
@@ -9,7 +9,7 @@ CIS-Benchmarks sind konsensbasierte sichere Konfigurationsleitfäden, die zur Ab
 
 | macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
-| ✅ macOS 13+ | ✅ Windows 10+ Enterprise | | | |
+| ✅ macOS 13+ | ✅ Windows 10+ Unternehmen | | | |
 
 ## Über CIS-Benchmarks
 
@@ -68,7 +68,7 @@ fleetctl apply --policies-team "Workstations" -f cis-policy-queries.yml
 
 ## Wo MDM-Werkzeuge passen (Fleet/Primo)
 
-Fleet stellt **Richtlinienabfragen** bereit, um die CIS-Konformität unter macOS 13+ und Windows 10+ (Enterprise) zu bewerten.
+Fleet stellt **Richtlinienabfragen** bereit, um die CIS-Konformität auf macOS 13+ und Windows 10+ (Enterprise) zu bewerten.
 
 Richtlinien führen **keine Korrekturen** durch – Sie benötigen weiterhin **MDM-Profile** und/oder Skripte, um Einstellungen durchzusetzen, und Sie können Automatisierungen verwenden, um Korrekturworkflows voranzutreiben. Für einige Prüfungen sind eine **MDM-Registrierung** und bestimmte Agentenberechtigungen erforderlich.
 
@@ -96,7 +96,7 @@ Kurze Sperrzeitüberschreitungen und sichere Passwörter tragen dazu bei, Angrif
 2. Wählen Sie **alle Geräte**
 3. Klicken Sie auf die Karte: **Passwort & Bildschirmsperre**
 4. Klicken Sie auf „Einstellung aktivieren“
-5. Navigieren Sie zu den Registerkarten **Mac, Windows** und **iOS**, um sie jeweils zu konfigurieren.
+5. Navigieren Sie zu den Registerkarten **Mac, Windows** und **iOS**, um die einzelnen Registerkarten zu konfigurieren.
 6. Abschließend **bestätigen.**
 
 ### Integrierte Firewall
@@ -126,7 +126,7 @@ Das Verstecken vor ICMP und ähnlichen Sonden erschwert die Aufzählung von Ger�
 2. Wählen Sie **alle Geräte**
 3. Klicken Sie auf die Karte: **Eine benutzerdefinierte MDM-Einstellung hinzufügen**
 4. Geben Sie ihm einen Namen (z. B. ICMP blockieren) und eine Beschreibung (z. B. die obige Beschreibung).
-5. Laden Sie für **macOS** die folgende mobileconfig hoch
+5. Laden Sie für **macOS** die folgende mobileKonfiguration hoch
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -166,22 +166,22 @@ Das Verstecken vor ICMP und ähnlichen Sonden erschwert die Aufzählung von Ger�
 
 6. Abschließend **bestätigen.**
 
-## Unter Windows
+## Auf Windows
 
 ### Festplattenverschlüsselung
 
 *Diese Richtlinie wurde mit Primo erstellt und funktioniert sowohl für macOS- als auch für Windows-Geräte.*
 
-Befolgen Sie die gleichen Schritte wie im Abschnitt zur macOS-Festplattenverschlüsselung oben – die Verschlüsselungskarte in Profilen gilt für beide Plattformen.
+Befolgen Sie die gleichen Schritte wie im Abschnitt „macOS-Festplattenverschlüsselung“ oben – die Verschlüsselungskarte in Profilen gilt für beide Plattformen.
 
 ### Passwortrichtlinie und automatische Bildschirmsperre
 
 *Diese Richtlinie wurde mit Primo erstellt und funktioniert für iOS-, macOS- und Windows-Geräte.*
 
-Befolgen Sie die gleichen Schritte wie im Abschnitt zur macOS-Passwortrichtlinie oben. Stellen Sie sicher, dass Sie die Registerkarte **Windows** separat konfigurieren.
+Befolgen Sie die gleichen Schritte wie im Abschnitt macOS-Passwortrichtlinie oben. Stellen Sie sicher, dass Sie die Registerkarte **Windows** separat konfigurieren.
 
 ### Integrierte Firewall
 
 *Diese Richtlinie wurde mit Primo erstellt und funktioniert sowohl für macOS- als auch für Windows-Geräte.*
 
-Befolgen Sie die gleichen Schritte wie im Abschnitt über die integrierte macOS-Firewall oben – die Firewall-Karte in den Profilen gilt für beide Plattformen.
+Befolgen Sie die gleichen Schritte wie im Abschnitt „Integrierte Firewall macOS“ oben – die Firewall-Karte in Profilen gilt für beide Plattformen.

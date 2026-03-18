@@ -1,20 +1,20 @@
 ---
-title: "Ejemplos de políticas personalizadas de Windows"
-description: "Explore cómo aplicar políticas personalizadas de Windows para CSP de personalización, incluida su habilitación en Windows Pro y la configuración de imágenes de fondo para la pantalla de bloqueo y el escritorio a través de configuraciones XML específicas."
+title: "Ejemplos de políticas Windows personalizadas"
+description: "Explore cómo aplicar políticas Windows personalizadas para CSP de personalización, incluida su habilitación en Windows Pro y la configuración de imágenes de fondo para la pantalla de bloqueo y el escritorio a través de configuraciones XML específicas."
 ---
 
-Amplíe sus perfiles de Windows MDM con políticas CSP (Proveedor de servicios de configuración) personalizadas utilizando XML sin formato. Utilícelo cuando los controles integrados de Primo no cubran una configuración específica de Windows que necesite implementar, como la personalización del escritorio, el modo quiosco u otras configuraciones empresariales.
+Amplíe sus perfiles Windows MDM con políticas CSP (proveedor de servicios de configuración) personalizadas utilizando XML sin formato. Utilícelo cuando los controles integrados de Primo no cubran una configuración específica de Windows que necesite implementar, como la personalización del escritorio, el modo quiosco u otras configuraciones empresariales.
 
 ## soporte del sistema operativo
 
-| macos | ventanas | linux | iOS/iPadOS | androide |
+| macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
 | | ✅ | | | |
 
 ## En Windows
 
 <Note>
-Al escribir un XML para aplicar una política CSP a un dispositivo, omite las primeras (y últimas) líneas del archivo XML y empieza (y termina) con `<Replace>` o `<Add>` (respectivamente `</Replace>` y `</Add>`)
+Al escribir un XML para aplicar una política CSP a un dispositivo, omita las primeras (y últimas) líneas del archivo XML y comience (y finalice) con `<Replace>@@I18N_SEG_10@@<Add>@@I18N_SEG_11@@</Replace>@@I18N_SEG_12@@</Add>`).
 </Note>
 
 ### Permitir personalización CSP en Windows Pro

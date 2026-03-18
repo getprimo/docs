@@ -1,16 +1,16 @@
 ---
-title: "Distribuire app (macOS, Windows, Linux)"
-description: "Distribuisci e gestisci le applicazioni su dispositivi macOS, Windows e Linux direttamente da Primo MDM > Software, incluse app gestite da Fleet, app Apple App Store (VPP) e app personalizzate."
+title: "Distribuisci app (macOS, Windows, Linux)"
+description: "Distribuisci e gestisci le applicazioni sui dispositivi macOS, Windows e Linux direttamente da Primo MDM > Software, incluse le app gestite da Fleet, le app Apple App Store (VPP) e le app personalizzate."
 ---
 
 Da **MDM > Software**, puoi distribuire app sui tuoi dispositivi macOS, Windows e Linux gestiti senza mai uscire da Primo. Primo supporta quattro tipi di app:
 
 - **Fleet-App mantenute (FMA)**: un catalogo curato di app popolari gestite e aggiornate da Fleet
-- **Apple App Store (macOS)**: app macOS acquistate tramite il Volume Purchase Program (VPP) di Apple
+- **App Store di Apple (macOS)**: app macOS acquistate tramite il Volume Purchase Program (VPP) di Apple
 - **App personalizzate**: i tuoi pacchetti `.pkg`, `.msi`, `.deb` o `.rpm`
 
 <Note>
-Per la distribuzione di app iOS/iPadOS e Android, vedere [Distribuzione di app (iOS e Android)](/it/mdm/policies/manage-apps-smartphone).
+Per la distribuzione delle app iOS/iPadOS e Android, vedere [Distribuzione delle app (iOS e Android)](/it/mdm/policies/manage-apps-smartphone).
 </Note>
 
 ---
@@ -58,10 +58,10 @@ Le app gestite da Fleet sono una libreria curata di software popolari (ad esempi
 
 ---
 
-## Aggiungere un'app dell'Apple App Store (macOS VPP)
+## Aggiungi un'app Apple App Store (macOS VPP)
 
 <Note>
-**Prerequisito**: devi disporre di un account Apple Business Manager (ABM) con VPP configurato. Vedere [Distribuire applicazioni VPP](/it/mdm/policies/deploy-vpp-applications) per le istruzioni di configurazione.
+**Prerequisito**: devi disporre di un account Apple Business Manager (ABM) con configurazione VPP. Vedere [Distribuire applicazioni VPP](/it/mdm/policies/deploy-vpp-applications) per le istruzioni di configurazione.
 </Note>
 
 1. Vai a **MDM > Software** e fai clic su **Aggiungi app**.
@@ -71,14 +71,14 @@ Le app gestite da Fleet sono una libreria curata di software popolari (ad esempi
 5. Fai clic su **Aggiungi software**.
 
 <Note>
-Il programma di installazione sorgente proviene sempre direttamente dall'App Store di Apple: l'interruttore **Mantieni aggiornato il programma di installazione sorgente** non è applicabile. L'aggiornamento automatico non è disponibile per le app VPP per macOS.
+Il programma di installazione sorgente proviene sempre direttamente dall'Apple App Store: l'interruttore **Mantieni aggiornato il programma di installazione sorgente** non è applicabile. L'aggiornamento automatico non è disponibile per le app VPP macOS.
 </Note>
 
 ---
 
 ## Aggiungi un'app personalizzata
 
-Le app personalizzate sono pacchetti che carichi tu stesso (`.pkg` per macOS, `.msi` per Windows, `.deb`/`.rpm` per Linux).
+Le app personalizzate sono pacchetti caricati personalmente (`.pkg` per macOS, `.msi` per Windows, `.deb`/`.rpm` per Linux).
 
 1. Vai a **MDM > Software** e fai clic su **Aggiungi app**.
 2. Seleziona **App personalizzata**.
@@ -90,9 +90,9 @@ Le app personalizzate sono pacchetti che carichi tu stesso (`.pkg` per macOS, `.
 **Il supporto per l'installazione automatica varia in base al tipo di file.** I seguenti tipi non supportano l'opzione **Installa automaticamente**:
 - `.exe` (Windows)
 - `.sh` (Linux)
-- `.ps1` (Windows PowerShell)
+- `.ps1` (PowerShell Windows)
 
-Utilizza `.msi` per Windows e `.pkg` per macOS per abilitare la distribuzione automatica.
+Utilizzare `.msi` per Windows e `.pkg` per macOS per abilitare la distribuzione automatica.
 </Warning>
 
 <Note>
@@ -103,7 +103,7 @@ L'aggiornamento automatico per le app personalizzate sarà **disponibile a breve
 
 ## Panoramica delle capacità
 
-| Capacità | App gestite da Fleet | App Store di macOS (VPP) | App personalizzate |
+| Capacità | App gestite da Fleet | macOS App Store (VPP) | App personalizzate |
 |---|:---:|:---:|:---:|
 | Installa automaticamente | ✅ | ✅ | ✅ |
 | Self-Service | ✅ | ✅ | ✅ |

@@ -1,15 +1,15 @@
 ---
 title: "Puntos de referencia de la CEI"
-description: "CIS Benchmarks son guías de configuración segura desarrolladas por la comunidad que ayudan a fortalecer los sistemas y las redes, proporcionando dos niveles de perfiles para equilibrar la seguridad y la usabilidad, al tiempo que ofrecen un script detallado para implementar políticas a través de FleetDM."
+description: "CIS Benchmarks son guías de configuración segura desarrolladas por la comunidad que ayudan a reforzar los sistemas y las redes, proporcionando dos niveles de perfiles para equilibrar la seguridad y la usabilidad, al tiempo que ofrecen un script detallado para implementar políticas a través de FleetDM."
 ---
 
-Los CIS Benchmarks son guías de configuración segura basadas en consenso que se utilizan para reforzar sistemas, software y redes, una base reconocida en la industria para reducir la superficie de ataque. Úselos con Primo y FleetDM para evaluar el cumplimiento y hacer cumplir la configuración en toda su flota de macOS y Windows.
+Los CIS Benchmarks son guías de configuración segura basadas en consenso que se utilizan para reforzar sistemas, software y redes, una base reconocida por la industria para reducir la superficie de ataque. Úselos con Primo y FleetDM para evaluar el cumplimiento y hacer cumplir la configuración en toda su flota macOS y Windows.
 
 ## soporte del sistema operativo
 
-| macos | ventanas | linux | iOS/iPadOS | androide |
+| macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
-| ✅macOS 13+ | ✅Windows 10+ Empresa | | | |
+| ✅macOS 13+ | ✅ Windows 10+ Empresa | | | |
 
 ## Acerca de los puntos de referencia de la CEI
 
@@ -60,7 +60,7 @@ do
 done
 ```
 
-Luego cargue las políticas en su instancia de FleetDM:
+Luego cargue las políticas en su instancia FleetDM:
 
 ```bash
 fleetctl apply --policies-team "Workstations" -f cis-policy-queries.yml
@@ -72,11 +72,11 @@ Fleet expone **consultas de políticas** para evaluar el cumplimiento de CIS en 
 
 Las políticas **no corrigen**: aún necesita **perfiles MDM** y/o scripts para aplicar la configuración, y puede usar automatizaciones para impulsar los flujos de trabajo de corrección. Algunas comprobaciones requieren **inscripción MDM** y permisos de agente específicos.
 
-## En MacOS
+## En macOS
 
 ### Cifrado de disco
 
-*Esta política tiene como plantilla Primo y funciona tanto para dispositivos macOS como Windows.*
+*Esta política tiene una plantilla con Primo y funciona para dispositivos macOS y Windows.*
 
 1. En Primo, vaya a **MDM > Perfiles**
 2. Seleccione **todos los dispositivos**
@@ -90,7 +90,7 @@ Las políticas **no corrigen**: aún necesita **perfiles MDM** y/o scripts para 
 
 Los tiempos de espera de bloqueo breves y las contraseñas seguras ayudan a prevenir ataques como la navegación por el hombro, el uso indebido de información privilegiada y el acceso oportunista a portátiles desatendidos.
 
-*Esta política tiene como plantilla Primo y funciona para dispositivos iOS, macOS y Windows.*
+*Esta política tiene una plantilla con Primo y funciona para dispositivos iOS, macOS y Windows.*
 
 1. En Primo, vaya a **MDM > Perfiles**
 2. Seleccione **todos los dispositivos**
@@ -106,7 +106,7 @@ Los tiempos de espera de bloqueo breves y las contraseñas seguras ayudan a prev
 
 El tráfico entrante denegado de forma predeterminada reduce la posibilidad de que un servicio inactivo se convierta en un punto de entrada a la red, especialmente en Wi-Fi público.
 
-*Esta política tiene como plantilla Primo y funciona tanto para dispositivos macOS como Windows.*
+*Esta política tiene una plantilla con Primo y funciona para dispositivos macOS y Windows.*
 
 1. En Primo, vaya a **MDM > Perfiles**
 2. Seleccione **todos los dispositivos**
@@ -170,18 +170,18 @@ Ocultarse de ICMP y sondas similares hace que los dispositivos sean más difíci
 
 ### Cifrado de disco
 
-*Esta política tiene como plantilla Primo y funciona tanto para dispositivos macOS como Windows.*
+*Esta política tiene una plantilla con Primo y funciona para dispositivos macOS y Windows.*
 
-Siga los mismos pasos que en la sección anterior Cifrado de disco de macOS: la tarjeta de cifrado en los perfiles se aplica a ambas plataformas.
+Siga los mismos pasos que en la sección Cifrado de disco macOS anterior: la tarjeta de cifrado en los perfiles se aplica a ambas plataformas.
 
 ### Política de contraseñas y bloqueo automático de pantalla.
 
-*Esta política tiene como plantilla Primo y funciona para dispositivos iOS, macOS y Windows.*
+*Esta política tiene una plantilla con Primo y funciona para dispositivos iOS, macOS y Windows.*
 
 Siga los mismos pasos que la sección Política de contraseñas de macOS anterior. Asegúrese de configurar la pestaña **Windows** por separado.
 
 ### Cortafuegos incorporado
 
-*Esta política tiene como plantilla Primo y funciona tanto para dispositivos macOS como Windows.*
+*Esta política tiene una plantilla con Primo y funciona para dispositivos macOS y Windows.*
 
-Siga los mismos pasos que en la sección Firewall incorporado de macOS anterior: la tarjeta Firewall en los perfiles se aplica a ambas plataformas.
+Siga los mismos pasos que en la sección anterior sobre Firewall integrado macOS: la tarjeta de Firewall en los perfiles se aplica a ambas plataformas.

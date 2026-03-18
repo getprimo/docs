@@ -30,20 +30,20 @@ Wenn eine Mindestversion erzwungen wird, sehen die Endbenutzer einmal täglich e
 
 Wenn der Host zum Zeitpunkt des Ablaufs der Frist ausgeschaltet war, wird das Update eine Stunde nach dem Einschalten geplant.
 
-Bei macOS-Geräten, die die automatische Geräteregistrierung (Automated Device Enrollment, ADE) verwenden und das Gerät unter der angegebenen Mindestversion ist, muss es während ADE auf die neueste verfügbare Version aktualisiert werden, bevor die Geräteeinrichtung und -registrierung fortgesetzt werden kann.
+Bei macOS-Geräten, die die automatische Geräteregistrierung (ADE) verwenden und das Gerät unter der angegebenen Mindestversion liegt, muss es während ADE auf die neueste verfügbare Version aktualisiert werden, bevor die Geräteeinrichtung und -registrierung fortgesetzt werden kann.
 
 ### macOS 13 und früher
 
-Endbenutzer werden aufgefordert, macOS über Nudge zu aktualisieren.
+Endbenutzern wird empfohlen, macOS über Nudge zu aktualisieren.
 
 ![Screenshot: Vor macOS 14](/images/notion-import/employee-experience-for-os-updates__img-065__block-0012__1b243d9f.png)
 
 
-|                             | **> 1 Tag vor dem Stichtag** | **< 1 Tag vor dem Stichtag** | **Frist überschritten** |
+|                             | **\>@@I18N_SEG_23@@< 1 Tag vor Abgabetermin** | **Vergangene Frist**    |
 | --------------------------- | ---------------------------- | ---------------------------- | -------------------- |
-| Fensterfrequenz verschieben      | Einmal täglich um 20:00 Uhr GMT        | Einmal alle 2 Stunden           | Sofort beim Login |
+| Nudge Fensterfrequenz      | Einmal täglich um 20:00 Uhr GMT        | Einmal alle 2 Stunden           | Sofort beim Login |
 | Der Endbenutzer kann aufschieben          | ✅                            | ✅                            | ❌                    |
-| Das Nudge-Fenster kann verworfen werden | ✅                            | ✅                            | ❌                    |
+| Das Nudge-Fenster kann geschlossen werden | ✅                            | ✅                            | ❌                    |
 
 ### Windows
 
@@ -71,7 +71,7 @@ Der Endbenutzer wird mit einer Systembenachrichtigung dazu gedrängt, das Update
 
 ### macOS 13 und früher
 
-Das Nudge-Fenster wird angezeigt und der Benutzer wird zu den Systemeinstellungen weitergeleitet, um das Update herunterzuladen und zu installieren (was fehlschlägt). Das Nudge-Fenster verhält sich wie gewohnt, wenn es nach Ablauf der Frist nicht geschlossen werden kann. Der Endbenutzer muss selbst Speicherplatz freigeben, um das Update zu installieren und das Nudge-Fenster zu schließen.
+Das Nudge-Fenster wird angezeigt und der Benutzer wird zu den Systemeinstellungen weitergeleitet, um das Update herunterzuladen und zu installieren (was fehlschlagen wird). Das Nudge-Fenster verhält sich wie gewohnt und kann nach Ablauf der Frist nicht geschlossen werden. Der Endbenutzer muss selbst Speicherplatz freigeben, um das Update zu installieren und das Nudge-Fenster zu schließen.
 
 ### Windows
 

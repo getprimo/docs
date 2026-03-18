@@ -4,7 +4,7 @@ description: "Richten Sie Windows Autopilot mit Primo ein: Konfigurieren Sie die
 ---
 
 <Warning>
-  Die Zero-Touch-Bereitstellung für Windows-Geräte ist derzeit nicht verfügbar. Wir schließen die verbleibenden Tests mit unseren Partnern ab, bevor wir diese Funktion wieder aktivieren.
+  Die Zero-Touch-Bereitstellung für Windows-Geräte ist derzeit nicht verfügbar. Wir führen die verbleibenden Tests mit unseren Partnern durch, bevor wir diese Funktion wieder aktivieren.
 </Warning>
 
 Windows Autopilot bietet neuen Windows-Geräten ein sofort einsatzbereites Setup-Erlebnis. Wenn ein Mitarbeiter ein Gerät zum ersten Mal einschaltet, meldet er sich mit seinen Microsoft-Anmeldeinformationen an und alle Unternehmens-Apps, Einstellungen und Sicherheitsrichtlinien werden automatisch angewendet – kein Eingreifen der IT-Abteilung erforderlich.
@@ -27,7 +27,7 @@ Die Mindestlizenz, die beide Funktionen abdeckt, ist **Enterprise Mobility + Sec
 1. Schalten Sie das Gerät ein
 2. Land und Sprache auswählen, Tastaturlayout konfigurieren
 3. Stellen Sie eine Verbindung zum Internet her
-4. Akzeptieren Sie die Geschäftsbedingungen von FleetDM
+4. Akzeptieren Sie die Allgemeinen Geschäftsbedingungen von FleetDM
     ![Screenshot: Was passiert, wenn ein Mitarbeiter mit einem mit Autopilot konfigurierten Arbeitsplatz ankommt?](/images/notion-import/zero-touch-enrollment-for-windows__img-025__block-0018__1b243d9f.png)
 
 5. Melden Sie sich mit Microsoft-Anmeldeinformationen an (+ 2FA, falls aktiviert)
@@ -122,7 +122,7 @@ Die Fleet-Anwendung wird jetzt im Azure-Portal als legitime MDM deklariert.
 
 Die Fleet-Anwendung ist jetzt als MDM deklariert, die neue Geräte mit dem Azure-Portal verarbeitet.
 
-**Hinweis**: Wenn Sie mit der Registrierung von Geräten auf Primo/FleetDM begonnen haben, bevor Sie diese Vorgänge ausführen, teilen Sie uns dies bitte mit, damit wir den MDM-Wechsel von Intune zu FleetDM erzwingen können, indem wir ein Skript ausführen (ohne das sich der Computer in einem inkonsistenten Zustand befindet, der sich auf die Primo-Erfahrung auswirken kann).
+**Hinweis**: Wenn Sie mit der Registrierung von Geräten auf Primo/FleetDM begonnen haben, bevor Sie diese Vorgänge ausführen, teilen Sie uns dies bitte mit, damit wir die MDM-Änderung von Intune zu FleetDM erzwingen können, indem wir ein Skript ausführen (ohne das sich der Computer in einem inkonsistenten Zustand befindet, der sich auf das Primo-Erlebnis auswirken kann).
 
 ## Schritt 2 – Erstellen Sie Autopilot-Bereitstellungsprofile
 
@@ -180,7 +180,7 @@ Damit Autopilot automatisch auf Geräten funktioniert, die über Primo bestellt 
 
 - Bauen Sie eine Microsoft-Partnerschaftsbeziehung zwischen InMac und Ihnen auf
 
-Dieser Zugriff ermöglicht es ihnen, Intune für jedes bestellte Gerät über dessen Existenz zu informieren und sicherzustellen, dass es während der Initialisierung von Primo behandelt wird.
+Dieser Zugriff ermöglicht es ihnen, für jedes bestellte Gerät Intune über dessen Existenz zu informieren und sicherzustellen, dass es während seiner Initialisierung von Primo behandelt wird.
 
 Dazu müssen Sie den folgenden Link von einem Konto mit der Rolle **Globaler Administrator** aus verwenden:
 

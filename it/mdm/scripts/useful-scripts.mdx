@@ -55,7 +55,7 @@ echo "A reboot might be required for all changes to fully take effect."
 
 ### Risolto il problema con il popup di installazione di Slack Helper Tool dovuto alla proprietà root
 
-Alcuni utenti potrebbero riscontrare popup di installazione ripetuti per lo strumento di supporto di Slack su macOS quando Slack.app è di proprietà di root, anche dopo aver inserito le credenziali di amministratore. Per risolvere questo problema, esegui il seguente script sul computer interessato come amministratore per modificare la proprietà di Slack.app con l'utente attualmente connesso:
+Alcuni utenti potrebbero riscontrare ripetuti popup di installazione per lo strumento di supporto di Slack su macOS quando Slack.app è di proprietà di root, anche dopo aver inserito le credenziali di amministratore. Per risolvere questo problema, esegui il seguente script sul computer interessato come amministratore per modificare la proprietà di Slack.app con l'utente attualmente connesso:
 
 ```bash
 #!/bin/bash
@@ -95,7 +95,7 @@ echo "Ownership updated. Please retry launching Slack."
 SELECT 1 FROM file WHERE path LIKE '/Applications/Slack.app/%%' and uid != 0;
 ```
 
-## Finestre
+## Windows
 
 ### Rimuovere il blocco USB
 

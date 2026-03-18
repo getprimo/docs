@@ -1,11 +1,11 @@
 ---
-title: "Distribuzione Zero-Touch per Mac (ABM)"
+title: "Distribuzione zero-touch per Mac (ABM)"
 description: "Configura Apple Business Manager con Primo per abilitare la registrazione e la configurazione automatiche dei dispositivi Mac, inclusa la migrazione dei Mac tra server MDM utilizzando macOS Sequoia/Tahoe."
 ---
 
-Questo articolo spiega come connettere Apple Business Manager (ABM) per abilitare la distribuzione Zero Touch per i dispositivi Apple. Spiega anche come migrare i Mac da un MDM a un altro utilizzando ABM, una funzionalità introdotta con macOS Sequoia e ampliata in macOS Tahoe.
+Questo articolo spiega come connettere Apple Business Manager (ABM) per abilitare la distribuzione Zero Touch per i dispositivi Apple. Spiega inoltre come migrare i Mac da uno MDM a un altro utilizzando ABM, una funzionalità introdotta con macOS Sequoia e ampliata in macOS Tahoe.
 
-## Comprendere il ruolo dell'ABM
+## Comprendere il ruolo di ABM
 
 Apple Business Manager è un portale web Apple che consente alle organizzazioni di gestire e distribuire i dispositivi Apple (iPhone, iPad, Mac, Apple TV) da una posizione centralizzata.
 
@@ -33,7 +33,7 @@ Se la tua organizzazione non dispone ancora di un account Apple Business Manager
 ## Crea un account ABM per la tua azienda (tempo stimato: 2 minuti)
 
 1. Vai a [https://business.apple.com/](https://business.apple.com/)
-2. Seleziona **Iscriviti adesso**
+2. Seleziona **Iscriviti ora**
 3. Inserisci le informazioni sull'organizzazione richieste:
    - Nome e cognome della persona che si registra per conto dell'organizzazione
    - Un indirizzo email aziendale non associato a un ID Apple
@@ -68,7 +68,7 @@ Una volta convalidato il tuo account Apple Business Manager:
 1. Accedi alla cabina di pilotaggio
 2. Vai a **Integrazioni**
 3. Seleziona **Apple Business Manager**
-4. Seguire le istruzioni visualizzate sullo schermo per connettere l'ABM
+4. Seguire le istruzioni visualizzate sullo schermo per connettere ABM
 5. Conferma che la sincronizzazione è attiva
 
 Una volta completata l'integrazione, i dispositivi Apple associati alla tua organizzazione potranno essere registrati automaticamente.
@@ -96,7 +96,7 @@ In questo caso, assicurati che:
 - Il rivenditore è **autorizzato Apple**
 - Il rivenditore assegna correttamente i dispositivi al tuo **account Apple Business Manager** al momento dell'acquisto
 
-Una volta assegnati ad ABM, i dispositivi diventano disponibili per la registrazione e possono essere distribuiti utilizzando Zero Touch.
+Una volta assegnati a ABM, i dispositivi diventano disponibili per la registrazione e possono essere distribuiti utilizzando Zero Touch.
 
 ## Aggiungi dispositivi manualmente utilizzando Apple Configurator per Mac
 
@@ -136,7 +136,7 @@ In precedenza, la migrazione di un Mac da un MDM a un altro richiedeva:
 1. Cancellazione del dispositivo (o utilizzo della procedura di rimozione manuale)
 2. Reiscrizione da zero
 
-Con la riassegnazione MDM basata su ABM, puoi:
+Con la riassegnazione MDM basata su ABM è possibile:
 - Sposta i Mac da un MDM precedente (ad esempio Jamf, Mosyle, Kandji, Intune) senza perdita di dati
 - Evita l'interruzione della cancellazione completa del dispositivo
 - Esegui migrazioni in blocco per l'intera flotta direttamente dalla console ABM
@@ -144,9 +144,9 @@ Con la riassegnazione MDM basata su ABM, puoi:
 ## Requisiti
 
 - macOS Sequoia (15) o versione successiva sul Mac di destinazione
-- Il Mac deve essere supervisionato da ABM (acquistato tramite il canale collegato ad ABM o aggiunto tramite Apple Configurator)
+- Il Mac deve essere supervisionato da ABM (acquistato tramite il canale collegato a ABM o aggiunto tramite Apple Configurator)
 - Accesso come amministratore a Apple Business Manager
-- Il server MDM di destinazione (Primo) deve essere già connesso ad ABM
+- Il server MDM di destinazione (Primo) deve essere già connesso a ABM
 
 ## Come riassegnare i Mac tramite ABM
 
@@ -160,7 +160,7 @@ Con la riassegnazione MDM basata su ABM, puoi:
 La prossima volta che il Mac effettuerà il check-in con MDM (o dopo un riavvio), riceverà il profilo di registrazione da Primo ed effettuerà la transizione automaticamente.
 
 <Note>
-La riassegnazione avrà effetto al successivo check-in MDM del dispositivo. Ciò avviene in genere entro pochi minuti se il dispositivo è online. Non è richiesta alcuna azione da parte dell'utente su macOS Tahoe: lo switch MDM è trasparente.
+La riassegnazione avrà effetto al successivo check-in MDM del dispositivo. Ciò avviene in genere entro pochi minuti se il dispositivo è online. Non è richiesta alcuna azione da parte dell'utente su macOS Tahoe: l'interruttore MDM è trasparente.
 </Note>
 
 <Warning>

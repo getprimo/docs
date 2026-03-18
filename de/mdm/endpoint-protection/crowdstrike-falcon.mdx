@@ -30,7 +30,7 @@ In diesem Artikel wird erläutert, wie Sie den CrowdStrike Falcon-Agenten auf ma
 
 ### Schritt 2: Importieren Sie die Installationsdateien in FleetDM
 
-**2.1 Das macOS-Paket importieren**
+**2.1 Importieren Sie das macOS-Paket**
 
 1. Gehen Sie in FleetDM zu **Software > Software hinzufügen > Benutzerdefiniertes Paket**.
 2. Klicken Sie auf **Paket hochladen** und wählen Sie die zuvor heruntergeladene .pkg-Datei aus.
@@ -46,7 +46,7 @@ In diesem Artikel wird erläutert, wie Sie den CrowdStrike Falcon-Agenten auf ma
 
 **3.1 macOS-Installationsskript**
 
-1. Suchen Sie in der Konfiguration für das macOS .pkg-Paket das Feld „Skript installieren“ (erweiterte Optionen anzeigen).
+1. Suchen Sie in der Konfiguration für das Paket macOS .pkg das Feld „Skript installieren“ (erweiterte Optionen anzeigen).
 2. Fügen Sie am Ende des Skripts die folgende Zeile hinzu (ersetzen Sie CustomerID durch Ihre tatsächliche CID):
    ```
    /Applications/Falcon.app/Contents/Resources/falconctl license CustomerID
@@ -55,7 +55,7 @@ In diesem Artikel wird erläutert, wie Sie den CrowdStrike Falcon-Agenten auf ma
 
 **3.2 Windows-Installationsskript**
 
-1. Suchen Sie in der Konfiguration für das Windows-EXE-Paket das Feld „Installationsskript“ (erweiterte Optionen anzeigen).
+1. Suchen Sie in der Konfiguration für das Windows .exe-Paket das Feld „Installationsskript“ (erweiterte Optionen anzeigen).
 2. Kopieren Sie dies und fügen Sie es in das Installationsskript ein (ersetzen Sie CustomerID durch Ihre tatsächliche CID):
 
 ```powershell
@@ -187,7 +187,7 @@ Exit $exitCode
 
 ### Schritt 4: Erstellen Sie Compliance-Richtlinien in FleetDM
 
-Erstellen Sie zwei separate Richtlinien, um zu bestätigen, dass der CrowdStrike-Agent sowohl auf macOS- als auch auf Windows-Geräten installiert ist.
+Erstellen Sie zwei separate Richtlinien, um zu bestätigen, dass der CrowdStrike-Agent sowohl auf den Geräten macOS als auch Windows installiert ist.
 
 **4.1 macOS-Richtlinie**
 

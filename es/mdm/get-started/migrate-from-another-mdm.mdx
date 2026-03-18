@@ -1,6 +1,6 @@
 ---
 title: "Migra tu dispositivo desde otro MDM"
-description: "Migre sus dispositivos a Primo (FleetDM) sin problemas siguiendo un cronograma estructurado y una lista de verificación, lo que garantiza que no se pierdan datos ni interrupciones del usuario durante la transición desde su solución MDM actual."
+description: "Migre sus dispositivos a Primo (FleetDM) sin problemas siguiendo un cronograma estructurado y una lista de verificación, lo que garantiza que no se pierdan datos ni interrupciones para el usuario durante la transición desde su solución MDM actual."
 ---
 
 Esta documentación lo guiará en la migración de sus dispositivos desde su solución MDM actual **sin borrar dispositivos ni interrumpir a los usuarios**.
@@ -18,18 +18,18 @@ Este artículo explica **cómo migrar sus dispositivos** a Primo (FleetDM) a tra
 | Semana | Acciones clave |
 |---|---|
 | **Día 1** | Reunión de incorporación para ayudarle a configurar el panel Primo |
-| **Semana 1** | Configuración de Primo MDM con la configuración actualmente implementada en sus dispositivos<br/>Segmentación de dispositivos (MacOS, Windows, Linux, etc.)<br/>→ [Si hay migración MacOS] Conexión entre Primo y tu Apple Business Manager (ABM)<br/>→ [Si es migración a Windows] Activación de la migración automática desde Primo |
-| **Semana 2** | Comunicación a los usuarios e implementación del agente Primo en sus dispositivos (manual o mediante su MDM actual) |
-| **Semana 3** | [Si se realiza una migración a MacOS] Reasignación en ABM y cancelación de la inscripción de perfiles MDM antiguos |
-| **Semana 4** | [Si se realiza una migración a MacOS] Aceptación de los perfiles Primo por parte de sus empleados y finalización de la implementación |
-| **Semana 5** | [Si se realiza una migración a MacOS] Comprobaciones finales y eliminación del antiguo MDM |
+| **Semana 1** | Configuración de Primo MDM con la configuración actualmente implementada en sus dispositivos<br/>@@I18N_SEG_13@@<br/>@@I18N_SEG_14@@<br/>→ [Si migración de Windows] Activación de la migración automática desde Primo |
+| **Semana 2** | Comunicación a usuarios e implementación del agente Primo en sus dispositivos (manual o mediante su MDM actual) |
+| **Semana 3** | [Si hay migración de MacOS] Reasignación en ABM y cancelación de la inscripción de perfiles antiguos de MDM |
+| **Semana 4** | [Si hay migración de MacOS] Aceptación de los perfiles de Primo por parte de sus empleados y finalización de la implementación |
+| **Semana 5** | [Si hay migración de MacOS] Comprobaciones finales y eliminación del antiguo MDM |
 
 ## Migra tus dispositivos según tu sistema operativo
 
 ### Lista de verificación previa a la migración
 
-- [Si se realiza una migración a MacOS] Vincule Primo y su Apple Business Manager (ABM)
-- [Si es una migración de Windows] Habilite la opción "Migración automática de Windows MDM" en su configuración de Primo MDM
+- [Si hay migración de MacOS] Vincula Primo y tu Apple Business Manager (ABM)
+- [Si hay migración Windows] Habilite la opción "Migración automática Windows MDM" en su configuración de Primo MDM
 - Enumere las políticas y aplicaciones actualmente implementadas en sus máquinas
 - Aplique sus configuraciones en Primo a través de perfiles MDM
 - Preparar la comunicación interna (correo electrónico, Slack, preguntas frecuentes)
@@ -39,7 +39,7 @@ Este artículo explica **cómo migrar sus dispositivos** a Primo (FleetDM) a tra
 
 Dos escenarios de migración:
 
-### 1. Dispositivos supervisados (registrados en su ABM)
+### 1. Dispositivos supervisados (registrados en tu ABM)
 
 Estos dispositivos se benefician de la implementación Zero Touch. Esta migración consiste en cancelar la inscripción y cambiar el servidor MDM en ABM.
 
@@ -76,15 +76,15 @@ Pasos a seguir:
 2. Inicie la campaña de inscripción a través de su panel Primo
 3. Primo envía recordatorios cada 7 días hasta que el usuario instala el MDM
 
-Una vez que se eliminan los dispositivos de su MDM anterior, use la función "invitar a MDM" de Primo para facilitar la implementación. Se enviarán recordatorios cada 7 días a los empleados dados de baja y usted podrá realizar un seguimiento del progreso en su panel de control.
+Una vez que se eliminan los dispositivos de su MDM anterior, use la función "invitar a MDM" de Primo para facilitar la implementación. Se enviarán recordatorios cada 7 días a los empleados dados de baja y usted podrá realizar un seguimiento del progreso en su panel.
 
-## Migración de Windows
+## Migración Windows
 
 Dos escenarios de migración:
 
 ### 1. Desde cualquier MDM
 
-Simplemente active la opción "Migración automática de Windows MDM" en su configuración de Primo MDM. Al habilitar esta opción, FleetDM migrará automáticamente los dispositivos Windows inscritos con otra solución MDM.
+Simplemente active la opción "Migración automática Windows MDM" en su configuración de Primo MDM. Al habilitar esta opción, FleetDM migrará automáticamente los dispositivos Windows inscritos con otra solución MDM.
 
 ### 2. Específicamente de Intune
 
@@ -99,7 +99,7 @@ Este es el procedimiento a seguir imperativamente antes de iniciar la migración
    - Alternativamente, vaya a: [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility) (o busque "Movilidad" en portal.azure.com)
    - Luego seleccione "Intune"
    - Seleccione "Ninguno" en ambas opciones y Guardar
-       ![Captura de pantalla: si ha conectado Intune y Entra ID](/images/notion-import/migrate-your-device-from-another-mdm__img-063__block-0063__23843d9f.png)
+       ![Captura de pantalla: Si ha conectado Intune y Entra ID](/images/notion-import/migrate-your-device-from-another-mdm__img-063__block-0063__23843d9f.png)
 
 
 #### Migrar sus dispositivos individualmente desde Intune
@@ -109,14 +109,14 @@ Siga estos pasos para migrar sus dispositivos desde Intune uno por uno:
 - Registre la computadora en Primo, el dispositivo se creará en Primo con el estado "Encendido en otro MDM"
 - Utilice el botón de migración en Primo para aplicar el script de migración
 
-#### Migrar todos tus dispositivos desde Intune
+#### Migrando todos sus dispositivos desde Intune
 
 Siga estos pasos para migrar sus dispositivos desde Intune:
 
 1. **Sube el siguiente script**
    - Encuentre su URL MDM completa:
      - El formato es: `https://REPLACE_BY_COMPANY_NAME.mdm.getprimo.com/api/mdm/microsoft/discovery`
-     - Reemplace `REPLACE_BY_COMPANY_NAME` con el nombre/dominio de la empresa que está presente en la URL de Fleet
+     - Reemplace `REPLACE_BY_COMPANY_NAME` con el nombre/dominio de la empresa que está presente en la URL de Fleet.
    - Pégalo en el script, reemplazando `INPUT_URL_HERE`
    - Cargue el script en su instancia MDM (Controles > Scripts)
 
