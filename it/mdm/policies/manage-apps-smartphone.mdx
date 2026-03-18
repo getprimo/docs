@@ -1,15 +1,15 @@
 ---
 title: "Distribuisci app (iOS, iPadOS e Android)"
-description: "Distribuisci e gestisci le applicazioni su dispositivi iOS, iPadOS e Android direttamente da Primo MDM > Software, tramite Apple VPP o Google Play Store."
+description: "Distribuisci e gestisci le applicazioni sui dispositivi iOS, iPadOS e Android direttamente da Primo MDM > Software, tramite Apple VPP o Google Play Store."
 ---
 
-Da **MDM > Software**, puoi distribuire app sui tuoi dispositivi iOS, iPadOS e Android gestiti. Primo supporta:
+Da **MDM > Software**, puoi distribuire le app sui tuoi dispositivi iOS, iPadOS e Android gestiti. Primo supporta:
 
-- **App Store di Apple (iOS/iPadOS)**: app acquistate tramite il Volume Purchase Program (VPP) di Apple
+- **Apple App Store (iOS/iPadOS)**: app acquistate tramite il Volume Purchase Program (VPP) di Apple
 - **Google Play Store**: app distribuite tramite Android Enterprise (Google Play gestito)
 
 <Note>
-Per la distribuzione di app macOS, Windows e Linux, vedere [Distribuzione di app (macOS, Windows, Linux)](/it/mdm/policies/manage-apps-laptop).
+Per la distribuzione delle app macOS, Windows e Linux, vedere [Distribuire app (macOS, Windows, Linux)](/it/mdm/policies/manage-apps-laptop).
 </Note>
 
 ---
@@ -35,7 +35,7 @@ L'abilitazione di **Installa durante Zero Touch** può aumentare il tempo di pro
 
 ## Patch dell'app
 
-Per le app VPP iOS/iPadOS, Primo fornisce l'interruttore **Aggiorna app su tutti i dispositivi**:
+Per le app VPP iOS/iPadOS, Primo fornisce l'interruttore **Aggiornamento app su tutti i dispositivi**:
 
 | Attiva/disattiva | Cosa fa |
 |--------|--------------|
@@ -47,19 +47,19 @@ Per le app Google Play Store, gli aggiornamenti vengono gestiti automaticamente 
 
 ---
 
-## Aggiungi un'app dell'Apple App Store (iOS/iPadOS VPP)
+## Aggiungere un'app Apple App Store (iOS / iPadOS VPP)
 
 <Note>
-**Prerequisito**: devi disporre di un account Apple Business Manager (ABM) con VPP configurato. Vedere [Distribuire applicazioni VPP](/it/mdm/policies/deploy-vpp-applications) per le istruzioni di configurazione.
+**Prerequisito**: devi disporre di un account Apple Business Manager (ABM) con configurazione VPP. Vedere [Distribuire applicazioni VPP](/it/mdm/policies/deploy-vpp-applications) per le istruzioni di configurazione.
 </Note>
 
-Nell'ABM:
+In ABM:
 1. Vai su **App e libri** e aggiungi l'app al tuo account ABM.
 2. Assicurati di avere un numero sufficiente di licenze assegnate al sito appropriato.
 
 In Primo:
 1. Vai a **MDM > Software** e fai clic su **Aggiungi app**.
-2. Seleziona **App Store (VPP)** e scegli **iOS/iPadOS**.
+2. Seleziona **App Store (VPP)** e scegli **iOS / iPadOS**.
 3. Sfoglia o cerca l'app.
 4. Configura le opzioni di distribuzione: **Installa automaticamente**, **Self-Service** e/o **Zero Touch**.
 5. Abilita **Aggiorna app su tutti i dispositivi** se desideri aggiornamenti automatici.
@@ -73,7 +73,7 @@ Il programma di installazione di origine proviene sempre dall'Apple App Store: l
 
 ---
 
-## Aggiungere un'app Google Play Store (Android)
+## Aggiungi un'app Google Play Store (Android)
 
 <Note>
 **Prerequisito**: Android Enterprise deve essere configurato. Assicurati che i tuoi dispositivi Android siano registrati tramite Android Enterprise (profilo di lavoro gestito o completamente gestito).
@@ -95,7 +95,7 @@ Gli aggiornamenti delle app vengono gestiti automaticamente da Google Play sui d
 
 ## Panoramica delle capacità
 
-| Capacità | App Store iOS/iPadOS (VPP) | Google Play Store |
+| Capacità | iOS/iPadOS App Store (VPP) | Google Play Store |
 |---|:---:|:---:|
 | Installa automaticamente | ✅ | ✅ |
 | Self-Service | ✅ | ✅ |

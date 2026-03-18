@@ -1,6 +1,6 @@
 ---
 title: "Mises à jour du système d'exploitation : expérience employé"
-description: "Découvrez comment les administrateurs peuvent surveiller l’état des mises à jour des appareils et comment les employés reçoivent des notifications de mise à jour du système d’exploitation sur macOS et Windows."
+description: "Découvrez comment les administrateurs peuvent surveiller l'état de mise à jour des appareils et comment les employés reçoivent des notifications de mise à jour du système d'exploitation sur macOS et Windows."
 ---
 
 ## Surveillance de l'état de mise à jour de l'appareil
@@ -30,7 +30,7 @@ Lorsqu'une version minimale est appliquée, les utilisateurs finaux voient une n
 
 Si l'hôte a été éteint une fois le délai écoulé, la mise à jour sera programmée une heure après sa mise sous tension.
 
-Pour les appareils macOS qui utilisent l'inscription automatisée des appareils (ADE), si l'appareil est inférieur à la version minimale spécifiée, il sera nécessaire d'effectuer une mise à jour vers la dernière version disponible pendant ADE avant que la configuration et l'inscription de l'appareil puissent procéder.
+Pour les appareils macOS qui utilisent l'enrôlement automatisé des appareils (ADE), si l'appareil est inférieur à la version minimale spécifiée, il sera nécessaire d'effectuer une mise à jour vers la dernière version disponible pendant ADE avant que la configuration et l'inscription de l'appareil puissent continuer.
 
 ### macOS 13 et versions antérieures
 
@@ -39,15 +39,15 @@ Les utilisateurs finaux sont encouragés à mettre à jour macOS via Nudge.
 ![Capture d'écran : Avant macOS 14](/images/notion-import/employee-experience-for-os-updates__img-065__block-0012__1b243d9f.png)
 
 
-|                             | **> 1 jour avant la date limite** | **< 1 jour avant la date limite** | **Délai dépassé** |
+|                             | **\>@@I18N_SEG_23@@< 1 jour avant la date limite** | **Délai dépassé**    |
 | --------------------------- | ---------------------------- | ---------------------------- | -------------------- |
-| Fréquence de la fenêtre de déplacement      | Une fois par jour à 20h GMT        | Une fois toutes les 2 heures           | Immédiatement après la connexion |
+| Fréquence de fenêtre Nudge      | Une fois par jour à 20h GMT        | Une fois toutes les 2 heures           | Immédiatement après la connexion |
 | L'utilisateur final peut différer          | ✅                            | ✅                            | ❌                    |
-| La fenêtre de déplacement peut être ignorée | ✅                            | ✅                            | ❌                    |
+| La fenêtre Nudge peut être ignorée | ✅                            | ✅                            | ❌                    |
 
-### Fenêtres
+### Windows
 
-Les utilisateurs finaux sont encouragés à mettre à jour Windows via la boîte de dialogue Windows native.
+Les utilisateurs finaux sont encouragés à mettre à jour Windows via la boîte de dialogue native Windows.
 
 |                                      | **Avant la date limite** | **Délai dépassé** |
 | ------------------------------------ | ------------------- | ----------------- |
@@ -73,6 +73,6 @@ L'utilisateur final est invité à installer la mise à jour avec une notificati
 
 La fenêtre Nudge apparaîtra et l'utilisateur sera dirigé vers les Préférences Système pour télécharger et installer la mise à jour (qui échouera). La fenêtre Nudge se comportera normalement et ne pourra pas être fermée après la date limite. L'utilisateur final devra libérer de l'espace par lui-même pour installer la mise à jour afin de fermer la fenêtre Nudge.
 
-### Fenêtres
+### Windows
 
 Lorsque le délai est respecté, il sera indiqué à l'utilisateur qu'il doit effectuer une mise à jour, puis la mise à jour échouera et l'utilisateur sera informé qu'il doit libérer de l'espace.

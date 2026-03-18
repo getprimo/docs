@@ -12,7 +12,7 @@ Anmeldeprobleme können folgende Ursachen haben:
 - **Ein vergessenes Passwort** nach einem Zeitraum der Inaktivität oder einer kürzlichen Änderung.
 - **Ein Tippfehler im Zusammenhang mit dem Tastaturlayout** (z. B. Wechsel von AZERTY zu QWERTY).
 - **Eine Änderung der Sicherheitsrichtlinien** (Komplexität, Länge oder Rotationsanforderungen).
-- **Ein SecureToken-Problem unter macOS** – einige Passwortabfragen auf dem Anmeldebildschirm erfordern tatsächlich ein **SecureToken-fähiges Konto**, nicht das reguläre Anmeldepasswort des Benutzers.
+- **Ein SecureToken-Problem auf macOS** – einige Passwortabfragen auf dem Anmeldebildschirm erfordern tatsächlich ein **SecureToken-fähiges Konto**, nicht das reguläre Anmeldepasswort des Benutzers.
 
 ## Diagnostizieren und sichern
 
@@ -20,14 +20,14 @@ Anmeldeprobleme können folgende Ursachen haben:
 
 **Wichtig:** Bitten Sie den Benutzer, nicht mehrere falsche Anmeldungen zu versuchen.
 
-Unter macOS können mehrere fehlgeschlagene Versuche **Recovery OS** auslösen, was die Passwortwiederherstellung komplexer macht.
+Auf macOS können mehrere fehlgeschlagene Versuche **Recovery OS** auslösen, was die Passwortwiederherstellung komplexer macht.
 
 ## Bestätigen Sie die Passworteingabe mit dem Benutzer
 
 1. Bitten Sie den Benutzer, **das Passwort in ein sichtbares Feld einzugeben** (z. B. „Benutzername“), um die eingegebenen Zeichen zu überprüfen.
 2. **Überprüfen Sie das Tastaturlayout** und die Eingabesprache:
    - **macOS:** Systemeinstellungen → Sprache und Region → Eingabemethode
-   - **Windows:** Einstellungen → Zeit und Sprache → Sprache und Region
+   - **Windows:** Einstellungen → Zeit & Sprache → Sprache & Region
 
 ## Überprüfen Sie die angewendete Passwortrichtlinie
 
@@ -37,7 +37,7 @@ Gehen Sie in Primo zu **Einstellungen → Sicherheit → Passwortrichtlinien** u
 
 ## Überprüfen Sie den SecureToken-Status (nur macOS)
 
-Unter macOS fordern einige Anmeldeaufforderungen – insbesondere beim Entsperren von FileVault, bei der Verwendung von Funktionen auf Administratorebene oder nach einer Richtlinienänderung – tatsächlich ein **SecureToken**-fähiges Konto und nicht das reguläre Anmeldekennwort.
+Auf macOS fordern einige Anmeldeaufforderungen – insbesondere beim Entsperren von FileVault, bei der Verwendung von Funktionen auf Administratorebene oder nach einer Richtlinienänderung – tatsächlich ein **SecureToken**-fähiges Konto und nicht das reguläre Anmeldekennwort.
 
 Ein Benutzer hat möglicherweise das richtige Passwort, wird aber trotzdem gesperrt, wenn sein Konto kein SecureToken hat oder wenn er zur Eingabe eines anderen (Administrator-)Kontos aufgefordert wird, das das Token enthält.
 
@@ -90,7 +90,7 @@ Wenn ein Konto mit dem Gerät verknüpft ist, befolgen Sie die Vorgehensweise de
 
 - Das Gerät ist im MDM registriert.
 - Das Gerät ist nicht mit dem Internet verbunden oder kommuniziert nicht mit dem MDM.
-- Die Verschlüsselung ist aktiviert (FileVault unter macOS / BitLocker unter Windows).
+- Die Verschlüsselung ist aktiviert (FileVault auf macOS / BitLocker auf Windows).
 - Der Wiederherstellungsschlüssel ist synchronisiert.
 
 **Aktionen:**

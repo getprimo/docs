@@ -1,20 +1,20 @@
 ---
-title: "Esempi di criteri Windows personalizzati"
-description: "Scopri come applicare i criteri Windows personalizzati per la personalizzazione CSP, inclusa l'abilitazione su Windows Pro e l'impostazione di immagini di sfondo per la schermata di blocco e il desktop tramite specifiche configurazioni XML."
+title: "Esempi di policy Windows personalizzate"
+description: "Scopri come applicare le policy Windows personalizzate per la personalizzazione CSP, inclusa l'abilitazione su Windows Pro e l'impostazione di immagini di sfondo per la schermata di blocco e il desktop tramite specifiche configurazioni XML."
 ---
 
-Estendi i tuoi profili Windows MDM con criteri CSP (Configuration Service Provider) personalizzati utilizzando XML non elaborato. Utilizzalo quando i controlli integrati di Primo non coprono un'impostazione specifica di Windows che devi applicare, ad esempio la personalizzazione del desktop, la modalità tutto schermo o altre configurazioni aziendali.
+Estendi i tuoi profili Windows MDM con policy CSP (Configuration Service Provider) personalizzate utilizzando XML non elaborato. Utilizzalo quando i controlli integrati di Primo non coprono un'impostazione specifica di Windows che devi applicare, ad esempio la personalizzazione del desktop, la modalità tutto schermo o altre configurazioni aziendali.
 
 ## Supporto del sistema operativo
 
-| macOS | Finestre | Linux | iOS/iPadOS | Androide |
+| macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
 | | ✅ | | | |
 
 ## Su Windows
 
 <Note>
-Quando scrivi un XML per applicare una policy CSP a un dispositivo, ometti le prime (e ultime) righe del file XML e inizia (e termina) con `<Replace>` o `<Add>` (rispettivamente `</Replace>` e `</Add>`)
+Quando si scrive un XML per applicare una policy CSP a un dispositivo, omettere le prime (e ultime) righe del file XML e iniziare (e terminare) con `<Replace>@@I18N_SEG_10@@<Add>@@I18N_SEG_11@@</Replace>@@I18N_SEG_12@@</Add>`)
 </Note>
 
 ### Consenti CSP personalizzazione su Windows Pro
@@ -39,7 +39,7 @@ Quando scrivi un XML per applicare una policy CSP a un dispositivo, ometti le pr
 ### Imposta l'immagine di sfondo e la schermata di blocco
 
 <Note>
-Il CSP di personalizzazione è supportato nelle edizioni Windows Enterprise ed Education. Funziona in Windows Professional solo quando è impostato SetEduPolicies in SharedPC CSP. Vedere "Consentire la personalizzazione CSP su Windows Pro".
+La personalizzazione CSP è supportata nelle edizioni Windows Enterprise ed Education. Funziona in Windows Professional solo quando è impostato SetEduPolicies in SharedPC CSP. Vedere "Consentire la personalizzazione CSP su Windows Pro".
 </Note>
 
 ```xml

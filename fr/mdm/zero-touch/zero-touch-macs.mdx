@@ -1,11 +1,11 @@
 ---
-title: "Déploiement Zero-Touch pour Mac (ABM)"
-description: "Configurez Apple Business Manager avec Primo pour activer l'inscription et la configuration automatiques des appareils Mac, y compris la migration des Mac entre les serveurs MDM à l'aide de macOS Sequoia/Tahoe."
+title: "Déploiement sans contact pour Mac (ABM)"
+description: "Configurez Apple Business Manager avec Primo pour permettre l'inscription et la configuration automatiques des appareils Mac, y compris la migration des Mac entre les serveurs MDM à l'aide de macOS Sequoia/Tahoe."
 ---
 
-Cet article explique comment connecter Apple Business Manager (ABM) pour activer le déploiement Zero Touch pour les appareils Apple. Il explique également comment migrer des Mac d'un MDM à un autre à l'aide d'ABM – une fonctionnalité introduite avec macOS Sequoia et étendue dans macOS Tahoe.
+Cet article explique comment connecter Apple Business Manager (ABM) pour activer le déploiement Zero Touch pour les appareils Apple. Il explique également comment migrer des Mac d'un MDM à un autre à l'aide de ABM — une fonctionnalité introduite avec macOS Sequoia et étendue dans macOS Tahoe.
 
-## Comprendre le rôle de l'ABM
+## Comprendre le rôle de ABM
 
 Apple Business Manager est un portail Web Apple qui permet aux organisations de gérer et de déployer des appareils Apple (iPhone, iPad, Mac, Apple TV) à partir d'un emplacement centralisé.
 
@@ -68,7 +68,7 @@ Une fois votre compte Apple Business Manager validé :
 1. Connectez-vous au cockpit
 2. Accédez à **Intégrations**
 3. Sélectionnez **Apple Business Manager**
-4. Suivez les instructions à l'écran pour connecter ABM
+4. Suivez les instructions à l'écran pour connecter le ABM
 5. Confirmez que la synchronisation est active
 
 Une fois l'intégration terminée, les appareils Apple associés à votre organisation peuvent être automatiquement inscrits.
@@ -126,11 +126,11 @@ L'appareil est prêt à l'emploi sans aucune configuration manuelle supplémenta
 
 ---
 
-## Migrer des Mac entre des serveurs MDM à l'aide d'ABM
+## Migrer des Mac entre des serveurs MDM à l'aide de ABM
 
 ## Ce qui a changé avec macOS Sequoia et Tahoe
 
-À partir de **macOS Sequoia (15)** et encore amélioré dans **macOS Tahoe (16)**, Apple a introduit la possibilité de **réaffecter un Mac supervisé à un autre serveur MDM directement via Apple Business Manager** — sans avoir besoin d'effacer l'appareil.
+À partir de **macOS Sequoia (15)** et encore amélioré dans **macOS Tahoe (16)**, Apple a introduit la possibilité de **réaffecter un Mac supervisé à un autre serveur MDM directement via Apple Business Manager**, sans avoir besoin d'effacer l'appareil.
 
 Auparavant, la migration d'un Mac d'un MDM vers un autre nécessitait :
 1. Effacement de l'appareil (ou utilisation des étapes de suppression manuelle)
@@ -139,12 +139,12 @@ Auparavant, la migration d'un Mac d'un MDM vers un autre nécessitait :
 Avec la réaffectation MDM basée sur ABM, vous pouvez :
 - Déplacez les Mac d'un MDM précédent (par exemple Jamf, Mosyle, Kandji, Intune) sans perte de données
 - Évitez l’interruption d’un effacement complet de l’appareil
-- Effectuez des migrations groupées pour l’ensemble de votre flotte directement depuis la console ABM
+- Effectuez des migrations groupées pour l'ensemble de votre flotte directement depuis la console ABM
 
 ## Exigences
 
 - macOS Sequoia (15) ou version ultérieure sur le Mac cible
-- Le Mac doit être supervisé par ABM (acheté via un canal lié à ABM ou ajouté via Apple Configurator)
+- Le Mac doit être supervisé par ABM (acheté via le canal lié à ABM ou ajouté via Apple Configurator)
 - Accès administrateur à Apple Business Manager
 - Le serveur MDM de destination (Primo) doit déjà être connecté à ABM
 
@@ -160,7 +160,7 @@ Avec la réaffectation MDM basée sur ABM, vous pouvez :
 La prochaine fois que le Mac se connectera à MDM (ou après un redémarrage), il recevra le profil d'inscription de Primo et effectuera automatiquement la transition.
 
 <Note>
-La réaffectation prend effet lors du prochain enregistrement MDM de l'appareil. Cela se produit généralement en quelques minutes si l'appareil est en ligne. Aucune action de l'utilisateur n'est requise sur macOS Tahoe : le commutateur MDM est transparent.
+La réaffectation prend effet lors du prochain enregistrement MDM de l'appareil. Cela se produit généralement en quelques minutes si l'appareil est en ligne. Aucune action de l'utilisateur n'est requise sur le macOS Tahoe — le commutateur MDM est transparent.
 </Note>
 
 <Warning>

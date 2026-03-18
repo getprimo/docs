@@ -12,7 +12,7 @@ Ein Gerät gilt als **teilweise registriert**, wenn der Registrierungsprozess (o
 Dies kann aus mehreren Gründen passieren:
 
 - Der Benutzer hat nicht alle Registrierungsschritte abgeschlossen.
-- Die Installation des Fleet-Agenten ist unvollständig (hauptsächlich unter macOS).
+- Die Installation des Fleet-Agenten ist unvollständig (hauptsächlich auf macOS).
 - Der Benutzer blieb nicht lange genug verbunden, um die Synchronisierung abzuschließen.
 - Der Agent oder das MDM-Profil wurde deinstalliert oder blockiert.
 
@@ -30,7 +30,7 @@ Mögliche Ursachen:
   - Der Benutzer oder ein Skript hat den Agent manuell entfernt.
   - Ein Systemupdate oder ein Konfigurationsfehler hat die Installation beschädigt.
 - **Der Agent läuft nicht mehr**
-  - Der `osqueryd`-Dienst (von FleetDM verwendet) wurde gestoppt.
+  - Der `osqueryd`-Dienst (verwendet von FleetDM) wurde gestoppt.
   - Der Agent kann aufgrund von Berechtigungsproblemen nicht gestartet werden.
 - **Netzwerk- oder Konnektivitätsprobleme**
   - Das Gerät befindet sich in einem Netzwerk, das den Zugriff auf den FleetDM-Server blockiert.
@@ -47,7 +47,7 @@ Dieser Status zeigt an, dass das MDM-Profil auf dem Gerät entweder fehlt oder i
 Mögliche Ursachen:
 
 - **Das Profil wurde vom Benutzer entfernt**
-  - Unter macOS kann ein Admin-Benutzer ein entsperrtes MDM-Profil entfernen.
+  - Auf macOS kann ein Admin-Benutzer ein entsperrtes MDM-Profil entfernen.
 - **Das Profil ist abgelaufen oder ungültig**
   - Ein Problem mit dem Apple Push Notification Service (APNS) kann dazu führen, dass das Gerät sein Profil nicht validiert.
   - Wenn das APNS-Token abgelaufen ist oder widerrufen wurde, kann das MDM-Profil ungültig werden.

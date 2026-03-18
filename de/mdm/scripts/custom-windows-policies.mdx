@@ -1,6 +1,6 @@
 ---
 title: "Beispiele für benutzerdefinierte Windows-Richtlinien"
-description: "Erfahren Sie, wie Sie benutzerdefinierte Windows-Richtlinien für das Personalisierungs-CSP anwenden, einschließlich der Aktivierung unter Windows Pro und der Festlegung von Hintergrundbildern für den Sperrbildschirm und den Desktop über spezifische XML-Konfigurationen."
+description: "Erfahren Sie, wie Sie benutzerdefinierte Windows-Richtlinien für den Personalisierungs-CSP anwenden, einschließlich der Aktivierung auf Windows Pro und der Festlegung von Hintergrundbildern für den Sperrbildschirm und den Desktop über spezifische XML-Konfigurationen."
 ---
 
 Erweitern Sie Ihre Windows MDM-Profile mit benutzerdefinierten CSP-Richtlinien (Configuration Service Provider) unter Verwendung von Roh-XML. Verwenden Sie dies, wenn die integrierten Steuerelemente von Primo eine bestimmte Windows-Einstellung, die Sie erzwingen müssen, nicht abdecken – z. B. Desktop-Personalisierung, Kioskmodus oder andere Unternehmenskonfigurationen.
@@ -11,13 +11,13 @@ Erweitern Sie Ihre Windows MDM-Profile mit benutzerdefinierten CSP-Richtlinien (
 |-------|---------|-------|--------------|---------|
 | | ✅ | | | |
 
-## Unter Windows
+## Auf Windows
 
 <Note>
-Wenn Sie eine XML-Datei schreiben, um eine CSP-Richtlinie auf ein Gerät anzuwenden, lassen Sie die ersten (und letzten) Zeilen der XML-Datei weg und beginnen (und enden) Sie entweder mit `<Replace>` oder `<Add>` (jeweils `</Replace>` und `</Add>`)
+Wenn Sie ein XML schreiben, um eine CSP-Richtlinie auf ein Gerät anzuwenden, lassen Sie die ersten paar (und letzten) Zeilen der XML-Datei weg und beginnen (und enden) Sie entweder mit `<Replace>@@I18N_SEG_10@@<Add>@@I18N_SEG_11@@</Replace>@@I18N_SEG_12@@</Add>`)
 </Note>
 
-### Erlauben Sie Personalisierungs-CSP unter Windows Pro
+### Erlauben Sie Personalisierungs-CSP auf Windows Pro
 
 ```xml
 <Replace>
@@ -39,7 +39,7 @@ Wenn Sie eine XML-Datei schreiben, um eine CSP-Richtlinie auf ein Gerät anzuwen
 ### Hintergrundbild und Sperrbildschirm festlegen
 
 <Note>
-Personalisierungs-CSP wird in den Windows Enterprise- und Education-Editionen unterstützt. Es funktioniert in Windows Professional nur, wenn SetEduPolicies im SharedPC CSP festgelegt ist. Siehe „Personalisierungs-CSP unter Windows Pro zulassen“.
+Personalisierungs-CSP wird in den Windows Enterprise- und Education-Editionen unterstützt. Es funktioniert in Windows Professional nur, wenn SetEduPolicies im SharedPC CSP festgelegt ist. Siehe „Personalisierungs-CSP auf Windows Pro zulassen“.
 </Note>
 
 ```xml

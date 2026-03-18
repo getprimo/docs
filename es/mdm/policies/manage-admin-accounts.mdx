@@ -7,7 +7,7 @@ Implemente y administre cuentas de administrador local en toda su flota desde un
 
 ## soporte del sistema operativo
 
-| macos | ventanas | linux | iOS/iPadOS | androide |
+| macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
 | ✅ | ✅ | | | |
 
@@ -21,7 +21,7 @@ Próximamente: la capacidad de facilitar la escalada de privilegios (dando acces
 
 1. Habilite la función.
 2. Defina el nombre de usuario de la sesión de administrador a crear.
-3. Establezca la contraseña de la cuenta:
+3. Establecer la contraseña de la cuenta:
    - **Contraseña aleatoria**: generada por dispositivo
    - **Contraseña fija**: idéntica en todos los dispositivos de destino
 4. Elija si desea ajustar los derechos de los usuarios existentes:
@@ -52,7 +52,7 @@ Después de la activación en un perfil, la política no se puede editar directa
 - Para actualizarla, deshabilite la política y luego vuelva a habilitarla con nuevas configuraciones.
 - Deshabilitar la política detiene su aplicación, pero **no** elimina la cuenta de administrador ni su contraseña, que permanecen disponibles.
 
-## En MacOS
+## En macOS
 
 **Eliminar el acceso de administrador en un dispositivo con un token seguro activo**
 
@@ -62,7 +62,7 @@ Actualmente, no es posible eliminar los derechos de administrador de una cuenta 
 
 ## En Windows
 
-La política crea una cuenta de administrador local y almacena la contraseña. Las opciones de contraseña (aleatorias o fijas) y la reducción de privilegios para otras cuentas funcionan de la misma manera que en macOS.
+La política crea una cuenta de administrador local y almacena la contraseña. Las opciones de contraseña (aleatoria o fija) y la reducción de privilegios para otras cuentas funcionan de la misma manera que en macOS.
 
 ## Casos especiales
 
@@ -73,5 +73,5 @@ Pueden ocurrir duplicaciones de políticas si activa la política en un perfil g
 ## Mejores prácticas
 
 - Prefiera contraseñas aleatorias para mejorar la seguridad a escala.
-- Documente las excepciones de macOS SecureToken en los procedimientos internos de TI.
+- Documentar las excepciones de macOS SecureToken en los procedimientos internos de TI.
 - Evite activar políticas duplicadas en perfiles superpuestos para evitar conflictos.

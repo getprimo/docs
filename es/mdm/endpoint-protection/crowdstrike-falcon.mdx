@@ -6,7 +6,7 @@ description: "Aprenda cómo implementar eficientemente el agente CrowdStrike Fal
 <Warning>
 **Tipo de implementación: Manual**
 
-A diferencia de SentinelOne, CrowdStrike Falcon requiere **configuración manual** antes de la implementación. Debe descargar los paquetes de instalación desde la consola CrowdStrike, cargarlos en FleetDM y configurar los scripts de instalación con su CustomerID. No existe una integración automática; siga cuidadosamente los pasos a continuación.
+A diferencia de SentinelOne, CrowdStrike Falcon requiere **configuración manual** antes de la implementación. Debe descargar los paquetes del instalador desde la consola CrowdStrike, cargarlos en FleetDM y configurar los scripts de instalación con su CustomerID. No existe una integración automática; siga cuidadosamente los pasos a continuación.
 </Warning>
 
 Este artículo explica cómo implementar el agente CrowdStrike Falcon en dispositivos macOS y Windows usando FleetDM y Primo MDM. Aprenderá cómo descargar los paquetes de instalación desde la consola de administración de CrowdStrike, recuperar su ID de cliente, importar los paquetes a FleetDM, configurar los scripts de instalación y crear políticas de cumplimiento para ambos sistemas operativos.
@@ -28,7 +28,7 @@ Este artículo explica cómo implementar el agente CrowdStrike Falcon en disposi
    - Windows: instalador .exe
 4. Copie su **CustomerID** (también conocido como CID), que será necesario para activar el agente después de la instalación.
 
-### Paso 2: importe los archivos de instalación a FleetDM
+### Paso 2: Importe los archivos de instalación a FleetDM
 
 **2.1 Importar el paquete macOS**
 
@@ -36,7 +36,7 @@ Este artículo explica cómo implementar el agente CrowdStrike Falcon en disposi
 2. Haga clic en **Cargar paquete** y seleccione el archivo .pkg descargado anteriormente.
 3. Haga clic en **Guardar**.
 
-**2.2 Importar el paquete de Windows**
+**2.2 Importar el paquete Windows**
 
 1. En FleetDM, vaya a **Software > Agregar software > Paquete personalizado**.
 2. Haga clic en **Cargar paquete** y seleccione el archivo .exe descargado previamente.
@@ -44,9 +44,9 @@ Este artículo explica cómo implementar el agente CrowdStrike Falcon en disposi
 
 ### Paso 3: agregue los comandos de instalación con el CustomerID
 
-**3.1 script de instalación de macOS**
+**3.1 Script de instalación de macOS**
 
-1. En la configuración del paquete .pkg de macOS, ubique el campo Instalar script (mostrar opciones avanzadas)
+1. En la configuración del paquete macOS .pkg, ubique el campo Script de instalación (mostrar opciones avanzadas)
 2. Agregue la siguiente línea al final del script (reemplace CustomerID con su CID real):
    ```
    /Applications/Falcon.app/Contents/Resources/falconctl license CustomerID
@@ -55,7 +55,7 @@ Este artículo explica cómo implementar el agente CrowdStrike Falcon en disposi
 
 **3.2 Script de instalación de Windows**
 
-1. En la configuración del paquete .exe de Windows, ubique el campo del script de instalación (mostrar opciones avanzadas)
+1. En la configuración del paquete Windows .exe, ubique el campo del script de instalación (muestre opciones avanzadas)
 2. Copie/pegue esto en el script de instalación (reemplace CustomerID con su CID real):
 
 ```powershell
@@ -185,11 +185,11 @@ Exit $exitCode
 
 4. Haga clic en **Guardar cambios**.
 
-### Paso 4: cree políticas de cumplimiento en FleetDM
+### Paso 4: Crear políticas de cumplimiento en FleetDM
 
-Cree dos políticas independientes para confirmar que el agente CrowdStrike esté instalado en dispositivos macOS y Windows.
+Cree dos políticas independientes para confirmar que el agente CrowdStrike esté instalado en los dispositivos macOS y Windows.
 
-**4.1 Política de macOS**
+**4.1 Política macOS**
 
 1. En FleetDM, vaya a **Políticas > Agregar política**.
 2. Utilice la siguiente consulta:
@@ -199,7 +199,7 @@ Cree dos políticas independientes para confirmar que el agente CrowdStrike est�
 3. Asigne un nombre a la política: **CrowdStrike instalado (macOS)**
 4. **Guardar** la póliza.
 
-**4.2 Política de Windows**
+**4.2 Política Windows**
 
 1. En FleetDM, vaya a **Políticas > Agregar política**.
 2. Utilice la siguiente consulta:

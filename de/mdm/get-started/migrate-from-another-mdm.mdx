@@ -18,9 +18,9 @@ In diesem Artikel wird erklärt, **wie Sie Ihre Geräte migrieren** zu Primo (Fl
 | Woche | Schlüsselaktionen |
 |---|---|
 | **Tag 1** | Onboarding-Meeting, um Sie bei der Einrichtung des Primo-Dashboards zu unterstützen |
-| **Woche 1** | Konfiguration von Primo MDM mit den aktuell auf Ihren Geräten bereitgestellten Einstellungen<br/>Gerätesegmentierung (MacOS, Windows, Linux usw.)<br/>→ [Bei MacOS-Migration] Verbindung zwischen Primo und Ihrem Apple Business Manager (ABM)<br/>→ [Bei Windows-Migration] Aktivierung der automatischen Migration von Primo |
+| **Woche 1** | Konfiguration von Primo MDM mit den aktuell auf Ihren Geräten bereitgestellten Einstellungen<br/>@@I18N_SEG_13@@<br/>@@I18N_SEG_14@@<br/>→ [Bei Windows-Migration] Aktivierung der automatischen Migration von Primo |
 | **Woche 2** | Kommunikation mit Benutzern und Bereitstellung des Primo-Agenten auf Ihren Geräten (manuell oder über Ihren aktuellen MDM) |
-| **Woche 3** | [Bei MacOS-Migration] Neuzuweisung in ABM und Abmeldung alter MDM-Profile |
+| **Woche 3** | [Bei MacOS-Migration] Neuzuweisung in ABM und Aufhebung der Registrierung alter MDM-Profile |
 | **Woche 4** | [Bei MacOS-Migration] Akzeptanz der Primo-Profile durch Ihre Mitarbeiter und Abschluss der Bereitstellung |
 | **Woche 5** | [Bei MacOS-Migration] Letzte Überprüfungen und Entfernung des alten MDM |
 
@@ -28,8 +28,8 @@ In diesem Artikel wird erklärt, **wie Sie Ihre Geräte migrieren** zu Primo (Fl
 
 ### Checkliste vor der Migration
 
-- [Bei MacOS-Migration] Verknüpfen Sie Primo und Ihren Apple Business Manager (ABM)
-- [Bei Windows-Migration] Aktivieren Sie die Option „Automatische Migration von Windows MDM“ in Ihren Primo MDM-Einstellungen
+- [Bei MacOS-Migration] Verknüpfen Sie Primo und Ihren Apple Business Manager (ABM).
+- [Bei Windows-Migration] Aktivieren Sie die Option „Windows MDM Automatische Migration“ in Ihren Primo MDM-Einstellungen
 - Listen Sie die Richtlinien und Anwendungen auf, die derzeit auf Ihren Computern bereitgestellt werden
 - Wenden Sie Ihre Konfigurationen über MDM-Profile auf Primo an
 - Interne Kommunikation vorbereiten (E-Mail, Slack, FAQ)
@@ -39,14 +39,14 @@ In diesem Artikel wird erklärt, **wie Sie Ihre Geräte migrieren** zu Primo (Fl
 
 Zwei Migrationsszenarien:
 
-### 1. Beaufsichtigte Geräte (registriert in Ihrem ABM)
+### 1. Überwachte Geräte (registriert in Ihrem ABM)
 
-Diese Geräte profitieren von der Zero-Touch-Bereitstellung. Diese Migration besteht aus der Abmeldung und Änderung des MDM-Servers in ABM.
+Diese Geräte profitieren von der Zero-Touch-Bereitstellung. Diese Migration besteht aus der Aufhebung der Registrierung und dem Wechsel des MDM-Servers in ABM.
 
 Zu befolgende Schritte:
 
 1. **Stellen Sie die Verbindung her** zwischen Primo und Ihrem ABM
-2. **Geräte in ABM neu zuweisen** dem MDM-Server von Primo.
+2. **Geräte in ABM** dem MDM-Server von Primo neu zuweisen.
    *(Dieser Vorgang löscht keine Gerätedaten.)*
 3. Sobald die Neuzuweisung abgeschlossen ist:
    - Geräte werden automatisch in Primo sichtbar.
@@ -84,7 +84,7 @@ Zwei Migrationsszenarien:
 
 ### 1. Von jedem MDM
 
-Aktivieren Sie einfach die Option „Automatische Migration von Windows MDM“ in Ihren Primo MDM-Einstellungen. Durch die Aktivierung dieser Option migriert FleetDM automatisch Windows-Geräte, die bei einer anderen MDM-Lösung registriert sind.
+Aktivieren Sie einfach die Option „Windows MDM Automatische Migration“ in Ihren Primo MDM-Einstellungen. Durch Aktivieren dieser Option migriert FleetDM automatisch Windows-Geräte, die bei einer anderen MDM-Lösung registriert sind.
 
 ### 2. Speziell von Intune
 
@@ -92,9 +92,9 @@ Aktivieren Sie einfach die Option „Automatische Migration von Windows MDM“ i
 
 Hier ist die Vorgehensweise, die Sie unbedingt befolgen müssen, bevor Sie mit der Migration beginnen:
 
-1. Richten Sie FleetDM als externes MDM auf der Entra-ID ein:
+1. Richten Sie FleetDM als externes MDM auf Entra ID ein:
    `https://{company}.mdm.getprimo.com/settings/integrations/automatic-enrollment/windows`
-2. Stellen Sie auf Entra die automatische Registrierung auf FleetDM um:
+2. Schalten Sie auf Entra die automatische Registrierung auf FleetDM um:
    - Gehen Sie zu: [https://entra.microsoft.com/#view/Microsoft_AAD_IAM/MdmList.ReactView](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/MdmList.ReactView) (oder suchen Sie nach „Mobilität“ auf entra.microsoft.com)
    - Alternativ gehen Sie zu: [https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Mobility) (oder suchen Sie auf portal.azure.com nach „Mobilität“).
    - Wählen Sie dann „Intune“
@@ -104,12 +104,12 @@ Hier ist die Vorgehensweise, die Sie unbedingt befolgen müssen, bevor Sie mit d
 
 #### Migrieren Sie Ihre Geräte einzeln von Intune
 
-Befolgen Sie diese Schritte, um Ihre Geräte einzeln von Intune zu migrieren:
+Befolgen Sie diese Schritte, um Ihre Geräte nacheinander von Intune zu migrieren:
 
 - Registrieren Sie den Computer bei Primo. Das Gerät wird in Primo mit dem Status „Ein in einem anderen MDM“ erstellt.
 - Verwenden Sie die Migrationsschaltfläche in Primo, um das Migrationsskript anzuwenden
 
-#### Migrieren Sie alle Ihre Geräte von Intune
+#### Migration aller Ihrer Geräte von Intune
 
 Befolgen Sie diese Schritte, um Ihre Geräte von Intune zu migrieren:
 

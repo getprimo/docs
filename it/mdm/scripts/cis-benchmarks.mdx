@@ -1,13 +1,13 @@
 ---
 title: "Benchmark della CSI"
-description: "I benchmark CIS sono guide di configurazione sicure sviluppate dalla comunità che aiutano a rafforzare i sistemi e le reti, fornendo due livelli di profili per bilanciare sicurezza e usabilità offrendo allo stesso tempo uno script dettagliato per l'implementazione delle policy tramite FleetDM."
+description: "I benchmark CIS sono guide di configurazione sicure sviluppate dalla comunità che aiutano a rafforzare i sistemi e le reti, fornendo due livelli di profili per bilanciare sicurezza e usabilità e offrendo allo stesso tempo uno script dettagliato per l'implementazione delle policy tramite FleetDM."
 ---
 
-I benchmark CIS sono guide di configurazione sicure basate sul consenso utilizzate per rafforzare sistemi, software e reti: una linea di base riconosciuta nel settore per ridurre la superficie di attacco. Usali con Primo e FleetDM per valutare la conformità e applicare le impostazioni nel tuo parco dispositivi macOS e Windows.
+I benchmark CIS sono guide di configurazione sicure basate sul consenso utilizzate per rafforzare sistemi, software e reti: una linea di base riconosciuta nel settore per ridurre la superficie di attacco. Usali con Primo e FleetDM per valutare la conformità e applicare le impostazioni nella tua flotta macOS e Windows.
 
 ## Supporto del sistema operativo
 
-| macOS | Finestre | Linux | iOS/iPadOS | Androide |
+| macOS | Windows | Linux | iOS / iPadOS | Android |
 |-------|---------|-------|--------------|---------|
 | ✅ macOS 13+ | ✅ Windows 10+ Aziendale | | | |
 
@@ -68,7 +68,7 @@ fleetctl apply --policies-team "Workstations" -f cis-policy-queries.yml
 
 ## Dove si adattano gli utensili MDM (Fleet/Primo)
 
-Fleet espone **query sui criteri** per valutare la conformità CIS su macOS 13+ e Windows 10+ (Enterprise).
+Fleet espone **query di policy** per valutare la conformità CIS su macOS 13+ e Windows 10+ (Enterprise).
 
 I criteri **non risolvono**: hai comunque bisogno di **profili MDM** e/o script per applicare le impostazioni e puoi utilizzare le automazioni per guidare i flussi di lavoro di correzione. Alcuni controlli richiedono la **registrazione a MDM** e autorizzazioni specifiche dell'agente.
 
@@ -76,7 +76,7 @@ I criteri **non risolvono**: hai comunque bisogno di **profili MDM** e/o script 
 
 ### Crittografia del disco
 
-*Questo criterio è basato su un modello Primo e funziona sia per i dispositivi macOS che per quelli Windows.*
+*Questa policy è basata su un modello Primo e funziona sia per i dispositivi macOS che per quelli Windows.*
 
 1. Su Primo, vai su **MDM > Profili**
 2. Seleziona **tutti i dispositivi**
@@ -90,7 +90,7 @@ I criteri **non risolvono**: hai comunque bisogno di **profili MDM** e/o script 
 
 Brevi timeout di blocco e password complesse aiutano a prevenire attacchi come lo spallamento, l'uso improprio da parte di personale interno e l'accesso opportunistico su laptop non presidiati.
 
-*Questa policy è basata su un modello Primo e funziona per dispositivi iOS, macOS e Windows.*
+*Questa policy è basata su un modello Primo e funziona con i dispositivi iOS, macOS e Windows.*
 
 1. Su Primo, vai su **MDM > Profili**
 2. Seleziona **tutti i dispositivi**
@@ -106,7 +106,7 @@ Brevi timeout di blocco e password complesse aiutano a prevenire attacchi come l
 
 Il traffico in entrata negato per impostazione predefinita riduce la possibilità che un servizio dormiente diventi un punto di ingresso della rete, in particolare sul Wi-Fi pubblico.
 
-*Questo criterio è basato su un modello Primo e funziona sia per i dispositivi macOS che per quelli Windows.*
+*Questa policy è basata su un modello Primo e funziona sia per i dispositivi macOS che per quelli Windows.*
 
 1. Su Primo, vai su **MDM > Profili**
 2. Seleziona **tutti i dispositivi**
@@ -170,18 +170,18 @@ Nascondersi dall'ICMP e da sonde simili rende i dispositivi più difficili da en
 
 ### Crittografia del disco
 
-*Questo criterio è basato su un modello Primo e funziona sia per i dispositivi macOS che per quelli Windows.*
+*Questa policy è basata su un modello Primo e funziona sia per i dispositivi macOS che per quelli Windows.*
 
 Segui gli stessi passaggi della sezione Crittografia disco macOS sopra: la scheda Crittografia nei profili si applica a entrambe le piattaforme.
 
 ### Politica relativa alla password e blocco automatico dello schermo
 
-*Questa policy è basata su un modello Primo e funziona per dispositivi iOS, macOS e Windows.*
+*Questa policy è basata su un modello Primo e funziona con i dispositivi iOS, macOS e Windows.*
 
-Segui gli stessi passaggi della sezione Criteri password macOS sopra. Assicurati di configurare la scheda **Windows** separatamente.
+Seguire gli stessi passaggi della sezione Politica password macOS sopra. Assicurati di configurare la scheda **Windows** separatamente.
 
 ### Firewall integrato
 
-*Questo criterio è basato su un modello Primo e funziona sia per i dispositivi macOS che per quelli Windows.*
+*Questa policy è basata su un modello Primo e funziona sia per i dispositivi macOS che per quelli Windows.*
 
-Segui gli stessi passaggi della sezione Firewall integrato macOS sopra: la scheda Firewall nei profili si applica a entrambe le piattaforme.
+Segui gli stessi passaggi della sezione macOS Firewall integrato sopra: la scheda Firewall nei profili si applica a entrambe le piattaforme.

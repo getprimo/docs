@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-17T10:25:19.706337+00:00",
+  "generatedAt": "2026-03-18T10:22:04.993515+00:00",
   "sourceLocale": "en",
   "locales": [
     "fr",
@@ -14,22 +14,22 @@
         "fr": {
           "path": "fr/api/create-fleet-api-key.mdx",
           "sourceHash": "e72ab7b48c1d5c698444f3c4bd2946f432efb53a70e1876139791355612c120d",
-          "syncedAt": "2026-03-13T09:32:56.838691+00:00"
+          "syncedAt": "2026-03-18T10:01:56.125631+00:00"
         },
         "de": {
           "path": "de/api/create-fleet-api-key.mdx",
           "sourceHash": "e72ab7b48c1d5c698444f3c4bd2946f432efb53a70e1876139791355612c120d",
-          "syncedAt": "2026-03-13T09:33:01.792388+00:00"
+          "syncedAt": "2026-03-18T10:01:58.169618+00:00"
         },
         "es": {
           "path": "es/api/create-fleet-api-key.mdx",
           "sourceHash": "e72ab7b48c1d5c698444f3c4bd2946f432efb53a70e1876139791355612c120d",
-          "syncedAt": "2026-03-13T09:33:03.354870+00:00"
+          "syncedAt": "2026-03-18T10:02:00.142490+00:00"
         },
         "it": {
           "path": "it/api/create-fleet-api-key.mdx",
           "sourceHash": "e72ab7b48c1d5c698444f3c4bd2946f432efb53a70e1876139791355612c120d",
-          "syncedAt": "2026-03-13T09:33:06.020253+00:00"
+          "syncedAt": "2026-03-18T10:02:02.718174+00:00"
         }
       }
     },
@@ -39,22 +39,22 @@
         "fr": {
           "path": "fr/api/create-primo-api-key.mdx",
           "sourceHash": "eb729c6c799f84c3e3ee811a8bda38d7f55872bf07206727e614391f0c53739b",
-          "syncedAt": "2026-03-13T11:30:09.497320+00:00"
+          "syncedAt": "2026-03-18T10:02:04.911013+00:00"
         },
         "de": {
           "path": "de/api/create-primo-api-key.mdx",
           "sourceHash": "eb729c6c799f84c3e3ee811a8bda38d7f55872bf07206727e614391f0c53739b",
-          "syncedAt": "2026-03-13T11:30:10.502575+00:00"
+          "syncedAt": "2026-03-18T10:02:06.197269+00:00"
         },
         "es": {
           "path": "es/api/create-primo-api-key.mdx",
           "sourceHash": "eb729c6c799f84c3e3ee811a8bda38d7f55872bf07206727e614391f0c53739b",
-          "syncedAt": "2026-03-13T11:30:11.749347+00:00"
+          "syncedAt": "2026-03-18T10:02:07.057416+00:00"
         },
         "it": {
           "path": "it/api/create-primo-api-key.mdx",
           "sourceHash": "eb729c6c799f84c3e3ee811a8bda38d7f55872bf07206727e614391f0c53739b",
-          "syncedAt": "2026-03-13T11:30:12.864048+00:00"
+          "syncedAt": "2026-03-18T10:02:08.377037+00:00"
         }
       }
     },
@@ -64,22 +64,22 @@
         "fr": {
           "path": "fr/changelog/index.mdx",
           "sourceHash": "de1134cfb548feb0e34d3d59a18fa432e77ccd02c5cd1ab39e478fdd35d44b7a",
-          "syncedAt": "2026-03-13T09:33:42.909551+00:00"
+          "syncedAt": "2026-03-18T10:02:25.993136+00:00"
         },
         "de": {
           "path": "de/changelog/index.mdx",
           "sourceHash": "de1134cfb548feb0e34d3d59a18fa432e77ccd02c5cd1ab39e478fdd35d44b7a",
-          "syncedAt": "2026-03-13T09:33:51.417988+00:00"
+          "syncedAt": "2026-03-18T10:02:34.288595+00:00"
         },
         "es": {
           "path": "es/changelog/index.mdx",
           "sourceHash": "de1134cfb548feb0e34d3d59a18fa432e77ccd02c5cd1ab39e478fdd35d44b7a",
-          "syncedAt": "2026-03-13T09:33:58.177473+00:00"
+          "syncedAt": "2026-03-18T10:02:42.597815+00:00"
         },
         "it": {
           "path": "it/changelog/index.mdx",
           "sourceHash": "de1134cfb548feb0e34d3d59a18fa432e77ccd02c5cd1ab39e478fdd35d44b7a",
-          "syncedAt": "2026-03-13T09:34:07.296445+00:00"
+          "syncedAt": "2026-03-18T10:02:50.979650+00:00"
         }
       }
     },
@@ -89,22 +89,22 @@
         "fr": {
           "path": "fr/employees/automate-onboardings.mdx",
           "sourceHash": "d048af714d306e7e1a669cf041c09bec04f0949d72e37a8c88236e2d7b7e2581",
-          "syncedAt": "2026-03-13T09:34:22.543827+00:00"
+          "syncedAt": "2026-03-18T10:03:00.244980+00:00"
         },
         "de": {
           "path": "de/employees/automate-onboardings.mdx",
           "sourceHash": "d048af714d306e7e1a669cf041c09bec04f0949d72e37a8c88236e2d7b7e2581",
-          "syncedAt": "2026-03-13T09:34:27.125007+00:00"
+          "syncedAt": "2026-03-18T10:03:05.403168+00:00"
         },
         "es": {
           "path": "es/employees/automate-onboardings.mdx",
           "sourceHash": "d048af714d306e7e1a669cf041c09bec04f0949d72e37a8c88236e2d7b7e2581",
-          "syncedAt": "2026-03-13T09:34:31.318386+00:00"
+          "syncedAt": "2026-03-18T10:03:08.825649+00:00"
         },
         "it": {
           "path": "it/employees/automate-onboardings.mdx",
           "sourceHash": "d048af714d306e7e1a669cf041c09bec04f0949d72e37a8c88236e2d7b7e2581",
-          "syncedAt": "2026-03-13T09:34:35.713451+00:00"
+          "syncedAt": "2026-03-18T10:03:13.864924+00:00"
         }
       }
     },
@@ -114,22 +114,22 @@
         "fr": {
           "path": "fr/employees/connect-hris.mdx",
           "sourceHash": "b77d387389a9c40d84d9e7f34001720da7a05bd1ff5be46cfb6a86c248cc5035",
-          "syncedAt": "2026-03-13T09:35:00.564773+00:00"
+          "syncedAt": "2026-03-18T10:03:37.447871+00:00"
         },
         "de": {
           "path": "de/employees/connect-hris.mdx",
           "sourceHash": "b77d387389a9c40d84d9e7f34001720da7a05bd1ff5be46cfb6a86c248cc5035",
-          "syncedAt": "2026-03-13T09:35:09.172874+00:00"
+          "syncedAt": "2026-03-18T10:03:46.324527+00:00"
         },
         "es": {
           "path": "es/employees/connect-hris.mdx",
           "sourceHash": "b77d387389a9c40d84d9e7f34001720da7a05bd1ff5be46cfb6a86c248cc5035",
-          "syncedAt": "2026-03-13T09:35:45.448048+00:00"
+          "syncedAt": "2026-03-18T10:03:54.780453+00:00"
         },
         "it": {
           "path": "it/employees/connect-hris.mdx",
           "sourceHash": "b77d387389a9c40d84d9e7f34001720da7a05bd1ff5be46cfb6a86c248cc5035",
-          "syncedAt": "2026-03-13T09:35:55.301344+00:00"
+          "syncedAt": "2026-03-18T10:04:04.765268+00:00"
         }
       }
     },
@@ -139,22 +139,22 @@
         "fr": {
           "path": "fr/employees/import-via-csv.mdx",
           "sourceHash": "f10ab157dd785aaf97ce446b2a1f44f7fbf700301e31dc2c62ccd4703ebba0c4",
-          "syncedAt": "2026-03-13T09:36:03.405245+00:00"
+          "syncedAt": "2026-03-18T10:04:10.694978+00:00"
         },
         "de": {
           "path": "de/employees/import-via-csv.mdx",
           "sourceHash": "f10ab157dd785aaf97ce446b2a1f44f7fbf700301e31dc2c62ccd4703ebba0c4",
-          "syncedAt": "2026-03-13T09:36:05.649386+00:00"
+          "syncedAt": "2026-03-18T10:04:13.177174+00:00"
         },
         "es": {
           "path": "es/employees/import-via-csv.mdx",
           "sourceHash": "f10ab157dd785aaf97ce446b2a1f44f7fbf700301e31dc2c62ccd4703ebba0c4",
-          "syncedAt": "2026-03-13T09:36:07.110114+00:00"
+          "syncedAt": "2026-03-18T10:04:15.189939+00:00"
         },
         "it": {
           "path": "it/employees/import-via-csv.mdx",
           "sourceHash": "f10ab157dd785aaf97ce446b2a1f44f7fbf700301e31dc2c62ccd4703ebba0c4",
-          "syncedAt": "2026-03-13T09:36:09.451988+00:00"
+          "syncedAt": "2026-03-18T10:04:17.770433+00:00"
         }
       }
     },
@@ -164,22 +164,22 @@
         "fr": {
           "path": "fr/get-started/billing/paying-with-sepa.mdx",
           "sourceHash": "b82706a95a433eae2ffa69cbf53f5236bcb5dd94a5b5d000621678776c7237b4",
-          "syncedAt": "2026-03-13T09:36:14.788441+00:00"
+          "syncedAt": "2026-03-18T10:04:21.770536+00:00"
         },
         "de": {
           "path": "de/get-started/billing/paying-with-sepa.mdx",
           "sourceHash": "b82706a95a433eae2ffa69cbf53f5236bcb5dd94a5b5d000621678776c7237b4",
-          "syncedAt": "2026-03-13T09:36:17.132234+00:00"
+          "syncedAt": "2026-03-18T10:04:24.003550+00:00"
         },
         "es": {
           "path": "es/get-started/billing/paying-with-sepa.mdx",
           "sourceHash": "b82706a95a433eae2ffa69cbf53f5236bcb5dd94a5b5d000621678776c7237b4",
-          "syncedAt": "2026-03-13T09:36:19.416809+00:00"
+          "syncedAt": "2026-03-18T10:04:25.900959+00:00"
         },
         "it": {
           "path": "it/get-started/billing/paying-with-sepa.mdx",
           "sourceHash": "b82706a95a433eae2ffa69cbf53f5236bcb5dd94a5b5d000621678776c7237b4",
-          "syncedAt": "2026-03-13T09:36:22.301922+00:00"
+          "syncedAt": "2026-03-18T10:04:27.634659+00:00"
         }
       }
     },
@@ -189,22 +189,22 @@
         "fr": {
           "path": "fr/get-started/grant-admin-access.mdx",
           "sourceHash": "2d4e42ca28c69e8c1ac693f52ace853ce48415207295d08eb8116efbaad55081",
-          "syncedAt": "2026-03-13T09:36:34.306959+00:00"
+          "syncedAt": "2026-03-18T10:04:35.267355+00:00"
         },
         "de": {
           "path": "de/get-started/grant-admin-access.mdx",
           "sourceHash": "2d4e42ca28c69e8c1ac693f52ace853ce48415207295d08eb8116efbaad55081",
-          "syncedAt": "2026-03-13T09:36:37.429821+00:00"
+          "syncedAt": "2026-03-18T10:04:38.172953+00:00"
         },
         "es": {
           "path": "es/get-started/grant-admin-access.mdx",
           "sourceHash": "2d4e42ca28c69e8c1ac693f52ace853ce48415207295d08eb8116efbaad55081",
-          "syncedAt": "2026-03-13T09:36:40.279197+00:00"
+          "syncedAt": "2026-03-18T10:04:41.069640+00:00"
         },
         "it": {
           "path": "it/get-started/grant-admin-access.mdx",
           "sourceHash": "2d4e42ca28c69e8c1ac693f52ace853ce48415207295d08eb8116efbaad55081",
-          "syncedAt": "2026-03-13T09:36:44.481220+00:00"
+          "syncedAt": "2026-03-18T10:04:44.923904+00:00"
         }
       }
     },
@@ -214,22 +214,22 @@
         "fr": {
           "path": "fr/get-started/import-your-equipment.mdx",
           "sourceHash": "282cfdcc0445f3b24e2c35e5970c77aa1ac77bbf08a7821159e9e34b0f6894e5",
-          "syncedAt": "2026-03-13T09:36:56.241496+00:00"
+          "syncedAt": "2026-03-18T10:04:51.841970+00:00"
         },
         "de": {
           "path": "de/get-started/import-your-equipment.mdx",
           "sourceHash": "282cfdcc0445f3b24e2c35e5970c77aa1ac77bbf08a7821159e9e34b0f6894e5",
-          "syncedAt": "2026-03-13T09:36:59.346442+00:00"
+          "syncedAt": "2026-03-18T10:04:55.423008+00:00"
         },
         "es": {
           "path": "es/get-started/import-your-equipment.mdx",
           "sourceHash": "282cfdcc0445f3b24e2c35e5970c77aa1ac77bbf08a7821159e9e34b0f6894e5",
-          "syncedAt": "2026-03-13T09:37:01.894987+00:00"
+          "syncedAt": "2026-03-18T10:04:58.228563+00:00"
         },
         "it": {
           "path": "it/get-started/import-your-equipment.mdx",
           "sourceHash": "282cfdcc0445f3b24e2c35e5970c77aa1ac77bbf08a7821159e9e34b0f6894e5",
-          "syncedAt": "2026-03-13T09:37:05.291400+00:00"
+          "syncedAt": "2026-03-18T10:05:01.970374+00:00"
         }
       }
     },
@@ -239,22 +239,22 @@
         "fr": {
           "path": "fr/get-started/primo-mcp-server.mdx",
           "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
-          "syncedAt": "2026-03-13T09:37:20.752471+00:00"
+          "syncedAt": "2026-03-18T10:05:12.087345+00:00"
         },
         "de": {
           "path": "de/get-started/primo-mcp-server.mdx",
           "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
-          "syncedAt": "2026-03-13T09:37:25.310538+00:00"
+          "syncedAt": "2026-03-18T10:05:16.456188+00:00"
         },
         "es": {
           "path": "es/get-started/primo-mcp-server.mdx",
           "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
-          "syncedAt": "2026-03-13T09:37:29.387529+00:00"
+          "syncedAt": "2026-03-18T10:05:20.358468+00:00"
         },
         "it": {
           "path": "it/get-started/primo-mcp-server.mdx",
           "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
-          "syncedAt": "2026-03-13T09:37:34.694676+00:00"
+          "syncedAt": "2026-03-18T10:05:25.232399+00:00"
         }
       }
     },
@@ -264,22 +264,22 @@
         "fr": {
           "path": "fr/get-started/quality-onboarding.mdx",
           "sourceHash": "2ba4ae2bfdcce1708c276e23023613eee4c170340bf7c53b5682eb1ad5ec6dca",
-          "syncedAt": "2026-03-13T09:37:59.638224+00:00"
+          "syncedAt": "2026-03-18T10:05:39.237316+00:00"
         },
         "de": {
           "path": "de/get-started/quality-onboarding.mdx",
           "sourceHash": "2ba4ae2bfdcce1708c276e23023613eee4c170340bf7c53b5682eb1ad5ec6dca",
-          "syncedAt": "2026-03-13T09:38:07.118309+00:00"
+          "syncedAt": "2026-03-18T10:05:44.767620+00:00"
         },
         "es": {
           "path": "es/get-started/quality-onboarding.mdx",
           "sourceHash": "2ba4ae2bfdcce1708c276e23023613eee4c170340bf7c53b5682eb1ad5ec6dca",
-          "syncedAt": "2026-03-13T09:38:14.457067+00:00"
+          "syncedAt": "2026-03-18T10:05:50.796125+00:00"
         },
         "it": {
           "path": "it/get-started/quality-onboarding.mdx",
           "sourceHash": "2ba4ae2bfdcce1708c276e23023613eee4c170340bf7c53b5682eb1ad5ec6dca",
-          "syncedAt": "2026-03-13T09:38:21.940884+00:00"
+          "syncedAt": "2026-03-18T10:05:58.208104+00:00"
         }
       }
     },
@@ -289,22 +289,22 @@
         "fr": {
           "path": "fr/index.mdx",
           "sourceHash": "68a4e0f256c3c56fe983f828cc249a6b87277d77f526c50001ffcfe2176819f4",
-          "syncedAt": "2026-03-13T11:30:19.925173+00:00"
+          "syncedAt": "2026-03-18T10:06:04.719497+00:00"
         },
         "de": {
           "path": "de/index.mdx",
           "sourceHash": "68a4e0f256c3c56fe983f828cc249a6b87277d77f526c50001ffcfe2176819f4",
-          "syncedAt": "2026-03-13T11:30:22.954264+00:00"
+          "syncedAt": "2026-03-18T10:06:07.743706+00:00"
         },
         "es": {
           "path": "es/index.mdx",
           "sourceHash": "68a4e0f256c3c56fe983f828cc249a6b87277d77f526c50001ffcfe2176819f4",
-          "syncedAt": "2026-03-13T11:30:25.969013+00:00"
+          "syncedAt": "2026-03-18T10:06:10.859384+00:00"
         },
         "it": {
           "path": "it/index.mdx",
           "sourceHash": "68a4e0f256c3c56fe983f828cc249a6b87277d77f526c50001ffcfe2176819f4",
-          "syncedAt": "2026-03-13T11:30:29.662194+00:00"
+          "syncedAt": "2026-03-18T10:06:14.692235+00:00"
         }
       }
     },
@@ -314,22 +314,22 @@
         "fr": {
           "path": "fr/mdm/endpoint-protection/crowdstrike-falcon.mdx",
           "sourceHash": "a46202fb6ac76c692e0af66d7cdb75dad485ef0eb099f2a41ac268ec9238ef92",
-          "syncedAt": "2026-03-13T09:38:48.309464+00:00"
+          "syncedAt": "2026-03-18T10:06:20.968630+00:00"
         },
         "de": {
           "path": "de/mdm/endpoint-protection/crowdstrike-falcon.mdx",
           "sourceHash": "a46202fb6ac76c692e0af66d7cdb75dad485ef0eb099f2a41ac268ec9238ef92",
-          "syncedAt": "2026-03-13T09:38:51.268490+00:00"
+          "syncedAt": "2026-03-18T10:06:23.796274+00:00"
         },
         "es": {
           "path": "es/mdm/endpoint-protection/crowdstrike-falcon.mdx",
           "sourceHash": "a46202fb6ac76c692e0af66d7cdb75dad485ef0eb099f2a41ac268ec9238ef92",
-          "syncedAt": "2026-03-13T09:38:54.019322+00:00"
+          "syncedAt": "2026-03-18T10:06:26.654306+00:00"
         },
         "it": {
           "path": "it/mdm/endpoint-protection/crowdstrike-falcon.mdx",
           "sourceHash": "a46202fb6ac76c692e0af66d7cdb75dad485ef0eb099f2a41ac268ec9238ef92",
-          "syncedAt": "2026-03-13T09:38:58.300017+00:00"
+          "syncedAt": "2026-03-18T10:06:29.716944+00:00"
         }
       }
     },
@@ -339,22 +339,22 @@
         "fr": {
           "path": "fr/mdm/endpoint-protection/sentinelone.mdx",
           "sourceHash": "346c342b70ba0992458c871674a97cf006355363d24289fc2a9555585da21903",
-          "syncedAt": "2026-03-13T09:39:09.516120+00:00"
+          "syncedAt": "2026-03-18T10:06:37.066080+00:00"
         },
         "de": {
           "path": "de/mdm/endpoint-protection/sentinelone.mdx",
           "sourceHash": "346c342b70ba0992458c871674a97cf006355363d24289fc2a9555585da21903",
-          "syncedAt": "2026-03-13T09:39:12.639454+00:00"
+          "syncedAt": "2026-03-18T10:06:40.084664+00:00"
         },
         "es": {
           "path": "es/mdm/endpoint-protection/sentinelone.mdx",
           "sourceHash": "346c342b70ba0992458c871674a97cf006355363d24289fc2a9555585da21903",
-          "syncedAt": "2026-03-13T09:39:16.076578+00:00"
+          "syncedAt": "2026-03-18T10:06:43.121257+00:00"
         },
         "it": {
           "path": "it/mdm/endpoint-protection/sentinelone.mdx",
           "sourceHash": "346c342b70ba0992458c871674a97cf006355363d24289fc2a9555585da21903",
-          "syncedAt": "2026-03-13T09:39:20.110680+00:00"
+          "syncedAt": "2026-03-18T10:06:46.403884+00:00"
         }
       }
     },
@@ -364,22 +364,22 @@
         "fr": {
           "path": "fr/mdm/endpoint-protection/threatdown.mdx",
           "sourceHash": "d279eac52b793635b731c11401b5386b671bf4df50ee728b646696558ae956d6",
-          "syncedAt": "2026-03-13T09:39:23.449152+00:00"
+          "syncedAt": "2026-03-18T10:06:48.600581+00:00"
         },
         "de": {
           "path": "de/mdm/endpoint-protection/threatdown.mdx",
           "sourceHash": "d279eac52b793635b731c11401b5386b671bf4df50ee728b646696558ae956d6",
-          "syncedAt": "2026-03-13T09:39:23.987680+00:00"
+          "syncedAt": "2026-03-18T10:06:49.724485+00:00"
         },
         "es": {
           "path": "es/mdm/endpoint-protection/threatdown.mdx",
           "sourceHash": "d279eac52b793635b731c11401b5386b671bf4df50ee728b646696558ae956d6",
-          "syncedAt": "2026-03-13T09:39:24.898834+00:00"
+          "syncedAt": "2026-03-18T10:06:50.912749+00:00"
         },
         "it": {
           "path": "it/mdm/endpoint-protection/threatdown.mdx",
           "sourceHash": "d279eac52b793635b731c11401b5386b671bf4df50ee728b646696558ae956d6",
-          "syncedAt": "2026-03-13T09:39:26.451425+00:00"
+          "syncedAt": "2026-03-18T10:06:52.181636+00:00"
         }
       }
     },
@@ -389,22 +389,22 @@
         "fr": {
           "path": "fr/mdm/get-started/introduction-to-mdm.mdx",
           "sourceHash": "f42b439c16f066e69366cbe963b270454f34adc8e2d102e67b770f046f9a5a8d",
-          "syncedAt": "2026-03-13T09:39:35.429832+00:00"
+          "syncedAt": "2026-03-18T10:06:57.771298+00:00"
         },
         "de": {
           "path": "de/mdm/get-started/introduction-to-mdm.mdx",
           "sourceHash": "f42b439c16f066e69366cbe963b270454f34adc8e2d102e67b770f046f9a5a8d",
-          "syncedAt": "2026-03-13T09:39:38.312348+00:00"
+          "syncedAt": "2026-03-18T10:06:59.959429+00:00"
         },
         "es": {
           "path": "es/mdm/get-started/introduction-to-mdm.mdx",
           "sourceHash": "f42b439c16f066e69366cbe963b270454f34adc8e2d102e67b770f046f9a5a8d",
-          "syncedAt": "2026-03-13T09:39:41.033153+00:00"
+          "syncedAt": "2026-03-18T10:07:02.476696+00:00"
         },
         "it": {
           "path": "it/mdm/get-started/introduction-to-mdm.mdx",
           "sourceHash": "f42b439c16f066e69366cbe963b270454f34adc8e2d102e67b770f046f9a5a8d",
-          "syncedAt": "2026-03-13T09:39:44.103291+00:00"
+          "syncedAt": "2026-03-18T10:07:05.020630+00:00"
         }
       }
     },
@@ -414,22 +414,22 @@
         "fr": {
           "path": "fr/mdm/get-started/migrate-from-another-mdm.mdx",
           "sourceHash": "e70ffbe400393ff8201e6de4591d63149d6c7acaa2efd1fcaec4fac5e3becd3e",
-          "syncedAt": "2026-03-13T09:40:04.284806+00:00"
+          "syncedAt": "2026-03-18T10:07:17.517951+00:00"
         },
         "de": {
           "path": "de/mdm/get-started/migrate-from-another-mdm.mdx",
           "sourceHash": "e70ffbe400393ff8201e6de4591d63149d6c7acaa2efd1fcaec4fac5e3becd3e",
-          "syncedAt": "2026-03-13T09:40:09.422940+00:00"
+          "syncedAt": "2026-03-18T10:07:23.066699+00:00"
         },
         "es": {
           "path": "es/mdm/get-started/migrate-from-another-mdm.mdx",
           "sourceHash": "e70ffbe400393ff8201e6de4591d63149d6c7acaa2efd1fcaec4fac5e3becd3e",
-          "syncedAt": "2026-03-13T09:40:14.865482+00:00"
+          "syncedAt": "2026-03-18T10:07:28.509740+00:00"
         },
         "it": {
           "path": "it/mdm/get-started/migrate-from-another-mdm.mdx",
           "sourceHash": "e70ffbe400393ff8201e6de4591d63149d6c7acaa2efd1fcaec4fac5e3becd3e",
-          "syncedAt": "2026-03-13T09:40:21.448740+00:00"
+          "syncedAt": "2026-03-18T10:07:34.756122+00:00"
         }
       }
     },
@@ -439,22 +439,22 @@
         "fr": {
           "path": "fr/mdm/get-started/secure-token.mdx",
           "sourceHash": "0383c364d90f2a053d6f62476ef1ce0648071b89276c0bfb74828c3c149ab6b6",
-          "syncedAt": "2026-03-13T09:40:37.071714+00:00"
+          "syncedAt": "2026-03-18T10:07:41.817920+00:00"
         },
         "de": {
           "path": "de/mdm/get-started/secure-token.mdx",
           "sourceHash": "0383c364d90f2a053d6f62476ef1ce0648071b89276c0bfb74828c3c149ab6b6",
-          "syncedAt": "2026-03-13T09:40:39.649688+00:00"
+          "syncedAt": "2026-03-18T10:07:45.251022+00:00"
         },
         "es": {
           "path": "es/mdm/get-started/secure-token.mdx",
           "sourceHash": "0383c364d90f2a053d6f62476ef1ce0648071b89276c0bfb74828c3c149ab6b6",
-          "syncedAt": "2026-03-13T09:40:41.902951+00:00"
+          "syncedAt": "2026-03-18T10:07:48.805799+00:00"
         },
         "it": {
           "path": "it/mdm/get-started/secure-token.mdx",
           "sourceHash": "0383c364d90f2a053d6f62476ef1ce0648071b89276c0bfb74828c3c149ab6b6",
-          "syncedAt": "2026-03-13T09:40:45.748782+00:00"
+          "syncedAt": "2026-03-18T10:07:52.481866+00:00"
         }
       }
     },
@@ -464,22 +464,22 @@
         "fr": {
           "path": "fr/mdm/get-started/set-up-apn-certificate.mdx",
           "sourceHash": "168ac2c1052ca4d468b707843106812c1b21e43963694b947ea8280d08d60db2",
-          "syncedAt": "2026-03-13T09:40:52.635579+00:00"
+          "syncedAt": "2026-03-18T10:07:57.032642+00:00"
         },
         "de": {
           "path": "de/mdm/get-started/set-up-apn-certificate.mdx",
           "sourceHash": "168ac2c1052ca4d468b707843106812c1b21e43963694b947ea8280d08d60db2",
-          "syncedAt": "2026-03-13T09:40:54.318205+00:00"
+          "syncedAt": "2026-03-18T10:07:59.146941+00:00"
         },
         "es": {
           "path": "es/mdm/get-started/set-up-apn-certificate.mdx",
           "sourceHash": "168ac2c1052ca4d468b707843106812c1b21e43963694b947ea8280d08d60db2",
-          "syncedAt": "2026-03-13T09:40:55.846169+00:00"
+          "syncedAt": "2026-03-18T10:08:01.674031+00:00"
         },
         "it": {
           "path": "it/mdm/get-started/set-up-apn-certificate.mdx",
           "sourceHash": "168ac2c1052ca4d468b707843106812c1b21e43963694b947ea8280d08d60db2",
-          "syncedAt": "2026-03-13T09:40:58.154417+00:00"
+          "syncedAt": "2026-03-18T10:08:04.181351+00:00"
         }
       }
     },
@@ -489,22 +489,22 @@
         "fr": {
           "path": "fr/mdm/get-started/set-up-okta.mdx",
           "sourceHash": "504c1c22baefe12dd341d6965984cfeb40dc3b17e56d265307cf67b43d0916d9",
-          "syncedAt": "2026-03-13T09:41:09.161682+00:00"
+          "syncedAt": "2026-03-18T10:08:10.977074+00:00"
         },
         "de": {
           "path": "de/mdm/get-started/set-up-okta.mdx",
           "sourceHash": "504c1c22baefe12dd341d6965984cfeb40dc3b17e56d265307cf67b43d0916d9",
-          "syncedAt": "2026-03-13T09:41:12.600338+00:00"
+          "syncedAt": "2026-03-18T10:08:14.502962+00:00"
         },
         "es": {
           "path": "es/mdm/get-started/set-up-okta.mdx",
           "sourceHash": "504c1c22baefe12dd341d6965984cfeb40dc3b17e56d265307cf67b43d0916d9",
-          "syncedAt": "2026-03-13T09:41:15.084632+00:00"
+          "syncedAt": "2026-03-18T10:08:16.636265+00:00"
         },
         "it": {
           "path": "it/mdm/get-started/set-up-okta.mdx",
           "sourceHash": "504c1c22baefe12dd341d6965984cfeb40dc3b17e56d265307cf67b43d0916d9",
-          "syncedAt": "2026-03-13T09:41:18.077611+00:00"
+          "syncedAt": "2026-03-18T10:08:19.824917+00:00"
         }
       }
     },
@@ -514,22 +514,22 @@
         "fr": {
           "path": "fr/mdm/get-started/supported-platforms.mdx",
           "sourceHash": "d54fc6ba2e6c91654a8e766896ca75f0dee2c1d401cb63b535069881a94640bc",
-          "syncedAt": "2026-03-13T09:42:15.561571+00:00"
+          "syncedAt": "2026-03-18T10:08:26.601797+00:00"
         },
         "de": {
           "path": "de/mdm/get-started/supported-platforms.mdx",
           "sourceHash": "d54fc6ba2e6c91654a8e766896ca75f0dee2c1d401cb63b535069881a94640bc",
-          "syncedAt": "2026-03-13T09:42:19.803746+00:00"
+          "syncedAt": "2026-03-18T10:08:30.303218+00:00"
         },
         "es": {
           "path": "es/mdm/get-started/supported-platforms.mdx",
           "sourceHash": "d54fc6ba2e6c91654a8e766896ca75f0dee2c1d401cb63b535069881a94640bc",
-          "syncedAt": "2026-03-13T09:42:22.385173+00:00"
+          "syncedAt": "2026-03-18T10:08:33.662374+00:00"
         },
         "it": {
           "path": "it/mdm/get-started/supported-platforms.mdx",
           "sourceHash": "d54fc6ba2e6c91654a8e766896ca75f0dee2c1d401cb63b535069881a94640bc",
-          "syncedAt": "2026-03-13T09:42:26.967145+00:00"
+          "syncedAt": "2026-03-18T10:08:37.595857+00:00"
         }
       }
     },
@@ -539,22 +539,22 @@
         "fr": {
           "path": "fr/mdm/guides/activation-lock-bypass.mdx",
           "sourceHash": "02b0e226799b1ea2218beabe3b98fbca300bce51f8ea55fa7a1c1dc82eb230b5",
-          "syncedAt": "2026-03-13T09:42:33.652543+00:00"
+          "syncedAt": "2026-03-18T10:08:41.941085+00:00"
         },
         "de": {
           "path": "de/mdm/guides/activation-lock-bypass.mdx",
           "sourceHash": "02b0e226799b1ea2218beabe3b98fbca300bce51f8ea55fa7a1c1dc82eb230b5",
-          "syncedAt": "2026-03-13T09:42:35.161923+00:00"
+          "syncedAt": "2026-03-18T10:08:44.036953+00:00"
         },
         "es": {
           "path": "es/mdm/guides/activation-lock-bypass.mdx",
           "sourceHash": "02b0e226799b1ea2218beabe3b98fbca300bce51f8ea55fa7a1c1dc82eb230b5",
-          "syncedAt": "2026-03-13T09:42:37.375153+00:00"
+          "syncedAt": "2026-03-18T10:08:45.998326+00:00"
         },
         "it": {
           "path": "it/mdm/guides/activation-lock-bypass.mdx",
           "sourceHash": "02b0e226799b1ea2218beabe3b98fbca300bce51f8ea55fa7a1c1dc82eb230b5",
-          "syncedAt": "2026-03-13T09:42:40.393455+00:00"
+          "syncedAt": "2026-03-18T10:08:48.475352+00:00"
         }
       }
     },
@@ -564,22 +564,22 @@
         "fr": {
           "path": "fr/mdm/guides/os-updates-employee-experience.mdx",
           "sourceHash": "794a33159f048a340e5c15969b1ef8c7e2c2fa90d09f10b11649082ff9cfad7a",
-          "syncedAt": "2026-03-13T09:42:51.252588+00:00"
+          "syncedAt": "2026-03-18T10:08:55.559795+00:00"
         },
         "de": {
           "path": "de/mdm/guides/os-updates-employee-experience.mdx",
           "sourceHash": "794a33159f048a340e5c15969b1ef8c7e2c2fa90d09f10b11649082ff9cfad7a",
-          "syncedAt": "2026-03-13T09:42:55.165127+00:00"
+          "syncedAt": "2026-03-18T10:08:59.769558+00:00"
         },
         "es": {
           "path": "es/mdm/guides/os-updates-employee-experience.mdx",
           "sourceHash": "794a33159f048a340e5c15969b1ef8c7e2c2fa90d09f10b11649082ff9cfad7a",
-          "syncedAt": "2026-03-13T09:42:57.781979+00:00"
+          "syncedAt": "2026-03-18T10:09:03.401357+00:00"
         },
         "it": {
           "path": "it/mdm/guides/os-updates-employee-experience.mdx",
           "sourceHash": "794a33159f048a340e5c15969b1ef8c7e2c2fa90d09f10b11649082ff9cfad7a",
-          "syncedAt": "2026-03-13T09:43:01.547730+00:00"
+          "syncedAt": "2026-03-18T10:09:07.376400+00:00"
         }
       }
     },
@@ -589,22 +589,22 @@
         "fr": {
           "path": "fr/mdm/guides/remove-mdm-manually.mdx",
           "sourceHash": "a44c7c46c49fa47fb78bb4d9a06804787d37291db562c6499cca21d580a9b7d7",
-          "syncedAt": "2026-03-13T09:43:14.881613+00:00"
+          "syncedAt": "2026-03-18T10:09:12.576684+00:00"
         },
         "de": {
           "path": "de/mdm/guides/remove-mdm-manually.mdx",
           "sourceHash": "a44c7c46c49fa47fb78bb4d9a06804787d37291db562c6499cca21d580a9b7d7",
-          "syncedAt": "2026-03-13T09:43:17.856541+00:00"
+          "syncedAt": "2026-03-18T10:09:15.070826+00:00"
         },
         "es": {
           "path": "es/mdm/guides/remove-mdm-manually.mdx",
           "sourceHash": "a44c7c46c49fa47fb78bb4d9a06804787d37291db562c6499cca21d580a9b7d7",
-          "syncedAt": "2026-03-13T09:43:20.008903+00:00"
+          "syncedAt": "2026-03-18T10:09:16.854656+00:00"
         },
         "it": {
           "path": "it/mdm/guides/remove-mdm-manually.mdx",
           "sourceHash": "a44c7c46c49fa47fb78bb4d9a06804787d37291db562c6499cca21d580a9b7d7",
-          "syncedAt": "2026-03-13T09:43:22.853526+00:00"
+          "syncedAt": "2026-03-18T10:09:19.244351+00:00"
         }
       }
     },
@@ -614,22 +614,22 @@
         "fr": {
           "path": "fr/mdm/guides/resolve-enrollment-issues.mdx",
           "sourceHash": "99a0756b3323db9ab8166394760ebe860d714c8524ece152c7fa481beeb0b7a3",
-          "syncedAt": "2026-03-13T09:43:36.707169+00:00"
+          "syncedAt": "2026-03-18T10:09:28.205018+00:00"
         },
         "de": {
           "path": "de/mdm/guides/resolve-enrollment-issues.mdx",
           "sourceHash": "99a0756b3323db9ab8166394760ebe860d714c8524ece152c7fa481beeb0b7a3",
-          "syncedAt": "2026-03-13T09:43:40.559833+00:00"
+          "syncedAt": "2026-03-18T10:09:33.364379+00:00"
         },
         "es": {
           "path": "es/mdm/guides/resolve-enrollment-issues.mdx",
           "sourceHash": "99a0756b3323db9ab8166394760ebe860d714c8524ece152c7fa481beeb0b7a3",
-          "syncedAt": "2026-03-13T09:43:44.361789+00:00"
+          "syncedAt": "2026-03-18T10:09:37.550860+00:00"
         },
         "it": {
           "path": "it/mdm/guides/resolve-enrollment-issues.mdx",
           "sourceHash": "99a0756b3323db9ab8166394760ebe860d714c8524ece152c7fa481beeb0b7a3",
-          "syncedAt": "2026-03-13T09:43:49.373525+00:00"
+          "syncedAt": "2026-03-18T10:09:42.044815+00:00"
         }
       }
     },
@@ -639,22 +639,22 @@
         "fr": {
           "path": "fr/mdm/guides/resolve-login-issue.mdx",
           "sourceHash": "06a0073370dba72ff417a655f08d2ff9953b94004e0fd8b73c43dbab4a9f6c73",
-          "syncedAt": "2026-03-13T09:44:05.693011+00:00"
+          "syncedAt": "2026-03-18T10:09:50.909614+00:00"
         },
         "de": {
           "path": "de/mdm/guides/resolve-login-issue.mdx",
           "sourceHash": "06a0073370dba72ff417a655f08d2ff9953b94004e0fd8b73c43dbab4a9f6c73",
-          "syncedAt": "2026-03-13T09:44:09.369302+00:00"
+          "syncedAt": "2026-03-18T10:09:55.733025+00:00"
         },
         "es": {
           "path": "es/mdm/guides/resolve-login-issue.mdx",
           "sourceHash": "06a0073370dba72ff417a655f08d2ff9953b94004e0fd8b73c43dbab4a9f6c73",
-          "syncedAt": "2026-03-13T09:44:13.716170+00:00"
+          "syncedAt": "2026-03-18T10:09:59.747361+00:00"
         },
         "it": {
           "path": "it/mdm/guides/resolve-login-issue.mdx",
           "sourceHash": "06a0073370dba72ff417a655f08d2ff9953b94004e0fd8b73c43dbab4a9f6c73",
-          "syncedAt": "2026-03-13T09:44:19.147464+00:00"
+          "syncedAt": "2026-03-18T10:10:04.826687+00:00"
         }
       }
     },
@@ -664,22 +664,22 @@
         "fr": {
           "path": "fr/mdm/guides/upgrade-windows-11.mdx",
           "sourceHash": "fb1d6d8d62e5c0b430c238cdbd5351edec4dbb364f370ebbb07d6e183434d743",
-          "syncedAt": "2026-03-13T09:44:23.944189+00:00"
+          "syncedAt": "2026-03-18T10:10:06.925571+00:00"
         },
         "de": {
           "path": "de/mdm/guides/upgrade-windows-11.mdx",
           "sourceHash": "fb1d6d8d62e5c0b430c238cdbd5351edec4dbb364f370ebbb07d6e183434d743",
-          "syncedAt": "2026-03-13T09:44:25.243366+00:00"
+          "syncedAt": "2026-03-18T10:10:08.254067+00:00"
         },
         "es": {
           "path": "es/mdm/guides/upgrade-windows-11.mdx",
           "sourceHash": "fb1d6d8d62e5c0b430c238cdbd5351edec4dbb364f370ebbb07d6e183434d743",
-          "syncedAt": "2026-03-13T09:44:26.690791+00:00"
+          "syncedAt": "2026-03-18T10:10:09.537386+00:00"
         },
         "it": {
           "path": "it/mdm/guides/upgrade-windows-11.mdx",
           "sourceHash": "fb1d6d8d62e5c0b430c238cdbd5351edec4dbb364f370ebbb07d6e183434d743",
-          "syncedAt": "2026-03-13T09:44:28.234497+00:00"
+          "syncedAt": "2026-03-18T10:10:10.708034+00:00"
         }
       }
     },
@@ -689,22 +689,22 @@
         "fr": {
           "path": "fr/mdm/policies/change-local-password.mdx",
           "sourceHash": "223ad54b78586160eedf9f26b2b9d3b703e34020c5dcc74d01cd249687c3573a",
-          "syncedAt": "2026-03-13T09:44:34.393299+00:00"
+          "syncedAt": "2026-03-18T10:10:57.375321+00:00"
         },
         "de": {
           "path": "de/mdm/policies/change-local-password.mdx",
           "sourceHash": "223ad54b78586160eedf9f26b2b9d3b703e34020c5dcc74d01cd249687c3573a",
-          "syncedAt": "2026-03-13T09:44:36.569912+00:00"
+          "syncedAt": "2026-03-18T10:11:00.045715+00:00"
         },
         "es": {
           "path": "es/mdm/policies/change-local-password.mdx",
           "sourceHash": "223ad54b78586160eedf9f26b2b9d3b703e34020c5dcc74d01cd249687c3573a",
-          "syncedAt": "2026-03-13T09:44:39.040709+00:00"
+          "syncedAt": "2026-03-18T10:11:02.446947+00:00"
         },
         "it": {
           "path": "it/mdm/policies/change-local-password.mdx",
           "sourceHash": "223ad54b78586160eedf9f26b2b9d3b703e34020c5dcc74d01cd249687c3573a",
-          "syncedAt": "2026-03-13T09:44:42.053417+00:00"
+          "syncedAt": "2026-03-18T10:11:04.832465+00:00"
         }
       }
     },
@@ -714,22 +714,22 @@
         "fr": {
           "path": "fr/mdm/policies/deploy-vpp-applications.mdx",
           "sourceHash": "6fe33c5d3ccde2b1f83081c0079a5e7adbe9a46263f9371723f807721f526fe0",
-          "syncedAt": "2026-03-13T09:44:49.371439+00:00"
+          "syncedAt": "2026-03-18T10:11:18.978649+00:00"
         },
         "de": {
           "path": "de/mdm/policies/deploy-vpp-applications.mdx",
           "sourceHash": "6fe33c5d3ccde2b1f83081c0079a5e7adbe9a46263f9371723f807721f526fe0",
-          "syncedAt": "2026-03-13T09:44:51.220565+00:00"
+          "syncedAt": "2026-03-18T10:11:20.974462+00:00"
         },
         "es": {
           "path": "es/mdm/policies/deploy-vpp-applications.mdx",
           "sourceHash": "6fe33c5d3ccde2b1f83081c0079a5e7adbe9a46263f9371723f807721f526fe0",
-          "syncedAt": "2026-03-13T09:44:53.916631+00:00"
+          "syncedAt": "2026-03-18T10:11:22.639223+00:00"
         },
         "it": {
           "path": "it/mdm/policies/deploy-vpp-applications.mdx",
           "sourceHash": "6fe33c5d3ccde2b1f83081c0079a5e7adbe9a46263f9371723f807721f526fe0",
-          "syncedAt": "2026-03-13T09:44:56.090270+00:00"
+          "syncedAt": "2026-03-18T10:11:24.317500+00:00"
         }
       }
     },
@@ -739,22 +739,22 @@
         "fr": {
           "path": "fr/mdm/policies/disk-encryption.mdx",
           "sourceHash": "b545a99359b4764db9d9ec491f3878290c0cb4ba6e3f474083db1ffc815d5f30",
-          "syncedAt": "2026-03-13T09:45:02.889883+00:00"
+          "syncedAt": "2026-03-18T10:11:33.890803+00:00"
         },
         "de": {
           "path": "de/mdm/policies/disk-encryption.mdx",
           "sourceHash": "b545a99359b4764db9d9ec491f3878290c0cb4ba6e3f474083db1ffc815d5f30",
-          "syncedAt": "2026-03-13T09:45:05.108019+00:00"
+          "syncedAt": "2026-03-18T10:11:36.018388+00:00"
         },
         "es": {
           "path": "es/mdm/policies/disk-encryption.mdx",
           "sourceHash": "b545a99359b4764db9d9ec491f3878290c0cb4ba6e3f474083db1ffc815d5f30",
-          "syncedAt": "2026-03-13T09:45:07.381693+00:00"
+          "syncedAt": "2026-03-18T10:11:38.799859+00:00"
         },
         "it": {
           "path": "it/mdm/policies/disk-encryption.mdx",
           "sourceHash": "b545a99359b4764db9d9ec491f3878290c0cb4ba6e3f474083db1ffc815d5f30",
-          "syncedAt": "2026-03-13T09:45:10.106636+00:00"
+          "syncedAt": "2026-03-18T10:11:41.429503+00:00"
         }
       }
     },
@@ -764,22 +764,22 @@
         "fr": {
           "path": "fr/mdm/policies/manage-admin-accounts.mdx",
           "sourceHash": "f1a78d120efd9d08f6648dfbacd963362d37ffefea770cffdd622b7743aa7bdb",
-          "syncedAt": "2026-03-13T09:45:18.122960+00:00"
+          "syncedAt": "2026-03-18T10:12:56.257338+00:00"
         },
         "de": {
           "path": "de/mdm/policies/manage-admin-accounts.mdx",
           "sourceHash": "f1a78d120efd9d08f6648dfbacd963362d37ffefea770cffdd622b7743aa7bdb",
-          "syncedAt": "2026-03-13T09:45:20.735430+00:00"
+          "syncedAt": "2026-03-18T10:12:58.853913+00:00"
         },
         "es": {
           "path": "es/mdm/policies/manage-admin-accounts.mdx",
           "sourceHash": "f1a78d120efd9d08f6648dfbacd963362d37ffefea770cffdd622b7743aa7bdb",
-          "syncedAt": "2026-03-13T09:45:23.237556+00:00"
+          "syncedAt": "2026-03-18T10:13:00.855355+00:00"
         },
         "it": {
           "path": "it/mdm/policies/manage-admin-accounts.mdx",
           "sourceHash": "f1a78d120efd9d08f6648dfbacd963362d37ffefea770cffdd622b7743aa7bdb",
-          "syncedAt": "2026-03-13T09:45:25.868022+00:00"
+          "syncedAt": "2026-03-18T10:13:03.486933+00:00"
         }
       }
     },
@@ -789,22 +789,22 @@
         "fr": {
           "path": "fr/mdm/policies/manage-apps-laptop.mdx",
           "sourceHash": "83ee7dbab5b041aaaa1fc129b93613f63e0c7b21c90dab140cd7a3e88685e1a2",
-          "syncedAt": "2026-03-13T09:45:40.334943+00:00"
+          "syncedAt": "2026-03-18T10:13:12.555219+00:00"
         },
         "de": {
           "path": "de/mdm/policies/manage-apps-laptop.mdx",
           "sourceHash": "83ee7dbab5b041aaaa1fc129b93613f63e0c7b21c90dab140cd7a3e88685e1a2",
-          "syncedAt": "2026-03-13T09:45:44.292357+00:00"
+          "syncedAt": "2026-03-18T10:13:17.014409+00:00"
         },
         "es": {
           "path": "es/mdm/policies/manage-apps-laptop.mdx",
           "sourceHash": "83ee7dbab5b041aaaa1fc129b93613f63e0c7b21c90dab140cd7a3e88685e1a2",
-          "syncedAt": "2026-03-13T09:45:48.690588+00:00"
+          "syncedAt": "2026-03-18T10:13:20.935563+00:00"
         },
         "it": {
           "path": "it/mdm/policies/manage-apps-laptop.mdx",
           "sourceHash": "83ee7dbab5b041aaaa1fc129b93613f63e0c7b21c90dab140cd7a3e88685e1a2",
-          "syncedAt": "2026-03-13T09:45:54.276490+00:00"
+          "syncedAt": "2026-03-18T10:13:25.547128+00:00"
         }
       }
     },
@@ -814,22 +814,22 @@
         "fr": {
           "path": "fr/mdm/policies/manage-apps-smartphone.mdx",
           "sourceHash": "6dfe39379a62b941d315553df3ff80b6014c758f5bdd145781b6712514072927",
-          "syncedAt": "2026-03-13T09:46:01.849147+00:00"
+          "syncedAt": "2026-03-18T10:13:30.368036+00:00"
         },
         "de": {
           "path": "de/mdm/policies/manage-apps-smartphone.mdx",
           "sourceHash": "6dfe39379a62b941d315553df3ff80b6014c758f5bdd145781b6712514072927",
-          "syncedAt": "2026-03-13T09:46:04.555790+00:00"
+          "syncedAt": "2026-03-18T10:13:33.027657+00:00"
         },
         "es": {
           "path": "es/mdm/policies/manage-apps-smartphone.mdx",
           "sourceHash": "6dfe39379a62b941d315553df3ff80b6014c758f5bdd145781b6712514072927",
-          "syncedAt": "2026-03-13T09:46:06.969408+00:00"
+          "syncedAt": "2026-03-18T10:13:34.396044+00:00"
         },
         "it": {
           "path": "it/mdm/policies/manage-apps-smartphone.mdx",
           "sourceHash": "6dfe39379a62b941d315553df3ff80b6014c758f5bdd145781b6712514072927",
-          "syncedAt": "2026-03-13T09:46:09.777887+00:00"
+          "syncedAt": "2026-03-18T10:13:37.074676+00:00"
         }
       }
     },
@@ -839,22 +839,22 @@
         "fr": {
           "path": "fr/mdm/policies/manage-windows-home.mdx",
           "sourceHash": "518bbc47e44769886eb4213fc7a522e25c57342a5117270d6a799dbd8af13d2e",
-          "syncedAt": "2026-03-13T09:46:14.018648+00:00"
+          "syncedAt": "2026-03-18T10:13:39.973972+00:00"
         },
         "de": {
           "path": "de/mdm/policies/manage-windows-home.mdx",
           "sourceHash": "518bbc47e44769886eb4213fc7a522e25c57342a5117270d6a799dbd8af13d2e",
-          "syncedAt": "2026-03-13T09:46:15.103581+00:00"
+          "syncedAt": "2026-03-18T10:13:41.295990+00:00"
         },
         "es": {
           "path": "es/mdm/policies/manage-windows-home.mdx",
           "sourceHash": "518bbc47e44769886eb4213fc7a522e25c57342a5117270d6a799dbd8af13d2e",
-          "syncedAt": "2026-03-13T09:46:16.467099+00:00"
+          "syncedAt": "2026-03-18T10:13:42.684343+00:00"
         },
         "it": {
           "path": "it/mdm/policies/manage-windows-home.mdx",
           "sourceHash": "518bbc47e44769886eb4213fc7a522e25c57342a5117270d6a799dbd8af13d2e",
-          "syncedAt": "2026-03-13T09:46:17.980981+00:00"
+          "syncedAt": "2026-03-18T10:13:43.492738+00:00"
         }
       }
     },
@@ -864,22 +864,22 @@
         "fr": {
           "path": "fr/mdm/policies/password-policy.mdx",
           "sourceHash": "4fb8abde4e98b6f788ddc688196d1ef3d6e5485ea6ab084b1f7c48006c10799c",
-          "syncedAt": "2026-03-13T09:46:24.958123+00:00"
+          "syncedAt": "2026-03-18T10:13:47.721599+00:00"
         },
         "de": {
           "path": "de/mdm/policies/password-policy.mdx",
           "sourceHash": "4fb8abde4e98b6f788ddc688196d1ef3d6e5485ea6ab084b1f7c48006c10799c",
-          "syncedAt": "2026-03-13T09:46:26.887171+00:00"
+          "syncedAt": "2026-03-18T10:13:50.058163+00:00"
         },
         "es": {
           "path": "es/mdm/policies/password-policy.mdx",
           "sourceHash": "4fb8abde4e98b6f788ddc688196d1ef3d6e5485ea6ab084b1f7c48006c10799c",
-          "syncedAt": "2026-03-13T09:46:28.464626+00:00"
+          "syncedAt": "2026-03-18T10:13:52.300973+00:00"
         },
         "it": {
           "path": "it/mdm/policies/password-policy.mdx",
           "sourceHash": "4fb8abde4e98b6f788ddc688196d1ef3d6e5485ea6ab084b1f7c48006c10799c",
-          "syncedAt": "2026-03-13T09:46:30.851098+00:00"
+          "syncedAt": "2026-03-18T10:13:54.426431+00:00"
         }
       }
     },
@@ -889,22 +889,22 @@
         "fr": {
           "path": "fr/mdm/policies/remote-management.mdx",
           "sourceHash": "dc711a49341c5d40ed086cac5dacc9a2cc53fc47eb1345285ffac79a716ec781",
-          "syncedAt": "2026-03-13T09:46:36.615518+00:00"
+          "syncedAt": "2026-03-18T10:14:03.749880+00:00"
         },
         "de": {
           "path": "de/mdm/policies/remote-management.mdx",
           "sourceHash": "dc711a49341c5d40ed086cac5dacc9a2cc53fc47eb1345285ffac79a716ec781",
-          "syncedAt": "2026-03-13T09:46:39.144906+00:00"
+          "syncedAt": "2026-03-18T10:14:05.945615+00:00"
         },
         "es": {
           "path": "es/mdm/policies/remote-management.mdx",
           "sourceHash": "dc711a49341c5d40ed086cac5dacc9a2cc53fc47eb1345285ffac79a716ec781",
-          "syncedAt": "2026-03-13T09:46:40.318442+00:00"
+          "syncedAt": "2026-03-18T10:14:07.293841+00:00"
         },
         "it": {
           "path": "it/mdm/policies/remote-management.mdx",
           "sourceHash": "dc711a49341c5d40ed086cac5dacc9a2cc53fc47eb1345285ffac79a716ec781",
-          "syncedAt": "2026-03-13T09:46:42.495703+00:00"
+          "syncedAt": "2026-03-18T10:14:09.058188+00:00"
         }
       }
     },
@@ -914,22 +914,22 @@
         "fr": {
           "path": "fr/mdm/rollout/device-assignment.mdx",
           "sourceHash": "e543896abbdd0102451b3d44bab87d7c87557fff1564b556b5311541358eb659",
-          "syncedAt": "2026-03-13T09:46:56.421080+00:00"
+          "syncedAt": "2026-03-18T10:14:40.399016+00:00"
         },
         "de": {
           "path": "de/mdm/rollout/device-assignment.mdx",
           "sourceHash": "e543896abbdd0102451b3d44bab87d7c87557fff1564b556b5311541358eb659",
-          "syncedAt": "2026-03-13T09:47:00.682936+00:00"
+          "syncedAt": "2026-03-18T10:14:43.966481+00:00"
         },
         "es": {
           "path": "es/mdm/rollout/device-assignment.mdx",
           "sourceHash": "e543896abbdd0102451b3d44bab87d7c87557fff1564b556b5311541358eb659",
-          "syncedAt": "2026-03-13T09:47:04.519264+00:00"
+          "syncedAt": "2026-03-18T10:14:47.990775+00:00"
         },
         "it": {
           "path": "it/mdm/rollout/device-assignment.mdx",
           "sourceHash": "e543896abbdd0102451b3d44bab87d7c87557fff1564b556b5311541358eb659",
-          "syncedAt": "2026-03-13T09:47:09.224320+00:00"
+          "syncedAt": "2026-03-18T10:14:51.774178+00:00"
         }
       }
     },
@@ -939,22 +939,22 @@
         "fr": {
           "path": "fr/mdm/rollout/employee-mdm-installation.mdx",
           "sourceHash": "0919eb4445168236b9521cdcb4309473b16a455ff6befe857b7ed352ac7e0e91",
-          "syncedAt": "2026-03-13T09:47:23.364506+00:00"
+          "syncedAt": "2026-03-18T10:14:59.174984+00:00"
         },
         "de": {
           "path": "de/mdm/rollout/employee-mdm-installation.mdx",
           "sourceHash": "0919eb4445168236b9521cdcb4309473b16a455ff6befe857b7ed352ac7e0e91",
-          "syncedAt": "2026-03-13T09:47:26.558323+00:00"
+          "syncedAt": "2026-03-18T10:15:02.201478+00:00"
         },
         "es": {
           "path": "es/mdm/rollout/employee-mdm-installation.mdx",
           "sourceHash": "0919eb4445168236b9521cdcb4309473b16a455ff6befe857b7ed352ac7e0e91",
-          "syncedAt": "2026-03-13T09:47:29.605634+00:00"
+          "syncedAt": "2026-03-18T10:15:05.909686+00:00"
         },
         "it": {
           "path": "it/mdm/rollout/employee-mdm-installation.mdx",
           "sourceHash": "0919eb4445168236b9521cdcb4309473b16a455ff6befe857b7ed352ac7e0e91",
-          "syncedAt": "2026-03-13T09:47:33.361145+00:00"
+          "syncedAt": "2026-03-18T10:15:09.852076+00:00"
         }
       }
     },
@@ -964,22 +964,22 @@
         "fr": {
           "path": "fr/mdm/rollout/faq.mdx",
           "sourceHash": "c6554789f3f35869559b2bc241dd35530b12d8463f7b8643bc256e499a068efc",
-          "syncedAt": "2026-03-13T09:47:40.808329+00:00"
+          "syncedAt": "2026-03-18T10:15:14.399657+00:00"
         },
         "de": {
           "path": "de/mdm/rollout/faq.mdx",
           "sourceHash": "c6554789f3f35869559b2bc241dd35530b12d8463f7b8643bc256e499a068efc",
-          "syncedAt": "2026-03-13T09:47:43.467116+00:00"
+          "syncedAt": "2026-03-18T10:15:16.393149+00:00"
         },
         "es": {
           "path": "es/mdm/rollout/faq.mdx",
           "sourceHash": "c6554789f3f35869559b2bc241dd35530b12d8463f7b8643bc256e499a068efc",
-          "syncedAt": "2026-03-13T09:47:46.051159+00:00"
+          "syncedAt": "2026-03-18T10:15:17.970664+00:00"
         },
         "it": {
           "path": "it/mdm/rollout/faq.mdx",
           "sourceHash": "c6554789f3f35869559b2bc241dd35530b12d8463f7b8643bc256e499a068efc",
-          "syncedAt": "2026-03-13T09:47:48.883824+00:00"
+          "syncedAt": "2026-03-18T10:15:20.354892+00:00"
         }
       }
     },
@@ -989,22 +989,22 @@
         "fr": {
           "path": "fr/mdm/rollout/invite-employees.mdx",
           "sourceHash": "da6499c7731abea3fe5f15f2521de6456ac619b9b4c18ae1f7f22802894b65d1",
-          "syncedAt": "2026-03-13T09:47:54.565125+00:00"
+          "syncedAt": "2026-03-18T10:15:22.790256+00:00"
         },
         "de": {
           "path": "de/mdm/rollout/invite-employees.mdx",
           "sourceHash": "da6499c7731abea3fe5f15f2521de6456ac619b9b4c18ae1f7f22802894b65d1",
-          "syncedAt": "2026-03-13T09:47:56.400445+00:00"
+          "syncedAt": "2026-03-18T10:15:25.542351+00:00"
         },
         "es": {
           "path": "es/mdm/rollout/invite-employees.mdx",
           "sourceHash": "da6499c7731abea3fe5f15f2521de6456ac619b9b4c18ae1f7f22802894b65d1",
-          "syncedAt": "2026-03-13T09:47:58.299294+00:00"
+          "syncedAt": "2026-03-18T10:15:27.301656+00:00"
         },
         "it": {
           "path": "it/mdm/rollout/invite-employees.mdx",
           "sourceHash": "da6499c7731abea3fe5f15f2521de6456ac619b9b4c18ae1f7f22802894b65d1",
-          "syncedAt": "2026-03-13T09:48:00.517667+00:00"
+          "syncedAt": "2026-03-18T10:15:29.098929+00:00"
         }
       }
     },
@@ -1014,22 +1014,22 @@
         "fr": {
           "path": "fr/mdm/rollout/mdm-rollout-resources.mdx",
           "sourceHash": "fbfdce1496d790b1c0f1fad5f662ec8ec788039206be5058f84cae89dc571846",
-          "syncedAt": "2026-03-13T09:48:16.830274+00:00"
+          "syncedAt": "2026-03-18T10:15:39.267720+00:00"
         },
         "de": {
           "path": "de/mdm/rollout/mdm-rollout-resources.mdx",
           "sourceHash": "fbfdce1496d790b1c0f1fad5f662ec8ec788039206be5058f84cae89dc571846",
-          "syncedAt": "2026-03-13T09:48:22.239338+00:00"
+          "syncedAt": "2026-03-18T10:15:42.358348+00:00"
         },
         "es": {
           "path": "es/mdm/rollout/mdm-rollout-resources.mdx",
           "sourceHash": "fbfdce1496d790b1c0f1fad5f662ec8ec788039206be5058f84cae89dc571846",
-          "syncedAt": "2026-03-13T09:48:26.689423+00:00"
+          "syncedAt": "2026-03-18T10:15:46.474152+00:00"
         },
         "it": {
           "path": "it/mdm/rollout/mdm-rollout-resources.mdx",
           "sourceHash": "fbfdce1496d790b1c0f1fad5f662ec8ec788039206be5058f84cae89dc571846",
-          "syncedAt": "2026-03-13T09:48:32.485080+00:00"
+          "syncedAt": "2026-03-18T10:15:51.215900+00:00"
         }
       }
     },
@@ -1039,22 +1039,22 @@
         "fr": {
           "path": "fr/mdm/scripts/cis-benchmarks.mdx",
           "sourceHash": "d85dd422f32d69e855e47ce8ef0c8717276fcf4ee7a8d91059e9182ff6e9e369",
-          "syncedAt": "2026-03-13T09:48:46.501378+00:00"
+          "syncedAt": "2026-03-18T10:15:58.059131+00:00"
         },
         "de": {
           "path": "de/mdm/scripts/cis-benchmarks.mdx",
           "sourceHash": "d85dd422f32d69e855e47ce8ef0c8717276fcf4ee7a8d91059e9182ff6e9e369",
-          "syncedAt": "2026-03-13T09:48:50.169383+00:00"
+          "syncedAt": "2026-03-18T10:16:01.443761+00:00"
         },
         "es": {
           "path": "es/mdm/scripts/cis-benchmarks.mdx",
           "sourceHash": "d85dd422f32d69e855e47ce8ef0c8717276fcf4ee7a8d91059e9182ff6e9e369",
-          "syncedAt": "2026-03-13T09:48:53.362921+00:00"
+          "syncedAt": "2026-03-18T10:16:04.978174+00:00"
         },
         "it": {
           "path": "it/mdm/scripts/cis-benchmarks.mdx",
           "sourceHash": "d85dd422f32d69e855e47ce8ef0c8717276fcf4ee7a8d91059e9182ff6e9e369",
-          "syncedAt": "2026-03-13T09:48:57.275494+00:00"
+          "syncedAt": "2026-03-18T10:16:08.354060+00:00"
         }
       }
     },
@@ -1064,22 +1064,22 @@
         "fr": {
           "path": "fr/mdm/scripts/configure-printers-macos.mdx",
           "sourceHash": "afd5f0f54c9308d83f06f6f38b47838525f0c399e2ccaf0f20c7ddf9d1afe1a0",
-          "syncedAt": "2026-03-13T09:49:02.096425+00:00"
+          "syncedAt": "2026-03-18T10:16:10.616396+00:00"
         },
         "de": {
           "path": "de/mdm/scripts/configure-printers-macos.mdx",
           "sourceHash": "afd5f0f54c9308d83f06f6f38b47838525f0c399e2ccaf0f20c7ddf9d1afe1a0",
-          "syncedAt": "2026-03-13T09:49:03.566935+00:00"
+          "syncedAt": "2026-03-18T10:16:11.967246+00:00"
         },
         "es": {
           "path": "es/mdm/scripts/configure-printers-macos.mdx",
           "sourceHash": "afd5f0f54c9308d83f06f6f38b47838525f0c399e2ccaf0f20c7ddf9d1afe1a0",
-          "syncedAt": "2026-03-13T09:49:04.493739+00:00"
+          "syncedAt": "2026-03-18T10:16:13.207979+00:00"
         },
         "it": {
           "path": "it/mdm/scripts/configure-printers-macos.mdx",
           "sourceHash": "afd5f0f54c9308d83f06f6f38b47838525f0c399e2ccaf0f20c7ddf9d1afe1a0",
-          "syncedAt": "2026-03-13T09:49:06.063252+00:00"
+          "syncedAt": "2026-03-18T10:16:14.584603+00:00"
         }
       }
     },
@@ -1089,22 +1089,22 @@
         "fr": {
           "path": "fr/mdm/scripts/custom-windows-policies.mdx",
           "sourceHash": "4a2c1572217c430330de4d71ac6e0972fb688e5f1e02ff0e8a313bbb0a7f4b68",
-          "syncedAt": "2026-03-13T09:49:08.729480+00:00"
+          "syncedAt": "2026-03-18T10:16:16.644531+00:00"
         },
         "de": {
           "path": "de/mdm/scripts/custom-windows-policies.mdx",
           "sourceHash": "4a2c1572217c430330de4d71ac6e0972fb688e5f1e02ff0e8a313bbb0a7f4b68",
-          "syncedAt": "2026-03-13T09:49:10.257718+00:00"
+          "syncedAt": "2026-03-18T10:16:17.953475+00:00"
         },
         "es": {
           "path": "es/mdm/scripts/custom-windows-policies.mdx",
           "sourceHash": "4a2c1572217c430330de4d71ac6e0972fb688e5f1e02ff0e8a313bbb0a7f4b68",
-          "syncedAt": "2026-03-13T09:49:11.401981+00:00"
+          "syncedAt": "2026-03-18T10:16:18.687126+00:00"
         },
         "it": {
           "path": "it/mdm/scripts/custom-windows-policies.mdx",
           "sourceHash": "4a2c1572217c430330de4d71ac6e0972fb688e5f1e02ff0e8a313bbb0a7f4b68",
-          "syncedAt": "2026-03-13T09:49:12.757503+00:00"
+          "syncedAt": "2026-03-18T10:16:19.964598+00:00"
         }
       }
     },
@@ -1114,22 +1114,22 @@
         "fr": {
           "path": "fr/mdm/scripts/fleetdm-guide.mdx",
           "sourceHash": "ee458358511d424c42f6f626833526c590d6b306f808724b292394e5949a1a5a",
-          "syncedAt": "2026-03-13T09:49:19.733775+00:00"
+          "syncedAt": "2026-03-18T10:16:24.127994+00:00"
         },
         "de": {
           "path": "de/mdm/scripts/fleetdm-guide.mdx",
           "sourceHash": "ee458358511d424c42f6f626833526c590d6b306f808724b292394e5949a1a5a",
-          "syncedAt": "2026-03-13T09:49:22.316036+00:00"
+          "syncedAt": "2026-03-18T10:16:26.227340+00:00"
         },
         "es": {
           "path": "es/mdm/scripts/fleetdm-guide.mdx",
           "sourceHash": "ee458358511d424c42f6f626833526c590d6b306f808724b292394e5949a1a5a",
-          "syncedAt": "2026-03-13T09:49:24.835185+00:00"
+          "syncedAt": "2026-03-18T10:16:28.527883+00:00"
         },
         "it": {
           "path": "it/mdm/scripts/fleetdm-guide.mdx",
           "sourceHash": "ee458358511d424c42f6f626833526c590d6b306f808724b292394e5949a1a5a",
-          "syncedAt": "2026-03-13T09:49:27.555233+00:00"
+          "syncedAt": "2026-03-18T10:16:30.113922+00:00"
         }
       }
     },
@@ -1139,22 +1139,22 @@
         "fr": {
           "path": "fr/mdm/scripts/useful-scripts.mdx",
           "sourceHash": "4660d29d57ae3fab6ab009625c1078d41ac24dacad0080605a446ea815d74820",
-          "syncedAt": "2026-03-13T09:49:31.565036+00:00"
+          "syncedAt": "2026-03-18T10:16:32.347540+00:00"
         },
         "de": {
           "path": "de/mdm/scripts/useful-scripts.mdx",
           "sourceHash": "4660d29d57ae3fab6ab009625c1078d41ac24dacad0080605a446ea815d74820",
-          "syncedAt": "2026-03-13T09:49:32.919075+00:00"
+          "syncedAt": "2026-03-18T10:16:33.639769+00:00"
         },
         "es": {
           "path": "es/mdm/scripts/useful-scripts.mdx",
           "sourceHash": "4660d29d57ae3fab6ab009625c1078d41ac24dacad0080605a446ea815d74820",
-          "syncedAt": "2026-03-13T09:49:33.495958+00:00"
+          "syncedAt": "2026-03-18T10:16:34.912826+00:00"
         },
         "it": {
           "path": "it/mdm/scripts/useful-scripts.mdx",
           "sourceHash": "4660d29d57ae3fab6ab009625c1078d41ac24dacad0080605a446ea815d74820",
-          "syncedAt": "2026-03-13T09:49:34.751166+00:00"
+          "syncedAt": "2026-03-18T10:16:35.899282+00:00"
         }
       }
     },
@@ -1164,22 +1164,22 @@
         "fr": {
           "path": "fr/mdm/zero-touch/device-orders-zero-touch.mdx",
           "sourceHash": "1b25620ca3aa61f30c5d36a296303ed96b64ed5d4bf59ab66587d9e693f6bdce",
-          "syncedAt": "2026-03-13T09:49:51.397601+00:00"
+          "syncedAt": "2026-03-18T10:16:46.520811+00:00"
         },
         "de": {
           "path": "de/mdm/zero-touch/device-orders-zero-touch.mdx",
           "sourceHash": "1b25620ca3aa61f30c5d36a296303ed96b64ed5d4bf59ab66587d9e693f6bdce",
-          "syncedAt": "2026-03-13T09:49:55.343765+00:00"
+          "syncedAt": "2026-03-18T10:16:50.643376+00:00"
         },
         "es": {
           "path": "es/mdm/zero-touch/device-orders-zero-touch.mdx",
           "sourceHash": "1b25620ca3aa61f30c5d36a296303ed96b64ed5d4bf59ab66587d9e693f6bdce",
-          "syncedAt": "2026-03-13T09:49:59.230829+00:00"
+          "syncedAt": "2026-03-18T10:16:54.459102+00:00"
         },
         "it": {
           "path": "it/mdm/zero-touch/device-orders-zero-touch.mdx",
           "sourceHash": "1b25620ca3aa61f30c5d36a296303ed96b64ed5d4bf59ab66587d9e693f6bdce",
-          "syncedAt": "2026-03-13T09:50:04.803829+00:00"
+          "syncedAt": "2026-03-18T10:16:59.100933+00:00"
         }
       }
     },
@@ -1189,22 +1189,22 @@
         "fr": {
           "path": "fr/mdm/zero-touch/fleetdm-azure-portal.mdx",
           "sourceHash": "060109ea5b2a74d771528f9a8bedd1ef0d4a71118e2d7ea0aa0ce8c4f5101c3e",
-          "syncedAt": "2026-03-13T09:50:15.282169+00:00"
+          "syncedAt": "2026-03-18T10:17:04.959939+00:00"
         },
         "de": {
           "path": "de/mdm/zero-touch/fleetdm-azure-portal.mdx",
           "sourceHash": "060109ea5b2a74d771528f9a8bedd1ef0d4a71118e2d7ea0aa0ce8c4f5101c3e",
-          "syncedAt": "2026-03-13T09:50:19.012844+00:00"
+          "syncedAt": "2026-03-18T10:17:08.092165+00:00"
         },
         "es": {
           "path": "es/mdm/zero-touch/fleetdm-azure-portal.mdx",
           "sourceHash": "060109ea5b2a74d771528f9a8bedd1ef0d4a71118e2d7ea0aa0ce8c4f5101c3e",
-          "syncedAt": "2026-03-13T09:50:22.085531+00:00"
+          "syncedAt": "2026-03-18T10:17:11.116241+00:00"
         },
         "it": {
           "path": "it/mdm/zero-touch/fleetdm-azure-portal.mdx",
           "sourceHash": "060109ea5b2a74d771528f9a8bedd1ef0d4a71118e2d7ea0aa0ce8c4f5101c3e",
-          "syncedAt": "2026-03-13T09:50:26.294572+00:00"
+          "syncedAt": "2026-03-18T10:17:14.391957+00:00"
         }
       }
     },
@@ -1214,22 +1214,22 @@
         "fr": {
           "path": "fr/mdm/zero-touch/understand-zero-touch.mdx",
           "sourceHash": "e1a2952008f0d9fff854085fe580d6d86e5d5d88ae7ac22a459613b92352c3ed",
-          "syncedAt": "2026-03-13T09:50:33.309877+00:00"
+          "syncedAt": "2026-03-18T10:17:18.158894+00:00"
         },
         "de": {
           "path": "de/mdm/zero-touch/understand-zero-touch.mdx",
           "sourceHash": "e1a2952008f0d9fff854085fe580d6d86e5d5d88ae7ac22a459613b92352c3ed",
-          "syncedAt": "2026-03-13T09:50:36.240301+00:00"
+          "syncedAt": "2026-03-18T10:17:20.400339+00:00"
         },
         "es": {
           "path": "es/mdm/zero-touch/understand-zero-touch.mdx",
           "sourceHash": "e1a2952008f0d9fff854085fe580d6d86e5d5d88ae7ac22a459613b92352c3ed",
-          "syncedAt": "2026-03-13T09:50:38.745199+00:00"
+          "syncedAt": "2026-03-18T10:17:22.373108+00:00"
         },
         "it": {
           "path": "it/mdm/zero-touch/understand-zero-touch.mdx",
           "sourceHash": "e1a2952008f0d9fff854085fe580d6d86e5d5d88ae7ac22a459613b92352c3ed",
-          "syncedAt": "2026-03-13T09:50:41.645600+00:00"
+          "syncedAt": "2026-03-18T10:17:24.706936+00:00"
         }
       }
     },
@@ -1239,47 +1239,47 @@
         "fr": {
           "path": "fr/mdm/zero-touch/zero-touch-macs.mdx",
           "sourceHash": "d57922354d7a1c0b5cd5b3b6672dbd44d8b1a294c9e88bf92c2316b0d285d728",
-          "syncedAt": "2026-03-13T09:51:04.253524+00:00"
+          "syncedAt": "2026-03-18T10:17:39.158858+00:00"
         },
         "de": {
           "path": "de/mdm/zero-touch/zero-touch-macs.mdx",
           "sourceHash": "d57922354d7a1c0b5cd5b3b6672dbd44d8b1a294c9e88bf92c2316b0d285d728",
-          "syncedAt": "2026-03-13T09:51:10.616523+00:00"
+          "syncedAt": "2026-03-18T10:17:45.772387+00:00"
         },
         "es": {
           "path": "es/mdm/zero-touch/zero-touch-macs.mdx",
           "sourceHash": "d57922354d7a1c0b5cd5b3b6672dbd44d8b1a294c9e88bf92c2316b0d285d728",
-          "syncedAt": "2026-03-13T09:51:15.977695+00:00"
+          "syncedAt": "2026-03-18T10:17:51.588320+00:00"
         },
         "it": {
           "path": "it/mdm/zero-touch/zero-touch-macs.mdx",
           "sourceHash": "d57922354d7a1c0b5cd5b3b6672dbd44d8b1a294c9e88bf92c2316b0d285d728",
-          "syncedAt": "2026-03-13T09:51:23.250510+00:00"
+          "syncedAt": "2026-03-18T10:17:58.967183+00:00"
         }
       }
     },
     "mdm/zero-touch/zero-touch-windows.mdx": {
-      "sourceHash": "52682d58454b74741f9e7bea0cdc8436fd97c18b9d38da2b57d3c57475b91683",
+      "sourceHash": "f2ecb8a5761c91bba5213e8457fdc5f83299fae03a821ea1c8c689a4c3c7f96c",
       "targets": {
         "fr": {
           "path": "fr/mdm/zero-touch/zero-touch-windows.mdx",
-          "sourceHash": "52682d58454b74741f9e7bea0cdc8436fd97c18b9d38da2b57d3c57475b91683",
-          "syncedAt": "2026-03-13T09:51:42.995404+00:00"
+          "sourceHash": "f2ecb8a5761c91bba5213e8457fdc5f83299fae03a821ea1c8c689a4c3c7f96c",
+          "syncedAt": "2026-03-18T10:18:06.176196+00:00"
         },
         "de": {
           "path": "de/mdm/zero-touch/zero-touch-windows.mdx",
-          "sourceHash": "52682d58454b74741f9e7bea0cdc8436fd97c18b9d38da2b57d3c57475b91683",
-          "syncedAt": "2026-03-13T09:51:49.047427+00:00"
+          "sourceHash": "f2ecb8a5761c91bba5213e8457fdc5f83299fae03a821ea1c8c689a4c3c7f96c",
+          "syncedAt": "2026-03-18T10:18:06.615577+00:00"
         },
         "es": {
           "path": "es/mdm/zero-touch/zero-touch-windows.mdx",
-          "sourceHash": "52682d58454b74741f9e7bea0cdc8436fd97c18b9d38da2b57d3c57475b91683",
-          "syncedAt": "2026-03-13T09:51:55.280366+00:00"
+          "sourceHash": "f2ecb8a5761c91bba5213e8457fdc5f83299fae03a821ea1c8c689a4c3c7f96c",
+          "syncedAt": "2026-03-18T10:18:07.539031+00:00"
         },
         "it": {
           "path": "it/mdm/zero-touch/zero-touch-windows.mdx",
-          "sourceHash": "52682d58454b74741f9e7bea0cdc8436fd97c18b9d38da2b57d3c57475b91683",
-          "syncedAt": "2026-03-13T09:52:01.459618+00:00"
+          "sourceHash": "f2ecb8a5761c91bba5213e8457fdc5f83299fae03a821ea1c8c689a4c3c7f96c",
+          "syncedAt": "2026-03-18T10:18:07.967771+00:00"
         }
       }
     },
@@ -1289,22 +1289,22 @@
         "fr": {
           "path": "fr/procurement/add-products-catalog.mdx",
           "sourceHash": "7756d447ee8dad065e836a8c44a9ae63e3b2ec1638c5ce9dd81a05e32d230ac4",
-          "syncedAt": "2026-03-13T09:52:07.646055+00:00"
+          "syncedAt": "2026-03-18T10:18:11.684083+00:00"
         },
         "de": {
           "path": "de/procurement/add-products-catalog.mdx",
           "sourceHash": "7756d447ee8dad065e836a8c44a9ae63e3b2ec1638c5ce9dd81a05e32d230ac4",
-          "syncedAt": "2026-03-13T09:52:09.116778+00:00"
+          "syncedAt": "2026-03-18T10:18:14.119460+00:00"
         },
         "es": {
           "path": "es/procurement/add-products-catalog.mdx",
           "sourceHash": "7756d447ee8dad065e836a8c44a9ae63e3b2ec1638c5ce9dd81a05e32d230ac4",
-          "syncedAt": "2026-03-13T09:52:10.436645+00:00"
+          "syncedAt": "2026-03-18T10:18:16.190853+00:00"
         },
         "it": {
           "path": "it/procurement/add-products-catalog.mdx",
           "sourceHash": "7756d447ee8dad065e836a8c44a9ae63e3b2ec1638c5ce9dd81a05e32d230ac4",
-          "syncedAt": "2026-03-13T09:52:12.649009+00:00"
+          "syncedAt": "2026-03-18T10:18:18.182408+00:00"
         }
       }
     },
@@ -1314,22 +1314,22 @@
         "fr": {
           "path": "fr/procurement/applecare-enterprise.mdx",
           "sourceHash": "05c2edebf7fe9f2bbfd22d0674439b8e41bd81bfbad75c6252958308e15a64ee",
-          "syncedAt": "2026-03-13T09:52:18.665006+00:00"
+          "syncedAt": "2026-03-18T10:18:22.480181+00:00"
         },
         "de": {
           "path": "de/procurement/applecare-enterprise.mdx",
           "sourceHash": "05c2edebf7fe9f2bbfd22d0674439b8e41bd81bfbad75c6252958308e15a64ee",
-          "syncedAt": "2026-03-13T09:52:21.400050+00:00"
+          "syncedAt": "2026-03-18T10:18:24.566767+00:00"
         },
         "es": {
           "path": "es/procurement/applecare-enterprise.mdx",
           "sourceHash": "05c2edebf7fe9f2bbfd22d0674439b8e41bd81bfbad75c6252958308e15a64ee",
-          "syncedAt": "2026-03-13T09:52:23.697449+00:00"
+          "syncedAt": "2026-03-18T10:18:27.267837+00:00"
         },
         "it": {
           "path": "it/procurement/applecare-enterprise.mdx",
           "sourceHash": "05c2edebf7fe9f2bbfd22d0674439b8e41bd81bfbad75c6252958308e15a64ee",
-          "syncedAt": "2026-03-13T09:52:25.739595+00:00"
+          "syncedAt": "2026-03-18T10:18:29.864316+00:00"
         }
       }
     },
@@ -1339,22 +1339,22 @@
         "fr": {
           "path": "fr/procurement/local-partners-repair.mdx",
           "sourceHash": "ebd09fd7ba2670693bb7c11abd26784e9534267d322aea7c532ee66da7ce90b7",
-          "syncedAt": "2026-03-13T09:52:32.586552+00:00"
+          "syncedAt": "2026-03-18T10:18:33.343753+00:00"
         },
         "de": {
           "path": "de/procurement/local-partners-repair.mdx",
           "sourceHash": "ebd09fd7ba2670693bb7c11abd26784e9534267d322aea7c532ee66da7ce90b7",
-          "syncedAt": "2026-03-13T09:52:35.404983+00:00"
+          "syncedAt": "2026-03-18T10:18:34.747028+00:00"
         },
         "es": {
           "path": "es/procurement/local-partners-repair.mdx",
           "sourceHash": "ebd09fd7ba2670693bb7c11abd26784e9534267d322aea7c532ee66da7ce90b7",
-          "syncedAt": "2026-03-13T09:52:38.058954+00:00"
+          "syncedAt": "2026-03-18T10:18:36.914967+00:00"
         },
         "it": {
           "path": "it/procurement/local-partners-repair.mdx",
           "sourceHash": "ebd09fd7ba2670693bb7c11abd26784e9534267d322aea7c532ee66da7ce90b7",
-          "syncedAt": "2026-03-13T09:52:40.620818+00:00"
+          "syncedAt": "2026-03-18T10:18:39.103269+00:00"
         }
       }
     },
@@ -1364,22 +1364,22 @@
         "fr": {
           "path": "fr/procurement/local-partners-resell.mdx",
           "sourceHash": "c770743d71fd48a38ece3ccde30cefdfd7ff250172272fac825f83d1ad42194e",
-          "syncedAt": "2026-03-13T09:52:48.652761+00:00"
+          "syncedAt": "2026-03-18T10:18:44.639290+00:00"
         },
         "de": {
           "path": "de/procurement/local-partners-resell.mdx",
           "sourceHash": "c770743d71fd48a38ece3ccde30cefdfd7ff250172272fac825f83d1ad42194e",
-          "syncedAt": "2026-03-13T09:52:50.418865+00:00"
+          "syncedAt": "2026-03-18T10:18:47.085854+00:00"
         },
         "es": {
           "path": "es/procurement/local-partners-resell.mdx",
           "sourceHash": "c770743d71fd48a38ece3ccde30cefdfd7ff250172272fac825f83d1ad42194e",
-          "syncedAt": "2026-03-13T09:52:52.283809+00:00"
+          "syncedAt": "2026-03-18T10:18:49.031380+00:00"
         },
         "it": {
           "path": "it/procurement/local-partners-resell.mdx",
           "sourceHash": "c770743d71fd48a38ece3ccde30cefdfd7ff250172272fac825f83d1ad42194e",
-          "syncedAt": "2026-03-13T09:52:54.897285+00:00"
+          "syncedAt": "2026-03-18T10:18:51.678315+00:00"
         }
       }
     },
@@ -1389,22 +1389,22 @@
         "fr": {
           "path": "fr/procurement/manage-shipments.mdx",
           "sourceHash": "c2ca504589b672f33c03b1c1d477a11b1d4738d8056089e0bd06abe8f2b61570",
-          "syncedAt": "2026-03-13T09:53:03.680628+00:00"
+          "syncedAt": "2026-03-18T10:18:57.504748+00:00"
         },
         "de": {
           "path": "de/procurement/manage-shipments.mdx",
           "sourceHash": "c2ca504589b672f33c03b1c1d477a11b1d4738d8056089e0bd06abe8f2b61570",
-          "syncedAt": "2026-03-13T09:53:06.197364+00:00"
+          "syncedAt": "2026-03-18T10:18:59.605626+00:00"
         },
         "es": {
           "path": "es/procurement/manage-shipments.mdx",
           "sourceHash": "c2ca504589b672f33c03b1c1d477a11b1d4738d8056089e0bd06abe8f2b61570",
-          "syncedAt": "2026-03-13T09:53:08.867292+00:00"
+          "syncedAt": "2026-03-18T10:19:01.860945+00:00"
         },
         "it": {
           "path": "it/procurement/manage-shipments.mdx",
           "sourceHash": "c2ca504589b672f33c03b1c1d477a11b1d4738d8056089e0bd06abe8f2b61570",
-          "syncedAt": "2026-03-13T09:53:11.631286+00:00"
+          "syncedAt": "2026-03-18T10:19:04.471271+00:00"
         }
       }
     },
@@ -1414,22 +1414,22 @@
         "fr": {
           "path": "fr/procurement/returns-warranties.mdx",
           "sourceHash": "9bee1f5f721c97a94615bc55e56998348aaaffe7abb8e9ef5f21f90aec3087aa",
-          "syncedAt": "2026-03-13T09:53:17.413939+00:00"
+          "syncedAt": "2026-03-18T10:19:08.975795+00:00"
         },
         "de": {
           "path": "de/procurement/returns-warranties.mdx",
           "sourceHash": "9bee1f5f721c97a94615bc55e56998348aaaffe7abb8e9ef5f21f90aec3087aa",
-          "syncedAt": "2026-03-13T09:53:19.964899+00:00"
+          "syncedAt": "2026-03-18T10:19:11.142727+00:00"
         },
         "es": {
           "path": "es/procurement/returns-warranties.mdx",
           "sourceHash": "9bee1f5f721c97a94615bc55e56998348aaaffe7abb8e9ef5f21f90aec3087aa",
-          "syncedAt": "2026-03-13T09:53:21.760633+00:00"
+          "syncedAt": "2026-03-18T10:19:13.457653+00:00"
         },
         "it": {
           "path": "it/procurement/returns-warranties.mdx",
           "sourceHash": "9bee1f5f721c97a94615bc55e56998348aaaffe7abb8e9ef5f21f90aec3087aa",
-          "syncedAt": "2026-03-13T09:53:24.362444+00:00"
+          "syncedAt": "2026-03-18T10:19:15.305533+00:00"
         }
       }
     },
@@ -1439,22 +1439,22 @@
         "fr": {
           "path": "fr/procurement/shipping-countries.mdx",
           "sourceHash": "76789e6953988cc33497275b948447bea6cdebd763cd975d5b82170e40577b53",
-          "syncedAt": "2026-03-13T09:53:35.896493+00:00"
+          "syncedAt": "2026-03-18T10:19:22.503674+00:00"
         },
         "de": {
           "path": "de/procurement/shipping-countries.mdx",
           "sourceHash": "76789e6953988cc33497275b948447bea6cdebd763cd975d5b82170e40577b53",
-          "syncedAt": "2026-03-13T09:53:38.819341+00:00"
+          "syncedAt": "2026-03-18T10:19:24.350158+00:00"
         },
         "es": {
           "path": "es/procurement/shipping-countries.mdx",
           "sourceHash": "76789e6953988cc33497275b948447bea6cdebd763cd975d5b82170e40577b53",
-          "syncedAt": "2026-03-13T09:53:41.436911+00:00"
+          "syncedAt": "2026-03-18T10:19:28.048678+00:00"
         },
         "it": {
           "path": "it/procurement/shipping-countries.mdx",
           "sourceHash": "76789e6953988cc33497275b948447bea6cdebd763cd975d5b82170e40577b53",
-          "syncedAt": "2026-03-13T09:53:44.850839+00:00"
+          "syncedAt": "2026-03-18T10:19:31.263707+00:00"
         }
       }
     },
@@ -1464,22 +1464,22 @@
         "fr": {
           "path": "fr/procurement/why-buy-with-primo.mdx",
           "sourceHash": "87e56bb7191579543309802af330a52b20101276c8cb15530c721d314f65a736",
-          "syncedAt": "2026-03-13T09:53:48.559168+00:00"
+          "syncedAt": "2026-03-18T10:19:35.220312+00:00"
         },
         "de": {
           "path": "de/procurement/why-buy-with-primo.mdx",
           "sourceHash": "87e56bb7191579543309802af330a52b20101276c8cb15530c721d314f65a736",
-          "syncedAt": "2026-03-13T09:53:50.082938+00:00"
+          "syncedAt": "2026-03-18T10:19:36.470146+00:00"
         },
         "es": {
           "path": "es/procurement/why-buy-with-primo.mdx",
           "sourceHash": "87e56bb7191579543309802af330a52b20101276c8cb15530c721d314f65a736",
-          "syncedAt": "2026-03-13T09:53:50.736344+00:00"
+          "syncedAt": "2026-03-18T10:19:37.661936+00:00"
         },
         "it": {
           "path": "it/procurement/why-buy-with-primo.mdx",
           "sourceHash": "87e56bb7191579543309802af330a52b20101276c8cb15530c721d314f65a736",
-          "syncedAt": "2026-03-13T09:53:52.306135+00:00"
+          "syncedAt": "2026-03-18T10:19:39.039516+00:00"
         }
       }
     },
@@ -1489,22 +1489,22 @@
         "fr": {
           "path": "fr/saas/ai-based-connector.mdx",
           "sourceHash": "8dfec7aef468c6240442e13e790a9c5065e3cb3eb51e36f431cf804d94f8560b",
-          "syncedAt": "2026-03-13T09:53:59.468465+00:00"
+          "syncedAt": "2026-03-18T10:19:43.176400+00:00"
         },
         "de": {
           "path": "de/saas/ai-based-connector.mdx",
           "sourceHash": "8dfec7aef468c6240442e13e790a9c5065e3cb3eb51e36f431cf804d94f8560b",
-          "syncedAt": "2026-03-13T09:54:01.455174+00:00"
+          "syncedAt": "2026-03-18T10:19:45.520892+00:00"
         },
         "es": {
           "path": "es/saas/ai-based-connector.mdx",
           "sourceHash": "8dfec7aef468c6240442e13e790a9c5065e3cb3eb51e36f431cf804d94f8560b",
-          "syncedAt": "2026-03-13T09:54:03.271646+00:00"
+          "syncedAt": "2026-03-18T10:19:47.852863+00:00"
         },
         "it": {
           "path": "it/saas/ai-based-connector.mdx",
           "sourceHash": "8dfec7aef468c6240442e13e790a9c5065e3cb3eb51e36f431cf804d94f8560b",
-          "syncedAt": "2026-03-13T09:54:06.244316+00:00"
+          "syncedAt": "2026-03-18T10:19:49.851607+00:00"
         }
       }
     },
@@ -1514,22 +1514,22 @@
         "fr": {
           "path": "fr/saas/configure-sso.mdx",
           "sourceHash": "a759ef1d5dc6124df39575137d46377d0fa355574ed63754e99f1b1ac10bb663",
-          "syncedAt": "2026-03-13T09:54:12.452165+00:00"
+          "syncedAt": "2026-03-18T10:19:54.223836+00:00"
         },
         "de": {
           "path": "de/saas/configure-sso.mdx",
           "sourceHash": "a759ef1d5dc6124df39575137d46377d0fa355574ed63754e99f1b1ac10bb663",
-          "syncedAt": "2026-03-13T09:54:14.515268+00:00"
+          "syncedAt": "2026-03-18T10:19:56.422389+00:00"
         },
         "es": {
           "path": "es/saas/configure-sso.mdx",
           "sourceHash": "a759ef1d5dc6124df39575137d46377d0fa355574ed63754e99f1b1ac10bb663",
-          "syncedAt": "2026-03-13T09:54:16.470403+00:00"
+          "syncedAt": "2026-03-18T10:19:58.663188+00:00"
         },
         "it": {
           "path": "it/saas/configure-sso.mdx",
           "sourceHash": "a759ef1d5dc6124df39575137d46377d0fa355574ed63754e99f1b1ac10bb663",
-          "syncedAt": "2026-03-13T09:54:18.941901+00:00"
+          "syncedAt": "2026-03-18T10:20:01.319133+00:00"
         }
       }
     },
@@ -1539,22 +1539,22 @@
         "fr": {
           "path": "fr/saas/connect-apps.mdx",
           "sourceHash": "83dc648f0862ea3dbbdacef18c96df5261f01972280c6b975d378df7e6da105a",
-          "syncedAt": "2026-03-13T09:54:24.833826+00:00"
+          "syncedAt": "2026-03-18T10:20:05.370962+00:00"
         },
         "de": {
           "path": "de/saas/connect-apps.mdx",
           "sourceHash": "83dc648f0862ea3dbbdacef18c96df5261f01972280c6b975d378df7e6da105a",
-          "syncedAt": "2026-03-13T09:54:26.569221+00:00"
+          "syncedAt": "2026-03-18T10:20:07.352743+00:00"
         },
         "es": {
           "path": "es/saas/connect-apps.mdx",
           "sourceHash": "83dc648f0862ea3dbbdacef18c96df5261f01972280c6b975d378df7e6da105a",
-          "syncedAt": "2026-03-13T09:54:28.242260+00:00"
+          "syncedAt": "2026-03-18T10:20:08.770516+00:00"
         },
         "it": {
           "path": "it/saas/connect-apps.mdx",
           "sourceHash": "83dc648f0862ea3dbbdacef18c96df5261f01972280c6b975d378df7e6da105a",
-          "syncedAt": "2026-03-13T09:54:30.195844+00:00"
+          "syncedAt": "2026-03-18T10:20:10.194753+00:00"
         }
       }
     },
@@ -1564,22 +1564,22 @@
         "fr": {
           "path": "fr/saas/connected-saas-properties.mdx",
           "sourceHash": "8dafe7a11a14ce13586db96d3401a5a0d35a988f81adbffb283607a4d56bc608",
-          "syncedAt": "2026-03-13T09:54:47.735928+00:00"
+          "syncedAt": "2026-03-18T10:20:20.277088+00:00"
         },
         "de": {
           "path": "de/saas/connected-saas-properties.mdx",
           "sourceHash": "8dafe7a11a14ce13586db96d3401a5a0d35a988f81adbffb283607a4d56bc608",
-          "syncedAt": "2026-03-13T09:54:51.385180+00:00"
+          "syncedAt": "2026-03-18T10:20:25.016213+00:00"
         },
         "es": {
           "path": "es/saas/connected-saas-properties.mdx",
           "sourceHash": "8dafe7a11a14ce13586db96d3401a5a0d35a988f81adbffb283607a4d56bc608",
-          "syncedAt": "2026-03-13T09:54:54.365399+00:00"
+          "syncedAt": "2026-03-18T10:20:29.738010+00:00"
         },
         "it": {
           "path": "it/saas/connected-saas-properties.mdx",
           "sourceHash": "8dafe7a11a14ce13586db96d3401a5a0d35a988f81adbffb283607a4d56bc608",
-          "syncedAt": "2026-03-13T09:54:59.078243+00:00"
+          "syncedAt": "2026-03-18T10:20:35.054836+00:00"
         }
       }
     },
@@ -1589,22 +1589,22 @@
         "fr": {
           "path": "fr/saas/enable-saas-mapping.mdx",
           "sourceHash": "d55b6d75929ba9afaf1b73b5cce6674e5e457e0ba5b6bfd003a2d1491ddb851b",
-          "syncedAt": "2026-03-13T09:55:11.618883+00:00"
+          "syncedAt": "2026-03-18T10:20:43.005754+00:00"
         },
         "de": {
           "path": "de/saas/enable-saas-mapping.mdx",
           "sourceHash": "d55b6d75929ba9afaf1b73b5cce6674e5e457e0ba5b6bfd003a2d1491ddb851b",
-          "syncedAt": "2026-03-13T09:55:14.931826+00:00"
+          "syncedAt": "2026-03-18T10:20:46.502045+00:00"
         },
         "es": {
           "path": "es/saas/enable-saas-mapping.mdx",
           "sourceHash": "d55b6d75929ba9afaf1b73b5cce6674e5e457e0ba5b6bfd003a2d1491ddb851b",
-          "syncedAt": "2026-03-13T09:55:17.222955+00:00"
+          "syncedAt": "2026-03-18T10:20:49.567117+00:00"
         },
         "it": {
           "path": "it/saas/enable-saas-mapping.mdx",
           "sourceHash": "d55b6d75929ba9afaf1b73b5cce6674e5e457e0ba5b6bfd003a2d1491ddb851b",
-          "syncedAt": "2026-03-13T09:55:21.701141+00:00"
+          "syncedAt": "2026-03-18T10:20:53.304866+00:00"
         }
       }
     },
@@ -1614,22 +1614,22 @@
         "fr": {
           "path": "fr/saas/introduction.mdx",
           "sourceHash": "d806a2fdaf87273345234a11c6611958b86ec52e49246ee7c13352f4b885f913",
-          "syncedAt": "2026-03-13T09:55:33.514219+00:00"
+          "syncedAt": "2026-03-18T10:20:59.289017+00:00"
         },
         "de": {
           "path": "de/saas/introduction.mdx",
           "sourceHash": "d806a2fdaf87273345234a11c6611958b86ec52e49246ee7c13352f4b885f913",
-          "syncedAt": "2026-03-13T09:55:36.394988+00:00"
+          "syncedAt": "2026-03-18T10:21:02.621405+00:00"
         },
         "es": {
           "path": "es/saas/introduction.mdx",
           "sourceHash": "d806a2fdaf87273345234a11c6611958b86ec52e49246ee7c13352f4b885f913",
-          "syncedAt": "2026-03-13T09:55:38.387887+00:00"
+          "syncedAt": "2026-03-18T10:21:05.037364+00:00"
         },
         "it": {
           "path": "it/saas/introduction.mdx",
           "sourceHash": "d806a2fdaf87273345234a11c6611958b86ec52e49246ee7c13352f4b885f913",
-          "syncedAt": "2026-03-13T09:55:42.229562+00:00"
+          "syncedAt": "2026-03-18T10:21:08.487388+00:00"
         }
       }
     },
@@ -1639,22 +1639,22 @@
         "fr": {
           "path": "fr/saas/licence-provisioning.mdx",
           "sourceHash": "0e864b545813543d5b15da3669dbb19b65c0c1d81be8a70d566814ba9526c707",
-          "syncedAt": "2026-03-13T09:55:49.119447+00:00"
+          "syncedAt": "2026-03-18T10:21:13.435875+00:00"
         },
         "de": {
           "path": "de/saas/licence-provisioning.mdx",
           "sourceHash": "0e864b545813543d5b15da3669dbb19b65c0c1d81be8a70d566814ba9526c707",
-          "syncedAt": "2026-03-13T09:55:51.145549+00:00"
+          "syncedAt": "2026-03-18T10:21:15.550036+00:00"
         },
         "es": {
           "path": "es/saas/licence-provisioning.mdx",
           "sourceHash": "0e864b545813543d5b15da3669dbb19b65c0c1d81be8a70d566814ba9526c707",
-          "syncedAt": "2026-03-13T09:55:53.043515+00:00"
+          "syncedAt": "2026-03-18T10:21:17.297423+00:00"
         },
         "it": {
           "path": "it/saas/licence-provisioning.mdx",
           "sourceHash": "0e864b545813543d5b15da3669dbb19b65c0c1d81be8a70d566814ba9526c707",
-          "syncedAt": "2026-03-13T09:55:55.280443+00:00"
+          "syncedAt": "2026-03-18T10:21:19.809229+00:00"
         }
       }
     },
@@ -1664,47 +1664,47 @@
         "fr": {
           "path": "fr/saas/manage-tracked-apps.mdx",
           "sourceHash": "b2462e2d4806e3ae3262189fcdbe5085e5278b50e7c811a99de952a22987fa44",
-          "syncedAt": "2026-03-13T09:56:02.237575+00:00"
+          "syncedAt": "2026-03-18T10:21:24.143771+00:00"
         },
         "de": {
           "path": "de/saas/manage-tracked-apps.mdx",
           "sourceHash": "b2462e2d4806e3ae3262189fcdbe5085e5278b50e7c811a99de952a22987fa44",
-          "syncedAt": "2026-03-13T09:56:04.799680+00:00"
+          "syncedAt": "2026-03-18T10:21:26.426196+00:00"
         },
         "es": {
           "path": "es/saas/manage-tracked-apps.mdx",
           "sourceHash": "b2462e2d4806e3ae3262189fcdbe5085e5278b50e7c811a99de952a22987fa44",
-          "syncedAt": "2026-03-13T09:56:06.973873+00:00"
+          "syncedAt": "2026-03-18T10:21:29.053298+00:00"
         },
         "it": {
           "path": "it/saas/manage-tracked-apps.mdx",
           "sourceHash": "b2462e2d4806e3ae3262189fcdbe5085e5278b50e7c811a99de952a22987fa44",
-          "syncedAt": "2026-03-13T09:56:09.660008+00:00"
+          "syncedAt": "2026-03-18T10:21:31.590100+00:00"
         }
       }
     },
     "style-guide.mdx": {
-      "sourceHash": "01a10c5ba686a7c1bc7077950b611738855608f352ed89ef43d86e470cb7f7e1",
+      "sourceHash": "ec3c4c2ba0cff0d132665fc3fd5d4a1b6508332d7f0425ff87f7713c42757b02",
       "targets": {
         "fr": {
           "path": "fr/style-guide.mdx",
-          "sourceHash": "01a10c5ba686a7c1bc7077950b611738855608f352ed89ef43d86e470cb7f7e1",
-          "syncedAt": "2026-03-13T09:56:24.941118+00:00"
+          "sourceHash": "ec3c4c2ba0cff0d132665fc3fd5d4a1b6508332d7f0425ff87f7713c42757b02",
+          "syncedAt": "2026-03-18T10:21:44.654864+00:00"
         },
         "de": {
           "path": "de/style-guide.mdx",
-          "sourceHash": "01a10c5ba686a7c1bc7077950b611738855608f352ed89ef43d86e470cb7f7e1",
-          "syncedAt": "2026-03-13T09:56:28.482006+00:00"
+          "sourceHash": "ec3c4c2ba0cff0d132665fc3fd5d4a1b6508332d7f0425ff87f7713c42757b02",
+          "syncedAt": "2026-03-18T10:21:51.088042+00:00"
         },
         "es": {
           "path": "es/style-guide.mdx",
-          "sourceHash": "01a10c5ba686a7c1bc7077950b611738855608f352ed89ef43d86e470cb7f7e1",
-          "syncedAt": "2026-03-13T09:56:33.264662+00:00"
+          "sourceHash": "ec3c4c2ba0cff0d132665fc3fd5d4a1b6508332d7f0425ff87f7713c42757b02",
+          "syncedAt": "2026-03-18T10:21:58.259318+00:00"
         },
         "it": {
           "path": "it/style-guide.mdx",
-          "sourceHash": "01a10c5ba686a7c1bc7077950b611738855608f352ed89ef43d86e470cb7f7e1",
-          "syncedAt": "2026-03-13T09:56:39.110534+00:00"
+          "sourceHash": "ec3c4c2ba0cff0d132665fc3fd5d4a1b6508332d7f0425ff87f7713c42757b02",
+          "syncedAt": "2026-03-18T10:22:04.992820+00:00"
         }
       }
     },
@@ -1714,22 +1714,22 @@
         "fr": {
           "path": "fr/mdm/policies/admin-password-rotation.mdx",
           "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
-          "syncedAt": "2026-03-17T10:23:04.236530+00:00"
+          "syncedAt": "2026-03-18T10:10:36.052870+00:00"
         },
         "de": {
           "path": "de/mdm/policies/admin-password-rotation.mdx",
           "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
-          "syncedAt": "2026-03-17T10:23:06.415102+00:00"
+          "syncedAt": "2026-03-18T10:10:37.547383+00:00"
         },
         "es": {
           "path": "es/mdm/policies/admin-password-rotation.mdx",
           "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
-          "syncedAt": "2026-03-17T10:23:09.110222+00:00"
+          "syncedAt": "2026-03-18T10:10:39.603378+00:00"
         },
         "it": {
           "path": "it/mdm/policies/admin-password-rotation.mdx",
           "sourceHash": "aa848b6c43a95df8b72a25dfa13c96655196b30b8cd64cb512b157b0445b0e6d",
-          "syncedAt": "2026-03-17T10:23:11.698922+00:00"
+          "syncedAt": "2026-03-18T10:10:41.786588+00:00"
         }
       }
     },
@@ -1739,22 +1739,22 @@
         "fr": {
           "path": "fr/mdm/policies/app-blocking.mdx",
           "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
-          "syncedAt": "2026-03-17T10:23:16.990584+00:00"
+          "syncedAt": "2026-03-18T10:10:46.145407+00:00"
         },
         "de": {
           "path": "de/mdm/policies/app-blocking.mdx",
           "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
-          "syncedAt": "2026-03-17T10:23:19.135963+00:00"
+          "syncedAt": "2026-03-18T10:10:48.236383+00:00"
         },
         "es": {
           "path": "es/mdm/policies/app-blocking.mdx",
           "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
-          "syncedAt": "2026-03-17T10:23:21.003136+00:00"
+          "syncedAt": "2026-03-18T10:10:50.756727+00:00"
         },
         "it": {
           "path": "it/mdm/policies/app-blocking.mdx",
           "sourceHash": "50b3b07dffd12eaf1d0a4427eedbb2ef6dc42df8a769b57af31c442976422405",
-          "syncedAt": "2026-03-17T10:23:25.810072+00:00"
+          "syncedAt": "2026-03-18T10:10:53.252276+00:00"
         }
       }
     },
@@ -1764,22 +1764,22 @@
         "fr": {
           "path": "fr/mdm/policies/custom-file.mdx",
           "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
-          "syncedAt": "2026-03-17T10:23:29.682667+00:00"
+          "syncedAt": "2026-03-18T10:11:09.767408+00:00"
         },
         "de": {
           "path": "de/mdm/policies/custom-file.mdx",
           "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
-          "syncedAt": "2026-03-17T10:23:32.284392+00:00"
+          "syncedAt": "2026-03-18T10:11:11.434905+00:00"
         },
         "es": {
           "path": "es/mdm/policies/custom-file.mdx",
           "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
-          "syncedAt": "2026-03-17T10:23:34.285257+00:00"
+          "syncedAt": "2026-03-18T10:11:12.802865+00:00"
         },
         "it": {
           "path": "it/mdm/policies/custom-file.mdx",
           "sourceHash": "529055c73b22d0edbd7463a27a486e8c7245d041b45c07dbfc07662d6a37bdd0",
-          "syncedAt": "2026-03-17T10:23:36.782254+00:00"
+          "syncedAt": "2026-03-18T10:11:14.606328+00:00"
         }
       }
     },
@@ -1789,22 +1789,22 @@
         "fr": {
           "path": "fr/mdm/policies/device-naming.mdx",
           "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
-          "syncedAt": "2026-03-17T10:23:39.041216+00:00"
+          "syncedAt": "2026-03-18T10:11:26.322986+00:00"
         },
         "de": {
           "path": "de/mdm/policies/device-naming.mdx",
           "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
-          "syncedAt": "2026-03-17T10:23:40.482734+00:00"
+          "syncedAt": "2026-03-18T10:11:26.853827+00:00"
         },
         "es": {
           "path": "es/mdm/policies/device-naming.mdx",
           "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
-          "syncedAt": "2026-03-17T10:23:41.654222+00:00"
+          "syncedAt": "2026-03-18T10:11:28.158270+00:00"
         },
         "it": {
           "path": "it/mdm/policies/device-naming.mdx",
           "sourceHash": "75763f556f41b45e556b3ec342aef7e3f7c7a37cd57d615203583436e6e1dbea",
-          "syncedAt": "2026-03-17T10:23:42.908740+00:00"
+          "syncedAt": "2026-03-18T10:11:29.508275+00:00"
         }
       }
     },
@@ -1814,22 +1814,22 @@
         "fr": {
           "path": "fr/mdm/policies/enforce-minimum-os-version.mdx",
           "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
-          "syncedAt": "2026-03-17T10:23:48.521151+00:00"
+          "syncedAt": "2026-03-18T10:11:45.124253+00:00"
         },
         "de": {
           "path": "de/mdm/policies/enforce-minimum-os-version.mdx",
           "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
-          "syncedAt": "2026-03-17T10:23:51.273454+00:00"
+          "syncedAt": "2026-03-18T10:11:46.518184+00:00"
         },
         "es": {
           "path": "es/mdm/policies/enforce-minimum-os-version.mdx",
           "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
-          "syncedAt": "2026-03-17T10:23:53.519239+00:00"
+          "syncedAt": "2026-03-18T10:11:48.624825+00:00"
         },
         "it": {
           "path": "it/mdm/policies/enforce-minimum-os-version.mdx",
           "sourceHash": "d998be6b41983249509cbae6d55f3b6e7df2d40d96053a6e67af791cc4c32473",
-          "syncedAt": "2026-03-17T10:23:55.753936+00:00"
+          "syncedAt": "2026-03-18T10:11:51.044161+00:00"
         }
       }
     },
@@ -1839,22 +1839,22 @@
         "fr": {
           "path": "fr/mdm/policies/firewall.mdx",
           "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
-          "syncedAt": "2026-03-17T10:23:59.372880+00:00"
+          "syncedAt": "2026-03-18T10:11:54.667910+00:00"
         },
         "de": {
           "path": "de/mdm/policies/firewall.mdx",
           "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
-          "syncedAt": "2026-03-17T10:24:02.049375+00:00"
+          "syncedAt": "2026-03-18T10:11:56.474872+00:00"
         },
         "es": {
           "path": "es/mdm/policies/firewall.mdx",
           "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
-          "syncedAt": "2026-03-17T10:24:03.931549+00:00"
+          "syncedAt": "2026-03-18T10:11:58.256754+00:00"
         },
         "it": {
           "path": "it/mdm/policies/firewall.mdx",
           "sourceHash": "d8e8fdbf51e7b2236abd2d6b099a2074f193aca5915a9e8014dd0c554e57b78f",
-          "syncedAt": "2026-03-17T10:24:06.373194+00:00"
+          "syncedAt": "2026-03-18T10:12:00.802497+00:00"
         }
       }
     },
@@ -1864,22 +1864,22 @@
         "fr": {
           "path": "fr/mdm/policies/generate-settings-via-ai.mdx",
           "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
-          "syncedAt": "2026-03-17T10:24:10.532146+00:00"
+          "syncedAt": "2026-03-18T10:12:12.387965+00:00"
         },
         "de": {
           "path": "de/mdm/policies/generate-settings-via-ai.mdx",
           "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
-          "syncedAt": "2026-03-17T10:24:12.105934+00:00"
+          "syncedAt": "2026-03-18T10:12:14.221489+00:00"
         },
         "es": {
           "path": "es/mdm/policies/generate-settings-via-ai.mdx",
           "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
-          "syncedAt": "2026-03-17T10:24:14.069426+00:00"
+          "syncedAt": "2026-03-18T10:12:15.983147+00:00"
         },
         "it": {
           "path": "it/mdm/policies/generate-settings-via-ai.mdx",
           "sourceHash": "1749cf4bd6ac14ceb2159f21b51829abf6155f8168bc54150bea63a8eab2076d",
-          "syncedAt": "2026-03-17T10:24:16.319288+00:00"
+          "syncedAt": "2026-03-18T10:12:18.609395+00:00"
         }
       }
     },
@@ -1889,22 +1889,22 @@
         "fr": {
           "path": "fr/mdm/policies/google-chrome.mdx",
           "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
-          "syncedAt": "2026-03-17T10:24:20.883079+00:00"
+          "syncedAt": "2026-03-18T10:12:22.571035+00:00"
         },
         "de": {
           "path": "de/mdm/policies/google-chrome.mdx",
           "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
-          "syncedAt": "2026-03-17T10:24:23.231907+00:00"
+          "syncedAt": "2026-03-18T10:12:25.140896+00:00"
         },
         "es": {
           "path": "es/mdm/policies/google-chrome.mdx",
           "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
-          "syncedAt": "2026-03-17T10:24:24.661505+00:00"
+          "syncedAt": "2026-03-18T10:12:27.082587+00:00"
         },
         "it": {
           "path": "it/mdm/policies/google-chrome.mdx",
           "sourceHash": "3e58d238bfbe9a6ec36e776c39caf5f75fccb88bec22f9cb43955af2c5412574",
-          "syncedAt": "2026-03-17T10:24:27.112681+00:00"
+          "syncedAt": "2026-03-18T10:12:29.332265+00:00"
         }
       }
     },
@@ -1914,22 +1914,22 @@
         "fr": {
           "path": "fr/mdm/policies/lock-mdm-profiles-pane.mdx",
           "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
-          "syncedAt": "2026-03-17T10:24:29.391108+00:00"
+          "syncedAt": "2026-03-18T10:12:31.201743+00:00"
         },
         "de": {
           "path": "de/mdm/policies/lock-mdm-profiles-pane.mdx",
           "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
-          "syncedAt": "2026-03-17T10:24:30.762228+00:00"
+          "syncedAt": "2026-03-18T10:12:32.587698+00:00"
         },
         "es": {
           "path": "es/mdm/policies/lock-mdm-profiles-pane.mdx",
           "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
-          "syncedAt": "2026-03-17T10:24:32.132911+00:00"
+          "syncedAt": "2026-03-18T10:12:33.961725+00:00"
         },
         "it": {
           "path": "it/mdm/policies/lock-mdm-profiles-pane.mdx",
           "sourceHash": "2e92264ed4bea1ab3155a468d8bd5eccefb82e6960faa1eb174a5e50337922c3",
-          "syncedAt": "2026-03-17T10:24:33.442185+00:00"
+          "syncedAt": "2026-03-18T10:12:34.852466+00:00"
         }
       }
     },
@@ -1939,22 +1939,22 @@
         "fr": {
           "path": "fr/mdm/policies/mac-login-entra.mdx",
           "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
-          "syncedAt": "2026-03-17T10:24:37.773118+00:00"
+          "syncedAt": "2026-03-18T10:12:37.883038+00:00"
         },
         "de": {
           "path": "de/mdm/policies/mac-login-entra.mdx",
           "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
-          "syncedAt": "2026-03-17T10:24:40.578999+00:00"
+          "syncedAt": "2026-03-18T10:12:40.222364+00:00"
         },
         "es": {
           "path": "es/mdm/policies/mac-login-entra.mdx",
           "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
-          "syncedAt": "2026-03-17T10:24:42.638666+00:00"
+          "syncedAt": "2026-03-18T10:12:42.241305+00:00"
         },
         "it": {
           "path": "it/mdm/policies/mac-login-entra.mdx",
           "sourceHash": "a7e349d6479ad07a9789902e3859200f99e251cef97ff2cc67f93b96ed311bd6",
-          "syncedAt": "2026-03-17T10:24:45.676113+00:00"
+          "syncedAt": "2026-03-18T10:12:44.459116+00:00"
         }
       }
     },
@@ -1964,22 +1964,22 @@
         "fr": {
           "path": "fr/mdm/policies/mac-login-okta.mdx",
           "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
-          "syncedAt": "2026-03-17T10:24:48.218939+00:00"
+          "syncedAt": "2026-03-18T10:12:47.296543+00:00"
         },
         "de": {
           "path": "de/mdm/policies/mac-login-okta.mdx",
           "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
-          "syncedAt": "2026-03-17T10:24:49.542556+00:00"
+          "syncedAt": "2026-03-18T10:12:48.461761+00:00"
         },
         "es": {
           "path": "es/mdm/policies/mac-login-okta.mdx",
           "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
-          "syncedAt": "2026-03-17T10:24:50.638162+00:00"
+          "syncedAt": "2026-03-18T10:12:49.645177+00:00"
         },
         "it": {
           "path": "it/mdm/policies/mac-login-okta.mdx",
           "sourceHash": "e53fb41a18cbd63e0dc074fc3ee7afe333f68387fc9c5760ed5458d1b467fa91",
-          "syncedAt": "2026-03-17T10:24:51.950347+00:00"
+          "syncedAt": "2026-03-18T10:12:50.956777+00:00"
         }
       }
     },
@@ -1989,22 +1989,22 @@
         "fr": {
           "path": "fr/mdm/policies/recoveros-protection.mdx",
           "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
-          "syncedAt": "2026-03-17T10:24:54.546588+00:00"
+          "syncedAt": "2026-03-18T10:13:56.937266+00:00"
         },
         "de": {
           "path": "de/mdm/policies/recoveros-protection.mdx",
           "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
-          "syncedAt": "2026-03-17T10:24:55.985813+00:00"
+          "syncedAt": "2026-03-18T10:13:58.265333+00:00"
         },
         "es": {
           "path": "es/mdm/policies/recoveros-protection.mdx",
           "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
-          "syncedAt": "2026-03-17T10:24:56.716474+00:00"
+          "syncedAt": "2026-03-18T10:13:59.431590+00:00"
         },
         "it": {
           "path": "it/mdm/policies/recoveros-protection.mdx",
           "sourceHash": "c2c8eb4f8e08c3224a7b246dbeb43e5cb570f56d047b56ddb5584999d7536982",
-          "syncedAt": "2026-03-17T10:24:58.097186+00:00"
+          "syncedAt": "2026-03-18T10:14:00.737409+00:00"
         }
       }
     },
@@ -2014,22 +2014,22 @@
         "fr": {
           "path": "fr/mdm/policies/usb-storage-blocking.mdx",
           "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
-          "syncedAt": "2026-03-17T10:25:01.107951+00:00"
+          "syncedAt": "2026-03-18T10:14:11.686927+00:00"
         },
         "de": {
           "path": "de/mdm/policies/usb-storage-blocking.mdx",
           "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
-          "syncedAt": "2026-03-17T10:25:03.759995+00:00"
+          "syncedAt": "2026-03-18T10:14:12.981121+00:00"
         },
         "es": {
           "path": "es/mdm/policies/usb-storage-blocking.mdx",
           "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
-          "syncedAt": "2026-03-17T10:25:05.297115+00:00"
+          "syncedAt": "2026-03-18T10:14:13.915668+00:00"
         },
         "it": {
           "path": "it/mdm/policies/usb-storage-blocking.mdx",
           "sourceHash": "66b84c0a3008c027ee34485293f82d30a84b16ebc16ab4ec5dff97e9d9891a56",
-          "syncedAt": "2026-03-17T10:25:07.938425+00:00"
+          "syncedAt": "2026-03-18T10:14:15.199804+00:00"
         }
       }
     },
@@ -2039,22 +2039,47 @@
         "fr": {
           "path": "fr/mdm/policies/wifi.mdx",
           "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
-          "syncedAt": "2026-03-17T10:25:12.564213+00:00"
+          "syncedAt": "2026-03-18T10:14:20.373069+00:00"
         },
         "de": {
           "path": "de/mdm/policies/wifi.mdx",
           "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
-          "syncedAt": "2026-03-17T10:25:15.443164+00:00"
+          "syncedAt": "2026-03-18T10:14:22.850766+00:00"
         },
         "es": {
           "path": "es/mdm/policies/wifi.mdx",
           "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
-          "syncedAt": "2026-03-17T10:25:17.063050+00:00"
+          "syncedAt": "2026-03-18T10:14:25.166219+00:00"
         },
         "it": {
           "path": "it/mdm/policies/wifi.mdx",
           "sourceHash": "bad4be6b53788d9ff96be99962a1fa0b5ed0f4a8f8cf19d3f87dde60b27ddc05",
-          "syncedAt": "2026-03-17T10:25:19.705669+00:00"
+          "syncedAt": "2026-03-18T10:14:27.740819+00:00"
+        }
+      }
+    },
+    "mdm/guides/wipe-windows-devices.mdx": {
+      "sourceHash": "030ddbf4aafd9a1ba84721b0427be7ed522de07ea8eb0261e3d2be78e9d93dd7",
+      "targets": {
+        "fr": {
+          "path": "fr/mdm/guides/wipe-windows-devices.mdx",
+          "sourceHash": "030ddbf4aafd9a1ba84721b0427be7ed522de07ea8eb0261e3d2be78e9d93dd7",
+          "syncedAt": "2026-03-18T10:10:19.058806+00:00"
+        },
+        "de": {
+          "path": "de/mdm/guides/wipe-windows-devices.mdx",
+          "sourceHash": "030ddbf4aafd9a1ba84721b0427be7ed522de07ea8eb0261e3d2be78e9d93dd7",
+          "syncedAt": "2026-03-18T10:10:23.407828+00:00"
+        },
+        "es": {
+          "path": "es/mdm/guides/wipe-windows-devices.mdx",
+          "sourceHash": "030ddbf4aafd9a1ba84721b0427be7ed522de07ea8eb0261e3d2be78e9d93dd7",
+          "syncedAt": "2026-03-18T10:10:27.243610+00:00"
+        },
+        "it": {
+          "path": "it/mdm/guides/wipe-windows-devices.mdx",
+          "sourceHash": "030ddbf4aafd9a1ba84721b0427be7ed522de07ea8eb0261e3d2be78e9d93dd7",
+          "syncedAt": "2026-03-18T10:10:32.253546+00:00"
         }
       }
     }
