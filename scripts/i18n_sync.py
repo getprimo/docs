@@ -52,6 +52,7 @@ INTERNAL_PATH_EXCLUSIONS = (
     "/logo/",
     "/favicon",
     "/favicon.svg",
+    "/references/",
 )
 SEGMENT_TOKEN = "ZXSEGBOUNDARY1CDA0C52"
 PROTECT_TOKEN = "ZXPROTECT"
