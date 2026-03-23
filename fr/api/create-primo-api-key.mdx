@@ -3,23 +3,23 @@ title: "Créer des clés API pour Primo"
 description: "Générez une clé Primo API pour authentifier les demandes auprès du Primo REST API."
 ---
 
-Les clés Primo API sont utilisées pour authentifier les demandes adressées au [Primo REST API](https://api.getprimo.com/openapi.json). Il existe deux types de clés API, chacune avec une portée différente.
+Les clés Primo API sont utilisées pour authentifier les demandes adressées au [Primo REST API](https://api.getprimo.com/openapi.json). Il existe deux types de clés API, chacune ayant une portée différente.
 
 ## Types de clés API
 
-### Clé API Entreprise
+### Clé de société API
 
-Une **clé API Entreprise** est limitée à une seule entreprise. Elle donne accès à tous les endpoints qui opèrent sur les ressources au niveau de l'entreprise — appareils, employés, accessoires, tickets, SaaS, etc.
+Une **clé d'entreprise API** est limitée à une seule entreprise. Il donne accès à tous les points de terminaison qui fonctionnent sur les ressources au niveau de l'entreprise : appareils, employés, accessoires, tickets, SaaS, etc.
 
-### Clé API Workspace
+### Clé API de l'espace de travail
 
-Une **clé API Workspace** est limitée à l'ensemble de votre espace de travail. Elle donne accès aux endpoints au niveau du workspace, tels que la liste et la consultation des entreprises au sein de votre workspace.
+Une **clé Workspace API** s'étend à l'ensemble de votre espace de travail. Il donne accès aux points de terminaison au niveau de l'espace de travail, tels que la liste et l'affichage des entreprises au sein de votre espace de travail.
 
 <Note>
-La plupart des endpoints API nécessitent une **clé API Entreprise**. Seuls les endpoints spécifiques au workspace (sous `/workspace/`) nécessitent une **clé API Workspace**. Consultez la référence API pour le badge sur chaque endpoint.
+La plupart des points de terminaison API nécessitent une **clé d'entreprise API**. Seuls les points de terminaison spécifiques à l'espace de travail (sous `/workspace/`) nécessitent une **clé Workspace API**. Vérifiez la référence API du badge sur chaque point de terminaison.
 </Note>
 
-## Générer une clé API Entreprise
+## Générer une clé d'entreprise API
 
 1. Accédez à **Paramètres** > **API**.
 2. Cliquez sur **Créer une clé API**.
@@ -28,7 +28,7 @@ La plupart des endpoints API nécessitent une **clé API Entreprise**. Seuls les
 5. Copiez la clé immédiatement – ​​elle ne sera plus affichée.
 
 <Warning>
-Conservez votre clé API en toute sécurité. Toute personne disposant de cette clé peut accéder à vos données Primo via le API.
+Conservez votre clé API en toute sécurité. Toute personne possédant cette clé peut accéder à vos données Primo via le API.
 </Warning>
 
 ## Utilisez la clé API

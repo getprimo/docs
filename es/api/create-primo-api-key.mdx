@@ -3,23 +3,23 @@ title: "Crear claves API para Primo"
 description: "Genere una clave Primo API para autenticar solicitudes en Primo REST API."
 ---
 
-Las claves Primo API se utilizan para autenticar solicitudes en [Primo REST API](https://api.getprimo.com/openapi.json). Existen dos tipos de claves API, cada una con un alcance diferente.
+Las claves Primo API se utilizan para autenticar solicitudes en [Primo REST API](https://api.getprimo.com/openapi.json). Hay dos tipos de claves API, cada una con un alcance diferente.
 
 ## Tipos de claves API
 
-### Clave API de Empresa
+### Clave de empresa API
 
-Una **clave API de Empresa** tiene como alcance una sola empresa. Da acceso a todos los endpoints que operan sobre recursos a nivel de empresa — dispositivos, empleados, accesorios, tickets, SaaS y más.
+Una **clave API de empresa** tiene como alcance una única empresa. Brinda acceso a todos los puntos finales que operan con recursos a nivel de empresa: dispositivos, empleados, accesorios, tickets, SaaS y más.
 
-### Clave API de Workspace
+### Clave API del espacio de trabajo
 
-Una **clave API de Workspace** tiene como alcance todo su espacio de trabajo. Da acceso a los endpoints a nivel de workspace, como listar y consultar las empresas dentro de su workspace.
+Una **clave API del espacio de trabajo** tiene como alcance todo su espacio de trabajo. Brinda acceso a puntos finales a nivel del espacio de trabajo, como enumerar y ver las empresas dentro de su espacio de trabajo.
 
 <Note>
-La mayoría de los endpoints API requieren una **clave API de Empresa**. Solo los endpoints específicos del workspace (bajo `/workspace/`) requieren una **clave API de Workspace**. Consulte la referencia de la API para ver el badge en cada endpoint.
+La mayoría de los terminales API requieren una **Clave API de la empresa**. Solo los puntos finales específicos del espacio de trabajo (bajo `/workspace/`) requieren una **clave API del espacio de trabajo**. Verifique la referencia API para la insignia en cada terminal.
 </Note>
 
-## Generar una clave API de Empresa
+## Generar una clave de empresa API
 
 1. Vaya a **Configuración** > **API**.
 2. Haga clic en **Crear clave API**.
@@ -28,7 +28,7 @@ La mayoría de los endpoints API requieren una **clave API de Empresa**. Solo lo
 5. Copie la clave inmediatamente; no se volverá a mostrar.
 
 <Warning>
-Guarde su clave API de forma segura. Cualquiera que tenga esta clave puede acceder a sus datos de Primo a través de la API.
+Guarde su clave API de forma segura. Cualquiera que tenga esta clave puede acceder a sus datos de Primo a través de API.
 </Warning>
 
 ## Utilice la clave API

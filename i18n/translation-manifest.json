@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-23T13:09:02.065587+00:00",
+  "generatedAt": "2026-03-23T14:06:30.321702+00:00",
   "sourceLocale": "en",
   "locales": [
     "fr",
@@ -34,27 +34,27 @@
       }
     },
     "api/create-primo-api-key.mdx": {
-      "sourceHash": "da6b22348aea13cd318ef06dc7f425ccc657022a70d934d9bc703f32f7cc3dd2",
+      "sourceHash": "488aa9a2dffbf183f03e14f86d1b6018c762559f3343fd225a22f0f6b8e258aa",
       "targets": {
         "fr": {
           "path": "fr/api/create-primo-api-key.mdx",
-          "sourceHash": "da6b22348aea13cd318ef06dc7f425ccc657022a70d934d9bc703f32f7cc3dd2",
-          "syncedAt": "2026-03-23T13:08:58.918929+00:00"
+          "sourceHash": "488aa9a2dffbf183f03e14f86d1b6018c762559f3343fd225a22f0f6b8e258aa",
+          "syncedAt": "2026-03-23T14:05:55.942112+00:00"
         },
         "de": {
           "path": "de/api/create-primo-api-key.mdx",
-          "sourceHash": "da6b22348aea13cd318ef06dc7f425ccc657022a70d934d9bc703f32f7cc3dd2",
-          "syncedAt": "2026-03-23T13:09:00.325001+00:00"
+          "sourceHash": "488aa9a2dffbf183f03e14f86d1b6018c762559f3343fd225a22f0f6b8e258aa",
+          "syncedAt": "2026-03-23T14:05:58.391553+00:00"
         },
         "es": {
           "path": "es/api/create-primo-api-key.mdx",
-          "sourceHash": "da6b22348aea13cd318ef06dc7f425ccc657022a70d934d9bc703f32f7cc3dd2",
-          "syncedAt": "2026-03-23T13:09:00.858669+00:00"
+          "sourceHash": "488aa9a2dffbf183f03e14f86d1b6018c762559f3343fd225a22f0f6b8e258aa",
+          "syncedAt": "2026-03-23T14:05:59.677459+00:00"
         },
         "it": {
           "path": "it/api/create-primo-api-key.mdx",
-          "sourceHash": "da6b22348aea13cd318ef06dc7f425ccc657022a70d934d9bc703f32f7cc3dd2",
-          "syncedAt": "2026-03-23T13:09:02.064039+00:00"
+          "sourceHash": "488aa9a2dffbf183f03e14f86d1b6018c762559f3343fd225a22f0f6b8e258aa",
+          "syncedAt": "2026-03-23T14:06:01.525118+00:00"
         }
       }
     },
@@ -234,27 +234,27 @@
       }
     },
     "get-started/primo-mcp-server.mdx": {
-      "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
+      "sourceHash": "36bd86c127ca255e2ce4f6bbb5fa01df002b75ee01f7d11f76ef9d4c4713ba32",
       "targets": {
         "fr": {
           "path": "fr/get-started/primo-mcp-server.mdx",
-          "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
-          "syncedAt": "2026-03-18T10:05:12.087345+00:00"
+          "sourceHash": "36bd86c127ca255e2ce4f6bbb5fa01df002b75ee01f7d11f76ef9d4c4713ba32",
+          "syncedAt": "2026-03-23T14:06:13.616638+00:00"
         },
         "de": {
           "path": "de/get-started/primo-mcp-server.mdx",
-          "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
-          "syncedAt": "2026-03-18T10:05:16.456188+00:00"
+          "sourceHash": "36bd86c127ca255e2ce4f6bbb5fa01df002b75ee01f7d11f76ef9d4c4713ba32",
+          "syncedAt": "2026-03-23T14:06:18.998041+00:00"
         },
         "es": {
           "path": "es/get-started/primo-mcp-server.mdx",
-          "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
-          "syncedAt": "2026-03-18T10:05:20.358468+00:00"
+          "sourceHash": "36bd86c127ca255e2ce4f6bbb5fa01df002b75ee01f7d11f76ef9d4c4713ba32",
+          "syncedAt": "2026-03-23T14:06:24.242040+00:00"
         },
         "it": {
           "path": "it/get-started/primo-mcp-server.mdx",
-          "sourceHash": "6bdd8a375fe8592857a053e68e3641081e7f797fa82d08eb9109578507708984",
-          "syncedAt": "2026-03-18T10:05:25.232399+00:00"
+          "sourceHash": "36bd86c127ca255e2ce4f6bbb5fa01df002b75ee01f7d11f76ef9d4c4713ba32",
+          "syncedAt": "2026-03-23T14:06:30.320888+00:00"
         }
       }
     },

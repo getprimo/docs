@@ -3,27 +3,27 @@ title: "Erstellen Sie API-Schlüssel für Primo"
 description: "Generieren Sie einen Primo API-Schlüssel, um Anforderungen an den Primo REST API zu authentifizieren."
 ---
 
-Primo API-Schlüssel werden zur Authentifizierung von Anforderungen an den [Primo REST API](https://api.getprimo.com/openapi.json) verwendet. Es gibt zwei Arten von API-Schlüsseln, jeweils mit einem unterschiedlichen Geltungsbereich.
+Primo API-Schlüssel werden zur Authentifizierung von Anforderungen an den [Primo REST API](https://api.getprimo.com/openapi.json) verwendet. Es gibt zwei Arten von API-Schlüsseln mit jeweils unterschiedlichem Gültigkeitsbereich.
 
-## Arten von API-Schlüsseln
+## API-Schlüsseltypen
 
-### Unternehmens-API-Schlüssel
+### Unternehmensschlüssel API
 
-Ein **Unternehmens-API-Schlüssel** ist auf ein einzelnes Unternehmen beschränkt. Er gewährt Zugriff auf alle Endpunkte, die auf Unternehmensressourcen zugreifen — Geräte, Mitarbeiter, Zubehör, Tickets, SaaS und mehr.
+Ein **Firmen-API-Schlüssel** ist auf ein einzelnes Unternehmen beschränkt. Es ermöglicht den Zugriff auf alle Endpunkte, die mit Ressourcen auf Unternehmensebene arbeiten – Geräte, Mitarbeiter, Zubehör, Tickets, SaaS und mehr.
 
-### Workspace-API-Schlüssel
+### Arbeitsbereich API-Schlüssel
 
-Ein **Workspace-API-Schlüssel** ist auf Ihren gesamten Arbeitsbereich beschränkt. Er gewährt Zugriff auf Workspace-spezifische Endpunkte, wie das Auflisten und Anzeigen der Unternehmen in Ihrem Workspace.
+Ein **Workspace API-Schlüssel** gilt für Ihren gesamten Arbeitsbereich. Es ermöglicht den Zugriff auf Endpunkte auf Arbeitsbereichsebene, z. B. das Auflisten und Anzeigen der Unternehmen in Ihrem Arbeitsbereich.
 
 <Note>
-Die meisten API-Endpunkte erfordern einen **Unternehmens-API-Schlüssel**. Nur die workspace-spezifischen Endpunkte (unter `/workspace/`) erfordern einen **Workspace-API-Schlüssel**. Prüfen Sie die API-Referenz für das Badge bei jedem Endpunkt.
+Die meisten API-Endpunkte erfordern einen **Firmen-API-Schlüssel**. Nur die arbeitsbereichsspezifischen Endpunkte (unter `/workspace/`) erfordern einen **Workspace API-Schlüssel**. Überprüfen Sie die API-Referenz auf das Abzeichen an jedem Endpunkt.
 </Note>
 
-## Generieren Sie einen Unternehmens-API-Schlüssel
+## Generieren Sie einen Unternehmensschlüssel API
 
 1. Gehen Sie zu **Einstellungen** > **API**.
 2. Klicken Sie auf **API-Schlüssel erstellen**.
-3. Geben Sie dem Schlüssel einen Namen (z. B. „Meine Integration").
+3. Geben Sie dem Schlüssel einen Namen (z. B. „Meine Integration“).
 4. Klicken Sie auf **Erstellen**.
 5. Kopieren Sie den Schlüssel sofort – er wird nicht mehr angezeigt.
 
