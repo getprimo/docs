@@ -36,13 +36,13 @@ The minimum license covering both features is **Enterprise Mobility + Security E
 6. Set up a PIN code and fingerprint (if supported)
     ![Screenshot: What happens when an employee arrives with a workstation configured with Autopilot?](/images/notion-import/zero-touch-enrollment-for-windows__img-027__block-0022__1b243d9f.png)
 
-7. The workstation is ready — apps and policies defined in the Primo Cockpit are applied automatically
+7. The device is ready — apps and policies defined in the dashboard are applied automatically
 
 ## Restrictions
 
 Autopilot devices use **Entra accounts** rather than local accounts. Microsoft is progressively deprecating local accounts in favor of Entra accounts.
 
-The Entra administrator can configure whether users have standard or administrator account privileges. Entra users with the **Global Administrator** role are automatically administrators on all Autopilot machines they sign into.
+The Entra administrator can configure whether users have standard or administrator account privileges. Entra users with the **Global Administrator** role are automatically administrators on all Autopilot devices they sign into.
 
 Internet access is required during the first boot to authenticate with Entra.
 
@@ -122,23 +122,23 @@ The Fleet application is now declared as a legitimate MDM with the Azure portal.
 
 The Fleet application is now declared as the MDM that will handle new devices with the Azure portal.
 
-**Note**: If you have started enrolling devices on Primo/FleetDM before performing these operations, please let us know so we can force the MDM change from Intune to FleetDM by running a script (without which the machine is in an inconsistent state that may affect the Primo experience).
+**Note**: If you enrolled devices on FleetDM before completing these operations, contact support so the team can force the MDM change from Intune to FleetDM by running a script. Without this, the device may be in an inconsistent state that affects the enrollment experience.
 
 ## Step 2 — Create Autopilot deployment profiles
 
-To complete the Autopilot setup, it is necessary to create at least one "deployment profile".
+To complete the Autopilot setup, create at least one deployment profile.
 
 You can find Microsoft's official documentation on Deployment Profiles at this link: [https://learn.microsoft.com/fr-fr/autopilot/profiles](https://learn.microsoft.com/fr-fr/autopilot/profiles).
 
-Through this profile, it is possible to define the following settings:
+This profile lets you define the following settings:
 
 - Choice of user type: **Administrator** or **Standard**
 
-Note: Entra users with a **Global Administrator** role will be administrators of all machines regardless of this setting's value
+Note: Entra users with a **Global Administrator** role are administrators of all devices regardless of this setting's value
 
 - Default country choice
 - Default keyboard language choice
-- Machine naming pattern
+- Device naming pattern
 
 For example: `ACME-%RAND:5%` will generate the following names:
 - ACME-23456
@@ -150,9 +150,9 @@ To create a deployment profile, follow these instructions:
 - Go to: [Microsoft Intune admin center](https://intune.microsoft.com/#view/Microsoft_Intune_Enrollment/AutopilotDeploymentProfiles.ReactView)
   - or sign in to [https://intune.microsoft.com/](https://intune.microsoft.com/) and go to **Devices** > **Enrollment** > **Deployment Profiles**
 - Click **+ Create profile**
-- The first step allows you to name the profile
-- The second allows you to describe the deployment modes
-- The third step allows you to assign profiles to devices
+- Name the profile in the first step.
+- Describe the deployment modes in the second step.
+- Assign profiles to devices in the third step.
 
 Create a dynamic group to target all ZTD devices:
 
@@ -169,14 +169,14 @@ Finally, create an Enrollment Status Page configuration:
   - or sign in to [https://intune.microsoft.com/](https://intune.microsoft.com/) and go to **Devices > Enrollment > Enrollment Status Page**
 - Click **+ Create**
 - The first step allows you to name the profile (i.e. Primo)
-- The second allows you to define whether you want to show the progress to the user or not. We suggest "yes". If yes, you can put the settings you want. You can keep the default values
-- The third step allows you to assign the ESP to devices. Assign it to your dynamic group.
+- Enable progress display in the second step. The default values work for most deployments.
+- Assign the ESP to your dynamic group in the third step.
 
 ## Step 3 — Test the Autopilot experience
 
 ### Sharing Intune admin console access with InMac
 
-For Autopilot to work automatically on devices ordered through Primo, it is necessary to perform an operation with our partner reseller InMac:
+For Autopilot to work automatically on devices ordered through Primo, complete the following operation with our partner reseller InMac:
 
 - Establish a Microsoft partnership relationship between InMac and you
 
