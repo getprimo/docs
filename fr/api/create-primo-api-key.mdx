@@ -3,9 +3,23 @@ title: "Créer des clés API pour Primo"
 description: "Générez une clé Primo API pour authentifier les demandes auprès du Primo REST API."
 ---
 
-Les clés Primo API sont utilisées pour authentifier les demandes adressées au [Primo REST API](https://api.getprimo.com/openapi.json). Chaque clé est limitée à l'espace de travail de votre entreprise.
+Les clés Primo API sont utilisées pour authentifier les demandes adressées au [Primo REST API](https://api.getprimo.com/openapi.json). Il existe deux types de clés API, chacune avec une portée différente.
 
-## Générer une clé API
+## Types de clés API
+
+### Clé API Entreprise
+
+Une **clé API Entreprise** est limitée à une seule entreprise. Elle donne accès à tous les endpoints qui opèrent sur les ressources au niveau de l'entreprise — appareils, employés, accessoires, tickets, SaaS, etc.
+
+### Clé API Workspace
+
+Une **clé API Workspace** est limitée à l'ensemble de votre espace de travail. Elle donne accès aux endpoints au niveau du workspace, tels que la liste et la consultation des entreprises au sein de votre workspace.
+
+<Note>
+La plupart des endpoints API nécessitent une **clé API Entreprise**. Seuls les endpoints spécifiques au workspace (sous `/workspace/`) nécessitent une **clé API Workspace**. Consultez la référence API pour le badge sur chaque endpoint.
+</Note>
+
+## Générer une clé API Entreprise
 
 1. Accédez à **Paramètres** > **API**.
 2. Cliquez sur **Créer une clé API**.
@@ -14,7 +28,7 @@ Les clés Primo API sont utilisées pour authentifier les demandes adressées au
 5. Copiez la clé immédiatement – ​​elle ne sera plus affichée.
 
 <Warning>
-Conservez votre clé API en toute sécurité. Toute personne disposant de cette clé peut accéder à votre espace de travail Primo via le API.
+Conservez votre clé API en toute sécurité. Toute personne disposant de cette clé peut accéder à vos données Primo via le API.
 </Warning>
 
 ## Utilisez la clé API

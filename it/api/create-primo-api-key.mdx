@@ -3,9 +3,23 @@ title: "Crea chiavi API per Primo"
 description: "Genera una chiave Primo API per autenticare le richieste a Primo REST API."
 ---
 
-Primo Le chiavi API vengono utilizzate per autenticare le richieste a [Primo REST API](https://api.getprimo.com/openapi.json). Ogni chiave ha come ambito l'area di lavoro della tua azienda.
+Le chiavi Primo API vengono utilizzate per autenticare le richieste a [Primo REST API](https://api.getprimo.com/openapi.json). Esistono due tipi di chiavi API, ciascuna con un ambito diverso.
 
-## Genera una chiave API
+## Tipi di chiavi API
+
+### Chiave API Azienda
+
+Una **chiave API Azienda** ha come ambito una singola azienda. Fornisce accesso a tutti gli endpoint che operano sulle risorse a livello aziendale — dispositivi, dipendenti, accessori, ticket, SaaS e altro.
+
+### Chiave API Workspace
+
+Una **chiave API Workspace** ha come ambito l'intero spazio di lavoro. Fornisce accesso agli endpoint a livello di workspace, come l'elenco e la visualizzazione delle aziende nel tuo workspace.
+
+<Note>
+La maggior parte degli endpoint API richiede una **chiave API Azienda**. Solo gli endpoint specifici del workspace (sotto `/workspace/`) richiedono una **chiave API Workspace**. Consulta il riferimento API per il badge su ogni endpoint.
+</Note>
+
+## Genera una chiave API Azienda
 
 1. Vai a **Impostazioni** > **API**.
 2. Fare clic su **Crea chiave API**.
@@ -14,7 +28,7 @@ Primo Le chiavi API vengono utilizzate per autenticare le richieste a [Primo RES
 5. Copia immediatamente la chiave: non verrà più visualizzata.
 
 <Warning>
-Conserva la chiave API in modo sicuro. Chiunque abbia questa chiave può accedere al tuo spazio di lavoro Primo tramite API.
+Conserva la chiave API in modo sicuro. Chiunque abbia questa chiave può accedere ai tuoi dati Primo tramite API.
 </Warning>
 
 ## Utilizzare la chiave API

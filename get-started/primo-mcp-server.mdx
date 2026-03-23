@@ -106,13 +106,17 @@ https://api.getprimo.com/mcp?x-company-id=YOUR_COMPANY_ID&readOnly=false
 
 Once connected, your AI assistant can perform the following actions through Primo:
 
-| Category        | Read Operations                        | Write Operations                                              |
-| --------------- | -------------------------------------- | ------------------------------------------------------------- |
-| **Companies**   | List and view companies                | —                                                             |
-| **Devices**     | List, search, and view device details  | Lock, unlock, wipe (⚠️)                                       |
-| **Employees**   | List and view employee profiles        | —                                                             |
-| **Accessories** | List and view accessories              | Create and update accessories                                 |
-| **Tickets**     | List, search, filter, and view tickets | Create tickets, add comments, update status/priority/assignee |
+| Category          | Read Operations                          | Write Operations                                              |
+| ----------------- | ---------------------------------------- | ------------------------------------------------------------- |
+| **Accessories**   | List and view accessories                | Create and update accessories                                 |
+| **Company**       | View authenticated company details       | —                                                             |
+| **Devices**       | List, search, and view device details    | Create, lock, unlock, wipe (⚠️)                               |
+| **Device Groups** | List and view device groups              | —                                                             |
+| **Employees**     | List and view employee profiles          | Create employees                                              |
+| **MDM Controls**  | List and view MDM controls               | —                                                             |
+| **SaaS**          | List and view SaaS applications          | Update SaaS contracts                                         |
+| **Software**      | List and view softwares                  | —                                                             |
+| **Tickets**       | List, search, filter, and view tickets   | Create tickets, add comments, update status/priority/assignee |
 
 <Warning>
   Device actions (lock, wipe) are powerful and irreversible. Use write mode with caution.
